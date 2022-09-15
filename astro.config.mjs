@@ -9,6 +9,8 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://astronaut.github.io',
+  base: '/my-repo',
   output: 'static',
   integrations: [react(), mdx(), tailwind({
     config: {
