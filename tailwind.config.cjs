@@ -12,6 +12,8 @@ module.exports = {
 		extend: {
 			colors: {
 				"sw-primary": {
+					DEFAULT: "#100E32",
+
 					"50": "#DCDBF5",
 					"100": "#BEBBEC",
 					"200": "#7974D8",
@@ -23,7 +25,10 @@ module.exports = {
 					"800": "#060614",
 					"900": "#04030C"
 				},
-				"secondary": {
+
+				"sw-secondary": {
+					DEFAULT: "#F2F2F2",
+
 					"50": "#FCFCFC",
 					"100": "#FAFAFA",
 					"200": "#F2F2F2",
@@ -35,7 +40,9 @@ module.exports = {
 					"800": "#D9D9D9",
 					"900": "#D6D6D6"
 				},
-				"accent": {
+
+				"sw-accent": {
+					DEFAULT: "#FF62F2",
 					"50": "#FFF5FE",
 					"100": "#FFEBFD",
 					"200": "#FFD1FB",
@@ -47,7 +54,10 @@ module.exports = {
 					"800": "#C200B2",
 					"900": "#8A007E"
 				},
-				"dark": {
+
+				"sw-dark": {
+					DEFAULT: "#1B2026",
+
 					"50": "#E4E8EC",
 					"100": "#CCD3DB",
 					"200": "#97A4B5",
@@ -59,7 +69,10 @@ module.exports = {
 					"800": "#0B0D0F",
 					"900": "#060809"
 				},
-				"aqua": {
+
+				"sw-aqua": {
+					DEFAULT: "#006069",
+
 					"50": "#D6FCFF",
 					"100": "#A3F7FF",
 					"200": "#00E5FA",
@@ -77,7 +90,12 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('@tailwindcss/typography')],
+	plugins: [
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/line-clamp'),
+		require('@tailwindcss/aspect-ratio'),
+	],
 	darkMode: 'class',
 };
 

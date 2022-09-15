@@ -4,16 +4,20 @@
 <script is:inline>
 	// Set "light" theme as default
 	if (!localStorage.theme) {
-	  localStorage.theme = "light";
+		localStorage.theme = 'light';
 	}
+
 	if (
 		localStorage.theme === 'dark' ||
 		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 	) {
 		document.documentElement.classList.add('dark');
+		document.documentElement.classList.remove('light');
 	} else {
+		document.documentElement.classList.add('light');
 		document.documentElement.classList.remove('dark');
 	}
+
 	function attachEvent(selector, event, fn) {
 		const matches = document.querySelectorAll(selector);
 		if (matches && matches.length) {
@@ -23,20 +27,23 @@
 		}
 	}
 	window.onload = function () {
-		attachEvent('[data-sw-toggle-menu]', 'click', function (elem) {
-			elem.classList.toggle('expanded');
+		attachEvent('[data-sw-btn-toggle-menu]', 'click', function (elem) {
+			elem.classList.toggle('toggled');
 			document.body.classList.toggle('overflow-hidden');
 			document.getElementById('menu')?.classList.toggle('hidden');
 		});
-		attachEvent('[data-sw-toggle-color-scheme]', 'click', function () {
+
+		attachEvent('[data-sw-btn-toggle-theme]', 'click', function (elem) {
+			elem.classList.toggle('toggled');
 			document.documentElement.classList.toggle('dark');
 			localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 		});
 	};
+
 	window.onpageshow = function () {
-		const elem = document.querySelector('[data-sw-toggle-menu]');
+		const elem = document.querySelector('[data-sw-btn-toggle-menu]');
 		if (elem) {
-			elem.classList.remove('expanded');
+			elem.classList.remove('toggled');
 		}
 		document.body.classList.remove('overflow-hidden');
 		document.getElementById('menu')?.classList.add('hidden');

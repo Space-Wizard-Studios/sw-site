@@ -1,0 +1,15 @@
+{
+  "scss.lint.unknownAtRules": "ignore",
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "liveSassCompile.settings.formats": [
+    
+    {
+        "format": "expanded",
+        "extensionName": ".css",
+        "savePath": "/.watch",
+        "savePathReplacementPairs": null
+    }
+]
+}
