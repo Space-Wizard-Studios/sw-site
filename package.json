@@ -25,7 +25,8 @@
     "lorem-ipsum": "^2.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "^3.1.8",
+    "three": "^0.144.0"
   },
   "devDependencies": {
     "@astrolib/analytics": "^0.2.2",

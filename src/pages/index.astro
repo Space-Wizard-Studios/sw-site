@@ -26,7 +26,7 @@ const lorem = new LoremIpsum(
 ---
 
 <Layout>
-	<div class="max-w-6xl mx-auto">
+	<div class="max-w-6xl mx-auto relative">
 		<p class="text-5xl">
 			<span>Paragrafo no</span>
 			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">index</span>
@@ -35,5 +35,10 @@ const lorem = new LoremIpsum(
 		<div class="text-justify">
 			<span set:html={lorem.generateParagraphs(7)}></span>
 		</div>
+
+		<div id="canvas" class="absolute top-0 right-0"></div>
+		<script>
+			import '~/assets/js/myscript.ts';
+		</script>
 	</div>
 </Layout>
