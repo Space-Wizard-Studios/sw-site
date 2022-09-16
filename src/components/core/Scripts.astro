@@ -7,6 +7,7 @@
 		localStorage.theme = 'light';
 	}
 
+	// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 	if (
 		localStorage.theme === 'dark' ||
 		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -24,7 +25,7 @@
 			});
 		}
 	}
-	
+
 	window.onload = function () {
 		attachEvent('[data-sw-btn-toggle-menu]', 'click', function (elem) {
 			elem.classList.toggle('toggled');
