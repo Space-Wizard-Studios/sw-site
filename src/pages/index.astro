@@ -2,12 +2,38 @@
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
 
+import { LoremIpsum } from 'lorem-ipsum';
+import { htmlColorNames } from '@astrojs/image/dist/loaders/colornames';
+
 const meta = {
 	title: SITE.title,
 	description: SITE.description,
 };
+
+const lorem = new LoremIpsum(
+	{
+		sentencesPerParagraph: {
+			max: 10,
+			min: 5,
+		},
+		wordsPerSentence: {
+			max: 20,
+			min: 10,
+		},
+	},
+	'html'
+);
 ---
 
 <Layout>
-	<p>Paragrafo no index.php</p>
+	<div class="max-w-6xl mx-auto">
+		<p class="text-5xl">
+			<span>Paragrafo no</span>
+			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">index</span>
+		</p>
+		<br />
+		<div class="text-justify">
+			<span set:html={lorem.generateParagraphs(7)}></span>
+		</div>
+	</div>
 </Layout>

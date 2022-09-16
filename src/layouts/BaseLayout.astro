@@ -1,15 +1,19 @@
 ---
 import '~/assets/styles/style.scss';
+
+import MetaTags from '~/components/core/MetaTags.astro';
 import Scripts from '~/components/core/Scripts.astro';
+
+const { meta = {} } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="motion-safe:scroll-smooth 2xl:text-5">
+<html lang="ptbr" class="motion-safe:scroll-smooth 2xl:text-5">
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<MetaTags {...meta} />
 	</head>
 
-	<body class="antialiased bg-sw-secondary dark:bg-sw-primary text-sw-primary dark:text-sw-secondary">
+	<body class="antialiased bg-sw-secondary dark:bg-sw-primary text-sw-primary dark:text-sw-secondary align-middle">
 		<slot />
 		<style is:global>
 

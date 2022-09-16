@@ -1,39 +1,47 @@
 ---
 import { Icon } from 'astro-icon';
-import ToggleTheme from '~/components/core/ButtonToggleTheme.astro';
-import ToggleMenu from '~/components/core/ButtonToggleMenu.astro';
+import ButtonToggleTheme from '~/components/core/ButtonToggleTheme.astro';
+import ButtonToggleMenu from '~/components/core/ButtonToggleMenu.astro';
 ---
 
-<header
-	class="sticky top-0 z-40 flex-none mx-auto w-full md:backdrop-blur-sm border-b dark:border-b-0"
->
-	<div class="w-full md:flex md:justify-between max-w-6xl align-middle">
+<header class="sticky top-0 z-40 w-full flex-none mx-auto md:backdrop-blur-sm shadow-md bg-sw-secondary dark:bg-sw-primary">
+	<div class="py-4 px-4 lg:px-0 mx-auto w-full md:flex md:justify-between max-w-6xl">
 		<div class="flex justify-between">
-			<div class="flex flex-col md:flex-row md:self-center">spacewiz.dev</div>
+			<a class="flex items-center">
+				<span class="self-center text-2xl font-extrabold text-gray-900 whitespace-nowrap dark:text-white"
+					>spacewiz.dev</span
+				>
+			</a>
 			<div class="flex items-center md:hidden">
-				<ToggleTheme />
-				<ToggleMenu />
+				<ButtonToggleTheme />
+				<ButtonToggleMenu />
 			</div>
 		</div>
+
 		<nav
-			class="items-center w-full md:w-auto hidden md:flex text-secondary h-screen md:h-auto"
+			class="items-center w-full md:w-auto md:flex text-gray-600 dark:text-slate-200 h-screen md:h-auto"
 			aria-label="Main navigation"
 			id="menu"
 		>
 			<ul
-				class="flex flex-col md:flex-row md:self-center collapse w-full md:w-auto collapsed text-xl md:text-base"
+				class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center collapse w-full md:w-auto collapsed text-xl md:text-base"
 			>
 				<li>
 					<a
-						class="font-medium flex items-center transition duration-150 ease-in-out"
-						href="#">Menu link</a
+						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+						href="#">Início</a
+					>
+				</li>
+				<li>
+					<a
+						class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+						href="#">Projetos</a
 					>
 				</li>
 			</ul>
 			<div class="md:self-center flex items-center mb-4 md:mb-0">
 				<div class="hidden items-center md:flex">
-					<ToggleTheme iconClass="w-5 h-5" />
-					<a href="#"> Link Extra</a>
+					<ButtonToggleTheme />
 				</div>
 			</div>
 		</nav>

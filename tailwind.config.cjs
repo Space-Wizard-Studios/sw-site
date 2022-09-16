@@ -27,7 +27,7 @@ module.exports = {
 				},
 
 				"sw-secondary": {
-					DEFAULT: "#F2F2F2",
+					DEFAULT: "#FCFCFC",
 
 					"50": "#FCFCFC",
 					"100": "#FAFAFA",
@@ -86,7 +86,7 @@ module.exports = {
 				}
 			},
 			fontFamily: {
-				sans: ["'InterVariable'", ...defaultTheme.fontFamily.sans],
+				sans: ["'Roboto'", ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},

@@ -2,15 +2,15 @@
 import { Icon } from 'astro-icon';
 const {
 	label = 'Toggle between Dark and Light mode',
-	class: className = 'rounded-lg text-sm inline-flex items-center relative',
+	className = 'rounded-lg text-sm p-2.5 inline-flex items-center relative',
 	iconNameSun = 'akar-icons:sun-fill',
-	iconClassSun = 'w-6 h-6 transition duration-500',
-	iconNameCircle = 'akar-icons:circle-fill',
-	iconClassCircle = 'w-6 h-6 absolute translate-x-2 -translate-y-2'
+	iconClassSun = 'w-6 h-6 transition duration-1000',
+	iconNameMoon = 'akar-icons:moon-fill',
+	iconClassMoon = 'w-6 h-6 absolute transition duration 1000'
 } = Astro.props;
 ---
 
 <button type="button" class={className} aria-label={label} data-sw-btn-toggle-theme>
 	<Icon name={iconNameSun} class={iconClassSun} />
-	<Icon name={iconNameCircle} class={iconClassCircle} />
+	<Icon name={iconNameMoon} class={iconClassMoon} />
 </button>

@@ -1,15 +1,20 @@
 {
-  "scss.lint.unknownAtRules": "ignore",
-  "files.associations": {
-    "*.css": "postcss"
-  },
-  "liveSassCompile.settings.formats": [
-    
-    {
-        "format": "expanded",
-        "extensionName": ".css",
-        "savePath": "/.watch",
-        "savePathReplacementPairs": null
-    }
-]
+	"scss.lint.unknownAtRules": "ignore",
+	"files.associations": {
+		"*.css": "postcss"
+	},
+	"liveSassCompile.settings.formats": [
+		{
+			"format": "expanded",
+			"extensionName": ".css",
+			"savePath": "/.watch",
+			"savePathReplacementPairs": null
+		}
+	],
+	"tailwindCSS.includeLanguages": {
+		"astro": "html"
+	},
+	"editor.quickSuggestions": {
+		"strings": true
+	}
 }
