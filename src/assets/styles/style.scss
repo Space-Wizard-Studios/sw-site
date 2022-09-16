@@ -4,28 +4,30 @@
 
 @layer components {
 	.btn {
-		@apply inline-flex items-center justify-center rounded border border-transparent font-medium text-center text-base leading-snug transition py-3 px-6 shadow-lg ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2;
+		@apply inline-flex items-center justify-center rounded border border-transparent font-medium text-center text-base leading-snug transition py-3 px-6 shadow-lg ease-in duration-200 focus: ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2;
 	}
 }
 
 [data-sw-btn-toggle-menu] path {
 	@apply transition;
 }
-[data-sw-btn-toggle-menu].btn-toggled g > path:first-child {
+
+[data-sw-btn-toggle-menu].btn-toggled g>path:first-child {
 	@apply -rotate-45 translate-y-[15px] translate-x-[-3px];
 }
 
-[data-sw-btn-toggle-menu].btn-toggled g > path:last-child {
+[data-sw-btn-toggle-menu].btn-toggled g>path:last-child {
 	@apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
 
 [data-sw-btn-toggle-theme] {
 	svg:first-child {
-		g > path:last-child {
+		g>path:last-child {
 			@apply scale-0;
 		}
 	}
-	svg:last-child{
+
+	svg:last-child {
 		circle {
 			@apply fill-sw-primary;
 		}
@@ -33,11 +35,12 @@
 
 	&.toggled {
 		svg:first-child {
-			g > path:last-child {
+			g>path:last-child {
 				@apply scale-100;
 			}
 		}
-		svg:last-child{
+
+		svg:last-child {
 			circle {
 				@apply opacity-0;
 			}
