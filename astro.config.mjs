@@ -10,6 +10,7 @@ import image from "@astrojs/image";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://Space-Wizard-Studios.github.io',
+  base: '/sw_site',
   output: 'static',
   integrations: [react(), mdx(), tailwind({
     config: {
