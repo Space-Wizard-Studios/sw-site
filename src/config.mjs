@@ -8,5 +8,5 @@ export const SITE = {
 	description: '🚀',
 
 	googleAnalyticsId: false, // or "G-XXXXXXXXXX",
-	googleSiteVerificationId: '',
+	googleSiteVerificationId: 'jP0DBwTP7CXFdspk6cJ5L6DNxeIoOS1jSbYWN5cFKoo',
 };
