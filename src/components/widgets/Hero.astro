@@ -1,0 +1,18 @@
+---
+import { Image } from '@astrojs/image/components';
+
+import heroImage from '~/assets/images/hero.png';
+import HeroModel from '~/components/atoms/HeroModel.astro';
+import DividerWave from '~/components/atoms/DividerWave.astro';
+---
+
+{
+	(
+		<div>
+			<Image class="cover w-full" src={heroImage} alt="descriptive text" />
+			<div id="canvas" class="absolute top-0 right-0" />
+			<HeroModel/>
+			<DividerWave />
+		</div>
+	)
+}
