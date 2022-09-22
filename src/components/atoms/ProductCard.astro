@@ -1,22 +1,21 @@
 ---
-import { Image } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
 
-import defaultIconSrc from '~/assets/images/placeholder_128_8rem.png';
 import ToggleCard from '~/components/atoms/ToggleCard';
+import CardIconModel from './CardIconModel';
 
 export interface Props {
-	iconSrc?: string;
+	iconSrc: string;
 	title: string;
 	subtitle: string;
 	description: string;
 }
 
-const { iconSrc = defaultIconSrc, title, subtitle, description } = Astro.props as Props;
+const { iconSrc, title, subtitle, description } = Astro.props as Props;
 ---
 
 <ToggleCard client:load>
-	<Image slot="cardIcon" src={iconSrc} alt="" />
+	<CardIconModel fbxPath={iconSrc} slot="cardIcon" client:load />
 	<h2 slot="title" class="card-title">{title}</h2>
 	<p slot="subtitle">{subtitle}</p>
 	<p slot="description">{description}</p>
