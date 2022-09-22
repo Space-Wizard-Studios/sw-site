@@ -2,12 +2,14 @@
 import { Image } from '@astrojs/image/components';
 
 import heroImage from '~/assets/images/hero.png';
-import HeroModel from '~/components/atoms/HeroModel.astro';
 import DividerWave from '~/components/atoms/DividerWave.astro';
+import HeroCanvas from '~/components/atoms/HeroCanvas';
 ---
 
 <div>
 	<Image class="cover w-full" src={heroImage} alt="" />
-	<div id="canvas" class="absolute top-0 right-0"></div>
+	<div class="absolute top-0 right-0 w-[100%] h-[100%]">
+		<HeroCanvas client:load />
+	</div>
 	<DividerWave />
 </div>
