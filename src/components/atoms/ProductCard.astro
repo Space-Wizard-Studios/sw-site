@@ -1,0 +1,14 @@
+---
+const { title, subtitle, desc, icon } = Astro.props;
+---
+
+<div class="card w-96 bg-primary text-primary-content">
+	<div class="absolute right-0">{icon}</div>
+	<div class="card-body">
+		<h2 class="card-title">{title}</h2>
+		<p>{subtitle}</p>
+	</div>
+	<div class="card-body">
+		<p>{desc}</p>
+	</div>
+</div>

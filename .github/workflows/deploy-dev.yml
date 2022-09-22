@@ -1,10 +1,10 @@
-name: Deploy Main
+name: Deploy Dev
 
 on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
   push:
-    branches: [ main ]
+    branches: [ dev ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
   
@@ -19,9 +19,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v2          
-      - name: Install, build, and upload your site
-        uses: withastro/action@v0
+        uses: actions/checkout@v2
+        
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Install
+        shell: "bash"
+        run: npm install -D
+
+      - name: Build
+        shell: "bash"
+        run: npm run dev
+        
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1
 
   deploy:
     needs: build

@@ -1,41 +1,23 @@
 ---
 import { SITE } from '~/config.mjs';
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from '~/layouts/HomeLayout.astro';
 
-import { LoremIpsum } from 'lorem-ipsum';
-
-import Hero from '~/components/widgets/Hero.astro';
+import Products from '~/components/widgets/Products.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import Contact from '~/components/widgets/Contact.astro';
+import About from '~/components/widgets/About.astro';
+import Team from '~/components/widgets/Team.astro';
 
 const meta = {
 	title: SITE.title,
 	description: SITE.description,
 };
-
-const lorem = new LoremIpsum(
-	{
-		sentencesPerParagraph: {
-			max: 10,
-			min: 5,
-		},
-		wordsPerSentence: {
-			max: 20,
-			min: 10,
-		},
-	},
-	'html'
-);
 ---
 
 <Layout>
-	<Hero/>
-	<div class="max-w-6xl mx-auto pt-4 px-4 lg:px-0 relative">
-		<p class="text-5xl">
-			<span>Paragrafo no</span>
-			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">index</span>
-		</p>
-		<br />
-		<div class="text-justify">
-			<span set:html={lorem.generateParagraphs(7)}></span>
-		</div>
-	</div>
+	<Products />
+	<About />
+	<Team />
+	<Contact />
+	<Footer />
 </Layout>

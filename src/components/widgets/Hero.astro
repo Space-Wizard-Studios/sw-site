@@ -6,13 +6,8 @@ import HeroModel from '~/components/atoms/HeroModel.astro';
 import DividerWave from '~/components/atoms/DividerWave.astro';
 ---
 
-{
-	(
-		<div>
-			<Image class="cover w-full" src={heroImage} alt="" />
-			<div id="canvas" class="absolute top-0 right-0" />
-			<HeroModel/>
-			<DividerWave />
-		</div>
-	)
-}
+<div>
+	<Image class="cover w-full" src={heroImage} alt="" />
+	<div id="canvas" class="absolute top-0 right-0"></div>
+	<DividerWave />
+</div>

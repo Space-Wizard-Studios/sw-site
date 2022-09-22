@@ -8,6 +8,14 @@
 	}
 }
 
+#DividerWave {
+	@apply stroke-sw-secondary;
+}
+
+.dark #DividerWave {
+	@apply stroke-sw-primary;
+}
+
 [data-sw-btn-toggle-menu] path {
 	@apply transition;
 }
@@ -68,3 +76,4 @@
 		background-position-y: 50%;
 	}
 }
+

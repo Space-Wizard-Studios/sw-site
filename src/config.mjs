@@ -1,7 +1,7 @@
 export const SITE = {
 	name: 'spacewiz.dev',
 
-	origin: 'https://astrowind.vercel.app',
+	origin: '/',
 	basePathname: '/',
 
 	title: 'Space Wizard Studios',

@@ -1,0 +1,16 @@
+---
+import ProductCard from '~/components/atoms/ProductCard.astro';
+
+import generatePlaceholderImage from 'generate-placeholder-image';
+
+generatePlaceholderImage({
+  width: 300,
+  height: 300,
+  r: 255,
+  g: 255,
+  b: 0,
+  text: 'Hello, World!',
+  output: '~/assets/images/products/placeholder.png'
+})
+---
+<ProductCard icon="" title="Pirocão" subtitle="" desc="" />

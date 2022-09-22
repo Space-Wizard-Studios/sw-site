@@ -1,0 +1,13 @@
+---
+import Layout from '~/layouts/BaseLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+---
+
+<Layout>
+	<Header />
+	<Hero />
+	<main class="max-w-6xl mx-auto pt-4 px-4 lg:px-0 relative">
+		<slot />
+	</main>
+</Layout>
