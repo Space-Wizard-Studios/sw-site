@@ -16,5 +16,7 @@
 	},
 	"editor.quickSuggestions": {
 		"strings": true
-	}
+	},
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true
 }
