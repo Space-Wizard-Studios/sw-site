@@ -1,26 +1,25 @@
 ---
-import { getImage } from '@astrojs/image';
 import { Image } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
 
-import defaultImageSrc from '~/assets/images/placeholder_128_8rem.png';
+import defaultIconSrc from '~/assets/images/placeholder_128_8rem.png';
 import ToggleCard from '~/components/atoms/ToggleCard';
 
-export interface ProductCard {
-	iconSrc: string;
+export interface Props {
+	iconSrc?: string;
 	title: string;
 	subtitle: string;
 	description: string;
 }
 
-const { iconSrc = defaultImageSrc, title, subtitle, description } = Astro.props;
+const { iconSrc = defaultIconSrc, title, subtitle, description } = Astro.props as Props;
 ---
 
-<ToggleCard className='card flex-grow: 1 w-96 relative overflow-visible sw-bg sw-text-reverse' client:load>
-	<Image slot='cardIcon' class='' src={iconSrc} alt='' />
-	<h2 slot='title' class='card-title'>{title}</h2>
-	<p slot='subtitle'>{subtitle}</p>
-	<p slot='description'>{description}</p>
-	<Icon slot='buttonIconPlus' name='akar-icons:plus' class='w-6 h-6' />
-	<Icon slot='buttonIconMinus' name='akar-icons:minus' class='w-6 h-6' />
+<ToggleCard client:load>
+	<Image slot="cardIcon" src={iconSrc} alt="" />
+	<h2 slot="title" class="card-title">{title}</h2>
+	<p slot="subtitle">{subtitle}</p>
+	<p slot="description">{description}</p>
+	<Icon slot="buttonIconPlus" name="akar-icons:plus" class="w-6 h-6" />
+	<Icon slot="buttonIconMinus" name="akar-icons:minus" class="w-6 h-6" />
 </ToggleCard>

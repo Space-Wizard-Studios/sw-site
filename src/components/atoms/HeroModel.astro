@@ -3,8 +3,7 @@
 
 <script>
 	import * as THREE from 'three';
-	window.addEventListener('load', e => {
-	
+	window.addEventListener('load', (e) => {
 		console.log('uai');
 
 		const scene = new THREE.Scene();
@@ -19,7 +18,6 @@
 		const material = new THREE.MeshBasicMaterial({ color: 0x000000 });
 		const cube = new THREE.Mesh(geometry, material);
 		scene.add(cube);
-
 
 		camera.position.z = 2.5;
 

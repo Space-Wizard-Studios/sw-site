@@ -15,11 +15,12 @@ const lorem = new LoremIpsum(
 	'html'
 );
 ---
+
 <p class="text-5xl">
-    <span>Paragrafo no</span>
-    <span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">index</span>
+	<span>Paragrafo no</span>
+	<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">index</span>
 </p>
 <br />
 <div class="text-justify">
-    <span set:html={lorem.generateParagraphs(7)}></span>
+	<span set:html={lorem.generateParagraphs(7)}></span>
 </div>

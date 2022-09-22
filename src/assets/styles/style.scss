@@ -21,27 +21,27 @@
 }
 
 .sw-text {
-	@apply text-sw-primary dark:text-sw-secondary;
+	@apply text-sw-primary dark: text-sw-secondary;
 }
 
 .sw-text-reverse {
-	@apply text-sw-secondary dark:text-sw-primary;
+	@apply text-sw-secondary dark: text-sw-primary;
 }
 
 .sw-bg {
-	@apply bg-sw-primary dark:bg-sw-secondary;
+	@apply bg-sw-primary dark: bg-sw-secondary;
 }
 
 .sw-bg-reverse {
-	@apply bg-sw-secondary dark:bg-sw-primary;
+	@apply bg-sw-secondary dark: bg-sw-primary;
 }
 
 .sw-fill {
-	@apply fill-sw-primary dark:fill-sw-secondary;
+	@apply fill-sw-primary dark: fill-sw-secondary;
 }
 
 .sw-fill-reverse {
-	@apply fill-sw-secondary dark:fill-sw-primary;
+	@apply fill-sw-secondary dark: fill-sw-primary;
 }
 
 [data-sw-btn-toggle-menu] {
@@ -50,7 +50,7 @@
 	}
 
 	&.toggled g {
-		>path:first-child {
+		F>path:first-child {
 			@apply -rotate-45 translate-y-[15px] translate-x-[-3px];
 		}
 
@@ -61,6 +61,7 @@
 }
 
 [data-sw-btn-toggle-theme] {
+
 	// sun
 	svg:first-child {
 		@apply opacity-100;
