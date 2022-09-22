@@ -7,6 +7,6 @@ export const SITE = {
 	title: 'Space Wizard Studios',
 	description: '🚀',
 
-	googleAnalyticsId: false, // or "G-XXXXXXXXXX",
+	googleAnalyticsId: false, // or 'G-XXXXXXXXXX',
 	googleSiteVerificationId: 'jP0DBwTP7CXFdspk6cJ5L6DNxeIoOS1jSbYWN5cFKoo',
 };
