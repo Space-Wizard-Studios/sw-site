@@ -1,0 +1,28 @@
+---
+import { LoremIpsum } from 'lorem-ipsum';
+
+const lorem = new LoremIpsum(
+	{
+		sentencesPerParagraph: {
+			max: 10,
+			min: 5,
+		},
+		wordsPerSentence: {
+			max: 20,
+			min: 10,
+		},
+	},
+	'html'
+);
+---
+
+<h1 class="text-center uppercase text-5xl">
+	<span>A tripulação</span>
+</h1>
+<h2 class="text-center text-2xl mb-6">
+	<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">Nosso incrível time</span>
+</h2>
+
+<div class="text-justify mb-12">
+	<span set:html={lorem.generateParagraphs(2)}></span>
+</div>

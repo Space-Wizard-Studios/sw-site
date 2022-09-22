@@ -4,11 +4,14 @@
 
 @layer components {}
 
-#DividerWave {
+.sw-divider {
 	@apply stroke-sw-secondary;
+
+	fill-opacity: 1;
+	stroke-width: 2;
 }
 
-.dark #DividerWave {
+.dark .sw-divider {
 	@apply stroke-sw-primary;
 }
 

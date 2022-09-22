@@ -2,6 +2,8 @@
 import '~/assets/styles/style.scss';
 
 import MetaTags from '~/components/core/MetaTags.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
 import Scripts from '~/components/core/Scripts.astro';
 
 const { meta = {} } = Astro.props;
@@ -14,7 +16,9 @@ const { meta = {} } = Astro.props;
 	</head>
 
 	<body class="antialiased sw-bg-reverse sw-text align-middle">
+		<Header />
 		<slot />
+		<Footer />
 		<Scripts />
 	</body>
 </html>

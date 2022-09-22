@@ -1,0 +1,28 @@
+---
+import { LoremIpsum } from 'lorem-ipsum';
+import DividerArrow from '~/components/atoms/DividerArrow.astro';
+
+const lorem = new LoremIpsum(
+	{
+		sentencesPerParagraph: {
+			max: 10,
+			min: 5,
+		},
+		wordsPerSentence: {
+			max: 20,
+			min: 10,
+		},
+	},
+	'html'
+);
+---
+
+<DividerArrow />
+
+<div class="max-w-6xl mx-auto pt-4 px-4 lg:px-0">
+	<div class="text-justify mb-12">
+		<span set:html={lorem.generateParagraphs(1)}></span>
+	</div>
+</div>
+
+<div class="text-center p-8 bg-sw-dark-700">© 2022 Space Wizard Studios. Todos os direitos reservados</div>
