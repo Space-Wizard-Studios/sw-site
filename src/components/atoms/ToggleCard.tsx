@@ -23,8 +23,8 @@ export default function ToggleCard({
 		<div className="card flex-grow: 1 w-96 relative overflow-visible sw-bg sw-text-reverse">
 			<div className="absolute -mt-8 -mr-8 right-0">{cardIcon}</div>
 			<div className="card-body">
-				<div>{title}</div>
-				<div>{isOpen ? description : subtitle}</div>
+				<>{title}</>
+				<>{isOpen ? description : subtitle}</>
 				<button
 					type="button"
 					className="rounded-lg text-sm p-2.5 inline-flex items-center relative sw-text-reverse"

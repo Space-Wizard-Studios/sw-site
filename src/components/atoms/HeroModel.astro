@@ -3,29 +3,37 @@
 
 <script>
 	import * as THREE from 'three';
-	window.addEventListener('load', (e) => {
-		console.log('uai');
 
-		const scene = new THREE.Scene();
-		const camera = new THREE.PerspectiveCamera(45, 1, 1, 1000);
+	window.addEventListener('load', () => {
+		const width = window.innerWidth;
+		const height = window.innerHeight;
 
 		const renderer = new THREE.WebGLRenderer({ alpha: true });
-		renderer.setClearColor(0x000000, 0); // the default
-		renderer.setSize(1920, 1080);
+		renderer.setClearColor(0x000000, 0);
+		renderer.setSize(width, height);
 		document.getElementById('canvas').appendChild(renderer.domElement);
 
-		const geometry = new THREE.BoxGeometry(1, 1, 1);
-		const material = new THREE.MeshBasicMaterial({ color: 0x000000 });
-		const cube = new THREE.Mesh(geometry, material);
-		scene.add(cube);
+		const scene = new THREE.Scene();
+		const camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
 
-		camera.position.z = 2.5;
+		const light = new THREE.PointLight(0xffffff, 2);
+		light.position.set(10, 10, 10);
+		scene.add(light);
+
+		const torus = new THREE.Mesh(
+			new THREE.TorusKnotGeometry(1, 0.4, 100, 16),
+			new THREE.MeshLambertMaterial({ color: 0x4259f1, wireframe: true })
+		);
+
+		scene.add(torus);
+
+		camera.position.z = 10;
 
 		function animate() {
 			requestAnimationFrame(animate);
 
-			cube.rotation.x += 0.01;
-			cube.rotation.y += 0.01;
+			torus.rotation.x += 0.007;
+			torus.rotation.y += 0.007;
 
 			renderer.render(scene, camera);
 		}
