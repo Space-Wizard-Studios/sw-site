@@ -1,0 +1,16 @@
+---
+import { Icon } from 'astro-icon';
+const {
+	label = 'Toggle',
+	className = 'rounded-lg text-sm p-2.5 inline-flex items-center relative sw-text-reverse',
+	iconNamePlus = 'akar-icons:plus',
+	iconClassPlus = 'w-6 h-6 transition duration-1000',
+	iconNameMinus = 'akar-icons:minus',
+	iconClassMinus = 'w-6 h-6 absolute transition duration-1000',
+} = Astro.props;
+---
+
+<button type="button" class={className} aria-label={label} data-sw-btn-toggle-product>
+	<Icon name={iconNamePlus} class={iconClassPlus} />
+	<Icon name={iconNameMinus} class={iconClassMinus} />
+</button>

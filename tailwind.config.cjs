@@ -95,7 +95,20 @@ module.exports = {
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/line-clamp'),
 		require('@tailwindcss/aspect-ratio'),
+		require("daisyui")
 	],
 	darkMode: 'class',
+	
+	// daisyUI config (optional)
+	daisyui: {
+		styled: true,
+		themes: true,
+		base: true,
+		utils: true,
+		logs: true,
+		rtl: false,
+		prefix: "",
+		darkTheme: "dark",
+	},
 };
 

@@ -30,12 +30,12 @@
   },
   "devDependencies": {
     "@astrolib/analytics": "^0.2.2",
+    "@iconify/react": "^4.0.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
     "autoprefixer": "^10.4.11",
-    "generate-placeholder-image": "^1.1.0",
     "eslint": "^8.23.1",
     "eslint-plugin-astro": "^0.19.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",

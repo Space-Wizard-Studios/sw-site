@@ -1,16 +1,14 @@
 ---
 import ProductCard from '~/components/atoms/ProductCard.astro';
-
-import generatePlaceholderImage from 'generate-placeholder-image';
-
-generatePlaceholderImage({
-  width: 300,
-  height: 300,
-  r: 255,
-  g: 255,
-  b: 0,
-  text: 'Hello, World!',
-  output: '~/assets/images/products/placeholder.png'
-})
 ---
-<ProductCard icon="" title="Pirocão" subtitle="" desc="" />
+
+<div class="flex flex-wrap gap-40 p-4 justify-center align-middle">
+	<ProductCard title="Games" subtitle="joguins" desc="jogões" />
+	<ProductCard
+		title="Sites"
+		subtitle="sites interativos"
+		desc="desenvolvimento de sites únicos com elementos interativos"
+	/>
+	<ProductCard title="Apps" subtitle="aplicativos" desc="é mentira" />
+	<ProductCard title="Sei lá" subtitle="bluberson" desc="blibliblibs" />
+</div>

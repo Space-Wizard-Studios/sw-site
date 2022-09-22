@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-	.btn {
-		@apply inline-flex items-center justify-center rounded border border-transparent font-medium text-center text-base leading-snug transition py-3 px-6 shadow-lg ease-in duration-200 focus: ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2;
-	}
-}
+@layer components {}
 
 #DividerWave {
 	@apply stroke-sw-secondary;
@@ -16,34 +12,98 @@
 	@apply stroke-sw-primary;
 }
 
-[data-sw-btn-toggle-menu] path {
-	@apply transition;
+.sw-text-bg-fill {
+	@apply sw-text sw-bg sw-fill;
 }
 
-[data-sw-btn-toggle-menu].toggled g>path:first-child {
-	@apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+.sw-text-bg-fill-reverse {
+	@apply sw-text-reverse sw-bg-reverse sw-fill-reverse;
 }
 
-[data-sw-btn-toggle-menu].toggled g>path:last-child {
-	@apply rotate-45 translate-y-[-8px] translate-x-[14px];
+.sw-text {
+	@apply text-sw-primary dark:text-sw-secondary;
 }
 
+.sw-text-reverse {
+	@apply text-sw-secondary dark:text-sw-primary;
+}
+
+.sw-bg {
+	@apply bg-sw-primary dark:bg-sw-secondary;
+}
+
+.sw-bg-reverse {
+	@apply bg-sw-secondary dark:bg-sw-primary;
+}
+
+.sw-fill {
+	@apply fill-sw-primary dark:fill-sw-secondary;
+}
+
+.sw-fill-reverse {
+	@apply fill-sw-secondary dark:fill-sw-primary;
+}
+
+[data-sw-btn-toggle-menu] {
+	path {
+		@apply transition;
+	}
+
+	&.toggled g {
+		>path:first-child {
+			@apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+		}
+
+		>path:last-child {
+			@apply rotate-45 translate-y-[-8px] translate-x-[14px];
+		}
+	}
+}
 
 [data-sw-btn-toggle-theme] {
 	// sun
 	svg:first-child {
 		@apply opacity-100;
 	}
+
 	// moon
 	svg:last-child {
 		@apply opacity-0;
 	}
 
 	&.toggled {
+
 		// sun
 		svg:first-child {
 			@apply opacity-0;
 		}
+
+		// moon
+		svg:last-child {
+			@apply opacity-100;
+		}
+	}
+}
+
+[data-sw-btn-toggle-product] {
+
+	// sun
+	svg:first-child {
+		@apply opacity-100;
+	}
+
+	// moon
+	svg:last-child {
+		@apply opacity-0;
+	}
+
+	&.toggled {
+
+		// sun
+		svg:first-child {
+			@apply opacity-0;
+		}
+
 		// moon
 		svg:last-child {
 			@apply opacity-100;
@@ -68,12 +128,13 @@
 }
 
 @keyframes pulse {
+
 	0%,
 	100% {
 		background-position-y: 0%;
 	}
+
 	50% {
 		background-position-y: 50%;
 	}
 }
-

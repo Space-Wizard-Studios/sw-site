@@ -1,14 +1,21 @@
 ---
-const { title, subtitle, desc, icon } = Astro.props;
+import { getImage } from '@astrojs/image';
+import { Image } from '@astrojs/image/components';
+import { Icon } from 'astro-icon';
+
+import defaultImageSrc from '~/assets/images/placeholder_128_8rem.png';
+import ButtonToggleProduct from '~/components/core/ButtonToggleProduct.astro';
+
+const { title, subtitle, desc, icon = defaultImageSrc} = Astro.props;
 ---
 
-<div class="card w-96 bg-primary text-primary-content">
-	<div class="absolute right-0">{icon}</div>
+<div class="card flex-grow: 1 w-96 relative overflow-visible sw-bg sw-text-reverse" >
+	<div class="absolute -mt-8 -mr-8 right-0">
+		<Image class="" src={icon} alt="" />
+	</div>
 	<div class="card-body">
 		<h2 class="card-title">{title}</h2>
 		<p>{subtitle}</p>
-	</div>
-	<div class="card-body">
-		<p>{desc}</p>
+		<ButtonToggleProduct/>
 	</div>
 </div>
