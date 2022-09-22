@@ -30,7 +30,7 @@ jobs:
 
       - name: Build
         shell: "bash"
-        run: npm run dev
+        run: npm run build
         
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
