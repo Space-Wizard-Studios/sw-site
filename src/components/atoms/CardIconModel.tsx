@@ -1,18 +1,23 @@
-import { useRef, useState, useMemo, Suspense } from 'react';
+import { useRef, useState, useMemo } from 'react';
 
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useFBX, PerspectiveCamera } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { useFBX } from '@react-three/drei';
 
 import type { Mesh } from 'three';
 
-export interface ModelProps {
+export interface CardIconModelProps {
 	fbxPath: string;
 	position?: [x: number, y: number, z: number];
 	rotation?: [x: number, y: number, z: number];
 	scale?: number;
 }
 
-const Model = ({ fbxPath, position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 }: ModelProps) => {
+export default function CardIconModel({
+	fbxPath,
+	position = [0, 0, 0],
+	rotation = [0, 0, 0],
+	scale = 1,
+}: CardIconModelProps) {
 	const ref = useRef(null);
 	const fbx = useFBX(fbxPath);
 
@@ -50,22 +55,5 @@ const Model = ({ fbxPath, position = [0, 0, 0], rotation = [0, 0, 0], scale = 1 
 		>
 			<meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
 		</mesh>
-	);
-};
-
-export interface CardIconModelProps {
-	fbxPath: string;
-}
-
-export default function CardIconModel({ fbxPath }: CardIconModelProps) {
-	return (
-		<Canvas>
-			<PerspectiveCamera makeDefault fov={60} position={[0, 0, 10]} rotation={[0, 0, 0]} />
-			<pointLight position={[10, 10, 10]} intensity={1.2} />
-
-			<Suspense fallback={null}>
-				<Model fbxPath={fbxPath} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={3.5} />
-			</Suspense>
-		</Canvas>
 	);
 }
