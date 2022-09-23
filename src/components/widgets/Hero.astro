@@ -1,8 +1,8 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import heroImageSM from '~/assets/images/hero_sm.png';
-import heroImageMD from '~/assets/images/hero_md.png';
+import heroImageSM from '~/assets/images/hero_bg_sm.png';
+import heroImageMD from '~/assets/images/hero_bg_md.png';
 
 import DividerWave from '~/components/atoms/DividerWave.astro';
 import HeroCanvas from '~/components/atoms/HeroCanvas';
@@ -13,7 +13,7 @@ import HeroCanvas from '~/components/atoms/HeroCanvas';
 	<Image class="cover w-full h-full block md:hidden" src={heroImageSM} alt="" />
 	<Image class="cover w-full h-full hidden md:block" src={heroImageMD} alt="" />
 	<div class="absolute top-0 right-0 w-full h-full">
-		<HeroCanvas client:load />
+		<HeroCanvas client:load/>
 	</div>
 	<DividerWave />
 </div>
