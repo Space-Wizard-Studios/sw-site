@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
-import { useGLTF, useAnimations } from '@react-three/drei';
+import { useGLTF, useAnimations, useBVH } from '@react-three/drei';
+import { GLTF } from 'three-stdlib';
 import { LoopPingPong } from 'three';
 
 export interface HeroModelProps {
@@ -7,11 +8,37 @@ export interface HeroModelProps {
 	[props: string]: any;
 }
 
-export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
-	const ref = useRef(null);
+type GLTFResult = GLTF & {
+	nodes: {
+		Cube019: THREE.SkinnedMesh;
+		Cube019_1: THREE.SkinnedMesh;
+		Cube019_2: THREE.SkinnedMesh;
+		Cube019_3: THREE.SkinnedMesh;
+		Cube019_4: THREE.SkinnedMesh;
+		Cube019_5: THREE.SkinnedMesh;
+		Cube019_6: THREE.SkinnedMesh;
+		Cube019_7: THREE.SkinnedMesh;
+		Cube019_8: THREE.SkinnedMesh;
+		Cube019_9: THREE.SkinnedMesh;
+		root: THREE.Bone;
+		['MCH-torsoparent']: THREE.Bone;
+		['MCH-foot_ikparentL']: THREE.Bone;
+		['MCH-thigh_ik_targetparentL']: THREE.Bone;
+		['MCH-foot_ikparentR']: THREE.Bone;
+		['MCH-thigh_ik_targetparentR']: THREE.Bone;
+		['MCH-hand_ikparentL']: THREE.Bone;
+		['MCH-upper_arm_ik_targetparentL']: THREE.Bone;
+		['MCH-hand_ikparentR']: THREE.Bone;
+		['MCH-upper_arm_ik_targetparentR']: THREE.Bone;
+	};
+	materials: {};
+};
 
-	const { nodes, materials, animations } = useGLTF(modelPath);
-	const { mixer, names, actions, clips } = useAnimations(animations, ref);
+export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
+	const ref = useRef<THREE.Group>();
+
+	const { nodes, materials, animations } = useGLTF(modelPath) as GLTFResult;
+	const { actions } = useAnimations(animations, ref);
 
 	useEffect(() => {
 		let action = actions.char_anim.play();
@@ -20,7 +47,7 @@ export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
 	});
 
 	return (
-		<group ref={ref} {...props} dispose={null}>
+		<group {...props} ref={ref} dispose={null}>
 			<group name="Scene">
 				<group name="astronaut_rigify">
 					<primitive object={nodes.root} />
@@ -102,7 +129,7 @@ export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
 							geometry={nodes.Cube019_9.geometry}
 							material={nodes.Cube019_9.material}
 							skeleton={nodes.Cube019_9.skeleton}
-							material-color="cyan"
+							material-color="hotpink"
 						/>
 					</group>
 				</group>
