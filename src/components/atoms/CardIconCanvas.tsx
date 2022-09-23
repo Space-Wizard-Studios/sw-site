@@ -1,7 +1,8 @@
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-import { useInViewEffect } from 'react-hook-inview';
+
+import { useInView } from 'react-intersection-observer';
 import { easings, useSpring } from '@react-spring/three';
 
 import CardIconModel from './CardIconModel';
@@ -11,19 +12,15 @@ export interface CardIconCanvasProps {
 }
 
 export default function CardIconCanvas({ fbxPath }: CardIconCanvasProps) {
-	const [isVisible, setIsVisible] = useState(false);
-	const ref = useInViewEffect(
-		([entry], observer) => {
-			if (entry.isIntersecting) {
-				observer.unobserve(entry.target);
-				setIsVisible(true);
-			}
-		},
-		{ threshold: 1 }
-	);
+	const { ref, inView } = useInView({
+		threshold: 1,
+		delay: 500,
+		triggerOnce: true,
+		fallbackInView: true,
+	});
 
 	const { scale } = useSpring({
-		scale: isVisible ? 3.75 : 0,
+		scale: inView ? 3.75 : 0,
 		config: { easing: easings.easeOutBack, duration: 350, precision: 0.001 },
 	});
 
@@ -40,13 +37,7 @@ export default function CardIconCanvas({ fbxPath }: CardIconCanvasProps) {
 			<PerspectiveCamera makeDefault fov={60} position={[0, 0, 10]} rotation={[0, 0, 0]} />
 			<pointLight position={[10, 10, 10]} intensity={1.2} />
 			<Suspense fallback={null}>
-				<CardIconModel
-					modelPath={fbxPath}
-					isVisible={isVisible}
-					position={[0, 0, 0]}
-					rotation={rotation}
-					scale={scale}
-				/>
+				<CardIconModel modelPath={fbxPath} position={[0, 0, 0]} rotation={rotation} scale={scale} />
 			</Suspense>
 		</Canvas>
 	);

@@ -5,11 +5,10 @@ import { Mesh } from 'three';
 
 export interface CardIconModelProps {
 	modelPath: string;
-	isVisible: boolean;
 	[props: string]: any;
 }
 
-const LoadFBX = ({ modelPath, isVisible, ...props }) => {
+const LoadFBX = ({ modelPath, ...props }) => {
 	const fbx = useFBX(modelPath);
 
 	let fbxClone = fbx.clone();
@@ -27,12 +26,12 @@ const LoadFBX = ({ modelPath, isVisible, ...props }) => {
 	return <a.mesh {...props} geometry={geometry} />;
 };
 
-export default function CardIconModel({ modelPath, isVisible, ...props }: CardIconModelProps) {
+export default function CardIconModel({ modelPath, ...props }: CardIconModelProps) {
 	const ref = useRef(null);
 
 	return (
-		<LoadFBX {...props} modelPath={modelPath} isVisible={isVisible}>
-			<meshStandardMaterial color={isVisible ? 'hotpink' : 'orange'} />
+		<LoadFBX {...props} modelPath={modelPath}>
+			<meshStandardMaterial />
 		</LoadFBX>
 	);
 }
