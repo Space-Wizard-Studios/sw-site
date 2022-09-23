@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { a, easings, useSpring } from '@react-spring/web';
+import { motion } from 'framer-motion';
 
 import type { ReactNode } from 'react';
+
 export interface ToggleCardProps {
 	cardIcon?: ReactNode;
 	title?: ReactNode;
@@ -21,11 +22,6 @@ export default function ToggleCard({
 }: ToggleCardProps) {
 	const [isOpen, setOpen] = useState(false);
 
-	const style = useSpring({
-		transform: isOpen ? 'rotate(360deg) scale(0.9)' : 'rotate(0deg) scale(1)',
-		config: { easing: easings.easeOutBack, duration: 250 },
-	});
-
 	return (
 		<div className="card flex-grow: 1 w-96 min-h-[12rem] relative overflow-visible sw-bg sw-text-reverse">
 			<div className="absolute -mt-12 -mr-12 right-0 top-0 w-[150px] h-[150px] ">{cardIcon}</div>
@@ -33,15 +29,20 @@ export default function ToggleCard({
 				<>{!isOpen ? title : null}</>
 				<>{isOpen ? description : subtitle}</>
 				<div>
-					<a.button
-						style={style}
+					<motion.button
+						animate={{
+							rotate: isOpen ? 360 : 0,
+							transition: { ease: 'backInOut', duration: 0.25 },
+						}}
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
 						type="button"
 						className="rounded-full text-sm p-2.5 items-center sw-text sw-bg-reverse"
 						aria-label="Toggle"
 						onClick={() => setOpen(!isOpen)}
 					>
 						{isOpen ? buttonIconMinus : buttonIconPlus}
-					</a.button>
+					</motion.button>
 				</div>
 			</div>
 		</div>
