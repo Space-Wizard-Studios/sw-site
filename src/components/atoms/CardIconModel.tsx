@@ -1,28 +1,26 @@
-import { useRef, useState, useMemo } from 'react';
+import { useRef, useState, useMemo, forwardRef } from 'react';
 
 import { useFrame } from '@react-three/fiber';
-import { useFBX } from '@react-three/drei';
+import { useFBX, useGLTF } from '@react-three/drei';
 
 import type { Mesh } from 'three';
 
 export interface CardIconModelProps {
-	fbxPath: string;
+	modelPath: string;
 	position?: [x: number, y: number, z: number];
 	rotation?: [x: number, y: number, z: number];
 	scale?: number;
 }
 
-export default function CardIconModel({
-	fbxPath,
-	position = [0, 0, 0],
-	rotation = [0, 0, 0],
-	scale = 1,
-}: CardIconModelProps) {
-	const ref = useRef(null);
-	const fbx = useFBX(fbxPath);
+const LoadGLFT = ({ modelPath, forwardedRef, ...props }) => {
+	const { nodes, materials } = useGLTF(modelPath);
+	return <mesh {...props} ref={forwardedRef} geometry={nodes.Curve007_1.geometry} />;
+};
+
+const LoadFBX = ({ modelPath, forwardedRef, ...props }) => {
+	const fbx = useFBX(modelPath);
 
 	let fbxClone = fbx.clone();
-
 	const geometry = useMemo(() => {
 		let g;
 		fbxClone.traverse((c) => {
@@ -34,6 +32,17 @@ export default function CardIconModel({
 		return g;
 	}, [fbxClone]);
 
+	return <mesh {...props} ref={forwardedRef} geometry={geometry} />;
+};
+
+export default function CardIconModel({
+	modelPath,
+	position = [0, 0, 0],
+	rotation = [0, 0, 0],
+	scale = 1,
+}: CardIconModelProps) {
+	const ref = useRef(null);
+
 	const [hovered, hover] = useState(false);
 	const [clicked, click] = useState(false);
 
@@ -42,10 +51,25 @@ export default function CardIconModel({
 		ref.current.rotation.z += delta * 0.75;
 	});
 
+	// return (
+	// 	<LoadGLFT
+	// 		modelPath={modelPath}
+	// 		forwardedRef={ref}
+	// 		position={position}
+	// 		rotation={rotation}
+	// 		scale={clicked ? scale * 1.1 : scale}
+	// 		onClick={(e) => click(!clicked)}
+	// 		onPointerOver={(e) => hover(true)}
+	// 		onPointerOut={(e) => hover(false)}
+	// 	>
+	// 		<meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+	// 	</LoadGLFT>
+	// );
+
 	return (
-		<mesh
-			ref={ref}
-			geometry={geometry}
+		<LoadFBX
+			modelPath={modelPath}
+			forwardedRef={ref}
 			position={position}
 			rotation={rotation}
 			scale={clicked ? scale * 1.1 : scale}
@@ -54,6 +78,6 @@ export default function CardIconModel({
 			onPointerOut={(e) => hover(false)}
 		>
 			<meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-		</mesh>
+		</LoadFBX>
 	);
 }
