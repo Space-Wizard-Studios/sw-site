@@ -7,7 +7,7 @@ export interface HeroCanvasProps {
 	modelPath: string;
 }
 
-export default function CardIconCanvas({ modelPath }: HeroCanvasProps) {
+export default function HeroCanvas({ modelPath }: HeroCanvasProps) {
 	return (
 		<Canvas>
 			<PerspectiveCamera makeDefault fov={25} position={[0, 0, 10]} />

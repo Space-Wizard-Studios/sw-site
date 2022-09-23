@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import { AnimationActionLoopStyles, LoopPingPong } from 'three';
+import { LoopPingPong } from 'three';
 
 export interface HeroModelProps {
 	modelPath: string;
@@ -15,7 +15,7 @@ export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
 
 	useEffect(() => {
 		let action = actions.char_anim.play();
-		// action.loop = LoopPingPong;
+		action.loop = LoopPingPong;
 		action.timeScale = 0.25;
 	});
 
