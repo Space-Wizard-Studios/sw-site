@@ -19,6 +19,7 @@
 		"@astrolib/seo": "^0.2.1",
 		"@fontsource/roboto": "^4.5.8",
 		"@react-spring/three": "^9.5.4",
+		"@react-spring/web": "^9.5.4",
 		"@react-three/drei": "^9.32.0",
 		"@react-three/fiber": "^8.8.2",
 		"@react-three/postprocessing": "^2.6.2",
