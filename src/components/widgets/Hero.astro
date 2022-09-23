@@ -9,7 +9,7 @@ import HeroCanvas from '~/components/atoms/HeroCanvas';
 <div class="h-[100vh] relative">
 	<Image class="cover w-full w-[100%] h-[100%]" src={heroImage} alt="" />
 	<div class="absolute top-0 right-0 w-[100%] h-[100%]">
-		<HeroCanvas client:load />
+		<HeroCanvas modelPath={"./models/hero/character.gltf"} client:load />
 	</div>
 	<DividerWave />
 </div>
