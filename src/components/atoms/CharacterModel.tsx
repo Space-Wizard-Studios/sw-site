@@ -55,14 +55,14 @@ export default function Character({ ...props }: CharacterProps) {
 		action.timeScale = 0.25;
 	});
 
-	materials.suit_helmet_glass.color = new Color(0x7070ff);
+	materials.suit_helmet_glass.color = new Color(0xD3E0F6);
 	materials.suit_helmet_glass.transparent = true;
 	materials.suit_helmet_glass.opacity = 0.5;
 	materials.suit_helmet_glass.roughness = 0;
 
-	materials.extra_star.emissive = new Color(0xff4f00);
-	materials.extra_star.emissiveIntensity = 2.6;
-	materials.extra_star.toneMapped = true;
+	// materials.extra_star.emissive = new Color(0xFFFAB6);
+	materials.extra_star.emissiveIntensity = 1.8;
+	materials.extra_star.toneMapped = false;
 
 	return (
 		<group {...props} ref={ref} dispose={null}>

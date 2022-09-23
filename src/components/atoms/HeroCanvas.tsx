@@ -11,7 +11,7 @@ export interface HeroCanvasProps {}
 export default function HeroCanvas({}: HeroCanvasProps) {
 	return (
 		<Canvas>
-			{/* <fog attach="fog" args={['#424251', 16, 24]} /> */}
+			<fog attach="fog" args={['#424251', 4, 22]} />
 			<ambientLight intensity={0.7} />
 			<Stars radius={350} depth={50} count={2000} factor={10} fade speed={2.25} />
 
@@ -41,7 +41,14 @@ export default function HeroCanvas({}: HeroCanvasProps) {
 			</Suspense>
 
 			<EffectComposer>
-				<Bloom luminanceThreshold={1} luminanceSmoothing={0.9} height={300} />
+				<Bloom
+					luminanceThreshold={1}
+					mipmapBlur={true}
+					luminanceSmoothing={0.9}
+					height={300}
+					radius={0.8}
+					intensity={1.6}
+				/>
 				<Noise opacity={0.02} />
 			</EffectComposer>
 		</Canvas>
