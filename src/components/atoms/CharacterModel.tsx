@@ -3,8 +3,7 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { Color, LoopPingPong } from 'three';
 
-export interface HeroModelProps {
-	modelPath: string;
+export interface CharacterProps {
 	[props: string]: any;
 }
 
@@ -45,10 +44,9 @@ type GLTFResult = GLTF & {
 	};
 };
 
-export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
+export default function Character({ ...props }: CharacterProps) {
 	const ref = useRef<THREE.Group>();
-
-	const { nodes, materials, animations } = useGLTF(modelPath) as GLTFResult;
+	const { nodes, materials, animations } = useGLTF('./models/hero/character.gltf') as GLTFResult;
 	const { actions } = useAnimations(animations, ref);
 
 	useEffect(() => {
@@ -62,8 +60,9 @@ export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
 	materials.suit_helmet_glass.opacity = 0.5;
 	materials.suit_helmet_glass.roughness = 0;
 
-	materials.extra_star.emissive = new Color(0xffff00);
-	materials.extra_star.emissiveIntensity = 2.8;
+	materials.extra_star.emissive = new Color(0xff4f00);
+	materials.extra_star.emissiveIntensity = 2.6;
+	materials.extra_star.toneMapped = true;
 
 	return (
 		<group {...props} ref={ref} dispose={null}>
