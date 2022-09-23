@@ -7,6 +7,7 @@ import Contact from '~/components/widgets/Contact.astro';
 import About from '~/components/widgets/About.astro';
 import Team from '~/components/widgets/Team.astro';
 
+
 const meta = {
 	title: SITE.title,
 	description: SITE.description,
@@ -14,8 +15,8 @@ const meta = {
 ---
 
 <Layout>
-	<Products />
-	<About />
+	<Products class="mx-2 pt-4 px-2 md:px-0 relative"/>
+	<About class="mx-4 md:mx-2 px-4 py-8 md:px-8 rounded-b-2xl shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700"/>
 	<Team />
 	<Contact />
 </Layout>

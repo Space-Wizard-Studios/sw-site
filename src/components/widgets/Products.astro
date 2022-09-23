@@ -1,42 +1,50 @@
 ---
 import ProductCard from '~/components/atoms/ProductCard.astro';
 import DividerRect from '~/components/atoms/DividerRect.astro';
+
+export interface Props {
+	[props: string]: any;
+}
+
+const { ...props } = Astro.props as Props;
 ---
+<div {...props}>
+	<div>
+		<h1 class="text-5xl mb-6 mx-8">
+			<span>O que</span>
+			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">fazemos</span>
+		</h1>
 
-<h1 class="text-5xl mb-6">
-	<span>O que</span>
-	<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">fazemos</span>
-</h1>
-
-<div class="mb-12">
-	<div class="flex flex-wrap gap-24 p-4 justify-center align-middle">
-		<ProductCard
-			iconSrc="./models/products/tools.fbx"
-			title="Games"
-			subtitle="jogos 2D e 3D"
-			description="desenvolvimento de jogos 2D e 3D em Unity Engine."
-		/>
-		<ProductCard
-			iconSrc="./models/products/tools.fbx"
-			title="Sites"
-			subtitle="sites interativos"
-			description="desenvolvimento de sites únicos com elementos interativos."
-		/>
-		<ProductCard
-			iconSrc="./models/products/tools.fbx"
-			title="Apps"
-			subtitle="aplicativos"
-			description="é mentira"
-		/>
-		<ProductCard
-			iconSrc="./models/products/tools.fbx"
-			title="Sei lá"
-			subtitle="bluberson"
-			description="blibliblibs"
-		/>
+		<div class="mb-12">
+			<div class="flex flex-wrap gap-12 p-4 justify-center align-middle z-20">
+				<ProductCard
+					iconSrc="./models/products/tools.fbx"
+					title="Games"
+					subtitle="jogos 2D e 3D"
+					description="desenvolvimento de jogos 2D e 3D em Unity Engine."
+				/>
+				<ProductCard
+					iconSrc="./models/products/tools.fbx"
+					title="Sites"
+					subtitle="sites interativos"
+					description="desenvolvimento de sites únicos com elementos interativos."
+				/>
+				<ProductCard
+					iconSrc="./models/products/tools.fbx"
+					title="Apps"
+					subtitle="aplicativos"
+					description="é mentira"
+				/>
+				<ProductCard
+					iconSrc="./models/products/tools.fbx"
+					title="Sei lá"
+					subtitle="bluberson"
+					description="blibliblibs"
+				/>
+			</div>
+		</div>
 	</div>
-
-	<div class="relative">
-		<DividerRect />
-	</div>
+	<DividerRect class="rounded-t-2xl bg-sw-secondary-700 dark:bg-sw-primary-700"/>
 </div>
+
+

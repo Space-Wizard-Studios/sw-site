@@ -4,6 +4,12 @@
         "generator" : "Khronos glTF Blender I/O v3.3.27",
         "version" : "2.0"
     },
+    "extensionsUsed" : [
+        "KHR_materials_clearcoat",
+        "KHR_materials_specular",
+        "KHR_materials_ior",
+        "KHR_materials_emissive_strength"
+    ],
     "scene" : 0,
     "scenes" : [
         {
@@ -27788,6 +27794,239 @@
             ]
         }
     ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_clearcoat" : {
+                    "clearcoatFactor" : 0.05000000074505806,
+                    "clearcoatRoughnessFactor" : 0.32499998807907104
+                }
+            },
+            "name" : "suit_c4",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.019382312893867493,
+                    0.012982997111976147,
+                    0.06662595272064209,
+                    1
+                ],
+                "metallicFactor" : 0.699999988079071
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_clearcoat" : {
+                    "clearcoatFactor" : 0.15909093618392944,
+                    "clearcoatRoughnessFactor" : 0.348181813955307
+                }
+            },
+            "name" : "suit_c1",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.699999988079071,
+                    0.699999988079071,
+                    0.699999988079071,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.44999998807907104
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0.5995092488750086,
+                        0.5908268088939224,
+                        0.5849054361149352
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "body_skin",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    1,
+                    0.6857469081878662,
+                    0.47142815589904785,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.800000011920929
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0.6085380211580854,
+                        0.5854289807957662,
+                        0.5902060878546413
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "body_mouth",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.43415367603302,
+                    0.10702290385961533,
+                    0.1746474653482437,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.800000011920929
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0.8299752215920606,
+                        0.8299752215920606,
+                        0.8299752215920606
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "body_eyes",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.02653883397579193,
+                    0.02653883397579193,
+                    0.02653883397579193,
+                    1
+                ],
+                "metallicFactor" : 0.30909091234207153,
+                "roughnessFactor" : 0.2454545497894287
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "body_hair",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    1,
+                    0.028809726238250732,
+                    0.028809726238250732,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.7909091711044312
+            }
+        },
+        {
+            "alphaMode" : "BLEND",
+            "doubleSided" : true,
+            "name" : "suit_helmet_glass",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.4000000059604645
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                0.30962950716347853,
+                0.02361382398176318
+            ],
+            "extensions" : {
+                "KHR_materials_emissive_strength" : {
+                    "emissiveStrength" : 12.616423666477203
+                },
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0.5990091430963884,
+                        0.5917506261335194,
+                        0.5808628500132136
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "extra_star",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.48000001907348633,
+                    0,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.800000011920929
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0.6032962820750761,
+                        0.5862312679706154,
+                        0.6011175820545738
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.4500000476837158
+                }
+            },
+            "name" : "suit_c3",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    1,
+                    0.12213817238807678,
+                    0.8879228830337524,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.800000011920929
+            }
+        },
+        {
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        0.05237508242499206,
+                        0.052010637400312254,
+                        0.051922960628157606
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1.5499999523162842
+                }
+            },
+            "name" : "wand_wood",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.12948395311832428,
+                    0.03995117172598839,
+                    0.018411722034215927,
+                    1
+                ],
+                "metallicFactor" : 0
+            }
+        }
+    ],
     "meshes" : [
         {
             "name" : "Cube.019",
@@ -27802,7 +28041,8 @@
                         "JOINTS_0" : 5,
                         "WEIGHTS_0" : 6
                     },
-                    "indices" : 7
+                    "indices" : 7,
+                    "material" : 0
                 },
                 {
                     "attributes" : {
@@ -27814,7 +28054,8 @@
                         "JOINTS_0" : 13,
                         "WEIGHTS_0" : 14
                     },
-                    "indices" : 15
+                    "indices" : 15,
+                    "material" : 1
                 },
                 {
                     "attributes" : {
@@ -27826,7 +28067,8 @@
                         "JOINTS_0" : 21,
                         "WEIGHTS_0" : 22
                     },
-                    "indices" : 23
+                    "indices" : 23,
+                    "material" : 2
                 },
                 {
                     "attributes" : {
@@ -27838,7 +28080,8 @@
                         "JOINTS_0" : 29,
                         "WEIGHTS_0" : 30
                     },
-                    "indices" : 31
+                    "indices" : 31,
+                    "material" : 3
                 },
                 {
                     "attributes" : {
@@ -27850,7 +28093,8 @@
                         "JOINTS_0" : 37,
                         "WEIGHTS_0" : 38
                     },
-                    "indices" : 39
+                    "indices" : 39,
+                    "material" : 4
                 },
                 {
                     "attributes" : {
@@ -27862,7 +28106,8 @@
                         "JOINTS_0" : 45,
                         "WEIGHTS_0" : 46
                     },
-                    "indices" : 47
+                    "indices" : 47,
+                    "material" : 5
                 },
                 {
                     "attributes" : {
@@ -27874,7 +28119,8 @@
                         "JOINTS_0" : 53,
                         "WEIGHTS_0" : 54
                     },
-                    "indices" : 55
+                    "indices" : 55,
+                    "material" : 6
                 },
                 {
                     "attributes" : {
@@ -27886,7 +28132,8 @@
                         "JOINTS_0" : 61,
                         "WEIGHTS_0" : 62
                     },
-                    "indices" : 63
+                    "indices" : 63,
+                    "material" : 7
                 },
                 {
                     "attributes" : {
@@ -27898,7 +28145,8 @@
                         "JOINTS_0" : 69,
                         "WEIGHTS_0" : 70
                     },
-                    "indices" : 71
+                    "indices" : 71,
+                    "material" : 8
                 },
                 {
                     "attributes" : {
@@ -27910,7 +28158,8 @@
                         "JOINTS_0" : 77,
                         "WEIGHTS_0" : 78
                     },
-                    "indices" : 79
+                    "indices" : 79,
+                    "material" : 9
                 }
             ]
         }
