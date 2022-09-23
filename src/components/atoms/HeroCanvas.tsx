@@ -15,7 +15,7 @@ export default function HeroCanvas({}: HeroCanvasProps) {
 			<ambientLight intensity={0.7} />
 			<Stars radius={350} depth={50} count={2000} factor={10} fade speed={2.25} />
 
-			<PerspectiveCamera makeDefault fov={60} position={[0, 0, 16]}>
+			<PerspectiveCamera makeDefault fov={37.8} position={[1.35, 0.93, 0.9]} rotation={[-0.38, 1.0, 0.35]}>
 				<pointLight intensity={0.8} position={[-10, -25, -10]} />
 				<spotLight
 					castShadow
@@ -28,24 +28,16 @@ export default function HeroCanvas({}: HeroCanvasProps) {
 				/>
 			</PerspectiveCamera>
 
-			{/* <OrbitControls
-				autoRotate
-				autoRotateSpeed={0.5}
-				rotateSpeed={0.5}
-				enablePan={false}
-				enableZoom={true}
-				maxPolarAngle={Math.PI / 2}
-				minPolarAngle={Math.PI / 2}
-			/> */}
+			{/* <OrbitControls /> */}
 
 			<Suspense fallback={null}>
-				<Character position={[0, -7.6, 0]} rotation={[Math.PI / 8, -Math.PI / 3, Math.PI / 12]} scale={12} />
+				<Character position={[-0.3, 0, 0]} />
 			</Suspense>
 			<Suspense fallback={null}>
-				<Ship position={[-500, 0, -1500]} scale={0.75} />
+				<Ship position={[-13, 0.26, -3.1]} rotation={[0, 1.18, 0.9]} />
 			</Suspense>
 			<Suspense fallback={null}>
-				<Planet scale={16} />
+				<Planet position={[-18, -11, -22]} rotation={[6.66, -1.14, 1.5]} />
 			</Suspense>
 
 			<EffectComposer>

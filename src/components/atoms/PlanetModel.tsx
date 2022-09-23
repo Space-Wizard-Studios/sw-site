@@ -26,9 +26,6 @@ export default function Planet({ ...props }: PlanetProps) {
 					name="planet"
 					geometry={nodes.planet.geometry}
 					material={materials.scene_planet_land}
-					position={[-21.16, -11.74, -23.76]}
-					rotation={[0.51, -1.52, -1]}
-					scale={-8.5}
 				/>
 			</group>
 		</group>

@@ -30,7 +30,7 @@ export default function Ship({ ...props }: ShipProps) {
 	return (
 		<group ref={ref} {...props} dispose={null}>
 			<group name="Scene">
-				<group name="Space_ship_lp" position={[-14.5, -0.27, -3.25]} rotation={[0.03, 1.19, 0.88]} scale={1}>
+				<group name="Space_ship_lp">
 					<mesh
 						name="Space_ship_lp_1"
 						geometry={nodes.Space_ship_lp_1.geometry}
