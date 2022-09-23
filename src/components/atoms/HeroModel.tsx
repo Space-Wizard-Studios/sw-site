@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
-import { useGLTF, useAnimations, useBVH } from '@react-three/drei';
+import { useGLTF, useAnimations } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
-import { LoopPingPong } from 'three';
+import { Color, LoopPingPong } from 'three';
 
 export interface HeroModelProps {
 	modelPath: string;
@@ -31,7 +31,18 @@ type GLTFResult = GLTF & {
 		['MCH-hand_ikparentR']: THREE.Bone;
 		['MCH-upper_arm_ik_targetparentR']: THREE.Bone;
 	};
-	materials: {};
+	materials: {
+		suit_c4: THREE.MeshPhysicalMaterial;
+		suit_c1: THREE.MeshPhysicalMaterial;
+		body_skin: THREE.MeshStandardMaterial;
+		body_mouth: THREE.MeshStandardMaterial;
+		body_eyes: THREE.MeshStandardMaterial;
+		body_hair: THREE.MeshStandardMaterial;
+		suit_helmet_glass: THREE.MeshStandardMaterial;
+		extra_star: THREE.MeshStandardMaterial;
+		suit_c3: THREE.MeshStandardMaterial;
+		wand_wood: THREE.MeshStandardMaterial;
+	};
 };
 
 export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
@@ -45,6 +56,14 @@ export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
 		action.loop = LoopPingPong;
 		action.timeScale = 0.25;
 	});
+
+	materials.suit_helmet_glass.color = new Color(0x7070ff);
+	materials.suit_helmet_glass.transparent = true;
+	materials.suit_helmet_glass.opacity = 0.5;
+	materials.suit_helmet_glass.roughness = 0;
+
+	materials.extra_star.emissive = new Color(0xffff00);
+	materials.extra_star.emissiveIntensity = 2.8;
 
 	return (
 		<group {...props} ref={ref} dispose={null}>
@@ -64,72 +83,62 @@ export default function HeroModel({ modelPath, ...props }: HeroModelProps) {
 						<skinnedMesh
 							name="Cube019"
 							geometry={nodes.Cube019.geometry}
-							material={nodes.Cube019.material}
+							material={materials.suit_c4}
 							skeleton={nodes.Cube019.skeleton}
-							material-color="red"
 						/>
 						<skinnedMesh
 							name="Cube019_1"
 							geometry={nodes.Cube019_1.geometry}
-							material={nodes.Cube019_1.material}
+							material={materials.suit_c1}
 							skeleton={nodes.Cube019_1.skeleton}
-							material-color="green"
 						/>
 						<skinnedMesh
 							name="Cube019_2"
 							geometry={nodes.Cube019_2.geometry}
-							material={nodes.Cube019_2.material}
+							material={materials.body_skin}
 							skeleton={nodes.Cube019_2.skeleton}
-							material-color="blue"
 						/>
 						<skinnedMesh
 							name="Cube019_3"
 							geometry={nodes.Cube019_3.geometry}
-							material={nodes.Cube019_3.material}
+							material={materials.body_mouth}
 							skeleton={nodes.Cube019_3.skeleton}
-							material-color="black"
 						/>
 						<skinnedMesh
 							name="Cube019_4"
 							geometry={nodes.Cube019_4.geometry}
-							material={nodes.Cube019_4.material}
+							material={materials.body_eyes}
 							skeleton={nodes.Cube019_4.skeleton}
-							material-color="yellow"
 						/>
 						<skinnedMesh
 							name="Cube019_5"
 							geometry={nodes.Cube019_5.geometry}
-							material={nodes.Cube019_5.material}
+							material={materials.body_hair}
 							skeleton={nodes.Cube019_5.skeleton}
-							material-color="orange"
 						/>
 						<skinnedMesh
 							name="Cube019_6"
 							geometry={nodes.Cube019_6.geometry}
-							material={nodes.Cube019_6.material}
+							material={materials.suit_helmet_glass}
 							skeleton={nodes.Cube019_6.skeleton}
-							material-color="white"
 						/>
 						<skinnedMesh
 							name="Cube019_7"
 							geometry={nodes.Cube019_7.geometry}
-							material={nodes.Cube019_7.material}
+							material={materials.extra_star}
 							skeleton={nodes.Cube019_7.skeleton}
-							material-color="purple"
 						/>
 						<skinnedMesh
 							name="Cube019_8"
 							geometry={nodes.Cube019_8.geometry}
-							material={nodes.Cube019_8.material}
+							material={materials.suit_c3}
 							skeleton={nodes.Cube019_8.skeleton}
-							material-color="pink"
 						/>
 						<skinnedMesh
 							name="Cube019_9"
 							geometry={nodes.Cube019_9.geometry}
-							material={nodes.Cube019_9.material}
+							material={materials.wand_wood}
 							skeleton={nodes.Cube019_9.skeleton}
-							material-color="hotpink"
 						/>
 					</group>
 				</group>
