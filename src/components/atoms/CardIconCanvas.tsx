@@ -2,7 +2,7 @@ import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import { useInViewEffect } from 'react-hook-inview';
-import { easings, useSpring, useSprings } from '@react-spring/three';
+import { easings, useSpring } from '@react-spring/three';
 
 import CardIconModel from './CardIconModel';
 
