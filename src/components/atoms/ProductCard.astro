@@ -19,6 +19,7 @@ const { iconSrc, title, subtitle, description } = Astro.props as Props;
 	<h2 slot="title" class="card-title">{title}</h2>
 	<p slot="subtitle">{subtitle}</p>
 	<p slot="description">{description}</p>
+	
 	<Icon slot="buttonIconPlus" name="akar-icons:plus" class="w-6 h-6" />
 	<Icon slot="buttonIconMinus" name="akar-icons:minus" class="w-6 h-6" />
 </ToggleCard>

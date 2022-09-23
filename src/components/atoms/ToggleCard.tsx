@@ -20,7 +20,7 @@ export default function ToggleCard({
 }: ToggleCardProps) {
 	const [isOpen, setOpen] = useState(false);
 	return (
-		<div className="card flex-grow: 1 w-96 relative overflow-visible sw-bg sw-text-reverse">
+		<div className="card flex-grow: 1 w-96 min-h-[12rem] relative overflow-visible sw-bg sw-text-reverse">
 			<div className="absolute -mt-12 -mr-12 right-0 top-0 w-[150px] h-[150px] ">{cardIcon}</div>
 			<div className="card-body">
 				<>{!isOpen ? title : null}</>

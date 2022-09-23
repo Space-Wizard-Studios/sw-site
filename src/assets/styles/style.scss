@@ -53,7 +53,7 @@
 	}
 
 	&.toggled g {
-		F>path:first-child {
+		>path:first-child {
 			@apply -rotate-45 translate-y-[15px] translate-x-[-3px];
 		}
 
