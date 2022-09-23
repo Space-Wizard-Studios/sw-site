@@ -1,6 +1,6 @@
 ---
 import { LoremIpsum } from 'lorem-ipsum';
-import DividerArrow from '~/components/atoms/DividerArrow.astro';
+import DividerArrowDown from '~/components/atoms/DividerArrowDown.astro';
 
 const lorem = new LoremIpsum(
 	{
@@ -17,12 +17,8 @@ const lorem = new LoremIpsum(
 );
 ---
 
-<DividerArrow />
+<DividerArrowDown class="bg-sw-dark-700"/>
 
-<div class="max-w-6xl mx-auto pt-4 px-4 lg:px-0">
-	<div class="text-justify mb-12">
-		<span set:html={lorem.generateParagraphs(1)}></span>
-	</div>
-</div>
+<div class="bg-sw-dark-700"></div>
 
-<div class="text-center p-8 bg-sw-dark-700">© 2022 Space Wizard Studios. Todos os direitos reservados</div>
+<div class="text-center p-8 text-sw-secondary bg-sw-dark-700">© 2022 Space Wizard Studios. Todos os direitos reservados</div>
