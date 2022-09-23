@@ -1,0 +1,13 @@
+---
+export interface Props {
+	[props: string]: any;
+}
+
+const { ...props } = Astro.props as Props;
+---
+
+<div {...props}>
+	<div class="relative w-full h-16">
+		<div class="h-0 w-0 mx-auto absolute top-0 right-0 left-0 border-x-[1rem] border-x-solid border-x-transparent border-t-[1rem] border-t-sw-secondary"></div>
+	</div>
+</div>

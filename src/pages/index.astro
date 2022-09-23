@@ -7,6 +7,7 @@ import Contact from '~/components/widgets/Contact.astro';
 import About from '~/components/widgets/About.astro';
 import Team from '~/components/widgets/Team.astro';
 
+import DividerRect from '~/components/atoms/DividerRect.astro';
 
 const meta = {
 	title: SITE.title,
@@ -15,8 +16,9 @@ const meta = {
 ---
 
 <Layout>
-	<Products class="mx-2 pt-4 px-2 md:px-0 relative"/>
-	<About class="mx-4 md:mx-2 px-4 py-8 md:px-8 rounded-b-2xl shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700"/>
+	<Products class="max-w-6xl mx-auto px-8 sm:px-6 pt-4 relative z-20"/>
+	<DividerRect class="w-full -mt-32 h-32 absolute z-10  bg-sw-secondary-700 dark:bg-sw-primary-700 "/>
+	<About class="md:px-8 shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700 z-20"/>
 	<Team />
 	<Contact />
 </Layout>
