@@ -28,7 +28,7 @@ export default function Ship({ ...props }: ShipProps) {
 	const { nodes, materials } = useGLTF('./models/hero/ship.gltf') as GLTFResult;
 
 	return (
-		<group ref={ref} {...props} dispose={null}>
+		<group ref={ref} {...props}>
 			<group name="Scene">
 				<group name="Space_ship_lp">
 					<mesh
@@ -61,3 +61,5 @@ export default function Ship({ ...props }: ShipProps) {
 		</group>
 	);
 }
+
+useGLTF.preload('./models/hero/ship.gltf');

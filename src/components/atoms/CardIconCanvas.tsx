@@ -1,6 +1,9 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
+import { useInViewEffect } from 'react-hook-inview';
+import { easings, useSpring, useSprings } from '@react-spring/three';
+
 import CardIconModel from './CardIconModel';
 
 export interface CardIconCanvasProps {
@@ -8,12 +11,42 @@ export interface CardIconCanvasProps {
 }
 
 export default function CardIconCanvas({ fbxPath }: CardIconCanvasProps) {
+	const [isVisible, setIsVisible] = useState(false);
+	const ref = useInViewEffect(
+		([entry], observer) => {
+			if (entry.isIntersecting) {
+				observer.unobserve(entry.target);
+				setIsVisible(true);
+			}
+		},
+		{ threshold: 1 }
+	);
+
+	const { scale } = useSpring({
+		scale: isVisible ? 3.75 : 0,
+		config: { easing: easings.easeOutBack, duration: 350, precision: 0.001 },
+	});
+
+	const { rotation } = useSpring({
+		loop: { reverse: true },
+		reset: true,
+		from: { rotation: [-Math.PI / 2, 0.1, -Math.PI / 10 - 0.12] },
+		to: { rotation: [-Math.PI / 2, 0.1, Math.PI / 10 - 0.12] },
+		config: { easing: easings.easeInOutQuad, duration: 1500, precision: 0.001 },
+	});
+
 	return (
-		<Canvas>
+		<Canvas ref={ref}>
 			<PerspectiveCamera makeDefault fov={60} position={[0, 0, 10]} rotation={[0, 0, 0]} />
 			<pointLight position={[10, 10, 10]} intensity={1.2} />
 			<Suspense fallback={null}>
-				<CardIconModel modelPath={fbxPath} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={3.5} />
+				<CardIconModel
+					modelPath={fbxPath}
+					isVisible={isVisible}
+					position={[0, 0, 0]}
+					rotation={rotation}
+					scale={scale}
+				/>
 			</Suspense>
 		</Canvas>
 	);

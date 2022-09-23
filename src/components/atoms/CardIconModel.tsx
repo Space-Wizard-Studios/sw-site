@@ -1,23 +1,15 @@
-import { useRef, useState, useMemo, forwardRef } from 'react';
-
-import { useFrame } from '@react-three/fiber';
-import { useFBX, useGLTF } from '@react-three/drei';
-
-import type { Mesh } from 'three';
+import { useRef, useMemo } from 'react';
+import { useFBX } from '@react-three/drei';
+import { a } from '@react-spring/three';
+import { Mesh } from 'three';
 
 export interface CardIconModelProps {
 	modelPath: string;
-	position?: [x: number, y: number, z: number];
-	rotation?: [x: number, y: number, z: number];
-	scale?: number;
+	isVisible: boolean;
+	[props: string]: any;
 }
 
-const LoadGLFT = ({ modelPath, forwardedRef, ...props }) => {
-	const { nodes, materials } = useGLTF(modelPath);
-	return <mesh {...props} ref={forwardedRef} geometry={nodes.Curve007_1.geometry} />;
-};
-
-const LoadFBX = ({ modelPath, forwardedRef, ...props }) => {
+const LoadFBX = ({ modelPath, isVisible, ...props }) => {
 	const fbx = useFBX(modelPath);
 
 	let fbxClone = fbx.clone();
@@ -32,52 +24,15 @@ const LoadFBX = ({ modelPath, forwardedRef, ...props }) => {
 		return g;
 	}, [fbxClone]);
 
-	return <mesh {...props} ref={forwardedRef} geometry={geometry} />;
+	return <a.mesh {...props} geometry={geometry} />;
 };
 
-export default function CardIconModel({
-	modelPath,
-	position = [0, 0, 0],
-	rotation = [0, 0, 0],
-	scale = 1,
-}: CardIconModelProps) {
+export default function CardIconModel({ modelPath, isVisible, ...props }: CardIconModelProps) {
 	const ref = useRef(null);
 
-	const [hovered, hover] = useState(false);
-	const [clicked, click] = useState(false);
-
-	useFrame((state, delta) => {
-		if (ref.current === null) return;
-		ref.current.rotation.z += delta * 0.75;
-	});
-
-	// return (
-	// 	<LoadGLFT
-	// 		modelPath={modelPath}
-	// 		forwardedRef={ref}
-	// 		position={position}
-	// 		rotation={rotation}
-	// 		scale={clicked ? scale * 1.1 : scale}
-	// 		onClick={(e) => click(!clicked)}
-	// 		onPointerOver={(e) => hover(true)}
-	// 		onPointerOut={(e) => hover(false)}
-	// 	>
-	// 		<meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-	// 	</LoadGLFT>
-	// );
-
 	return (
-		<LoadFBX
-			modelPath={modelPath}
-			forwardedRef={ref}
-			position={position}
-			rotation={rotation}
-			scale={clicked ? scale * 1.1 : scale}
-			onClick={(e) => click(!clicked)}
-			onPointerOver={(e) => hover(true)}
-			onPointerOut={(e) => hover(false)}
-		>
-			<meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
+		<LoadFBX {...props} modelPath={modelPath} isVisible={isVisible}>
+			<meshStandardMaterial color={isVisible ? 'hotpink' : 'orange'} />
 		</LoadFBX>
 	);
 }

@@ -55,7 +55,7 @@ export default function Character({ ...props }: CharacterProps) {
 		action.timeScale = 0.25;
 	});
 
-	materials.suit_helmet_glass.color = new Color(0xD3E0F6);
+	materials.suit_helmet_glass.color = new Color(0xd3e0f6);
 	materials.suit_helmet_glass.transparent = true;
 	materials.suit_helmet_glass.opacity = 0.5;
 	materials.suit_helmet_glass.roughness = 0;
@@ -65,7 +65,7 @@ export default function Character({ ...props }: CharacterProps) {
 	materials.extra_star.toneMapped = false;
 
 	return (
-		<group {...props} ref={ref} dispose={null}>
+		<group {...props} ref={ref}>
 			<group name="Scene">
 				<group name="astronaut_rigify">
 					<primitive object={nodes.root} />
@@ -145,3 +145,5 @@ export default function Character({ ...props }: CharacterProps) {
 		</group>
 	);
 }
+
+useGLTF.preload('./models/hero/character.gltf');

@@ -20,14 +20,12 @@ export default function Planet({ ...props }: PlanetProps) {
 	const { nodes, materials } = useGLTF('./models/hero/planet.gltf') as GLTFResult;
 
 	return (
-		<group ref={ref} {...props} dispose={null}>
+		<group ref={ref} {...props}>
 			<group name="Scene">
-				<mesh
-					name="planet"
-					geometry={nodes.planet.geometry}
-					material={materials.scene_planet_land}
-				/>
+				<mesh name="planet" geometry={nodes.planet.geometry} material={materials.scene_planet_land} />
 			</group>
 		</group>
 	);
 }
+
+useGLTF.preload('./models/hero/planet.gltf');
