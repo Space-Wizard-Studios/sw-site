@@ -21,17 +21,17 @@ export interface Props {
 const { ...props } = Astro.props as Props;
 ---
 
-<section {...props}>
+<div {...props}>
 	<header>
 		<h1 class="font-black uppercase text-5xl">
 			<span>Entre em contato</span>
 		</h1>
-		<p class="text-2xl mb-6">
-			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">Nos conte uma história</span>
+		<p class="text-2xl mb-8">
+			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-flamingo">Nos conte uma história</span>
 		</p>
 	</header>
 
 	<section class="text-justify mb-12">
 		<span set:html={lorem.generateParagraphs(2)}></span>
 	</section>
-</section>
+</div>

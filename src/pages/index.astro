@@ -16,10 +16,22 @@ const meta = {
 ---
 
 <Layout>
-	
-	<Products class="max-w-6xl mx-auto px-8 sm:px-6 pt-4 relative z-20"/>
-	<DividerRect class="w-full -mt-32 h-32 absolute z-10  bg-sw-secondary-700 dark:bg-sw-primary-700 "/>
-	<About class="px-6 sm:px-6 py-8 md:px-8 shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700 z-20"/>
-	<Team class="max-w-6xl mx-auto py-8 px-8 sm:px-6"/>
-	<Contact class="max-w-6xl mx-auto px-8 sm:px-6"/>
+	<section class="max-w-6xl mx-auto px-6 md:px-8">
+		<Products class="relative z-20" />
+	</section>
+
+	<div class="shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700 z-20" >
+		<DividerRect class="w-full -mt-32 h-32 absolute z-10 bg-sw-secondary-700 dark:bg-sw-primary-700" />
+		<section class="max-w-6xl mx-auto py-8 px-6 md:px-8">
+			<About />
+		</section>
+	</div>
+
+	<section class="max-w-6xl mx-auto my-8 px-6 md:px-8">
+		<Team />
+	</section>
+
+	<section class="max-w-6xl mx-auto my-8 px-6 md:px-8">
+		<Contact />
+	</section>
 </Layout>
