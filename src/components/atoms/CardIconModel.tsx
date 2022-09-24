@@ -1,6 +1,6 @@
 import { useRef, useMemo } from 'react';
 import { useFBX } from '@react-three/drei';
-import { motion } from 'framer-motion-3d';
+import { motion } from '../../../node_modules/framer-motion-3d';
 
 import type { Mesh } from 'three';
 
@@ -36,8 +36,7 @@ const LoadFBX = ({ modelPath, isInView, ...props }: CardIconModelProps) => {
 			transition={{
 				scale: {
 					ease: 'backOut',
-					duration: 0.35,
-					delay: 0.15,
+					duration: 0.45,
 				},
 				rotateZ: {
 					ease: 'easeInOut',
