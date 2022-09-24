@@ -1,11 +1,26 @@
 {
 	"extends": "astro/tsconfigs/base",
 	"compilerOptions": {
-		"types": ["astro/client"],
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"lib": [
+			"es2021"
+		],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"strict": true,
+		"target": "es2021",
+		"types": [
+			"astro/client"
+		],
 		"allowJs": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["src/*"]
+			"~/*": [
+				"src/*"
+			]
 		}
 	}
 }

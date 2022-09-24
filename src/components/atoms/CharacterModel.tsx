@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 import { Color, LoopPingPong } from 'three';
+import { AnimationClip } from 'three';
 
 export interface CharacterProps {
 	[props: string]: any;
@@ -44,13 +45,16 @@ type GLTFResult = GLTF & {
 	};
 };
 
+type ActionName = 'char_anim';
+type GLTFActions = Record<ActionName, THREE.AnimationAction>;
+
 export default function Character({ ...props }: CharacterProps) {
-	const ref = useRef<THREE.Group>();
+	const ref = useRef<THREE.Group>(null);
 	const { nodes, materials, animations } = useGLTF('./models/hero/character.gltf') as GLTFResult;
 	const { actions } = useAnimations(animations, ref);
 
 	useEffect(() => {
-		let action = actions.char_anim.play();
+		let action = (actions as GLTFActions).char_anim.play();
 		action.loop = LoopPingPong;
 		action.timeScale = 0.25;
 	});
