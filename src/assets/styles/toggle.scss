@@ -14,54 +14,54 @@
 	}
 }
 
-[data-sw-btn-toggle-theme] {
+// [data-sw-btn-toggle-theme] {
 
-	// sun
-	svg:first-child {
-		@apply opacity-100;
-	}
+// 	// sun
+// 	svg:first-child {
+// 		@apply opacity-100;
+// 	}
 
-	// moon
-	svg:last-child {
-		@apply opacity-0;
-	}
+// 	// moon
+// 	svg:last-child {
+// 		@apply opacity-0;
+// 	}
 
-	&.toggled {
+// 	&.toggled {
 
-		// sun
-		svg:first-child {
-			@apply opacity-0;
-		}
+// 		// sun
+// 		svg:first-child {
+// 			@apply opacity-0;
+// 		}
 
-		// moon
-		svg:last-child {
-			@apply opacity-100;
-		}
-	}
-}
+// 		// moon
+// 		svg:last-child {
+// 			@apply opacity-100;
+// 		}
+// 	}
+// }
 
-[data-sw-btn-toggle-product] {
+// [data-sw-btn-toggle-product] {
 
-	// sun
-	svg:first-child {
-		@apply opacity-100;
-	}
+// 	// sun
+// 	svg:first-child {
+// 		@apply opacity-100;
+// 	}
 
-	// moon
-	svg:last-child {
-		@apply opacity-0;
-	}
+// 	// moon
+// 	svg:last-child {
+// 		@apply opacity-0;
+// 	}
 
-	&.toggled {
+// 	&.toggled {
 
-		// sun
-		svg:first-child {
-			@apply opacity-0;
-		}
+// 		// sun
+// 		svg:first-child {
+// 			@apply opacity-0;
+// 		}
 
-		// moon
-		svg:last-child {
-			@apply opacity-100;
-		}
-	}
-}
+// 		// moon
+// 		svg:last-child {
+// 			@apply opacity-100;
+// 		}
+// 	}
+// }
