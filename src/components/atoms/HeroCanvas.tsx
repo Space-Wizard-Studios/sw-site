@@ -37,17 +37,18 @@ export default function HeroCanvas({}: HeroCanvasProps) {
 				<Ship position={[-13, 0.26, -3.1]} rotation={[0, 1.18, 0.9]} />
 			</Suspense>
 			<Suspense fallback={null}>
-				<Planet position={[-18, -11, -22]} rotation={[6.66, -1.14, 1.5]} />
+				<Planet position={[-10, -9, -22]} rotation={[6.66, -1.14, 1.5]} />
 			</Suspense>
 
-			<EffectComposer>
+			<EffectComposer multisampling={8}>
 				<Bloom
 					luminanceThreshold={1}
 					mipmapBlur={true}
 					luminanceSmoothing={0.9}
 					height={300}
-					radius={0.8}
-					intensity={1.6}
+					radius={0.65}
+					intensity={16}
+					opacity={0.4}
 				/>
 				<Noise opacity={0.02} />
 			</EffectComposer>
