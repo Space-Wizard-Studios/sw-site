@@ -23,14 +23,16 @@ const { ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<h1 class="font-black uppercase text-5xl">
-		<span>A tripulação</span>
-	</h1>
-	<h2 class="text-2xl mb-6">
-		<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">Nosso incrível time</span>
-	</h2>
+	<header>
+		<h1 class="font-black uppercase text-5xl">
+			<span>A tripulação</span>
+		</h1>
+		<p class="text-2xl mb-8">
+			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-flamingo">Nosso incrível time</span>
+		</p>
+	</header>
 
-	<div class="text-justify mb-12">
+	<section class="text-justify mb-12">
 		<span set:html={lorem.generateParagraphs(2)}></span>
-	</div>
+	</section>
 </div>

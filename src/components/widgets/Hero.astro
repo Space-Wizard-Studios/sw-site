@@ -9,11 +9,11 @@ import HeroCanvas from '@atoms/HeroCanvas';
 
 ---
 
-<div class="h-screen relative">
+<section class="h-screen relative">
+	<DividerWave class="spacewiz__fill--reversed bottom-0"/>
 	<Image class="cover w-full h-full block md:hidden" src={heroImageSM} alt="" />
 	<Image class="cover w-full h-full hidden md:block" src={heroImageMD} alt="" />
-	<div class="absolute top-0 right-0 w-full h-full">
+	<figure class="absolute top-0 right-0 w-full h-full">
 		<HeroCanvas client:load/>
-	</div>
-	<DividerWave />
-</div>
+	</figure>
+</section>

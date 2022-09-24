@@ -18,7 +18,7 @@ export default function CardIconCanvas({ fbxPath }: CardIconCanvasProps) {
 			<PerspectiveCamera makeDefault fov={60} position={[0, 0, 10]} rotation={[0, 0, 0]} />
 			<pointLight position={[10, 10, 10]} intensity={1.2} />
 			<Suspense fallback={null}>
-				<CardIconModel modelPath={fbxPath} isInView={isInView} />
+				<CardIconModel modelPath={fbxPath} isInView={isInView} position={[0, 0, 2.5]}/>
 			</Suspense>
 		</Canvas>
 	);

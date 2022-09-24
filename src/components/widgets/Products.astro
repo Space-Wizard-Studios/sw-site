@@ -9,39 +9,37 @@ const { ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<div>
-		<h1 class="font-black uppercase text-5xl mb-6">
+	<header>
+		<h1 class="font-black uppercase text-5xl mb-12">
 			<span>O que</span>
-			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">fazemos</span>
+			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-flamingo">fazemos</span>
 		</h1>
+	</header>
 
-		<div class="mb-12">
-			<div class="flex flex-wrap gap-y-8 justify-center align-middle">
-				<ProductCard
-					iconSrc="./models/products/tools.fbx"
-					title="Games"
-					subtitle="jogos 2D e 3D"
-					description="desenvolvimento de jogos 2D ou 3D em Unity Engine."
-				/>
-				<ProductCard
-					iconSrc="./models/products/tools.fbx"
-					title="Web"
-					subtitle="sites interativos"
-					description="desenvolvimento de <span class='text-sw-accent'>experiências gamificadas</span> na web, podendo incluir peças 2D, 3D ou até mesmo jogos, desafios e eventos interativos!"
-				/>
-				<ProductCard
-					iconSrc="./models/products/tools.fbx"
-					title="Apps"
-					subtitle="aplicativos"
-					description="desenvolvimento de aplicativos nativos para mobile."
-				/>
-				<ProductCard
-					iconSrc="./models/products/tools.fbx"
-					title="Áudio e Música"
-					subtitle="bluberson"
-					description="blibliblibs"
-				/>
-			</div>
-		</div>
-	</div>
+	<section class="my-8 flex justify-between align-middle">
+		<ProductCard
+			iconSrc="./models/products/tools.fbx"
+			title="Games"
+			subtitle="jogos 2D e 3D"
+			description="desenvolvimento de <span class='text-sw-navy font-bold dark:text-sw-flamingo'>jogos 2D ou 3D</span> em Unity Engine"
+		/>
+		<ProductCard
+			iconSrc="./models/products/tools.fbx"
+			title="Web"
+			subtitle="sites interativos"
+			description="desenvolvimento de <span class='text-sw-navy font-bold dark:text-sw-flamingo'>experiências gamificadas</span> para Web"
+		/>
+		<ProductCard
+			iconSrc="./models/products/tools.fbx"
+			title="Apps"
+			subtitle="aplicativos"
+			description="desenvolvimento de <span class='text-sw-navy font-bold dark:text-sw-flamingo'>aplicativos nativos</span> para mobile e desktop."
+		/>
+		<ProductCard
+			iconSrc="./models/products/tools.fbx"
+			title="Áudio e Música"
+			subtitle=""
+			description=""
+		/>
+	</section>
 </div>
