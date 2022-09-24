@@ -1,5 +1,5 @@
 ---
-import ButtonToggleTheme from '@core/ButtonToggleTheme.astro';
+import ThemeToggle from '@core/ThemeToggle.astro';
 import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 ---
 
@@ -10,12 +10,13 @@ import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 		
 		<nav class="flex justify-between">
 			<a class="flex items-center">
-				<span class="self-center text-2xl font-extrabold text-sw-primary whitespace-nowrap dark:text-sw-secondary"
+				<span
+					class="self-center text-2xl font-extrabold text-sw-primary whitespace-nowrap dark:text-sw-secondary"
 					>spacewiz.dev</span
 				>
 			</a>
 			<div class="flex items-center md:hidden">
-				<ButtonToggleTheme />
+				<ThemeToggle />
 				<ButtonToggleMenu />
 			</div>
 		</nav>
@@ -43,7 +44,7 @@ import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 			</ul>
 			<div class="md:self-center flex items-center mb-4 md:mb-0">
 				<div class="hidden items-center md:flex">
-					<ButtonToggleTheme />
+					<ThemeToggle />
 				</div>
 			</div>
 		</nav>

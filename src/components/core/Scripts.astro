@@ -2,20 +2,34 @@
 ---
 
 <script is:inline>
-	// Set "light" theme as default
-	if (!localStorage.theme) {
-		localStorage.theme = 'light';
+	let startTheme = 'light';
+
+	const savedTheme = window.localStorage.getItem('theme');
+	if (savedTheme) {
+		startTheme = savedTheme;
+	} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		startTheme = 'dark';
 	}
 
+	if (startTheme === 'dark') document.documentElement.classList.add('dark');
+	else document.documentElement.classList.remove('dark');
+
+	window.localStorage.setItem('theme', startTheme);
+
+	// Set "light" theme as default
+	// if (!localStorage.theme) {
+	// 	localStorage.theme = 'light';
+	// }
+
 	// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-	if (
-		localStorage.theme === 'dark' ||
-		(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-	) {
-		document.documentElement.classList.add('dark');
-	} else {
-		document.documentElement.classList.remove('dark');
-	}
+	// if (
+	// 	localStorage.theme === 'dark' ||
+	// 	(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+	// ) {
+	// 	document.documentElement.classList.add('dark');
+	// } else {
+	// 	document.documentElement.classList.remove('dark');
+	// }
 
 	function attachEvent(selector, event, fn) {
 		const matches = document.querySelectorAll(selector);
@@ -33,11 +47,11 @@
 			document.getElementById('menu')?.classList.toggle('hidden');
 		});
 
-		attachEvent('[data-sw-btn-toggle-theme]', 'click', function (elem) {
-			elem.classList.toggle('toggled');
-			document.documentElement.classList.toggle('dark');
-			localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-		});
+		// attachEvent('[data-sw-btn-toggle-theme]', 'click', function (elem) {
+		// 	elem.classList.toggle('toggled');
+		// 	document.documentElement.classList.toggle('dark');
+		// 	localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+		// });
 	};
 
 	window.onpageshow = function () {
