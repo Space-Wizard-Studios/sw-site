@@ -1,0 +1,45 @@
+.spacewiz {
+	&__text-bg-fill {
+		@apply spacewiz__text;
+		@apply spacewiz__bg;
+		@apply spacewiz__fill;
+
+		&--reversed {
+			@apply spacewiz__text--reversed;
+			@apply spacewiz__bg--reversed;
+			@apply spacewiz__fill--reversed;
+		}
+	}
+
+	&__text {
+		@apply text-sw-primary dark:text-sw-secondary;
+
+		&--reversed {
+			@apply text-sw-secondary dark:text-sw-primary;
+		}
+	}
+
+	&__bg {
+		@apply bg-sw-primary dark:bg-sw-secondary;
+		&--reversed {
+			@apply bg-sw-secondary dark:bg-sw-primary;
+		}
+	}
+
+	&__fill {
+		@apply fill-sw-primary dark:fill-sw-secondary;
+		&--reversed {
+			@apply fill-sw-secondary dark:fill-sw-primary;
+		}
+	}
+
+	&__divider {
+		@apply stroke-sw-secondary;
+		fill-opacity: 1;
+		stroke-width: 2;
+
+		&--reversed {
+			@apply stroke-sw-primary;
+		}
+	}
+}

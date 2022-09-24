@@ -1,0 +1,27 @@
+.text-gradient {
+	font-weight: 900;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: 100% 200%;
+	background-position-y: 100%;
+	border-radius: 0.4rem;
+	animation: pulse 4s ease-in-out infinite;
+	-webkit-animation: pulse 4s ease-in-out infinite;
+	-webkit-border-radius: 0.4rem;
+	-moz-border-radius: 0.4rem;
+	-ms-border-radius: 0.4rem;
+	-o-border-radius: 0.4rem;
+}
+
+@keyframes pulse {
+
+	0%,
+	100% {
+		background-position-y: 0%;
+	}
+
+	50% {
+		background-position-y: 50%;
+	}
+}

@@ -1,0 +1,67 @@
+[data-sw-btn-toggle-menu] {
+	path {
+		@apply transition;
+	}
+
+	&.toggled g {
+		>path:first-child {
+			@apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+		}
+
+		>path:last-child {
+			@apply rotate-45 translate-y-[-8px] translate-x-[14px];
+		}
+	}
+}
+
+[data-sw-btn-toggle-theme] {
+
+	// sun
+	svg:first-child {
+		@apply opacity-100;
+	}
+
+	// moon
+	svg:last-child {
+		@apply opacity-0;
+	}
+
+	&.toggled {
+
+		// sun
+		svg:first-child {
+			@apply opacity-0;
+		}
+
+		// moon
+		svg:last-child {
+			@apply opacity-100;
+		}
+	}
+}
+
+[data-sw-btn-toggle-product] {
+
+	// sun
+	svg:first-child {
+		@apply opacity-100;
+	}
+
+	// moon
+	svg:last-child {
+		@apply opacity-0;
+	}
+
+	&.toggled {
+
+		// sun
+		svg:first-child {
+			@apply opacity-0;
+		}
+
+		// moon
+		svg:last-child {
+			@apply opacity-100;
+		}
+	}
+}
