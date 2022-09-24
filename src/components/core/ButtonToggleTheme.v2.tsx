@@ -16,7 +16,6 @@ export default function ButtonToggleTheme({ iconDark, iconLight }: ButtonToggleT
 		else document.documentElement.classList.remove('dark');
 
 		window.localStorage.setItem('theme', theme);
-
 		setTheme(theme);
 	};
 
@@ -31,13 +30,23 @@ export default function ButtonToggleTheme({ iconDark, iconLight }: ButtonToggleT
 	}, []);
 
 	return (
-		<motion.button
+		<button
 			type="button"
-			className="rounded-lg text-sm p-2.5 inline-flex items-center relative spacewiz-text"
-			aria-label="Toggle"
-			onClick={toggleTheme}
+			className="rounded-lg p-2.5 inline-flex items-center relative"
+			aria-label="Toggle Theme"
+			onClick={() => toggleTheme()}
 		>
-			{theme === 'dark' ? iconDark : iconLight}
-		</motion.button>
+			<motion.div
+				key={theme}
+				animate={{
+					scale: [0.2, 1],
+					transition: {
+						duration: 0.2,
+					},
+				}}
+			>
+				{theme === 'dark' ? iconDark : iconLight}
+			</motion.div>
+		</button>
 	);
 }

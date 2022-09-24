@@ -3,9 +3,8 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme.astro';
 import ButtonToggleTheme2 from '@core/ButtonToggleTheme.v2';
 import { Icon } from 'astro-icon';
 ---
-
 <!-- <ButtonToggleTheme /> -->
 <ButtonToggleTheme2 client:load>
-	<Icon slot="iconDark" name="akar-icons:moon-fill" class="w-6 h-6" />
-	<Icon slot="iconLight" name="akar-icons:sun-fill" class="w-6 h-6" />
+	<Icon slot="iconDark" name="akar-icons:moon-fill" class="w-6 h-6 dark-icon" />
+	<Icon slot="iconLight" name="akar-icons:sun-fill" class="w-6 h-6 light-icon" />
 </ButtonToggleTheme2>
