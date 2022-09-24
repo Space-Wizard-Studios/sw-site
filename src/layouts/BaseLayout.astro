@@ -1,10 +1,10 @@
 ---
-import '~/assets/styles/style.scss';
+import '@styles/style.scss';
 
-import MetaTags from '~/components/core/MetaTags.astro';
-import Header from '~/components/widgets/Header.astro';
-import Footer from '~/components/widgets/Footer.astro';
-import Scripts from '~/components/core/Scripts.astro';
+import MetaTags from '@core/MetaTags.astro';
+import Header from '@widgets/Header.astro';
+import Footer from '@widgets/Footer.astro';
+import Scripts from '@core/Scripts.astro';
 
 const { meta = {} } = Astro.props;
 ---

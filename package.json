@@ -1,5 +1,5 @@
 {
-	"name": "@example/basics",
+	"name": "@spacewizard/site",
 	"type": "module",
 	"exports": "./index.js",
 	"node": ">=14.16",

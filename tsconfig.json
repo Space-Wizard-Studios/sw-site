@@ -20,6 +20,27 @@
 		"paths": {
 			"~/*": [
 				"src/*"
+			],
+			"@images/*": [
+				"src/assets/images/*"
+			],
+			"@styles/*": [
+				"src/assets/styles/*"
+			],
+			"@components/*": [
+				"src/components/*"
+			],
+			"@atoms/*": [
+				"src/components/atoms/*"
+			],
+			"@core/*": [
+				"src/components/core/*"
+			],
+			"@widgets/*": [
+				"src/components/widgets/*"
+			],
+			"@layouts/*": [
+				"src/layouts/*"
 			]
 		}
 	}

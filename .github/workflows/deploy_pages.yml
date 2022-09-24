@@ -20,6 +20,9 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 
+      - name: List packages
+        run: npm ls
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
