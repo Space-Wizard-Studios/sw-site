@@ -15,7 +15,7 @@ const { iconSrc, title, subtitle, description } = Astro.props as Props;
 ---
 
 <ToggleCard client:load>
-	<CardIconCanvas fbxPath={iconSrc} slot="cardIcon" client:visible />
+	<CardIconCanvas fbxPath={iconSrc} slot="cardIcon" client:load />
 	<h2 slot="title" class="card-title" set:html={title}></h2>
 	<p slot="subtitle" set:html={subtitle}></p>
 	<p slot="description" set:html={description}></p>
