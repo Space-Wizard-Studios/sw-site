@@ -23,7 +23,7 @@ export default function ToggleCard({
 	const [isOpen, setOpen] = useState(false);
 
 	return (
-		<div className="card flex-grow: 1 w-96 min-h-[12rem] relative overflow-visible spacewiz-bg spacewiz-text-reverse">
+		<div className="card flex-grow: 1 w-96 min-h-[12rem] relative overflow-visible spacewiz__bg spacewiz__text--reversed">
 			<div className="absolute -mt-12 -mr-12 right-0 top-0 w-[150px] h-[150px] ">{cardIcon}</div>
 			<div className="card-body">
 				<>{!isOpen ? title : null}</>
@@ -37,7 +37,7 @@ export default function ToggleCard({
 						whileHover={{ scale: 1.1 }}
 						whileTap={{ scale: 0.9 }}
 						type="button"
-						className="rounded-full text-sm p-2.5 items-center spacewiz-text spacewiz-bg-reverse"
+						className="rounded-full text-sm p-2.5 items-center spacewiz__text spacewiz__bg--reversed"
 						aria-label="Toggle"
 						onClick={() => setOpen(!isOpen)}
 					>

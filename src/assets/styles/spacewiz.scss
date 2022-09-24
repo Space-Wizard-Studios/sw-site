@@ -33,13 +33,14 @@
 		}
 	}
 
-	&__divider {
+	&__stroke {
 		@apply stroke-sw-secondary;
 		fill-opacity: 1;
-		stroke-width: 2;
+		stroke-width: 1;
 
 		&--reversed {
 			@apply stroke-sw-primary;
 		}
 	}
 }
+

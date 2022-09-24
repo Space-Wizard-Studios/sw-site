@@ -21,25 +21,29 @@ export interface Props {
 const { ...props } = Astro.props as Props;
 ---
 
-<div {...props}>
-	<div class="max-w-6xl mx-auto px-8 sm:px-6">
-		<h1 class="font-black uppercase text-5xl mb-6">
-			<span>Sobre</span>
-			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">nós</span>
-		</h1>
+<section {...props}>
+	<div class="max-w-6xl mx-auto left-0 right-0">
+		<header>
+			<h1 class="font-black uppercase text-5xl mb-6">
+				<span>Sobre</span>
+				<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-accent">nós</span>
+			</h1>
+		</header>
 
-		<div class="card md:w-3/5 lg:w-1/2 mx-auto lg:mx-0 bg-sw-primary text-primary-content bottom-0">
-			<div class="card-body">
-				<p>
-					Somos um pequeno estúdio brasileiro, em 2016 lançamos o título “Mathematical!” e desde 2020
-					trabalhamos com a criação de jogos independentes e com a produção de diversos conteúdos audiovisuais
-					como animações, ilustrações, músicas, sites, vídeos e muito mais!
-				</p>
-				<p>
-					Nossa missão é criar experiências únicas e, como se com magia, encantar com sorrisos a quem
-					atingimos através da produção de peças digitais com imersão e interatividade.
-				</p>
+		<section>
+			<div class="card md:w-3/5 lg:w-1/2 mx-auto lg:mx-0 bg-sw-primary text-primary-content bottom-0">
+				<div class="card-body">
+					<p>
+						Somos um pequeno estúdio brasileiro, em 2016 lançamos o título “Mathematical!” e desde 2020
+						trabalhamos com a criação de jogos independentes e com a produção de diversos conteúdos
+						audiovisuais como animações, ilustrações, músicas, sites, vídeos e muito mais!
+					</p>
+					<p>
+						Nossa missão é criar experiências únicas e, como se com magia, encantar com sorrisos a quem
+						atingimos através da produção de peças digitais com imersão e interatividade.
+					</p>
+				</div>
 			</div>
-		</div>
+		</section>
 	</div>
-</div>
+</section>
