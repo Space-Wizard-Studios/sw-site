@@ -2,9 +2,10 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, Stars, OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing';
-import Character from './CharacterModel';
-import Ship from './ShipModel';
-import Planet from './PlanetModel';
+
+import Character from '@atoms/CharacterModel';
+import Ship from '@atoms/ShipModel';
+import Planet from '@atoms/PlanetModel';
 
 export interface HeroCanvasProps {}
 

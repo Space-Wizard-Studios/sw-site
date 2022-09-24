@@ -5,10 +5,10 @@ import { getImage } from '@astrojs/image';
 
 import { getRelativeUrlByFilePath } from '~/utils/directories';
 
-import defaultImageSrc from '~/assets/images/default.png';
+import defaultImageSrc from '@images/default.png';
 
 import { SITE } from '~/config.mjs';
-import Fonts from '~/components/atoms/Fonts.astro';
+import Fonts from '@atoms/Fonts.astro';
 
 const { src: defaultImage } = await getImage({
 	src: defaultImageSrc,

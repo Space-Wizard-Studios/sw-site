@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useFBX } from '@react-three/drei';
-import { motion } from 'framer-motion-3d';
+import { motion } from '../../../node_modules/framer-motion-3d';
 
 import type { Mesh } from 'three';
 
