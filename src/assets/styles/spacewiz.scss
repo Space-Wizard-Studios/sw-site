@@ -17,12 +17,18 @@
 		&--reversed {
 			@apply text-sw-secondary dark:text-sw-primary;
 		}
+		&--accent {
+			@apply text-sw-navy font-bold dark:text-sw-flamingo;
+		}
 	}
 
 	&__bg {
 		@apply bg-sw-primary dark:bg-sw-secondary;
 		&--reversed {
 			@apply bg-sw-secondary dark:bg-sw-primary;
+		}
+		&--accent {
+			@apply bg-sw-navy font-bold dark:bg-sw-flamingo;
 		}
 	}
 

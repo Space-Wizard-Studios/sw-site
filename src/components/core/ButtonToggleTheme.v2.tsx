@@ -32,7 +32,7 @@ export default function ButtonToggleTheme({ iconDark, iconLight }: ButtonToggleT
 	return (
 		<button
 			type="button"
-			className="rounded-lg p-2.5 inline-flex items-center relative"
+			className="rounded-lg p-2.5 inline-flex items-center relative bg-sw-secondary-200 dark:bg-sw-primary-700"
 			aria-label="Toggle Theme"
 			onClick={() => toggleTheme()}
 		>
