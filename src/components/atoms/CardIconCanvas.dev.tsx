@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import { useInView } from 'framer-motion';
 
-import CardIconModel from '@atoms/CardIconModel.dev';
+import CardIconModel from '@atoms/CardIconModel';
 
 export interface CardIconCanvasProps {
 	fbxPath: string;
