@@ -25,29 +25,22 @@ const { ...props } = Astro.props as Props;
 
 <div {...props}>
 	<header>
-		<h1 class="font-black uppercase text-5xl mb-8">
+		<h1 class="font-black uppercase text-4xl mb-8">
 			<span>Sobre</span>
 			<span class="text-gradient bg-gradient-to-t from-sw-primary-300 to-sw-flamingo">nós</span>
 		</h1>
 	</header>
 
-	<section>
-		<div class="card block md:w-3/5 lg:w-1/2 mx-auto lg:mx-0 bg-sw-primary text-primary-content bottom-0">
-			<div class="card-body">
-				<p>
-					Somos um pequeno estúdio brasileiro, em 2016 lançamos o título “Mathematical!” e desde 2020
-					trabalhamos com a criação de jogos independentes e com a produção de diversos conteúdos audiovisuais
-					como animações, ilustrações, músicas, sites, vídeos e muito mais!
-				</p>
-				<p>
-					Nossa missão é criar experiências únicas e, como se com magia, encantar com sorrisos a quem
-					atingimos através da produção de peças digitais com imersão e interatividade.
-				</p>
-			</div>
+	<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+		<div>
+			<p>Somos um pequeno estúdio brasileiro de produção de diversos conteúdos audiovisuais.</p>
+			<p>
+				Criamos <span class="text-sw-flamingo font-bold">experiências únicas</span> e, como se com magia, buscamos
+				encantar com sorrisos através da imersão e interatividade.
+			</p>
 		</div>
-
-		<figure class="w-2/6 block">
-			<img src={swIcon} alt='' width="100%"/>
+		<figure>
+			<img src={swIcon} alt="" width="50%" />
 		</figure>
 	</section>
 </div>

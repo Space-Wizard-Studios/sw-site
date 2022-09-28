@@ -1,0 +1,62 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+	[props: string]: any;
+}
+
+const { ...props } = Astro.props as Props;
+---
+
+<div
+	class="card card-compact shadow-lg relative overflow-visible bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800  text-sw-secondary-500"
+>
+	<div class="card-body place-items-center items-center relative">
+		<div class="avatar -mt-8 absolute">
+			<div class="w-24 rounded-full ring ring-sw-navy dark:ring-sw-flamingo ring-offset-base-100 ring-offset-2">
+				<img src="https://placeimg.com/192/192/people" />
+			</div>
+		</div>
+
+		<div class="mt-20 w-full text-center">
+			<h2 class="text-lg font-extrabold spacewiz__text">Team Member</h2>
+			<div class="my-2 text-sw-primary/60 dark:text-sw-secondary/60">
+				<p>Role 1</p>
+				<p>Role 2</p>
+				<p>Role 3</p>
+			</div>
+		</div>
+
+		<div class="mt-2 text-center ">
+			<span class="badge m-1 p-1 text-sw-primary dark:text-sw-secondary bg-sw-secondary-700 dark:bg-sw-primary-900 border-none">Concept Art</span>
+			<span class="badge m-1 p-1 text-sw-primary dark:text-sw-secondary bg-sw-secondary-700 dark:bg-sw-primary-900 border-none">Ilustração</span>
+			<span class="badge m-1 p-1 text-sw-primary dark:text-sw-secondary bg-sw-secondary-700 dark:bg-sw-primary-900 border-none">Design Gráfico</span>
+		</div>
+
+		<div class="card-actions justify-end">
+			<div class="dropdown dropdown-top dropdown-end">
+				<label tabindex="0" for="social-links" class="btn btn-circle m-1 spacewiz__bg--accent text-sw-primary border-none">
+					<Icon name="akar-icons:plus" class="w-6 h-6" />
+				</label>
+                
+				<input type="checkbox" id="social-links" class="modal-toggle" />
+
+				<div class="modal z-50">
+					<div class="modal-box z-50">
+						<ul>
+							<li>Instagram</li>
+							<li>Linkedin</li>
+							<li>GitHub</li>
+							<li>Artstation</li>
+							<li>SoundCloud</li>
+						</ul>
+						<div class="modal-action">
+							<label for="social-links" class="btn">Yay!</label>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

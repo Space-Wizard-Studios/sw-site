@@ -14,33 +14,33 @@
 	}
 }
 
-// moon
-[astro-icon].dark-icon {
+// // moon
+// [astro-icon].dark-icon {
 
-	// moon
-	path:nth-child(1) {
-		color: silver;
-	}
+// 	// moon
+// 	path:nth-child(1) {
+// 		color: silver;
+// 	}
 
-	//star
-	path:nth-child(2) {
-		color: rgb(241, 206, 50);
-	}
-}
+// 	//star
+// 	path:nth-child(2) {
+// 		color: rgb(241, 206, 50);
+// 	}
+// }
 
-// sun
-[astro-icon].light-icon {
+// // sun
+// [astro-icon].light-icon {
 
-	// círculo
-	path:nth-child(1) {
-		color: rgb(255, 187, 0)
-	}
+// 	// círculo
+// 	path:nth-child(1) {
+// 		color: rgb(255, 187, 0)
+// 	}
 
-	// raios
-	path:nth-child(2) {
-		color: gold
-	}
-}
+// 	// raios
+// 	path:nth-child(2) {
+// 		color: gold
+// 	}
+// }
 
 // [data-sw-btn-toggle-theme] {
 

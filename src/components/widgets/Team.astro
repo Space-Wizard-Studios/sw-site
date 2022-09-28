@@ -1,20 +1,5 @@
 ---
-import { LoremIpsum } from 'lorem-ipsum';
-
-const lorem = new LoremIpsum(
-	{
-		sentencesPerParagraph: {
-			max: 10,
-			min: 5,
-		},
-		wordsPerSentence: {
-			max: 20,
-			min: 10,
-		},
-	},
-	'html'
-);
-
+import TeamCard from '@atoms/TeamCard.astro';
 export interface Props {
 	[props: string]: any;
 }
@@ -24,7 +9,7 @@ const { ...props } = Astro.props as Props;
 
 <div {...props}>
 	<header>
-		<h1 class="font-black uppercase text-5xl">
+		<h1 class="font-black uppercase text-4xl">
 			<span>A tripulação</span>
 		</h1>
 		<p class="text-2xl mb-8">
@@ -32,7 +17,11 @@ const { ...props } = Astro.props as Props;
 		</p>
 	</header>
 
-	<section class="text-justify mb-12">
-		<span set:html={lorem.generateParagraphs(2)}></span>
+	<section class="grid grid-cols-2 lg:grid-cols-3 gap-16 text-justify my-16">
+		<TeamCard />
+		<TeamCard />
+		<TeamCard />
+		<TeamCard />
+		<TeamCard />
 	</section>
 </div>
