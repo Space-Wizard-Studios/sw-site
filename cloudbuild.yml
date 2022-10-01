@@ -10,13 +10,6 @@ steps:
     id: Buildpack
     entrypoint: pack
 
-  - name: 'ubuntu'
-    args:
-    - '-c'
-    - |
-        ls -R /workspace
-    entrypoint: 'bash'
-
   #* PUSH
   - name: gcr.io/cloud-builders/docker
     args:
