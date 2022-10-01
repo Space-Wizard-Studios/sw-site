@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 
 export default defineConfig({
-	site: 'https://sw-site-3goatridea-rj.a.run.app/',
+	site: 'https://sw-site-us-central-3goatridea-uc.a.run.app',
 	base: '/',
 	output: 'static',
 	server: { port: 3000, host: true },
