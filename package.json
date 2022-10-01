@@ -7,7 +7,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"start": "astro build --root ./workspace/",
+		"start": "astro build --root ./sw-site/",
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro"
