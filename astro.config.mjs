@@ -9,7 +9,9 @@ import image from '@astrojs/image';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://sw-site-3goatridea-rj.a.run.app/',
+	base: '/',
 	output: 'static',
+	server: { port: 3000, host: true },
 	integrations: [
 		react(),
 		mdx(),
