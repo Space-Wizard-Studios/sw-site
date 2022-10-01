@@ -40,14 +40,14 @@ options:
   substitutionOption: ALLOW_LOOSE
 
 substitutions:
-  _LABELS: gcb-trigger-id=9af36d00-4924-4dde-9343-b33056b4745d
-  _TRIGGER_ID: 9af36d00-4924-4dde-9343-b33056b4745d
-  _DEPLOY_REGION: southamerica-east1
+  _TRIGGER_ID: a22eefad-f82d-4773-b36e-16ccbf3e12ec
+  _DEPLOY_REGION: us-central1
   _GCR_HOSTNAME: us.gcr.io
   _PLATFORM: managed
-  _SERVICE_NAME: sw-site
-
+  _SERVICE_NAME: sw-site-us-central
+  _LABELS: gcb-trigger-id=a22eefad-f82d-4773-b36e-16ccbf3e12ec
+  
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - gcp-cloud-build-deploy-cloud-run-managed
-  - sw-site
+  - sw-site-us-central
