@@ -9,9 +9,13 @@ steps:
       - '--path=.'
     id: Buildpack
     entrypoint: pack
-    volumes:
-    - name: 'myvolume'
-      path: '/persistent_volume'
+
+  - name: 'ubuntu'
+    args:
+    - '-c'
+    - |
+        ls -R /workspace
+    entrypoint: 'bash'
 
   #* PUSH
   - name: gcr.io/cloud-builders/docker
@@ -19,9 +23,6 @@ steps:
       - push
       - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
     id: Push
-    volumes:
-    - name: 'myvolume'
-      path: '/persistent_volume'
 
   #* DEPLOY
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
@@ -38,9 +39,6 @@ steps:
       - '--quiet'
     id: Deploy
     entrypoint: gcloud
-    volumes:
-    - name: 'myvolume'
-      path: '/persistent_volume'
 
 images:
   - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
