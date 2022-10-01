@@ -10,7 +10,7 @@ import image from '@astrojs/image';
 export default defineConfig({
 	site: 'https://sw-site-3goatridea-rj.a.run.app/',
 	base: '/',
-	output: 'server',
+	output: 'static',
 	server: { port: 3000, host: true },
 	integrations: [
 		react(),
