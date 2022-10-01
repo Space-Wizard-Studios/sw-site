@@ -13,10 +13,6 @@ steps:
       - push
       - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
     id: Push
-  - name: npm
-    args:
-      - run npm install
-    id: NPM Install
   - name: aaaaaaaa
     args:
       - run ls
