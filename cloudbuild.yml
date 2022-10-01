@@ -20,7 +20,7 @@ steps:
   #* DEPLOY
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
     args:
-      - run
+      - run -p 8080:80
       - services
       - update
       - $_SERVICE_NAME
