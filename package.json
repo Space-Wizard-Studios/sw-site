@@ -6,8 +6,8 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "astro dev --config astro.config.dev.mjs",
-		"start": "astro build --config astro.config.build.mjs --port 8080",
+		"dev": "astro dev --config astro.config.dev.mjs --port 8080",
+		"start": "astro dev --config astro.config.dev.mjs --port 8080",
 		"build": "astro build --config astro.config.build.mjs --port 8080",
 		"preview": "astro preview",
 		"astro": "astro"

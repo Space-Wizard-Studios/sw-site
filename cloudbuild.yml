@@ -1,31 +1,40 @@
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
-    id: 'Install node_modules based on package.json'
-    args: ['install']
-  # NOTE: npx is used as workaround to allow serverless command to be found
-  # https://github.com/serverless/serverless/issues/4889
-  - name: 'gcr.io/cloud-builders/npm'
-    id: 'Install npx'
-    args: ['install', '-g', 'npx']
-  - name: 'gcr.io/cloud-builders/npm'
-    id: 'Install Serverless framework using npm'
-    args: ['install', '-g', 'serverless']
-  - name: gcr.io/cloud-builders/gcloud
+  #* PACK
+  - name: gcr.io/k8s-skaffold/pack
     args:
-      - kms
-      - decrypt
-      - --ciphertext-file=mykeyfile.json.enc
-      - --plaintext-file=mykeyfile.json
-      - --location=global
-      - --keyring=${_KEYRING}
-      - --key=${_KEY}
-  - name: 'gcr.io/cloud-builders/npm'
-    id: 'Deploy serverless framework'
-    entrypoint: bash
-    args: ['-c', 'npx serverless deploy -v']
-substitutions:
-  _KEYRING: my_GCP_Keyring
-  _KEY: my_GCP_Key
+      - build
+      - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+      - '--builder=gcr.io/buildpacks/builder:v1'
+      - '--network=cloudbuild'
+      - '--path=.'
+    id: Buildpack
+    entrypoint: pack
+
+  #* PUSH
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+    id: Push
+
+  #* DEPLOY
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
+    args:
+      - run
+      - services
+      - update
+      - $_SERVICE_NAME
+      - '--platform=managed'
+      - '--image=$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
+      - >-
+        --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID,$_LABELS
+      - '--region=$_DEPLOY_REGION'
+      - '--quiet'
+    id: Deploy
+    entrypoint: gcloud
+
+images:
+  - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
 
 options:
   substitutionOption: ALLOW_LOOSE

@@ -7,7 +7,6 @@ import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 
 export default defineConfig({
-	site: 'https://sw-site-us-central-3goatridea-uc.a.run.app',
 	base: '/',
 	output: 'static',
 	integrations: [
