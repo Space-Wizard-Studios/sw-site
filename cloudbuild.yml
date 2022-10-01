@@ -23,14 +23,6 @@ steps:
     - name: 'myvolume'
       path: '/persistent_volume'
 
-  - name: 'ubuntu'
-    entrypoint: 'bash'
-    args:
-      - 'ls'
-    volumes:
-    - name: 'myvolume'
-      path: '/persistent_volume'
-
   #* DEPLOY
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
     args:
