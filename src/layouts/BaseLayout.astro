@@ -1,18 +1,15 @@
 ---
 import '@styles/style.scss';
 
-import MetaTags from '@core/MetaTags.astro';
 import Header from '@widgets/Header.astro';
 import Footer from '@widgets/Footer.astro';
 import Scripts from '@core/Scripts.astro';
 
-const { meta = {} } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="ptbr" class="motion-safe:scroll-smooth 2xl:text-5">
 	<head>
-		<MetaTags {...meta} />
 	</head>
 
 	<body class="antialiased py-1 md:py-0 spacewiz__bg--reversed spacewiz__text align-middle">
