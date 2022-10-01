@@ -8,8 +8,7 @@ import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://Space-Wizard-Studios.github.io',
-	base: '/',
+	site: 'https://sw-site-3goatridea-rj.a.run.app/',
 	output: 'static',
 	integrations: [
 		react(),
