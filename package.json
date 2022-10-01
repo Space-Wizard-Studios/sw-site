@@ -6,9 +6,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro build --host",
-		"build": "astro build --host",
+		"dev": "astro dev --config astro.config.dev.mjs",
+		"start": "astro build --host --config astro.config.build.mjs",
+		"build": "astro build --host --config astro.config.build.mjs",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
