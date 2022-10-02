@@ -23,7 +23,7 @@ export default function ToggleCard({
 	const [isOpen, setOpen] = useState(false);
 
 	return (
-		<div className="card min-h-[12rem] relative overflow-visible shadow-lg bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800  text-sw-secondary-500">
+		<div className="card min-h-[12rem] relative overflow-visible shadow-lg bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800 text-sw-secondary-500">
 			<div className="absolute mx-auto -mt-8 md:-mt-4 md:-mr-12 right-0 left-0 md:left-auto top-0 w-16 h-16 md:w-24 md:h-24">
 				{cardIcon}
 			</div>

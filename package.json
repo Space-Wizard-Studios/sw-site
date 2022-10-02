@@ -7,7 +7,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro build --config astro.config.build.mjs",
+		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
@@ -33,7 +33,6 @@
 		"astro-icon": "^0.7.3",
 		"daisyui": "^2.31.0",
 		"firebase": "^9.10.0",
-		"firebase-tools": "^11.13.0",
 		"framer-motion": "^7.3.6",
 		"framer-motion-3d": "^7.3.0",
 		"limax": "^3.0.0",
@@ -58,6 +57,7 @@
 		"stylelint-config-prettier": "^9.0.3",
 		"stylelint-config-recommended-scss": "^7.0.0",
 		"stylelint-config-standard": "^28.0.0",
-		"stylelint-config-standard-scss": "^5.0.0"
+		"stylelint-config-standard-scss": "^5.0.0",
+		"firebase-tools": "^11.13.0"
 	}
 }
