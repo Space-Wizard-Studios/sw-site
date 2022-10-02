@@ -1,0 +1,110 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.3.27",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "games",
+      "rotation": [
+        0.7071068286895752,
+        0,
+        0,
+        0.7071068286895752
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Text.007",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 7456,
+      "max": [
+        0.3958376348018646,
+        0.11297842115163803,
+        0.31400319933891296
+      ],
+      "min": [
+        -0.393496036529541,
+        -0.09581626951694489,
+        -0.32157647609710693
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 7456,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 7456,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 18411,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 89472,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 89472,
+      "byteOffset": 89472,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 59648,
+      "byteOffset": 178944,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 36824,
+      "byteOffset": 238592,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "product_model-games_placeholder_data.bin",
+      "byteLength": 275416
+    }
+  ]
+}
