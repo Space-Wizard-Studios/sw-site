@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  deploy_to_live:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -14,12 +14,6 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: aaa
-        run: ls ./
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
