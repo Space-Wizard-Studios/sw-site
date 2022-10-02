@@ -6,9 +6,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "astro dev --config astro.config.dev.mjs --port 8080 --host",
-		"start": "astro dev --config astro.config.build.mjs --port 8080 --host",
-		"build": "astro build --config astro.config.build.mjs --port 8080 --host",
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build --config astro.config.build.mjs",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
@@ -33,6 +33,8 @@
 		"astro": "^1.3.0",
 		"astro-icon": "^0.7.3",
 		"daisyui": "^2.31.0",
+		"firebase": "^9.10.0",
+		"firebase-tools": "^11.13.0",
 		"framer-motion": "^7.3.6",
 		"framer-motion-3d": "^7.3.0",
 		"limax": "^3.0.0",
