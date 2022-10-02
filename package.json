@@ -7,7 +7,6 @@
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"start": "astro dev",
 		"build": "astro build --config astro.config.build.mjs",
 		"preview": "astro preview",
 		"astro": "astro"

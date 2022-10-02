@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 
 export default defineConfig({
+	base: '/site',
 	integrations: [
 		react(),
 		mdx(),
