@@ -18,6 +18,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: aaa
+        run: ls ./
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
