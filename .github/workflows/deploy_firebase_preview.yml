@@ -1,11 +1,10 @@
-name: Deploy LiveSite
+name: Deploy to Preview
 
 on:
-  push:
-    branches: [ main ]
+  pull_request:
 
 jobs:
-  deploy_to_live:
+  deploy_to_preview:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -20,4 +19,3 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}'
           projectId: sw-space-site
-          channelId: live
