@@ -4,9 +4,6 @@ on:
   push:
     branches: [ main ]
 
-permissions:
-  contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,12 +18,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Install Firebase Tools
-        run: npm install firebase-tools
-
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}'
           projectId: sw-space-site
+          channelId: live
