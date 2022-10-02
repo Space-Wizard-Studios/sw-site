@@ -1,5 +1,5 @@
 {
-  "projects": {
-    "default": "sw-space-site"
-  }
+	"projects": {
+		"default": "sw-space-site"
+	}
 }
