@@ -27,7 +27,7 @@ export default function ToggleCard({
 			<div className="absolute mx-auto -mt-8 md:-mt-4 md:-mr-12 right-0 left-0 md:left-auto top-0 w-16 h-16 md:w-24 md:h-24">
 				{cardIcon}
 			</div>
-			<div className="card-body relative">
+			<div className="card-body relative text-4xl">
 				<>{!isOpen ? title : null}</>
 				<>{isOpen ? description : subtitle}</>
 				<div className="flex justify-end absolute -mr-2 -mb-2 right-0 bottom-0">
