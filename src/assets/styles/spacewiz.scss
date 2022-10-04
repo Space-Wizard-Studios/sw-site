@@ -24,12 +24,18 @@
 
 	&__bg {
 		@apply bg-sw-primary dark:bg-sw-secondary;
+
 		&--reversed {
 			@apply bg-sw-secondary dark:bg-sw-primary;
 		}
 		&--accent {
-			@apply bg-sw-navy font-bold dark:bg-sw-flamingo;
+			@apply bg-sw-navy dark:bg-sw-flamingo font-bold;
 		}
+	}
+
+	&__dotted {
+		background-image: radial-gradient(ellipse at center, var(--tw-gradient-from) 10%, var(--tw-gradient-to) 12%);
+		background-size: 10px 10px;
 	}
 
 	&__fill {
@@ -49,4 +55,3 @@
 		}
 	}
 }
-

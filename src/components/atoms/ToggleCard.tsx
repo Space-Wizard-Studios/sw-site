@@ -38,7 +38,7 @@ export default function ToggleCard({
 							clipPath: isOpen ? openedClipPath : closedClipPath,
 						}}
 						transition={{ duration: 0.3, ease: 'easeInOut' }}
-						className="absolute w-full h-full left-0 top-0 p-8 text-4xl spacewiz__bg"
+						className="absolute w-full h-full left-0 top-0 p-8 text-4xl spacewiz__bg spacewiz__dotted from-sw-secondary/10 dark:from-sw-primary/10 to-sw-primary dark:to-sw-secondary"
 					>
 						{description}
 					</motion.div>
