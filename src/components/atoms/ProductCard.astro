@@ -6,16 +6,17 @@ import ToggleCardCanvas from '@atoms/ToggleCardCanvas';
 
 export interface Props {
 	iconSrc: string;
+	iconColor: number;
 	title: string;
 	subtitle: string;
 	description: string;
 }
 
-const { iconSrc, title, subtitle, description } = Astro.props as Props;
+const { iconSrc, iconColor, title, subtitle, description } = Astro.props as Props;
 ---
 
 <ToggleCard client:load>
-	<ToggleCardCanvas modelPath={iconSrc} slot="cardIcon" client:load />
+	<ToggleCardCanvas modelPath={iconSrc} modelColor={iconColor} slot="cardIcon" client:load />
 	<h2 slot="title" class="card-title spacewiz__text--accent" set:html={title}></h2>
 	<p slot="subtitle" class="spacewiz__text" set:html={subtitle}></p>
 	<p slot="description" class="spacewiz__text--reversed" set:html={description}></p>

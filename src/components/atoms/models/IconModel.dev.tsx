@@ -1,11 +1,13 @@
 import { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
+import { Color, MeshStandardMaterial } from 'three';
 
 import { motion } from '../../../../node_modules/framer-motion-3d';
 
 export interface IconProps {
 	modelPath: string;
+	modelColor: number;
 	isInView: boolean;
 	[props: string]: any;
 }
@@ -17,9 +19,13 @@ type GLTFResult = GLTF & {
 	materials: {};
 };
 
-export default function Icon({ modelPath, isInView, ...props }: IconProps) {
+export default function Icon({ modelPath, modelColor, isInView, ...props }: IconProps) {
 	const ref = useRef<THREE.Group>(null);
 	const { nodes, materials } = useGLTF(modelPath) as GLTFResult;
+
+	nodes.icon.material = new MeshStandardMaterial({
+		color: new Color(modelColor),
+	});
 
 	return (
 		<group ref={ref} {...props}>
