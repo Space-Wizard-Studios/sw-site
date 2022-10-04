@@ -19,10 +19,55 @@ const { ...props } = Astro.props as Props;
 	</header>
 
 	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-justify my-16">
-		<TeamCard />
-		<TeamCard />
-		<TeamCard />
-		<TeamCard />
-		<TeamCard />
+		<TeamCard
+			photoSrc="https://placeimg.com/192/192/people"
+			name="Alexandre Barbosa"
+			roles={['Sound Designer']}
+			skills={['Concept Art', 'Ilustração', 'Design Gráfico']}
+			links={{
+				instagram: 'link',
+				soundcloud: 'link',
+				linkedin: 'link',
+			}}
+		/>
+		<TeamCard
+			photoSrc="https://placeimg.com/192/192/people"
+			name="Danilo Nobre"
+			roles={['Generalista 3D']}
+			skills={['Concept Art', 'Ilustração', 'Design Gráfico']}
+			links={{
+				instagram: 'link',
+				linktree: 'link',
+			}}
+		/>
+		<TeamCard
+			photoSrc="https://placeimg.com/192/192/people"
+			name="Gustavo Arantes"
+			roles={['Generalista 2D']}
+			skills={['Concept Art', 'Ilustração', 'Design Gráfico']}
+			links={{
+				artstation: 'link',
+				instagram: 'link',
+			}}
+		/>
+		<TeamCard
+			photoSrc="https://placeimg.com/192/192/people"
+			name="Rhayane Miranda"
+			roles={['Social Media Jr.']}
+			skills={['Concept Art', 'Ilustração', 'Design Gráfico']}
+			links={{
+				instagram: 'link',
+			}}
+		/>
+		<TeamCard
+			photoSrc="https://placeimg.com/192/192/people"
+			name="William Magalhães"
+			roles={['Programador Full Stack']}
+			skills={['Concept Art', 'Ilustração', 'Design Gráfico']}
+			links={{
+				instagram: 'link',
+				github: 'link',
+			}}
+		/>
 	</section>
 </div>
