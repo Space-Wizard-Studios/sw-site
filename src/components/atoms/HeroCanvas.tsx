@@ -3,9 +3,9 @@ import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, Stars, OrbitControls } from '@react-three/drei';
 import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing';
 
-import Character from '@atoms/CharacterModel';
-import Ship from '@atoms/ShipModel';
-import Planet from '@atoms/PlanetModel';
+import Character from '@atoms/models/CharacterModel';
+import Ship from '@atoms/models/ShipModel';
+import Planet from '@atoms/models/PlanetModel';
 
 export interface HeroCanvasProps {}
 
@@ -41,7 +41,7 @@ export default function HeroCanvas({}: HeroCanvasProps) {
 				<Planet position={[-10, -9, -22]} rotation={[6.66, -1.14, 1.5]} />
 			</Suspense>
 
-			<EffectComposer multisampling={8}>
+			<EffectComposer>
 				<Bloom
 					luminanceThreshold={1}
 					mipmapBlur={true}

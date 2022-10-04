@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon';
 
 import ToggleCard from '@atoms/ToggleCard';
-import CardIconCanvas from '@atoms/CardIconCanvas';
+import ToggleCardCanvas from '@atoms/ToggleCardCanvas';
 
 export interface Props {
 	iconSrc: string;
@@ -15,7 +15,7 @@ const { iconSrc, title, subtitle, description } = Astro.props as Props;
 ---
 
 <ToggleCard client:load>
-	<CardIconCanvas fbxPath={iconSrc} slot="cardIcon" client:load />
+	<ToggleCardCanvas modelPath={iconSrc} slot="cardIcon" client:load />
 	<h2 slot="title" class="card-title spacewiz__text--accent" set:html={title}></h2>
 	<p slot="subtitle" class="spacewiz__text" set:html={subtitle}></p>
 	<p slot="description" class="spacewiz__text--reversed" set:html={description}></p>
