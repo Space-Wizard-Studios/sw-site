@@ -18,7 +18,7 @@ const { iconSrc, title, subtitle, description } = Astro.props as Props;
 	<CardIconCanvas fbxPath={iconSrc} slot="cardIcon" client:load />
 	<h2 slot="title" class="card-title spacewiz__text--accent" set:html={title}></h2>
 	<p slot="subtitle" class="spacewiz__text" set:html={subtitle}></p>
-	<p slot="description" class="spacewiz__text" set:html={description}></p>
+	<p slot="description" class="spacewiz__text--reversed" set:html={description}></p>
 	<Icon slot="buttonIconPlus" name="akar-icons:plus" class="w-6 h-6" />
 	<Icon slot="buttonIconMinus" name="akar-icons:minus" class="w-6 h-6" />
 </ToggleCard>
