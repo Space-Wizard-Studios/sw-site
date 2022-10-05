@@ -27,7 +27,7 @@ export default function ToggleCard({
 
 	return (
 		<div className="relative min-h-[12rem] ">
-			<div className="card relative w-full h-full overflow-hidden shadow-lg bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-700 text-primary dark:text-sw-secondary">
+			<div className="card relative w-full h-full overflow-hidden shadow-md bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-700 text-primary dark:text-sw-secondary">
 				<div className="card-body relative text-4xl">
 					<>{title}</>
 					<>{subtitle}</>
