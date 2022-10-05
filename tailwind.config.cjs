@@ -80,7 +80,14 @@ module.exports = {
 						"700": "#0050C7",
 						"800": "#0049B8",
 						"900": "#0043A8"
+					},
+					'neon-yellow': {
+						DEFAULT: '##f7f701'
+					},
+					'neon-green': {
+						DEFAULT: '#a8f72e'
 					}
+
 				}
 			},
 			fontFamily: {

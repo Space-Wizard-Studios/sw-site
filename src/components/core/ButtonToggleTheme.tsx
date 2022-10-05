@@ -32,7 +32,7 @@ export default function ButtonToggleTheme({}: ButtonToggleThemeProps) {
 			aria-label="Toggle Theme"
 			onClick={() => toggleTheme()}
 			animate={{
-				backgroundColor: theme === 'dark' ? '#060614' : '#5297FF',
+				backgroundColor: theme === 'dark' ? '#1B2026' : '#8AB9FF',
 				transition: { duration: 0.1 },
 			}}
 		>
@@ -43,11 +43,11 @@ export default function ButtonToggleTheme({}: ButtonToggleThemeProps) {
 					opacity: theme === 'dark' ? 1 : 0,
 				}}
 			>
-				<Stars className="absolute w-full h-full top-0 left-0" fillColor="white" />
+				<Stars className="absolute w-full h-full top-0 left-0" fillColor="#E4E8EC" />
 			</motion.div>
 
 			<motion.div className="w-6 h-6" key={theme} initial={{ scale: 0.2 }} animate={{ scale: 1 }}>
-				{theme === 'dark' ? <Moon fillColor="silver" /> : <Sun fillColor="gold" />}
+				{theme === 'dark' ? <Moon fillColor="#E4E8EC" /> : <Sun fillColor="#F0F6FF" />}
 			</motion.div>
 
 			<motion.div
@@ -57,7 +57,7 @@ export default function ButtonToggleTheme({}: ButtonToggleThemeProps) {
 					translateX: theme === 'dark' ? '1.5rem' : '0rem',
 				}}
 			>
-				<Cloud className="absolute w-5 h-5 bottom-2 right-1" fillColor="white" />
+				<Cloud className="absolute w-5 h-5 bottom-2 right-1" fillColor="#B8D4FF" />
 			</motion.div>
 		</motion.button>
 	);
