@@ -18,7 +18,7 @@
 			@apply text-sw-secondary dark:text-sw-primary;
 		}
 		&--accent {
-			@apply text-sw-navy font-bold dark:text-sw-flamingo;
+			@apply font-bold text-sw-navy dark:text-sw-flamingo;
 		}
 	}
 
@@ -29,9 +29,10 @@
 			@apply bg-sw-secondary dark:bg-sw-primary;
 		}
 		&--accent {
-			@apply bg-sw-navy dark:bg-sw-flamingo font-bold;
+			@apply bg-sw-navy dark:bg-sw-flamingo;
 		}
 	}
+
 
 	&__dotted {
 		background-image: radial-gradient(ellipse at center, var(--tw-gradient-from) 10%, var(--tw-gradient-to) 12%);

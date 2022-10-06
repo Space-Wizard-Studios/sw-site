@@ -27,7 +27,7 @@ export default function ToggleCard({
 
 	return (
 		<div className="relative min-h-[12rem] ">
-			<div className="card relative w-full h-full overflow-hidden shadow-lg bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800 text-sw-secondary-500">
+			<div className="card relative w-full h-full overflow-hidden shadow-md bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-700 text-primary dark:text-sw-secondary">
 				<div className="card-body relative text-4xl">
 					<>{title}</>
 					<>{subtitle}</>
@@ -38,7 +38,9 @@ export default function ToggleCard({
 							clipPath: isOpen ? openedClipPath : closedClipPath,
 						}}
 						transition={{ duration: 0.3, ease: 'easeInOut' }}
-						className="absolute w-full h-full left-0 top-0 p-8 text-4xl spacewiz__bg spacewiz__dotted from-sw-secondary/10 dark:from-sw-primary/10 to-sw-primary dark:to-sw-secondary"
+						// className="absolute w-full h-full left-0 top-0 p-8 text-4xl spacewiz__bg spacewiz__dotted from-sw-navy/10 dark:from-sw-flamingo/20 to-sw-primary dark:to-sw-secondary"
+
+						className="absolute w-full h-full left-0 top-0 p-8 text-2xl bg-gradient-to-b from-sw-secondary-600 to-sw-secondary-900 dark:from-sw-primary-700 dark:to-sw-primary-800"
 					>
 						{description}
 					</motion.div>
