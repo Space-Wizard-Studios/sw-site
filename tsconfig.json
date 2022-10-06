@@ -4,47 +4,25 @@
 		"allowSyntheticDefaultImports": true,
 		"declaration": true,
 		"esModuleInterop": true,
-		"lib": [
-			"es2021"
-		],
+		"lib": ["es2021"],
 		"module": "esnext",
 		"moduleResolution": "node",
 		"outDir": "dist",
 		"strict": true,
 		"target": "es2021",
-		"types": [
-			"astro/client"
-		],
+		"types": ["astro/client"],
 		"allowJs": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": [
-				"src/*"
-			],
-			"@images/*": [
-				"src/assets/images/*"
-			],
-			"@styles/*": [
-				"src/assets/styles/*"
-			],
-			"@components/*": [
-				"src/components/*"
-			],
-			"@atoms/*": [
-				"src/components/atoms/*"
-			],
-			"@core/*": [
-				"src/components/core/*"
-			],
-			"@widgets/*": [
-				"src/components/widgets/*"
-			],
-			"@icons/*": [
-				"src/components/icons/*"
-			],
-			"@layouts/*": [
-				"src/layouts/*"
-			]
+			"~/*": ["src/*"],
+			"@images/*": ["src/assets/images/*"],
+			"@styles/*": ["src/assets/styles/*"],
+			"@components/*": ["src/components/*"],
+			"@atoms/*": ["src/components/atoms/*"],
+			"@core/*": ["src/components/core/*"],
+			"@widgets/*": ["src/components/widgets/*"],
+			"@icons/*": ["src/components/icons/*"],
+			"@layouts/*": ["src/layouts/*"]
 		}
 	}
 }
