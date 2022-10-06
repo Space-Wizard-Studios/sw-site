@@ -1,9 +1,9 @@
+@import "spacewiz.scss";
+@import "text.scss";
+@import "toggle.scss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components {}
-
-@import "spacewiz.scss";
-@import "text.scss";
-@import "toggle.scss";
