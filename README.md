@@ -17,8 +17,8 @@ Este é o repositório que contém o site de apresentação, portfólio e showca
 
 Requerimentos:
 
--   Node.js 14 ou superior
--   npm
+- Node.js 14 ou superior
+- npm
 
 ```pwsh
 git clone https://github.com/Space-Wizard-Studios/sw_site.git
