@@ -6,10 +6,11 @@
 		"at-rule-empty-line-before": [
 			"always",
 			{
-				"except": ["blockless-after-same-name-blockless"]
+				"except": ["blockless-after-same-name-blockless"],
+				"ignore": ["first-nested"]
 			}
 		],
-		"at-rule-no-unknown": [
+		"scss/at-rule-no-unknown": [
 			true,
 			{
 				"ignoreAtRules": ["tailwind"]
