@@ -17,6 +17,7 @@
 		&--reversed {
 			@apply text-sw-secondary dark:text-sw-primary;
 		}
+
 		&--accent {
 			@apply font-bold text-sw-navy dark:text-sw-flamingo;
 		}
@@ -28,11 +29,11 @@
 		&--reversed {
 			@apply bg-sw-secondary dark:bg-sw-primary;
 		}
+
 		&--accent {
 			@apply bg-sw-navy dark:bg-sw-flamingo;
 		}
 	}
-
 
 	&__dotted {
 		background-image: radial-gradient(ellipse at center, var(--tw-gradient-from) 10%, var(--tw-gradient-to) 12%);
@@ -41,6 +42,7 @@
 
 	&__fill {
 		@apply fill-sw-primary dark:fill-sw-secondary;
+
 		&--reversed {
 			@apply fill-sw-secondary dark:fill-sw-primary;
 		}
@@ -48,6 +50,7 @@
 
 	&__stroke {
 		@apply stroke-sw-secondary;
+
 		fill-opacity: 1;
 		stroke-width: 1;
 
