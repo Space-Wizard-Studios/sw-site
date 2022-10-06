@@ -1,11 +1,18 @@
 {
 	"extends": "stylelint-config-standard-scss",
 	"rules": {
-		"indentation": "tab",
+		"scss/indentation": "tab",
+		"scss/alpha-value-notation": "number",
 		"scss/at-rule-no-unknown": [
 			true,
 			{
 				"ignoreAtRules": ["tailwind"]
+			}
+		],
+		"scss/at-rule-empty-line-before": [
+			"always",
+			{
+				"except": ["blockless-after-same-name-blockless"]
 			}
 		]
 	}
