@@ -6,6 +6,7 @@ import { Color, MeshStandardMaterial } from 'three';
 import { motion } from '../../../../node_modules/framer-motion-3d';
 
 export interface IconProps {
+	isOpen: boolean;
 	modelPath: string;
 	modelColor: number;
 	isInView: boolean;
@@ -19,9 +20,24 @@ type GLTFResult = GLTF & {
 	materials: {};
 };
 
-export default function Icon({ modelPath, modelColor, isInView, ...props }: IconProps) {
+export default function Icon({ isOpen, modelPath, modelColor, isInView, ...props }: IconProps) {
 	const ref = useRef<THREE.Group>(null);
 	const { nodes, materials } = useGLTF(modelPath) as GLTFResult;
+
+	const variants = {
+		hidden: {
+			scale: 0,
+			rotateZ: [0, 0],
+		},
+		inView: {
+			scale: 1,
+			rotateZ: [-Math.PI / 12, Math.PI / 12],
+		},
+		open: {
+			scale: 1.2,
+			rotateZ: [-Math.PI / 12, Math.PI / 12],
+		},
+	};
 
 	nodes.icon.material = new MeshStandardMaterial({
 		color: new Color(modelColor),
@@ -32,10 +48,9 @@ export default function Icon({ modelPath, modelColor, isInView, ...props }: Icon
 			<motion.mesh
 				geometry={nodes.icon.geometry}
 				material={nodes.icon.material}
-				animate={{
-					scale: isInView ? 1 : 0,
-					rotateZ: [-Math.PI / 12, Math.PI / 12],
-				}}
+				initial="hidden"
+				animate={isOpen ? 'open' : isInView ? 'inView' : 'hidden'}
+				variants={variants}
 				transition={{
 					scale: {
 						ease: 'backOut',

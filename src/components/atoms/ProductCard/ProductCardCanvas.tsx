@@ -6,11 +6,12 @@ import { useInView } from 'framer-motion';
 import Icon from '@atoms/models/IconModel.dev';
 
 export interface ProductCardCanvasProps {
+	isOpen: boolean;
 	modelPath: string;
 	modelColor: number;
 }
 
-export default function ProductCardCanvas({ modelPath, modelColor }: ProductCardCanvasProps) {
+export function ProductCardCanvas({ isOpen, modelPath, modelColor }: ProductCardCanvasProps) {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -22,6 +23,7 @@ export default function ProductCardCanvas({ modelPath, modelColor }: ProductCard
 				<Icon
 					modelPath={modelPath}
 					modelColor={modelColor}
+					isOpen={isOpen}
 					isInView={isInView}
 					position={[0, 0, 0]}
 					rotation={[0, 0.12, -0.12]}

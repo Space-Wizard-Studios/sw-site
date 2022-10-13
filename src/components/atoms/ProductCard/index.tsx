@@ -1,24 +1,22 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import ProductCardCanvas from '@atoms/ProductCardCanvas';
-import { Plus, Minus } from '../icons/plus_minus';
-
-import type { ReactNode } from 'react';
+import { ProductCardCanvas } from './ProductCardCanvas';
+import { CardButton } from './CardButton';
 
 export interface ProductCardProps {
 	iconSrc: string;
 	iconColor: number;
-	title?: ReactNode;
-	subtitle?: ReactNode;
-	description?: ReactNode;
+	title?: React.ReactNode;
+	subtitle?: React.ReactNode;
+	description?: React.ReactNode;
 }
 
 export default function ProductCard({ iconSrc, iconColor, title, subtitle, description }: ProductCardProps) {
-	const [isOpen, setOpen] = useState(false);
-
 	const closedClipPath = 'circle(0% at 100% 100%)';
 	const openedClipPath = 'circle(150% at 100% 100%)';
+
+	const [isOpen, setOpen] = useState(false);
 
 	return (
 		<div className="relative min-h-[12rem] ">
@@ -38,27 +36,12 @@ export default function ProductCard({ iconSrc, iconColor, title, subtitle, descr
 						<p className="spacewiz__text--reversed text-sw-primary dark:text-sw-secondary">{description}</p>
 					</motion.div>
 
-					<div className="absolute right-0 bottom-0">
-						<motion.button
-							animate={{
-								rotate: isOpen ? 360 : 0,
-								transition: { ease: 'backInOut', duration: 0.25 },
-							}}
-							whileHover={{ scale: 1.1 }}
-							whileTap={{ scale: 0.9 }}
-							type="button"
-							className="rounded-full text-sm p-2.5 items-center m-2 font-bold bg-sw-navy dark:bg-sw-flamingo text-sw-primary"
-							aria-label="Toggle"
-							onClick={() => setOpen(!isOpen)}
-						>
-							{isOpen ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
-						</motion.button>
-					</div>
+					<CardButton isOpen={isOpen} setOpen={setOpen} />
 				</div>
 			</div>
 
-			<div className="absolute mx-auto -mt-8 md:-mt-4 md:-mr-12 right-0 left-0 md:left-auto top-0 w-16 h-16 md:w-24 md:h-24">
-				<ProductCardCanvas modelPath={iconSrc} modelColor={iconColor} />
+			<div className="absolute mx-auto z-10 -mt-8 md:-mt-4 md:-mr-12 right-0 left-0 md:left-auto top-0 w-16 h-16 md:w-24 md:h-24">
+				<ProductCardCanvas isOpen={isOpen} modelPath={iconSrc} modelColor={iconColor} />
 			</div>
 		</div>
 	);
