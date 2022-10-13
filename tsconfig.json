@@ -22,7 +22,6 @@
 			"@widgets/*": ["src/components/widgets/*"],
 			"@icons/*": ["src/components/icons/*"],
 			"@layouts/*": ["src/layouts/*"],
-
 			"@utils/*": ["src/utils/*"]
 		}
 	}

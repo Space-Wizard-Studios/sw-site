@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import { useInView } from 'framer-motion';
 
-import Icon from '@atoms/models/IconModel';
+import Icon from '@atoms/models/IconModel.dev';
 
 export interface ToggleCardCanvasProps {
 	modelPath: string;

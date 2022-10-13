@@ -1,6 +1,3 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
@@ -10,13 +7,11 @@ import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 import partytown from '@astrojs/partytown';
 
-import legacy from '@vitejs/plugin-legacy'
-
-import { SITE } from './src/config.mjs'
+import { SITE } from './src/config.mjs';
 
 export default defineConfig({
-	// site: SITE.origin,
-	// base: SITE.basePathname,
+	site: SITE.origin,
+	base: SITE.basePathname,
 	output: 'static',
 
 	integrations: [
@@ -37,10 +32,8 @@ export default defineConfig({
 	],
 
 	vite: {
-		plugins: [
-			legacy({
-				targets: ['defaults', 'not IE 11']
-			})
-		]
+		build: {
+			target: 'es2020',
+		},
 	},
 });
