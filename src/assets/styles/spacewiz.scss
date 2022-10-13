@@ -32,8 +32,9 @@
 
 		&--accent {
 			@apply bg-sw-navy dark:bg-sw-flamingo;
+
 			&:hover {
-				@apply bg-sw-navy-600 dark:bg-sw-flamingo-600
+				@apply bg-sw-navy-600 dark:bg-sw-flamingo-600;
 			}
 		}
 	}
