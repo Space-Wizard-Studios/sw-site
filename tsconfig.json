@@ -14,7 +14,6 @@
 		"allowJs": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["src/*"],
 			"@images/*": ["src/assets/images/*"],
 			"@styles/*": ["src/assets/styles/*"],
 			"@components/*": ["src/components/*"],
@@ -22,7 +21,9 @@
 			"@core/*": ["src/components/core/*"],
 			"@widgets/*": ["src/components/widgets/*"],
 			"@icons/*": ["src/components/icons/*"],
-			"@layouts/*": ["src/layouts/*"]
+			"@layouts/*": ["src/layouts/*"],
+
+			"@utils/*": ["src/utils/*"]
 		}
 	}
 }

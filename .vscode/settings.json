@@ -19,5 +19,6 @@
 	},
 	"prettier.jsxSingleQuote": true,
 	"prettier.singleQuote": true,
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"cSpell.words": ["drei", "gltf", "GLTF"]
 }

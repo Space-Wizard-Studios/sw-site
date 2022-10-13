@@ -87,7 +87,6 @@ module.exports = {
 					'neon-green': {
 						DEFAULT: '#a8f72e'
 					}
-
 				}
 			},
 			fontFamily: {
