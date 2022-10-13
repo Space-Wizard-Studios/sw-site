@@ -10,9 +10,12 @@ export interface Props {
 		artstation?: string;
 		github?: string;
 		instagram?: string;
+		imdb?: string;
 		linkedin?: string;
 		linktree?: string;
+		portfolio?: string;
 		soundcloud?: string;
+		youtube?: string;
 	};
 }
 
@@ -74,6 +77,13 @@ const { photoSrc, name, roles, skills, links } = Astro.props as Props;
 						) : null
 					}
 					{
+						links.imdb ? (
+							<li>
+								<a>IMDb</a>
+							</li>
+						) : null
+					}
+					{
 						links.linkedin ? (
 							<li>
 								<a>LinkedIn</a>
@@ -88,9 +98,23 @@ const { photoSrc, name, roles, skills, links } = Astro.props as Props;
 						) : null
 					}
 					{
+						links.portfolio ? (
+							<li>
+								<a>Portfólio</a>
+							</li>
+						) : null
+					}
+					{
 						links.soundcloud ? (
 							<li>
 								<a>SoundCloud</a>
+							</li>
+						) : null
+					}
+					{
+						links.youtube ? (
+							<li>
+								<a>YouTube</a>
 							</li>
 						) : null
 					}
