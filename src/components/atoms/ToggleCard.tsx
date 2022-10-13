@@ -27,8 +27,8 @@ export default function ToggleCard({
 
 	return (
 		<div className="relative min-h-[12rem] ">
-			<div className="card relative w-full h-full overflow-hidden shadow-sm bg-gradient-to-b transition-all rounded-4xl hover:shadow-xl hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo/25 from-sw-secondary-100 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-primary dark:text-sw-secondary">
-				<div className="h-full p-4 relative text-3xl">
+			<div className="card relative w-full h-full overflow-hidden transition-shadow duration-500 shadow-md bg-gradient-to-b rounded-4xl hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10 from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-primary dark:text-sw-secondary">
+				<div className="h-full p-4 relative">
 					<>{title}</>
 					<>{subtitle}</>
 
@@ -40,7 +40,7 @@ export default function ToggleCard({
 						transition={{ duration: 0.3, ease: 'easeInOut' }}
 						// className="absolute w-full h-full left-0 top-0 p-8 text-4xl spacewiz__bg  spacewiz__dotted from-sw-navy/10 dark:from-sw-flamingo/20 to-sw-primary dark:to-sw-secondary"
 
-						className="absolute flex items-center w-full h-full left-0 top-0 overflow-y-auto p-6 pr-24 text-base bg-gradient-to-b  from-sw-secondary-200 to-sw-secondary-900 dark:from-sw-primary-600 dark:to-sw-primary-800"
+						className="absolute flex items-center w-full h-full left-0 top-0 overflow-y-auto p-6 pr-24 text-base bg-gradient-to-b  from-sw-secondary-200 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800"
 					>
 						{description}
 						

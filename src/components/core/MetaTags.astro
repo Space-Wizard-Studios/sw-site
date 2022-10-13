@@ -1,0 +1,61 @@
+---
+import { AstroSeo } from "@astrolib/seo"
+import { GoogleAnalytics } from "@astrolib/analytics"
+
+import { getImage } from '@astrojs/image';
+
+import { SITE } from './src/config.mjs'
+import Fonts from '@atoms/Fonts.astro';
+
+// TODO PEGAR O HERO DAS PÁGINAS
+const { src: defaultImage } = await getImage({
+	src: 'meta_main.png',
+	width: 1200,
+	height: 628,
+});
+const {
+	title = SITE.name,
+	description = '',
+	image: _image = defaultImage,
+	canonical,
+	noindex = false,
+	nofollow = false,
+	ogTitle = title,
+	ogType = 'website',
+} = Astro.props;
+const image = 'meta_main.png'
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+
+<!-- TODO PEGAR O HERO DAS PÁGINAS -->
+<AstroSeo
+	title={title}
+	description={description}
+
+	canonical={canonical}
+	noindex={noindex}
+	nofollow={nofollow}
+
+	openGraph={{
+		url: canonical,
+		title: ogTitle,
+		description: description,
+		type: ogType,
+		image: image,
+		// site_name: 'SiteName',
+	}}
+	twitter={{
+		// handle: '@handle',
+		// site: '@site',
+		cardType: image,
+	}}
+/>
+
+<!-- Google Site Verification -->
+{SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
+
+<!-- Google Analytics -->
+{SITE.googleAnalyticsId && <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />}

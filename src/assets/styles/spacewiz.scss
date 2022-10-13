@@ -32,13 +32,16 @@
 
 		&--accent {
 			@apply bg-sw-navy dark:bg-sw-flamingo;
+			&:hover {
+				@apply bg-sw-navy-600 dark:bg-sw-flamingo-600
+			}
 		}
 	}
 
-	&__dotted {
-		background-image: radial-gradient(ellipse at center, var(--tw-gradient-from) 10%, var(--tw-gradient-to) 12%);
-		background-size: 10px 10px;
-	}
+	// &__dotted {
+	// 	background-image: radial-gradient(ellipse at center, var(--tw-gradient-from) 10%, var(--tw-gradient-to) 12%);
+	// 	background-size: 10px 10px;
+	// }
 
 	&__fill {
 		@apply fill-sw-primary dark:fill-sw-secondary;

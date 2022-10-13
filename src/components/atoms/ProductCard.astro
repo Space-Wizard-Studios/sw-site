@@ -18,7 +18,7 @@ const { iconSrc, iconColor, title, subtitle, description } = Astro.props as Prop
 <ToggleCard client:load>
 	<ToggleCardCanvas modelPath={iconSrc} modelColor={iconColor} slot="cardIcon" client:load />
 	<h2 slot="title" class="spacewiz__text--accent" set:html={title}></h2>
-	<p slot="subtitle" class="spacewiz__text" set:html={subtitle}></p>
+	<h3 slot="subtitle" class="spacewiz__text" set:html={subtitle}></h3>
 	<p slot="description" class="spacewiz__text--reversed" set:html={description}></p>
 	<Icon slot="buttonIconPlus" name="akar-icons:plus" class="w-6 h-6" />
 	<Icon slot="buttonIconMinus" name="akar-icons:minus" class="w-6 h-6" />

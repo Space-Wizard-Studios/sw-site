@@ -1,3 +1,4 @@
+@import "scrollbar";
 @import "spacewiz";
 @import "text";
 @import "toggle";
@@ -5,5 +6,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	h1 {
+		@apply text-4xl;
+	}
+
+	h2 {
+		@apply text-2xl;
+	}
+
+	h3 {
+		@apply text-xl;
+	}
+	h4 {
+		@apply text-lg;
+	}
+	h5 {
+		@apply text-lg;
+	}
+	h6 {
+		@apply text-base;
+	}
+}
 
 @layer components {}
