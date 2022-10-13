@@ -1,25 +1,20 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import ProductCardCanvas from '@atoms/ProductCardCanvas';
+import { Plus, Minus } from '../icons/plus_minus';
+
 import type { ReactNode } from 'react';
 
-export interface ToggleCardProps {
-	cardIcon?: ReactNode;
+export interface ProductCardProps {
+	iconSrc: string;
+	iconColor: number;
 	title?: ReactNode;
 	subtitle?: ReactNode;
 	description?: ReactNode;
-	buttonIconMinus?: ReactNode;
-	buttonIconPlus?: ReactNode;
 }
 
-export default function ToggleCard({
-	cardIcon,
-	title,
-	subtitle,
-	description,
-	buttonIconMinus,
-	buttonIconPlus,
-}: ToggleCardProps) {
+export default function ProductCard({ iconSrc, iconColor, title, subtitle, description }: ProductCardProps) {
 	const [isOpen, setOpen] = useState(false);
 
 	const closedClipPath = 'circle(0% at 100% 100%)';
@@ -29,8 +24,8 @@ export default function ToggleCard({
 		<div className="relative min-h-[12rem] ">
 			<div className="card relative w-full h-full overflow-hidden transition-shadow duration-500 shadow-md bg-gradient-to-b rounded-4xl hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10 from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-primary dark:text-sw-secondary">
 				<div className="h-full p-4 relative">
-					<>{title}</>
-					<>{subtitle}</>
+					<h2 className="spacewiz__text--accent">{title}</h2>
+					<h3 className="spacewiz__text">{subtitle}</h3>
 
 					<motion.div
 						initial={{ clipPath: closedClipPath }}
@@ -38,12 +33,9 @@ export default function ToggleCard({
 							clipPath: isOpen ? openedClipPath : closedClipPath,
 						}}
 						transition={{ duration: 0.3, ease: 'easeInOut' }}
-						// className="absolute w-full h-full left-0 top-0 p-8 text-4xl spacewiz__bg  spacewiz__dotted from-sw-navy/10 dark:from-sw-flamingo/20 to-sw-primary dark:to-sw-secondary"
-
-						className="absolute flex items-center w-full h-full left-0 top-0 overflow-y-auto p-6 pr-24 text-base bg-gradient-to-b  from-sw-secondary-200 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800"
+						className="absolute flex items-center w-full h-full left-0 top-0 overflow-y-auto p-6 pr-24 text-base bg-gradient-to-b from-sw-secondary-200 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800"
 					>
-						{description}
-						
+						<p className="spacewiz__text--reversed text-sw-primary dark:text-sw-secondary">{description}</p>
 					</motion.div>
 
 					<div className="absolute right-0 bottom-0">
@@ -59,14 +51,14 @@ export default function ToggleCard({
 							aria-label="Toggle"
 							onClick={() => setOpen(!isOpen)}
 						>
-							{isOpen ? buttonIconMinus : buttonIconPlus}
+							{isOpen ? <Minus className="w-6 h-6" /> : <Plus className="w-6 h-6" />}
 						</motion.button>
 					</div>
 				</div>
 			</div>
 
 			<div className="absolute mx-auto -mt-8 md:-mt-4 md:-mr-12 right-0 left-0 md:left-auto top-0 w-16 h-16 md:w-24 md:h-24">
-				{cardIcon}
+				<ProductCardCanvas modelPath={iconSrc} modelColor={iconColor} />
 			</div>
 		</div>
 	);

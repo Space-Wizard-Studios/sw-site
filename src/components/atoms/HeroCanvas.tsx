@@ -13,14 +13,14 @@ export default function HeroCanvas({}: HeroCanvasProps) {
 	return (
 		<Canvas>
 			<fog attach="fog" args={['#424251', 4, 22]} />
-			<ambientLight intensity={0.7} />
+			<ambientLight intensity={0.5} />
 			<Stars radius={350} depth={50} count={2000} factor={10} fade speed={2.25} />
 
 			<PerspectiveCamera makeDefault fov={37.8} position={[1.35, 0.93, 0.9]} rotation={[-0.38, 1.0, 0.35]}>
-				<pointLight intensity={0.8} position={[-10, -25, -10]} />
+				<pointLight intensity={0.6} position={[-10, -25, -10]} />
 				<spotLight
 					castShadow
-					intensity={2.6}
+					intensity={1.6}
 					angle={0.2}
 					penumbra={1}
 					position={[-25, 20, -15]}
