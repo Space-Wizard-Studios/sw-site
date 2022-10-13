@@ -1,6 +1,3 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
@@ -9,8 +6,6 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 import partytown from '@astrojs/partytown';
-
-import legacy from '@vitejs/plugin-legacy';
 
 import { SITE } from './src/config.mjs';
 
@@ -40,10 +35,5 @@ export default defineConfig({
 		build: {
 			target: 'es2020',
 		},
-		// plugins: [
-		// 	legacy({
-		// 		targets: ['defaults', 'not IE 11'],
-		// 	})
-		// ]
 	},
 });
