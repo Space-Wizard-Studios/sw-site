@@ -32,7 +32,7 @@ export default function ButtonToggleTheme({}: ButtonToggleThemeProps) {
 			aria-label="Toggle Theme"
 			onClick={() => toggleTheme()}
 			animate={{
-				backgroundColor: theme === 'dark' ? '#1B2026' : '#8AB9FF',
+				backgroundColor: theme === 'dark' ? '#060614' : '#8AB9FF',
 				transition: { duration: 0.1 },
 			}}
 		>
