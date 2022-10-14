@@ -70,3 +70,13 @@ export function Planet({ color = 'currentColor', ...props }) {
 		</svg>
 	);
 }
+
+export function ChevronRight({ color = 'currentColor', ...props }) {
+	return (
+		<svg {...props} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+			<g fill="none" stroke={color} strokeLinejoin="round" strokeLinecap="round" strokeWidth="8">
+				<path d="m10.5 8l4 4l-4 4" />
+			</g>
+		</svg>
+	);
+}
