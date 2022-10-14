@@ -5,7 +5,7 @@ import { Color, MeshStandardMaterial } from 'three';
 
 import { motion } from '../../../../node_modules/framer-motion-3d';
 
-export interface IconProps {
+interface IconProps {
 	isOpen: boolean;
 	modelPath: string;
 	modelColor: number;

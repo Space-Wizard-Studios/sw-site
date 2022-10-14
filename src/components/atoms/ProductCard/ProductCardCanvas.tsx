@@ -5,13 +5,13 @@ import { useInView } from 'framer-motion';
 
 import Icon from '@atoms/models/IconModel.dev';
 
-export interface ProductCardCanvasProps {
+interface Props {
 	isOpen: boolean;
 	modelPath: string;
 	modelColor: number;
 }
 
-export function ProductCardCanvas({ isOpen, modelPath, modelColor }: ProductCardCanvasProps) {
+export function ProductCardCanvas({ isOpen, modelPath, modelColor }: Props) {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 0.5 });
 

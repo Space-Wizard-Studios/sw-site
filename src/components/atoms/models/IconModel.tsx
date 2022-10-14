@@ -5,7 +5,7 @@ import { Color, MeshStandardMaterial } from 'three';
 
 import { motion } from 'framer-motion-3d';
 
-export interface IconProps {
+interface IconProps {
 	modelPath: string;
 	modelColor: number;
 	isInView: boolean;

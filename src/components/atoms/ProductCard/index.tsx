@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ProductCardCanvas } from './ProductCardCanvas';
 import { CardButton } from './CardButton';
 
-export interface ProductCardProps {
+interface Props {
 	iconSrc: string;
 	iconColor: number;
 	title?: React.ReactNode;
@@ -12,7 +12,7 @@ export interface ProductCardProps {
 	description?: React.ReactNode;
 }
 
-export default function ProductCard({ iconSrc, iconColor, title, subtitle, description }: ProductCardProps) {
+export default function ProductCard({ iconSrc, iconColor, title, subtitle, description }: Props) {
 	const closedClipPath = 'circle(0% at 100% 100%)';
 	const openedClipPath = 'circle(150% at 100% 100%)';
 

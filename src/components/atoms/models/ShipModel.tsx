@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 
-export interface ShipProps {
+interface ShipProps {
 	[props: string]: any;
 }
 
