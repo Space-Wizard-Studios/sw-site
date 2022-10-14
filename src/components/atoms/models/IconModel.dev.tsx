@@ -34,7 +34,7 @@ export default function Icon({ isOpen, modelPath, modelColor, isInView, ...props
 			rotateZ: [-Math.PI / 12, Math.PI / 12],
 		},
 		open: {
-			scale: 1.2,
+			scale: 1.1,
 			rotateZ: [-Math.PI / 12, Math.PI / 12],
 		},
 	};
