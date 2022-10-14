@@ -77,13 +77,11 @@ export function CardButton({ isOpen, setOpen }: CardButtonProps) {
 				translateX: {
 					duration: 2,
 					repeat: Infinity,
-					repeatType: 'loop',
 					ease: 'circInOut',
 				},
 				opacity: {
 					duration: 2,
 					repeat: Infinity,
-					repeatType: 'loop',
 					ease: 'circInOut',
 				},
 			},
@@ -91,64 +89,62 @@ export function CardButton({ isOpen, setOpen }: CardButtonProps) {
 	};
 
 	return (
-		<div className="absolute top-0 left-0 w-full h-full" ref={constraintsRef}>
-			<div className="relative w-full h-full">
-				<motion.div animate={{ opacity: isOpen ? 0 : 1 }}>
-					<div className="absolute right-6 left-6 bottom-3 mx-auto my-3 h-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">
-						<div className="relative w-full h-full">
-							<motion.div
-								className="grid grid-flow-col justify-center"
-								variants={container}
-								initial="hidden"
-								animate="show"
-							>
-								<motion.div variants={item}>
-									<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
-								</motion.div>
-								<motion.div variants={item}>
-									<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
-								</motion.div>
-								<motion.div variants={item}>
-									<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
-								</motion.div>
+		<div className="grow relative w-full h-16">
+			<motion.div animate={{ opacity: isOpen ? 0 : 1 }} ref={constraintsRef}>
+				<div className="absolute right-6 left-6 bottom-3 mx-auto my-3 h-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">
+					<div className="relative w-full h-full">
+						<motion.div
+							className="grid grid-flow-col justify-center"
+							variants={container}
+							initial="hidden"
+							animate="show"
+						>
+							<motion.div variants={item}>
+								<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
 							</motion.div>
-						</div>
+							<motion.div variants={item}>
+								<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
+							</motion.div>
+							<motion.div variants={item}>
+								<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
+							</motion.div>
+						</motion.div>
 					</div>
-					<div className="absolute left-0 bottom-0 w-8 h-8 m-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900"></div>
-				</motion.div>
+				</div>
+				<div className="absolute left-0 bottom-0 w-8 h-8 m-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900"></div>
+			</motion.div>
 
-				<motion.button
-					ref={targetRef}
-					className="absolute right-0 bottom-0 w-12 h-12 p-2.5 m-2 text-sm font-bold rounded-full bg-sw-secondary-900 text-sw-primary dark:bg-sw-primary-900 dark:text-sw-secondary"
-					onClick={() => setOpen(!isOpen)}
-				>
-					<Planet className="absolute left-0 right-0 top-0 bottom-0 m-auto w-8 h-8" />
-				</motion.button>
+			<motion.button
+				ref={targetRef}
+				className="absolute right-0 bottom-0 w-12 h-12 p-2.5 m-2 text-sm font-bold rounded-full bg-sw-secondary-900 text-sw-primary dark:bg-sw-primary-900 dark:text-sw-secondary"
+				onClick={() => setOpen(!isOpen)}
+			>
+				<Planet className="absolute left-0 right-0 top-0 bottom-0 m-auto w-8 h-8" />
+			</motion.button>
 
+			<motion.div
+				ref={handleRef}
+				drag="x"
+				dragConstraints={constraintsRef}
+				dragMomentum={false}
+				dragElastic={0.1}
+				onDragStart={handleDragStart}
+				onDragEnd={handleDragEnd}
+				onDrag={handleDrag}
+				className="absolute left-0 bottom-0 w-12 h-12 p-2.5 m-2 text-sm font-bold z-10"
+			>
 				<motion.div
-					ref={handleRef}
-					drag="x"
-					dragConstraints={constraintsRef}
-					dragMomentum={false}
-					dragElastic={0.1}
-					onDragStart={handleDragStart}
-					onDragEnd={handleDragEnd}
-					onDrag={handleDrag}
-					className="absolute left-0 bottom-0 w-12 h-12 p-2.5 m-2 text-sm font-bold z-10"
+					whileHover={{ scale: 1.1 }}
+					whileTap={{ scale: 0.9 }}
+					className="absolute left-0 top-0 w-12 h-12 rounded-full bg-sw-navy dark:bg-sw-flamingo text-sw-primary"
+					style={{ cursor: 'grab', rotate: '45deg' }}
 				>
-					<motion.div
-						whileHover={{ scale: 1.1 }}
-						whileTap={{ scale: 0.9 }}
-						className="absolute left-0 top-0 w-12 h-12 rounded-full bg-sw-navy dark:bg-sw-flamingo text-sw-primary"
-						style={{ cursor: 'grab', rotate: '45deg' }}
-					>
-						<Rocket
-							flames={isDragging ? 1 : 0}
-							className="absolute left-0 right-0 top-0 bottom-0 m-auto w-6 h-6"
-						/>
-					</motion.div>
+					<Rocket
+						flames={isDragging ? 1 : 0}
+						className="absolute left-0 right-0 top-0 bottom-0 m-auto w-6 h-6"
+					/>
 				</motion.div>
-			</div>
+			</motion.div>
 		</div>
 	);
 }

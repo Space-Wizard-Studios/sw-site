@@ -27,8 +27,8 @@ export default function ProductCard({ iconSrc, iconColor, title, subtitle, descr
 						: 'shadow-md hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10'
 				} transition-shadow duration-500 bg-gradient-to-b rounded-4xl   from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-primary dark:text-sw-secondary`}
 			>
-				<div className="h-full px-6 relative flex flex-cols items-start mt-8">
-					<div className="grid grid-flow-row grid-rows-2">
+				<div className="h-full flex flex-col px-6 relative mt-8">
+					<div className="grid grid-flow-row grid-rows-2  items-start">
 						<h2 className="spacewiz__text--accent">{title}</h2>
 						<h3 className="spacewiz__text">{subtitle}</h3>
 					</div>
