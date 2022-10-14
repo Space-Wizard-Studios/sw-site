@@ -4,7 +4,7 @@ import { GLTF } from 'three-stdlib';
 import { Color, LoopPingPong } from 'three';
 import { AnimationClip } from 'three';
 
-export interface CharacterProps {
+interface CharacterProps {
 	[props: string]: any;
 }
 
