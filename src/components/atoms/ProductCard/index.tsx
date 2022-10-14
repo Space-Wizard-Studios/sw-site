@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { ProductCardCanvas } from './ProductCardCanvas';
-import { CardButton } from './CardButton';
+import { ProductCanvas } from './ProductCanvas';
+import { Toggle } from './Toggle';
 
 interface Props {
 	iconSrc: string;
@@ -44,12 +44,12 @@ export default function ProductCard({ iconSrc, iconColor, title, subtitle, descr
 						<p className="spacewiz__text--reversed text-sw-primary dark:text-sw-secondary">{description}</p>
 					</motion.div>
 
-					<CardButton isOpen={isOpen} setOpen={setOpen} />
+					<Toggle isOpen={isOpen} setOpen={setOpen} />
 				</div>
 			</div>
 
 			<div className="absolute mx-auto z-10 -mt-8 md:-mt-4 md:-mr-12 right-0 left-0 md:left-auto top-0 w-16 h-16 md:w-24 md:h-24">
-				<ProductCardCanvas isOpen={isOpen} modelPath={iconSrc} modelColor={iconColor} />
+				<ProductCanvas isOpen={isOpen} modelPath={iconSrc} modelColor={iconColor} />
 			</div>
 		</div>
 	);

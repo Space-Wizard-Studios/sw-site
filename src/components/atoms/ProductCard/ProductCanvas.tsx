@@ -11,7 +11,7 @@ interface Props {
 	modelColor: number;
 }
 
-export function ProductCardCanvas({ isOpen, modelPath, modelColor }: Props) {
+export function ProductCanvas({ isOpen, modelPath, modelColor }: Props) {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, amount: 0.5 });
 
