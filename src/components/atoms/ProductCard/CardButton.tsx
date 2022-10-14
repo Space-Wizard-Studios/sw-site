@@ -89,7 +89,7 @@ export function CardButton({ isOpen, setOpen }: CardButtonProps) {
 	};
 
 	return (
-		<div className="grow relative w-full h-16">
+		<div className="grow relative w-full h-16 mb-4">
 			<motion.div animate={{ opacity: isOpen ? 0 : 1 }} ref={constraintsRef}>
 				<div className="absolute right-6 left-6 bottom-3 mx-auto my-3 h-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">
 					<div className="relative w-full h-full">

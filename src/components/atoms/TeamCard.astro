@@ -1,7 +1,8 @@
 ---
+import { Image } from '@astrojs/image/components';
 import { Icon } from 'astro-icon';
 
-export interface Props {
+export interface PropsA {
 	photoSrc: string;
 	name: string;
 	roles: string[];
@@ -19,7 +20,7 @@ export interface Props {
 	};
 }
 
-const { photoSrc, name, roles, skills, links } = Astro.props as Props;
+const { photoSrc, name, roles, skills, links } = Astro.props as PropsA;
 ---
 
 <div
@@ -28,7 +29,7 @@ const { photoSrc, name, roles, skills, links } = Astro.props as Props;
 	<div class="card-body place-items-center items-center relative">
 		<div class="avatar -mt-8 absolute">
 			<div class="w-24 rounded-full ring ring-sw-navy dark:ring-sw-flamingo ring-offset-base-100 ring-offset-2">
-				<img src={photoSrc} />
+				<Image src={photoSrc} alt="Profile Picture" />
 			</div>
 		</div>
 
@@ -51,70 +52,91 @@ const { photoSrc, name, roles, skills, links } = Astro.props as Props;
 
 		<div class="card-actions justify-end">
 			<div class="dropdown dropdown-top">
-				<label tabindex="0" class="btn btn-circle m-1 bg-sw-navy dark:bg-sw-flamingo hover:bg-sw-navy-600 hover:dark:bg-sw-flamingo-600  text-sw-primary border-none">
+				<label
+					tabindex="0"
+					class="btn btn-circle m-1 bg-sw-navy dark:bg-sw-flamingo hover:bg-sw-navy-600 hover:dark:bg-sw-flamingo-600 text-sw-primary border-none"
+				>
 					<Icon name="akar-icons:plus" class="w-6 h-6" />
 				</label>
 				<ul tabindex="0" class="dropdown-content menu p-2 shadow-md bg-base-100 rounded-box w-52">
 					{
 						links.artstation ? (
 							<li>
-								<a target="_blank"  href={links.artstation}>Artstation</a>
+								<a target="_blank" href={links.artstation}>
+									Artstation
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.github ? (
 							<li>
-								<a target="_blank"  href={links.github}>GitHub</a>
+								<a target="_blank" href={links.github}>
+									GitHub
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.instagram ? (
 							<li>
-								<a target="_blank"  href={links.instagram}>Instagram</a>
+								<a target="_blank" href={links.instagram}>
+									Instagram
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.imdb ? (
 							<li>
-								<a target="_blank"  href={links.imdb}>IMDb</a>
+								<a target="_blank" href={links.imdb}>
+									IMDb
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.linkedin ? (
 							<li>
-								<a target="_blank"  href={links.linkedin}>LinkedIn</a>
+								<a target="_blank" href={links.linkedin}>
+									LinkedIn
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.linktree ? (
 							<li>
-								<a target="_blank"  href={links.linktree}>LinkTree</a>
+								<a target="_blank" href={links.linktree}>
+									LinkTree
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.portfolio ? (
 							<li>
-								<a target="_blank"  href={links.portfolio}>Portfólio</a>
+								<a target="_blank" href={links.portfolio}>
+									Portfólio
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.soundcloud ? (
 							<li>
-								<a target="_blank"  href={links.soundcloud}>SoundCloud</a>
+								<a target="_blank" href={links.soundcloud}>
+									SoundCloud
+								</a>
 							</li>
 						) : null
 					}
 					{
 						links.youtube ? (
 							<li>
-								<a target="_blank"  href={links.youtube}>YouTube</a>
+								<a target="_blank" href={links.youtube}>
+									YouTube
+								</a>
 							</li>
 						) : null
 					}

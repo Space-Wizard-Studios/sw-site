@@ -1,6 +1,12 @@
 ---
 import TeamCard from '@atoms/TeamCard.astro';
 
+import alex from '@images/team/alex_profile.png';
+import danilo from '@images/team/danilo_profile.png';
+import gustavo from '@images/team/gustavo_profile.png';
+import rhayane from '@images/team/rhayane_profile.png';
+import william from '@images/team/william_profile.png';
+
 export interface Props {
 	[props: string]: any;
 }
@@ -20,10 +26,10 @@ const { ...props } = Astro.props as Props;
 
 	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-justify my-16">
 		<TeamCard
-			photoSrc="/images/team/alex_profile.png"
+			photoSrc={alex}
 			name="Alexandre Barbosa"
 			roles={['Generalista de Áudio']}
-			skills={['Composição', 'Produção Musical', 'Efeitos Sonoros', ]}
+			skills={['Composição', 'Produção Musical', 'Efeitos Sonoros']}
 			links={{
 				youtube: 'https://www.youtube.com/channel/UCYSb-3wJyK-L0E9YyHeqkiQ',
 				imdb: 'https://www.imdb.com/name/nm11223910/?ref_=fn_al_nm_1',
@@ -31,7 +37,7 @@ const { ...props } = Astro.props as Props;
 			}}
 		/>
 		<TeamCard
-			photoSrc="/images/team/danilo_profile.png"
+			photoSrc={danilo}
 			name="Danilo Nobre"
 			roles={['Generalista 3D']}
 			skills={['Modelagem 3D', 'Texturização', 'Rigging', 'Animação']}
@@ -40,7 +46,7 @@ const { ...props } = Astro.props as Props;
 			}}
 		/>
 		<TeamCard
-			photoSrc="/images/team/gustavo_profile.png"
+			photoSrc={gustavo}
 			name="Gustavo Arantes"
 			roles={['Generalista 2D']}
 			skills={['Concept Art', 'Ilustração']}
@@ -50,8 +56,7 @@ const { ...props } = Astro.props as Props;
 			}}
 		/>
 		<TeamCard
-			photoSrc="/images/team/rhayane_profile.png"
-
+			photoSrc={rhayane}
 			name="Rhayane Miranda"
 			roles={['Social Media']}
 			skills={['Criação', 'Analytics']}
@@ -60,7 +65,7 @@ const { ...props } = Astro.props as Props;
 			}}
 		/>
 		<TeamCard
-			photoSrc="/images/team/william_profile.png"
+			photoSrc={william}
 			name="William Magalhães"
 			roles={['Programador Full Stack']}
 			skills={['Backend', 'Frontend', 'Tech Artist']}
