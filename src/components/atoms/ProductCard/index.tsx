@@ -19,15 +19,17 @@ export default function ProductCard({ iconSrc, iconColor, title, subtitle, descr
 	const [isOpen, setOpen] = useState(false);
 
 	return (
-		<div className="relative min-h-[12rem]">
+		<div className="relative min-h-[16rem]">
 			<div
 				className={`card relative w-full h-full overflow-hidden ${
 					isOpen ? 'shadow-xl' : 'shadow-md'
 				} transition-shadow duration-500 bg-gradient-to-b rounded-4xl hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10 from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-primary dark:text-sw-secondary`}
 			>
-				<div className="h-full p-4 relative">
-					<h2 className="spacewiz__text--accent">{title}</h2>
-					<h3 className="spacewiz__text">{subtitle}</h3>
+				<div className="h-full p-4 relative flex flex-cols items-center">
+					<div className="grid grid-flow-row grid-rows-2">
+						<h2 className="spacewiz__text--accent">{title}</h2>
+						<h3 className="spacewiz__text">{subtitle}</h3>
+					</div>
 
 					<motion.div
 						initial={{ clipPath: closedClipPath }}

@@ -1,3 +1,4 @@
+@import "focus";
 @import "scrollbar";
 @import "spacewiz";
 @import "text";
@@ -32,5 +33,3 @@
 		@apply text-base;
 	}
 }
-
-@layer components {}

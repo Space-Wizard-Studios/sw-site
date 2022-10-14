@@ -1,0 +1,5 @@
+body {
+	:focus {
+		@apply outline outline-4 outline-sw-navy-300 dark:outline-sw-flamingo-300;	
+	}
+}
