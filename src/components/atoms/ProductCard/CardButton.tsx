@@ -93,31 +93,29 @@ export function CardButton({ isOpen, setOpen }: CardButtonProps) {
 	return (
 		<div className="absolute top-0 left-0 w-full h-full" ref={constraintsRef}>
 			<div className="relative w-full h-full">
-				{!isOpen ? (
-					<>
-						<div className="absolute right-6 left-6 bottom-3 mx-auto my-3 h-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">
-							<div className="relative w-full h-full">
-								<motion.div
-									className="grid grid-flow-col justify-center"
-									variants={container}
-									initial="hidden"
-									animate="show"
-								>
-									<motion.div variants={item}>
-										<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
-									</motion.div>
-									<motion.div variants={item}>
-										<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
-									</motion.div>
-									<motion.div variants={item}>
-										<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
-									</motion.div>
+				<motion.div animate={{ opacity: isOpen ? 0 : 1 }}>
+					<div className="absolute right-6 left-6 bottom-3 mx-auto my-3 h-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">
+						<div className="relative w-full h-full">
+							<motion.div
+								className="grid grid-flow-col justify-center"
+								variants={container}
+								initial="hidden"
+								animate="show"
+							>
+								<motion.div variants={item}>
+									<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
 								</motion.div>
-							</div>
+								<motion.div variants={item}>
+									<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
+								</motion.div>
+								<motion.div variants={item}>
+									<ChevronRight className="w-4 h-4 text-sw-navy dark:text-sw-flamingo" />
+								</motion.div>
+							</motion.div>
 						</div>
-						<div className="absolute left-0 bottom-0 w-8 h-8 m-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900"></div>
-					</>
-				) : null}
+					</div>
+					<div className="absolute left-0 bottom-0 w-8 h-8 m-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900"></div>
+				</motion.div>
 
 				<motion.button
 					ref={targetRef}
