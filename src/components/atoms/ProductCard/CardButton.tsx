@@ -10,13 +10,13 @@ interface Props {
 
 export function CardButton({ isOpen, setOpen }: Props) {
 	const constraintsRef = useRef<HTMLDivElement>(null);
-	const targetRef = useRef<HTMLButtonElement>(null);
+	const targetRef = useRef<HTMLDivElement>(null);
 
 	return (
 		<div className="grow relative w-full h-16 mb-4">
 			<CardButtonTrack isOpen={isOpen} constraintsRef={constraintsRef} />
-			<CardButtonTarget isOpen={isOpen} setOpen={setOpen} targetRef={targetRef} />
-			<CardButtonHandle setOpen={setOpen} targetRef={targetRef} constraintsRef={constraintsRef} />
+			<CardButtonTarget isOpen={isOpen} targetRef={targetRef} />
+			<CardButtonHandle isOpen={isOpen} setOpen={setOpen} targetRef={targetRef} constraintsRef={constraintsRef} />
 		</div>
 	);
 }
