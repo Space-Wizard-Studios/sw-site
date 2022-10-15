@@ -1,24 +1,42 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { ToggleTrack } from './ToggleTrack';
 import { ToggleTarget } from './ToggleTarget';
 import { ToggleParticle } from './ToggleParticle';
 import { ToggleHandle } from './ToggleHandle';
 
 interface Props {
+	tooltip: boolean;
 	isOpen: boolean;
 	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Toggle({ isOpen, setOpen }: Props) {
+export function Toggle({ tooltip, isOpen, setOpen }: Props) {
+	const [hasMoved, setHasMoved] = useState(false);
+
 	const constraintsRef = useRef<HTMLDivElement>(null);
 	const targetRef = useRef<HTMLDivElement>(null);
 
 	return (
-		<div className="grow relative w-full h-16 mb-4">
+		<div className="grow relative w-full h-16">
 			<ToggleTrack isOpen={isOpen} constraintsRef={constraintsRef} />
 			<ToggleTarget isOpen={isOpen} targetRef={targetRef} />
 			<ToggleParticle isOpen={isOpen} />
-			<ToggleHandle isOpen={isOpen} setOpen={setOpen} targetRef={targetRef} constraintsRef={constraintsRef} />
+			<ToggleHandle
+				isOpen={isOpen}
+				setOpen={setOpen}
+				setHasMoved={setHasMoved}
+				targetRef={targetRef}
+				constraintsRef={constraintsRef}
+			/>
+
+			{tooltip && !hasMoved && (
+				<div
+					className="absolute left-8 bottom-16 tooltip tooltip-open bg-sw-flamingo"
+					data-tip="Me arrasta pro lado :)"
+				>
+					<div className="absolute left-0 bottom-0" />
+				</div>
+			)}
 		</div>
 	);
 }

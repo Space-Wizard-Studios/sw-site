@@ -12,7 +12,7 @@ export function ToggleParticle({ isOpen }: Props) {
 			scale: 1.2,
 			transition: {
 				scale: {
-					duration: 0.5,
+					duration: 0.45,
 					ease: 'easeOut',
 				},
 
@@ -29,7 +29,7 @@ export function ToggleParticle({ isOpen }: Props) {
 			translateY: [0, dir[1]],
 			transition: {
 				opacity: {
-					duration: 0.6,
+					duration: 0.45,
 					ease: 'easeOut',
 				},
 				translateX: {
@@ -46,7 +46,7 @@ export function ToggleParticle({ isOpen }: Props) {
 
 	const N = 16;
 	const da = (2 * Math.PI) / N;
-	const radius = 40;
+	const radius = 50;
 
 	function shuffle(array: any[]) {
 		let currentIndex = array.length,
@@ -78,8 +78,9 @@ export function ToggleParticle({ isOpen }: Props) {
 			animate={isOpen ? 'shown' : 'hidden'}
 			className="absolute right-0 bottom-0 w-12 h-12 m-2"
 		>
-			{angles.map((angle) => (
+			{angles.map((angle, i) => (
 				<motion.div
+					key={i}
 					custom={[Math.cos(angle) * radius, Math.sin(angle) * radius]}
 					variants={debris}
 					className="absolute left-0 right-0 top-0 bottom-0 m-auto rounded-full w-2.5 h-1 bg-sw-navy dark:bg-sw-flamingo"
