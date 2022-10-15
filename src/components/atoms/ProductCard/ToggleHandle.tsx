@@ -19,14 +19,6 @@ export function ToggleHandle({ isOpen, setOpen, setHasMoved, targetRef, constrai
 
 	const ref = useRef<HTMLButtonElement>(null);
 
-	function openCard(open: boolean) {
-		if (open) {
-			console.log('boom!');
-		}
-
-		setOpen(open);
-	}
-
 	function getDistance() {
 		let buttonX = ref.current?.getBoundingClientRect().x ?? 0;
 		let targetX = targetRef.current?.getBoundingClientRect().x ?? 0;
@@ -50,7 +42,7 @@ export function ToggleHandle({ isOpen, setOpen, setHasMoved, targetRef, constrai
 	function handleDragEnd(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
 		const dist = getNormDistance();
 
-		openCard(dist < 0.05);
+		setOpen(dist < 0.05);
 		setIsMoving(false);
 
 		setWasDrag(true);
@@ -80,7 +72,7 @@ export function ToggleHandle({ isOpen, setOpen, setHasMoved, targetRef, constrai
 
 		setTimeout(
 			() => {
-				openCard(!isOpen);
+				setOpen(!isOpen);
 				setIsMoving(false);
 			},
 			isOpen ? 100 : 550
