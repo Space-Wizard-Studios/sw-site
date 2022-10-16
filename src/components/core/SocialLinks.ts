@@ -1,4 +1,4 @@
-export interface MemberLinks {
+export interface Socials {
 	artstation?: string;
 	github?: string;
 	instagram?: string;
@@ -10,11 +10,11 @@ export interface MemberLinks {
 	youtube?: string;
 }
 
-type Link = {
+type Social = {
 	name: string;
 };
 
-export const memberLinks: Record<string, Link> = {
+export const socials: Record<string, Social> = {
 	artstation: {
 		name: 'Artstation',
 	},
