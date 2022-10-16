@@ -6,8 +6,8 @@ interface Props {
 	isOpen: boolean;
 	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 	setHasMoved: React.Dispatch<React.SetStateAction<boolean>>;
-	targetRef: React.RefObject<Element>;
-	constraintsRef: React.RefObject<Element>;
+	targetRef: React.RefObject<HTMLElement>;
+	constraintsRef: React.RefObject<HTMLElement>;
 }
 
 export function ToggleHandle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef }: Props) {
@@ -20,14 +20,14 @@ export function ToggleHandle({ isOpen, setOpen, setHasMoved, targetRef, constrai
 	const ref = useRef<HTMLButtonElement>(null);
 
 	function getDistance() {
-		let buttonX = ref.current?.getBoundingClientRect().x ?? 0;
-		let targetX = targetRef.current?.getBoundingClientRect().x ?? 0;
+		let buttonX = ref.current?.offsetLeft ?? 0;
+		let targetX = targetRef.current?.offsetLeft ?? 0;
 		return targetX - buttonX;
 	}
 
 	function getNormDistance() {
 		let dist = getDistance();
-		let width = constraintsRef.current?.getBoundingClientRect().width ?? 1;
+		let width = constraintsRef.current?.offsetWidth ?? 1;
 		return Math.abs(dist / width);
 	}
 
