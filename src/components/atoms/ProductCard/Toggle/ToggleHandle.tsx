@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { motion, PanInfo } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Rocket } from '@icons/card_button';
 
 interface Props {

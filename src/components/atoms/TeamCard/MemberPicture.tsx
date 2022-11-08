@@ -2,11 +2,27 @@ import { motion } from 'framer-motion';
 
 interface Props {
 	photo?: React.ReactNode;
+	isOpen: boolean;
 }
 
-export function MemberPicture({ photo }: Props) {
+const variants = {
+	closed: {
+		scale: 1,
+	},
+	opened: {
+		scale: 1.2,
+		transition: { delay: 0.0 },
+	},
+};
+
+export function MemberPicture({ photo, isOpen }: Props) {
 	return (
-		<motion.div whileHover={{ scale: 1.15 }} className="avatar absolute w-24">
+		<motion.div
+			variants={variants}
+			initial="closed"
+			animate={isOpen ? 'opened' : 'closed'}
+			className="avatar absolute w-24"
+		>
 			<motion.div
 				animate={{
 					rotate: '360deg',

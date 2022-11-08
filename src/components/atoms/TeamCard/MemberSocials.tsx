@@ -1,17 +1,19 @@
-import { socials, Socials } from '~/components/core/SocialLinks';
+import { socials, Socials } from '@core/SocialLinks';
 import { Toggle } from './Toggle';
 
 interface Props {
 	links: Socials;
+	isOpen: boolean;
+	toggleOpen: Function;
 }
 
-export function MemberSocials({ links }: Props) {
+export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 	return (
 		<div className="card-actions justify-end">
 			<div className="dropdown dropdown-top">
-				<Toggle />
+				<Toggle onClick={toggleOpen} />
 
-				<ul className="dropdown-content menu p-2 shadow-md bg-base-100 rounded-box w-52 bg-sw-primary">
+				{/* <ul className="dropdown-content menu p-2 shadow-md bg-base-100 rounded-box w-52 bg-sw-primary">
 					{Object.entries(links).map(([key, value]) => {
 						return (
 							<li key={key}>
@@ -21,7 +23,7 @@ export function MemberSocials({ links }: Props) {
 							</li>
 						);
 					})}
-				</ul>
+				</ul> */}
 			</div>
 		</div>
 	);

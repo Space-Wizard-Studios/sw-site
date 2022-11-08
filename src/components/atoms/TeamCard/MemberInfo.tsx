@@ -2,9 +2,10 @@ interface Props {
 	name: string;
 	roles: string[];
 	skills: string[];
+	isOpen: boolean;
 }
 
-export function MemberInfo({ name, roles, skills }: Props) {
+export function MemberInfo({ name, roles, skills, isOpen }: Props) {
 	return (
 		<>
 			<div className="mt-20 w-full text-center">
