@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+
 import { ToggleTrack } from './ToggleTrack';
 import { ToggleTarget } from './ToggleTarget';
 import { ToggleParticle } from './ToggleParticle';
@@ -30,10 +31,7 @@ export function Toggle({ tooltip, isOpen, setOpen }: Props) {
 			/>
 
 			{tooltip && !hasMoved && (
-				<div
-					className="absolute left-8 bottom-16 tooltip tooltip-open bg-sw-flamingo"
-					data-tip="Me arrasta pro lado :)"
-				>
+				<div className="absolute left-6 bottom-16 tooltip tooltip-open bg-sw-flamingo" data-tip="Clica aqui :)">
 					<div className="absolute left-0 bottom-0" />
 				</div>
 			)}
