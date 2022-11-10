@@ -19,7 +19,7 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 				style={{ borderRadius: '99999px' }}
 				className="card-actions justify-end bg-sw-secondary-900 dark:bg-sw-primary-900"
 			>
-				<div className="flex p-4 gap-2">
+				<div className="flex flex-wrap p-4 gap-2">
 					<Toggle isOpen={isOpen} onClick={toggleOpen} />
 
 					<AnimatePresence>
