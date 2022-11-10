@@ -9,16 +9,14 @@ interface Props {
 }
 
 export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
+	const links_dict = Object.entries(links);
+	const n_links = links_dict.length;
+
 	return (
 		<LayoutGroup>
 			<motion.div
 				layout
 				style={{ borderRadius: '99999px' }}
-				transition={{
-					layout: {
-						staggerChildren: 1,
-					},
-				}}
 				className="card-actions justify-end bg-sw-primary-900"
 			>
 				<div className="flex p-4 gap-2">
@@ -26,15 +24,26 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 
 					<AnimatePresence>
 						{isOpen &&
-							Object.entries(links).map(([key, value]) => {
+							links_dict.map(([key, value], index) => {
 								return (
 									<motion.a
 										key={key}
 										target="_blank"
 										href={value}
 										initial={{ opacity: 0, translateX: '-100%' }}
-										animate={{ opacity: 1, translateX: '0%', transition: { delay: 0.2 } }}
-										exit={{ opacity: 0, translateX: '-100%', transition: { duration: 0.2 } }}
+										animate={{
+											opacity: 1,
+											translateX: '0%',
+											transition: { delay: 0.15 * (index + 1) },
+										}}
+										exit={{
+											opacity: 0,
+											translateX: '-50%',
+											transition: {
+												delay: 0.1 * n_links - 0.1 * index,
+												duration: 0.08,
+											},
+										}}
 										whileHover={{ scale: 1.1 }}
 										whileTap={{ scale: 0.9 }}
 										className="relative z-0 w-10 h-10 rounded-full bg-sw-navy dark:bg-sw-flamingo text-sw-primary border-none"
