@@ -11,7 +11,6 @@ const variants = {
 	},
 	opened: {
 		scale: 1.2,
-		transition: { delay: 0.0 },
 	},
 };
 

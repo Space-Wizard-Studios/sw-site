@@ -19,8 +19,7 @@ const variants = {
 		y: 0,
 	},
 	opened: {
-		y: -10,
-		transition: { delay: 0.0 },
+		y: -8,
 	},
 };
 
