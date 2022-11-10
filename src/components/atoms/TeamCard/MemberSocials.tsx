@@ -17,7 +17,7 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 			<motion.div
 				layout
 				style={{ borderRadius: '99999px' }}
-				className="card-actions justify-end bg-sw-primary-900"
+				className="card-actions justify-end bg-sw-secondary-900 dark:bg-sw-primary-900"
 			>
 				<div className="flex p-4 gap-2">
 					<Toggle isOpen={isOpen} onClick={toggleOpen} />
@@ -40,16 +40,17 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 											opacity: 0,
 											translateX: '-50%',
 											transition: {
-												delay: 0.1 * n_links - 0.1 * index,
+												delay: 0.1 * (n_links - index),
 												duration: 0.08,
 											},
 										}}
 										whileHover={{ scale: 1.1 }}
 										whileTap={{ scale: 0.9 }}
-										className="relative z-0 w-10 h-10 rounded-full bg-sw-navy dark:bg-sw-flamingo text-sw-primary border-none"
+										className="relative z-0 w-10 h-10 rounded-full bg-sw-navy dark:bg-sw-flamingo border-none"
 									>
 										{socials[key].icon({
-											className: 'absolute m-auto top-0 bottom-0 left-0 right-0 w-8 h-8',
+											className:
+												'absolute m-auto top-0 bottom-0 left-0 right-0 w-8 h-8 text-sw-primary',
 										})}
 									</motion.a>
 								);

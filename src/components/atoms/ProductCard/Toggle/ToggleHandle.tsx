@@ -79,11 +79,11 @@ export function ToggleHandle({ isOpen, setOpen, setHasMoved, targetRef, constrai
 			custom={clickDistance}
 			initial="closed"
 			animate={clickOpen ? 'opened' : 'closed'}
-			className="absolute left-0 bottom-2 w-12 h-12 rounded-full p-2.5 z-10 bg-sw-navy dark:bg-sw-flamingo text-sw-primary"
+			className="absolute left-0 bottom-2 w-12 h-12 rounded-full p-2.5 z-10 bg-sw-navy dark:bg-sw-flamingo"
 		>
 			<Rocket
 				flames={isMoving ? 1 : 0}
-				className="absolute left-0 right-0 top-0 bottom-0 m-auto w-6 h-6"
+				className="absolute left-0 right-0 top-0 bottom-0 m-auto w-6 h-6 text-sw-secondary dark:text-sw-primary"
 				style={{ rotate: '45deg' }}
 			/>
 		</motion.button>
