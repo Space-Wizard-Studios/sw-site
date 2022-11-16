@@ -4,6 +4,8 @@ import { GoogleAnalytics } from "@astrolib/analytics"
 
 import { getImage } from '@astrojs/image';
 
+import defaultImageSrc from 'public/sw_main.png';
+
 import { SITE } from '~/config.mjs';
 import Fonts from '@atoms/Fonts.astro';
 
@@ -44,13 +46,20 @@ const image = 'meta_main.png'
 		title: ogTitle,
 		description: description,
 		type: ogType,
-		image: image,
+		images: image
+			? [
+					{
+						url: image.toString(),
+						alt: ogTitle,
+					},
+			  ]
+			: undefined,
 		// site_name: 'SiteName',
 	}}
 	twitter={{
 		// handle: '@handle',
 		// site: '@site',
-		cardType: image,
+		cardType: image ? 'summary_large_image' : undefined,
 	}}
 />
 
