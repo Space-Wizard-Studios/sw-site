@@ -56,7 +56,7 @@
 		"eslint": "^8.27.0",
 		"eslint-plugin-astro": "^0.21.0",
 		"eslint-plugin-jsx-a11y": "^6.6.1",
-		"firebase-tools": "^11.16.0",
+		"firebase-tools": "^11.16.1",
 		"stylelint": "^14.15.0",
 		"stylelint-config-prettier": "^9.0.4",
 		"stylelint-config-recommended-scss": "^8.0.0",
