@@ -1,6 +1,5 @@
 ---
-// import { Image } from '@astrojs/image/components';
-import { Img } from "astro-imagetools/components";
+import { Image } from '@astrojs/image/components';
 import TeamCard from '@atoms/TeamCard';
 
 import alex from '@images/team/alex_profile.png';
@@ -38,7 +37,7 @@ const { ...props } = Astro.props as Props;
 				youtube: 'https://www.youtube.com/channel/UCYSb-3wJyK-L0E9YyHeqkiQ/',
 			}}
 		>
-			<Img slot="photo" src={alex} alt="Profile Picture" placeholder="blurred"/>
+			<Image slot="photo" src={alex} alt="Profile Picture" />
 		</TeamCard>
 
 		<TeamCard
@@ -50,7 +49,7 @@ const { ...props } = Astro.props as Props;
 				linkedin: 'https://www.linkedin.com/in/danilo-nobre/',
 			}}
 		>
-			<Img slot="photo" src={danilo} alt="Profile Picture" />
+			<Image slot="photo" src={danilo} alt="Profile Picture" />
 		</TeamCard>
 
 		<TeamCard
@@ -63,7 +62,7 @@ const { ...props } = Astro.props as Props;
 				portfolio: 'https://gustavarantes.myportfolio.com/',
 			}}
 		>
-			<Img slot="photo" src={gustavo} alt="Profile Picture" placeholder="blurred"/>
+			<Image slot="photo" src={gustavo} alt="Profile Picture" />
 		</TeamCard>
 
 		<TeamCard
@@ -75,7 +74,7 @@ const { ...props } = Astro.props as Props;
 				linkedin: 'https://www.linkedin.com/in/rhayane-miranda/',
 			}}
 		>
-			<Img slot="photo" src={rhayane} alt="Profile Picture" placeholder="blurred"/>
+			<Image slot="photo" src={rhayane} alt="Profile Picture" />
 		</TeamCard>
 		<TeamCard
 			client:load
@@ -87,7 +86,7 @@ const { ...props } = Astro.props as Props;
 				linkedin: 'https://www.linkedin.com/in/william-bernardes-magalhaes/',
 			}}
 		>
-			<Img slot="photo" src={william} alt="Profile Picture" placeholder="blurred"/>
+			<Image slot="photo" src={william} alt="Profile Picture" />
 		</TeamCard>
 	</section>
 </div>

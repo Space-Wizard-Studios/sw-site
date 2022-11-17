@@ -4,9 +4,9 @@ import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-// import image from '@astrojs/image';
 
-import { astroImageTools } from "astro-imagetools";
+import image from '@astrojs/image';
+
 import partytown from '@astrojs/partytown';
 
 import { SITE } from './src/config.mjs';
@@ -24,8 +24,7 @@ export default defineConfig({
 				applyBaseStyles: false,
 			},
 		}),
-		// image(),
-		astroImageTools,
+		image(),
 
 		// SEO | Analytics
 		sitemap(),
