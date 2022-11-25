@@ -40,13 +40,13 @@ const item = {
 			opacity: {
 				duration: 2,
 				repeat: Infinity,
-				ease: 'circInOut',
+				ease: 'easeInOut',
 			},
 		},
 	},
 };
 
-export function ToggleTrack({ isOpen, constraintsRef }: Props) {
+export function Track({ isOpen, constraintsRef }: Props) {
 	return (
 		<motion.div animate={{ opacity: isOpen ? 0 : 1 }} ref={constraintsRef}>
 			<div className="absolute right-6 left-6 bottom-3 mx-auto my-3 h-4 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">

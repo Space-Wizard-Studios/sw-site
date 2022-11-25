@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
 
 export default function Icon({ isOpen, modelPath, modelColor, isInView, ...props }: IconProps) {
 	const ref = useRef<THREE.Group>(null);
-	const { nodes, materials } = useGLTF(modelPath) as GLTFResult;
+	const { nodes, materials } = useGLTF(modelPath) as any as GLTFResult;
 
 	const variants = {
 		hidden: {

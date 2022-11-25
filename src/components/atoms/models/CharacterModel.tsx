@@ -50,7 +50,7 @@ type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
 export default function Character({ ...props }: CharacterProps) {
 	const ref = useRef<THREE.Group>(null);
-	const { nodes, materials, animations } = useGLTF('./models/hero/character.gltf') as GLTFResult;
+	const { nodes, materials, animations } = useGLTF('./models/hero/character.gltf') as any as GLTFResult;
 	const { actions } = useAnimations(animations, ref);
 
 	useEffect(() => {

@@ -18,7 +18,11 @@ const { meta = {} } = Astro.props;
 
 	<body class="antialiased py-1 md:py-0 spacewiz__bg--reversed spacewiz__text align-middle">
 		<Header />
-		<slot />
+
+		<main class="overflow-x-hidden min-h-[100vh]">
+			<slot />
+		</main>
+
 		<Footer />
 		<Scripts />
 	</body>
