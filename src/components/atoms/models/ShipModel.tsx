@@ -25,7 +25,7 @@ type GLTFResult = GLTF & {
 
 export default function Ship({ ...props }: ShipProps) {
 	const ref = useRef<THREE.Group>(null);
-	const { nodes, materials } = useGLTF('./models/hero/ship.gltf') as GLTFResult;
+	const { nodes, materials } = useGLTF('./models/hero/ship.gltf') as any as GLTFResult;
 
 	return (
 		<group ref={ref} {...props}>

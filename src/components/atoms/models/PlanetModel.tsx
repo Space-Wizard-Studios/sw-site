@@ -17,7 +17,7 @@ type GLTFResult = GLTF & {
 
 export default function Planet({ ...props }: PlanetProps) {
 	const ref = useRef<THREE.Group>(null);
-	const { nodes, materials } = useGLTF('./models/hero/planet.gltf') as GLTFResult;
+	const { nodes, materials } = useGLTF('./models/hero/planet.gltf') as any as GLTFResult;
 
 	return (
 		<group ref={ref} {...props}>
