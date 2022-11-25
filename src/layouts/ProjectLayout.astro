@@ -1,0 +1,18 @@
+---
+import Layout from '@layouts/BaseLayout.astro';
+
+type Props = {
+	title: string;
+};
+
+const { title } = Astro.props as Props;
+---
+
+<Layout>
+	<section>
+		<h1>{title}</h1>
+		<article class="my-6">
+			<slot />
+		</article>
+	</section>
+</Layout>
