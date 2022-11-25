@@ -42,7 +42,7 @@ const variants = {
 	}),
 };
 
-export function ToggleHandle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef }: Props) {
+export function Handle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef }: Props) {
 	const [clickDistance, setClickDistance] = useState(0);
 	const [clickOpen, setClickOpen] = useState(false);
 	const [isMoving, setIsMoving] = useState(false);

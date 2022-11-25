@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 
-import { ToggleTrack } from './ToggleTrack';
-import { ToggleTarget } from './ToggleTarget';
-import { ToggleParticle } from './ToggleParticle';
-import { ToggleHandle } from './ToggleHandle';
+import { Track } from './Track';
+import { Target } from './Target';
+import { Particle } from './Particle';
+import { Handle } from './Handle';
 
 interface Props {
 	tooltip: boolean;
@@ -19,10 +19,10 @@ export function Toggle({ tooltip, isOpen, setOpen }: Props) {
 
 	return (
 		<div className="grow relative w-full h-16">
-			<ToggleTrack isOpen={isOpen} constraintsRef={constraintsRef} />
-			<ToggleTarget isOpen={isOpen} targetRef={targetRef} />
-			<ToggleParticle isOpen={isOpen} />
-			<ToggleHandle
+			<Track isOpen={isOpen} constraintsRef={constraintsRef} />
+			<Target isOpen={isOpen} targetRef={targetRef} />
+			<Particle isOpen={isOpen} />
+			<Handle
 				isOpen={isOpen}
 				setOpen={setOpen}
 				setHasMoved={setHasMoved}

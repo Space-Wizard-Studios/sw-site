@@ -6,7 +6,7 @@ interface Props {
 	targetRef: React.Ref<HTMLDivElement>;
 }
 
-export function ToggleTarget({ isOpen, targetRef }: Props) {
+export function Target({ isOpen, targetRef }: Props) {
 	return (
 		<motion.div
 			ref={targetRef}

@@ -4,7 +4,10 @@ interface Props {
 	isOpen: boolean;
 }
 
-export function ToggleParticle({ isOpen }: Props) {
+const nParticles = 12;
+const radius = 50;
+
+export function Particle({ isOpen }: Props) {
 	const shockWave = {
 		hidden: { opacity: 1, scale: 1 },
 		shown: {
@@ -44,10 +47,6 @@ export function ToggleParticle({ isOpen }: Props) {
 		}),
 	};
 
-	const N = 16;
-	const da = (2 * Math.PI) / N;
-	const radius = 50;
-
 	function shuffle(array: any[]) {
 		let currentIndex = array.length,
 			randomIndex;
@@ -65,9 +64,10 @@ export function ToggleParticle({ isOpen }: Props) {
 		return array;
 	}
 
-	const angles = Array(N)
+	const deltaAngle = (2 * Math.PI) / nParticles;
+	const angles = Array(nParticles)
 		.fill(0)
-		.map((_, i) => (i + (2 * Math.random() - 1)) * da);
+		.map((_, i) => (i + (2 * Math.random() - 1)) * deltaAngle);
 
 	shuffle(angles);
 
