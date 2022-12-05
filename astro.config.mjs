@@ -6,7 +6,6 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 
-import { astroImageTools } from "astro-imagetools";
 import partytown from '@astrojs/partytown';
 
 import { SITE } from './src/config.mjs';
@@ -25,7 +24,6 @@ export default defineConfig({
 			},
 		}),
 		image(),
-		astroImageTools,
 
 		// SEO | Analytics
 		sitemap(),
