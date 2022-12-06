@@ -2,6 +2,7 @@ name: Deploy to Preview
 
 on:
   pull_request:
+    types: [opened, edited]
 
 jobs:
   deploy_to_preview:
