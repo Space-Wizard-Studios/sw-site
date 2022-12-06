@@ -1,10 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon, Cloud, Stars } from '@icons/sky';
 
 export interface ButtonToggleThemeProps {}
 
-export default function ButtonToggleTheme({}: ButtonToggleThemeProps) {
+export default function ButtonToggleTheme(props: ButtonToggleThemeProps) {
+	const [showButton, setShowButton] = useState(false);
+
+	useEffect(() => {
+		setShowButton(true);
+	}, []);
+
+	return showButton && <Button {...props} />;
+}
+
+function Button(props: ButtonToggleThemeProps) {
 	const [theme, setTheme] = useState('light');
 
 	const setMode = (theme: string) => {
@@ -20,7 +30,7 @@ export default function ButtonToggleTheme({}: ButtonToggleThemeProps) {
 		else setMode('dark');
 	};
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const defaultTheme = localStorage.getItem('theme');
 		setTheme(defaultTheme ?? 'light');
 	}, []);
@@ -28,7 +38,7 @@ export default function ButtonToggleTheme({}: ButtonToggleThemeProps) {
 	return (
 		<motion.button
 			type="button"
-			className="rounded-lg p-2.5 items-center relative overflow-hidden"
+			className="rounded-lg p-2 items-center relative overflow-hidden"
 			aria-label="Toggle Theme"
 			onClick={() => toggleTheme()}
 			animate={{
