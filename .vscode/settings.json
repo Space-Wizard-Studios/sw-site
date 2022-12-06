@@ -1,5 +1,4 @@
 {
-	"scss.lint.unknownAtRules": "ignore",
 	"files.associations": {
 		"*.css": "postcss"
 	},
@@ -20,5 +19,26 @@
 	"prettier.jsxSingleQuote": true,
 	"prettier.singleQuote": true,
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"cSpell.words": ["drei", "gltf", "GLTF"]
+	"cSpell.words": [
+		"drei",
+		"gltf",
+		"GLTF"
+	],
+	"scss.lint.unknownAtRules": "ignore",
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.validate": [
+		"css",
+		"scss"
+	],
+	"[css]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.stylelint": true
+	}
 }

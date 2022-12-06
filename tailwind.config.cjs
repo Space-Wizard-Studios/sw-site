@@ -5,6 +5,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
 	mode: 'jit',
 	content: [
+		'./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
 		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
 		'./src/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
 	],
@@ -70,16 +71,16 @@ module.exports = {
 
 					'navy': {
 						DEFAULT: '#005CE6',
-						"50": "#F0F6FF",
-						"100": "#E0EDFF",
-						"200": "#B8D4FF",
-						"300": "#8AB9FF",
-						"400": "#5297FF",
-						"500": "#005CE6",
-						"600": "#0058DB",
-						"700": "#0050C7",
-						"800": "#0049B8",
-						"900": "#0043A8"
+						50: "#F0F6FF",
+						100: "#E0EDFF",
+						200: "#B8D4FF",
+						300: "#8AB9FF",
+						400: "#5297FF",
+						500: "#005CE6",
+						600: "#0058DB",
+						700: "#0050C7",
+						800: "#0049B8",
+						900: "#0043A8"
 					},
 					'neon-yellow': {
 						DEFAULT: '##f7f701'
@@ -99,19 +100,7 @@ module.exports = {
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/line-clamp'),
 		require('@tailwindcss/aspect-ratio'),
-		require('daisyui'),
+		require('flowbite/plugin'),
 	],
-	darkMode: 'class',
-
-	// daisyUI config (optional)
-	daisyui: {
-		styled: true,
-		themes: false,
-		base: true,
-		utils: true,
-		logs: true,
-		rtl: false,
-		prefix: '',
-		darkTheme: 'dark',
-	},
+	darkMode: 'class'
 };

@@ -1,0 +1,37 @@
+---
+import { Image } from '@astrojs/image/components';
+
+export type PartnersProps = {
+	src: string;
+	description: string;
+};
+
+type Props = {
+	partners: PartnersProps[];
+	[props: string]: any;
+};
+
+const { partners, ...props } = Astro.props as Props;
+---
+
+<section {...props}>
+	<h2>Devs</h2>
+	<div class="flex w-full gap-4">
+		{
+			partners.map(({ src, description }) => (
+				<div>
+					<Image
+						class="w-32"
+						src={import(/* @vite-ignore */ `../../../assets/images/projects/${src}.png`)}
+						fit="cover"
+						aspectRatio="16:9"
+						width="300"
+						format="webp"
+						alt=""
+					/>
+					<p>{description}</p>
+				</div>
+			))
+		}
+	</div>
+</section>

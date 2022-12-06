@@ -1,18 +1,32 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
 
+import ProjectHero from '@widgets/projects/ProjectHero.astro';
+import ProjectCarousel from '@widgets/projects/ProjectCarousel.astro';
+import ProjectPartners from '@widgets/projects/ProjectPartners.astro';
+import type { ImageProps } from '@widgets/projects/ProjectCarousel.astro';
+import type { PartnersProps } from '@widgets/projects/ProjectPartners.astro';
+
 type Props = {
-	title: string;
+	hero?: string;
+	carousel?: ImageProps[];
+	partners?: PartnersProps[];
 };
 
-const { title } = Astro.props as Props;
+const { hero, carousel, partners } = Astro.props as Props;
 ---
 
 <Layout>
-	<section>
-		<h1>{title}</h1>
-		<article class="my-6">
-			<slot />
-		</article>
-	</section>
+	<div class="min-h-screen spacewiz__container project">
+		<div class="pb-8 h-full bg-sw-secondary-100 dark:bg-sw-primary-700">
+			{hero && <ProjectHero src={hero} />}
+
+			<article class="px-8">
+				<slot />
+			</article>
+
+			{carousel && <ProjectCarousel images={carousel} class="px-8"/>}
+			{partners && <ProjectPartners partners={partners} class="px-8"/>}
+		</div>
+	</div>
 </Layout>
