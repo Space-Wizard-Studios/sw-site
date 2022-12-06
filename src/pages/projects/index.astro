@@ -29,7 +29,7 @@ const projects = await getProjects();
 			projects.map((page) => (
 				<div>
 					<h2>
-						<a href={page.slug}>{page.frontmatter.title}</a>
+						<a href={'/projects/' + page.slug}>{page.frontmatter.title}</a>
 					</h2>
 					<div>{page.frontmatter.description}</div>
 					<div class="flex gap-2">

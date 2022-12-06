@@ -1,0 +1,24 @@
+---
+import { Image } from '@astrojs/image/components';
+import heroImageMD from '@images/hero_md.png';
+---
+
+<section class="relative">
+	<div class="absolute backdrop-blur bg-black/75 w-full h-full">
+		<div class="spacewiz__container mt-10">
+			<h1 class="font-black">nome do projeto</h1>
+			<p>descrição do projeto</p>
+
+			<div>
+				<h2>parceiria:</h2>
+				<div class="grid grid-rows-1 grid-flow-col gap-4">
+					<div>A</div>
+					<div>B</div>
+					<div>C</div>
+					<div>D</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<Image class="w-screen" fit="cover" aspectRatio="16:9" format="webp" src={heroImageMD} alt="" />
+</section>
