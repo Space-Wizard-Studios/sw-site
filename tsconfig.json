@@ -24,7 +24,7 @@
 			"@widgets/*": ["src/components/widgets/*"],
 			"@icons/*": ["src/components/icons/*"],
 			"@projects/*": ["src/components/projects/*"],
-			"@layouts/*": ["src/layouts/*"],
+			"@layouts/*": ["src/layouts/*"]
 		}
 	}
 }
