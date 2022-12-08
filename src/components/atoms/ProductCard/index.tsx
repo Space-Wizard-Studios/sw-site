@@ -24,7 +24,7 @@ export default function ProductCard({ iconSrc, iconColor, title, subtitle, descr
 					isOpen
 						? 'shadow-xl shadow-sw-navy/25 dark:shadow-sw-flamingo-700/10'
 						: 'shadow-md hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10'
-				} transition-shadow duration-500 bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-primary dark:text-sw-secondary`}
+				} transition-shadow duration-500 bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-sw-primary dark:text-sw-secondary`}
 			>
 				<ProductTitle title={title} subtitle={subtitle} />
 				<ProductDescription isOpen={isOpen} description={description} />

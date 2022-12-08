@@ -16,6 +16,7 @@
 		"paths": {
 			"@/*": ["src/*"],
 			"@images/*": ["src/assets/images/*"],
+			"@images/projects/*": ["src/assets/images/projects/*"],
 			"@styles/*": ["src/assets/styles/*"],
 			"@components/*": ["src/components/*"],
 			"@data/*": ["src/data/*"],
