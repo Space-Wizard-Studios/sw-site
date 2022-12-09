@@ -3,19 +3,26 @@ import { Image } from '@astrojs/image/components';
 
 import heroProject from '@images/projects/quasecalouro_hero.png';
 import partner from '@images/spacewiz_logo_horizontal_negative.svg';
+
+type Props = {};
+
+const { ...props } = Astro.props as Props;
 ---
 
-<h1 class="spacewiz__text--reversed my-4">Parceiros</h1>
+<div {...props}>
 
-<section class="p-6 bg-sw-primary-700 rounded-xl">
-	<div class="grid grid-rows-1 grid-flow-col gap-4">
-		<div>
-			<img class="w-32" src={partner} alt="" />
-			<p class="text-white">Responsável por</p>
+	<h1 class="spacewiz__text--reversed my-4">Parceiros</h1>
+
+	<section class="p-6 bg-sw-primary-700 rounded-xl">
+		<div class="grid grid-rows-1 grid-flow-col gap-4">
+			<div>
+				<img class="w-32" src={partner} alt="" />
+				<p class="text-white">Responsável por</p>
+			</div>
+			<div>
+				<img class="w-32" src={partner} alt="" />
+				<p class="text-white">Responsável por</p>
+			</div>
 		</div>
-		<div>
-			<img class="w-32" src={partner} alt="" />
-			<p class="text-white">Responsável por</p>
-		</div>
-	</div>
-</section>
+	</section>
+</div>
