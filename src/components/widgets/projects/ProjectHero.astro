@@ -1,17 +1,21 @@
 ---
 import { Image } from '@astrojs/image/components';
 
-import heroProject from '@images/projects/quasecalouro_hero.png';
+type Props = {
+	heroSrc: string;
+};
+
+const { heroSrc } = Astro.props as Props;
 ---
 
 <section class="grid grid-cols-1 md:grid-cols-2 w-full h-full">
 	<div class="flex items-center">
 		<div class="card spacewiz__text--reversed">
-			<h1 class="text-4xl font-black">
-				Projeto: <span>@quasecalouro</span>
+			<h1 class="inline-flex flex-col text-4xl font-black">
+				<span>Projeto:</span><span><slot name="title" /></span>
 			</h1>
 			<h2 class="mt-4">
-				<span class="text-sw-flamingo dark:text-sw-navy">Landing page</span> baseada em Wordpress.
+				<slot name="subtitle" />
 			</h2>
 		</div>
 	</div>
@@ -19,7 +23,7 @@ import heroProject from '@images/projects/quasecalouro_hero.png';
 	<div class="py-8">
 		<figure class="flex items-center justify-center">
 			<div class="card shadow-md rounded-xl overflow-hidden">
-				<Image class="w-full" fit="cover" aspectRatio="16:9" format="webp" src={heroProject} alt="" />
+				<Image class="w-full" fit="cover" aspectRatio="16:9" format="webp" src={heroSrc} alt="" />
 			</div>
 		</figure>
 	</div>

@@ -1,18 +1,32 @@
 ---
-title: Teste 1
-description: Projeto de teste 1.
-tags: [JavaScript, p5.js]
+title: '@quasecalouro'
+description: Landing page baseada em Wordpress para o IESB.
+tags: [Web, Landing page, Wordpress]
 date: 2015-11-09
 ---
 
-# titulo
+import ProjectHero from '@widgets/projects/ProjectHero.astro';
+import ProjectPartners from '@widgets/projects/ProjectPartners.astro';
+import ProjectCarousel from '@widgets/projects/ProjectCarousel.astro';
+import ProjectDetails from '@widgets/projects/ProjectDetails.astro';
 
-Bla bla bla.
+import heroImage from '@images/projects/quasecalouro_hero.png';
 
-## subtitulo
+<ProjectHero heroSrc={heroImage}>
+	<span slot="title">{frontmatter.title}</span>
+	<span slot="subtitle">
+		<span class="text-sw-flamingo dark:text-sw-navy">Landing page</span> baseada em Wordpress
+	</span>
+</ProjectHero>
 
-blabla
+<div class="py-8">
+	<ProjectPartners />
+</div>
 
-### subsubtitulo
+<div class="py-8">
+	<ProjectCarousel />
+</div>
 
-blablablablabl
+<div class="py-8">
+	<ProjectDetails />
+</div>

@@ -1,33 +1,13 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
 
-import ProjectHero from '@widgets/projects/ProjectHero.astro';
-import ProjectCarousel from '@widgets/projects/ProjectCarousel.astro';
-import ProjectDetails from '@/components/widgets/projects/ProjectDetails.astro';
-import ProjectPartners from '@/components/widgets/projects/ProjectPartners.astro';
+type Props = {};
 
-type Props = {
-	title: string;
-};
-
-const { title } = Astro.props as Props;
+const {} = Astro.props as Props;
 ---
 
 <Layout>
-	<div class="h-full spacewiz__container spacewiz__bg">
-		
-		<ProjectHero />
-
-		<div class="py-8">
-			<ProjectPartners />
-		</div>
-
-		<div class="py-8">
-			<ProjectCarousel />
-		</div>
-
-		<div class="py-8">
-			<ProjectDetails />
-		</div>
+	<div class="h-full spacewiz__container spacewiz__bg spacewiz__text--reversed">
+		<slot />
 	</div>
 </Layout>
