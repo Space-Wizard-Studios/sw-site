@@ -1,0 +1,32 @@
+.project {
+
+    h1 {
+        @apply text-center;
+    }
+
+    blockquote {
+        @apply text-center pb-8;
+
+        strong {
+            @apply spacewiz__text--accent;
+        }
+
+    }
+
+    h2 {
+        @apply pl-6 spacewiz__text--accent;
+    }
+
+    p {
+        @apply pl-8 pb-4;
+    }
+
+    ul {
+        @apply list-disc pl-16;
+    }
+
+    img{
+        @apply rounded-2xl p-8;
+    }
+
+}   

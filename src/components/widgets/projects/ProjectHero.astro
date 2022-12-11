@@ -9,17 +9,7 @@ const { heroSrc, ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<header class="items-center w-full h-full">
-		<figure class="flex w-full">
-			<Image fit="cover" aspectRatio="16:9" format="webp" src={heroSrc} alt="" />
-		</figure>
-
-		<div class="text-center my-4">
-			<h1 class="text-4xl font-black">Projeto: <span><slot name="title" /></span></h1>
-			<h2>
-				<span class="spacewiz__text--accent"><slot name="highlight" /></span>
-				<slot name="subtitle" />
-			</h2>
-		</div>
-	</header>
+	<figure class="h-full w-full">
+		<Image fit="cover" aspectRatio="16:9" format="webp" src={heroSrc} alt="" />
+	</figure>
 </div>
