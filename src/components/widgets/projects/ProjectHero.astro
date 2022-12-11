@@ -9,24 +9,17 @@ const { heroSrc, ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<section class="grid grid-cols-1 md:grid-cols-2 w-full h-full">
-		<div class="flex items-center">
-			<div class="card spacewiz__text--reversed">
-				<h1 class="inline-flex flex-col text-4xl font-black">
-					<span>Projeto:</span><span><slot name="title" /></span>
-				</h1>
-				<h2 class="mt-4">
-					<slot name="subtitle" />
-				</h2>
-			</div>
-		</div>
+	<header class="items-center w-full h-full">
+		<figure class="flex w-full">
+			<Image fit="cover" aspectRatio="16:9" format="webp" src={heroSrc} alt="" />
+		</figure>
 
-		<div class="py-8">
-			<figure class="flex items-center justify-center">
-				<div class="card shadow-md rounded-xl overflow-hidden">
-					<Image class="w-full" fit="cover" aspectRatio="16:9" format="webp" src={heroSrc} alt="" />
-				</div>
-			</figure>
+		<div class="text-center my-4">
+			<h1 class="text-4xl font-black">Projeto: <span><slot name="title" /></span></h1>
+			<h2>
+				<span class="spacewiz__text--accent"><slot name="highlight" /></span>
+				<slot name="subtitle" />
+			</h2>
 		</div>
-	</section>
+	</header>
 </div>

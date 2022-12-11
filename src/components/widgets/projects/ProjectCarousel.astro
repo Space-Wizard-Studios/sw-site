@@ -15,11 +15,10 @@ const { images, ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<h1 class="spacewiz__text--reversed my-4">Demonstração</h1>
 	<figure class="flex w-full gap-4">
 		{
 			images.map((image) => (
-				<div class="card w-1/3 overflow-hidden spacewiz__bg--reversed spacewiz__text shadow-md shadow-sw-navy/25 dark:shadow-sw-flamingo-700/10 transition-shadow duration-500 bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600 dark:to-sw-primary-600 text-sw-primary dark:text-sw-secondary">
+				<div class="card w-1/3 overflow-hidden spacewiz__bg--reversed spacewiz__text bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600 dark:to-sw-primary-600 text-sw-primary dark:text-sw-secondary">
 					<img class="max-h-40" src={image.src} />
 					<div class="p-6">
 						<h4>{image.title}</h4>

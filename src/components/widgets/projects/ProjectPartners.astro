@@ -14,14 +14,13 @@ const { partners, ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<h1 class="spacewiz__text--reversed my-4">Parceiros</h1>
-	<section class="p-6 bg-sw-primary-700 rounded-xl">
-		<div class="grid grid-rows-1 grid-flow-col gap-4">
+	<section class="flex items-center justify-center">
+		<div class="flex flex-row p-6 gap-4 rounded-xl bg-sw-secondary-900 dark:bg-sw-primary-900">
 			{
 				partners.map((partner) => (
 					<div>
 						<img class="w-32" src={partner.src} alt="" />
-						<p class="text-white">{partner.description}</p>
+						<p>{partner.description}</p>
 					</div>
 				))
 			}

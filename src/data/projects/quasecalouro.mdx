@@ -1,0 +1,71 @@
+---
+title: '@quasecalouro'
+highlight: Landing page
+subtitle: baseada em Wordpress.
+about: Com o objetivo de capturar leads para o cliente, os estudantes puderam acompanhar a conteúdos exclusivos na plataforma (material didático, video-aulas e etc).
+techs: Desenvolvido em Wordpress e Elementor.
+# techsList: [Cadastro em Newsletter, Boas práticas LGPD, Animações em CSS, Design responsivo, Simulado de prova (ENADE)]
+techsList: Cadastro em Newsletter
+category: WebDev
+tags: [Landing page, Wordpress]
+date: 2015-11-09
+---
+
+import ProjectHero from '@widgets/projects/ProjectHero.astro';
+import ProjectPartners from '@widgets/projects/ProjectPartners.astro';
+import ProjectCarousel from '@widgets/projects/ProjectCarousel.astro';
+import ProjectDetails from '@widgets/projects/ProjectDetails.astro';
+
+import heroImage from '@images/projects/quasecalouro_hero.png';
+
+import partner from '@images/spacewiz_logo_horizontal_negative.svg';
+
+
+<ProjectHero heroSrc={heroImage}>
+	<span slot="title">{frontmatter.title}</span>
+	<span slot="highlight">{frontmatter.highlight}</span>
+	<span slot="subtitle">{frontmatter.subtitle}</span>
+</ProjectHero>
+
+
+<ProjectCarousel
+	class="p-8"
+	images={[
+		{
+			src: 'https://api.lorem.space/image/car?hash=8B7BCDC2',
+			title: 'Titulo',
+			description: 'Descrição',
+		},
+		{
+			src: 'https://api.lorem.space/image/car?hash=500B67FB',
+			title: 'Titulo',
+			description: 'Descrição',
+		},
+		{
+			src: 'https://api.lorem.space/image/car?hash=A89D0DE6',
+			title: 'Titulo',
+			description: 'Descrição',
+		},
+	]}
+/>
+
+<ProjectDetails class="p-8">
+	<p slot="about">{frontmatter.about}</p>
+	<span slot="techs">{frontmatter.techs}</span>
+	<span slot="techsList">{frontmatter.techsList}</span>
+	<span slot="techIcons">icones</span>
+</ProjectDetails>
+
+<ProjectPartners
+	class="p-8"
+	partners={[
+		{
+			src: partner,
+			description: 'texto',
+		},
+		{
+			src: partner,
+			description: 'texto',
+		},
+	]}
+/>
