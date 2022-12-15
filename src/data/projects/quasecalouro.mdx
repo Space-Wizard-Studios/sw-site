@@ -4,53 +4,28 @@ subtitle: Landing page baseada em Wordpress
 category: WebDev
 tags: [Landing page, Wordpress]
 date: 2015-11-09
+heroSrc: 'quasecalouro_hero'
+carrousel: ['@images/projects/quasecalouro_hero.png', '@images/projects/quasecalouro_hero.png']
+partners: [
+	{ src: '@images/projects/quasecalouro_hero.png', description: 'texto' },
+	{ src: '@images/projects/quasecalouro_hero.png', description: 'texto' },
+]
 ---
 
-import ProjectHero from '@widgets/projects/ProjectHero.astro';
-import ProjectPartners from '@widgets/projects/ProjectPartners.astro';
-import ProjectCarousel from '@widgets/projects/ProjectCarousel.astro';
+# Projeto: @quasecalouro
 
-import ProjectSimplyCarousel from '@widgets/projects/ProjectSimplyCarousel.tsx';
+> Landing Page baseada em Wordpress
 
-import { Image } from '@astrojs/image/components';
-import heroImage from '@images/projects/quasecalouro_hero.png';
+## Sobre o Projeto
 
-import partner from '@images/spacewiz_logo_horizontal_negative.svg';
+Com o objetivo de capturar leads para o cliente, os estudantes puderam acompanhar a conteúdos exclusivos na plataforma (material didático, video-aulas e etc).
 
-<ProjectHero heroSrc={heroImage} />
+## Tecnologias
 
-<article class="project p-6">
-	# Projeto: @quasecalouro
-    > Landing Page baseada em Wordpress
+Desenvolvido em **Wordpress** e **Elementor**.
 
-    ## Sobre o Projeto
-
-    Com o objetivo de capturar leads para o cliente, os estudantes puderam acompanhar a conteúdos exclusivos na plataforma (material didático, video-aulas e etc).
-
-    ## Tecnologias
-
-    Desenvolvido em **Wordpress** e **Elementor**.
-
-    - Cadastro em Newsletter
-    - Boas práticas LGPD
-    - Animações em CSS
-    - Design responsivo
-    - Simulado de prova (ENADE)
-
-</article>
-
-<ProjectSimplyCarousel cliente:only="react"/>
-
-<ProjectPartners
-	
-	partners={[
-		{
-			src: partner,
-			description: 'texto',
-		},
-		{
-			src: partner,
-			description: 'texto',
-		},
-	]}
-/>
+-   Cadastro em Newsletter
+-   Boas práticas LGPD
+-   Animações em CSS
+-   Design responsivo
+-   Simulado de prova (ENADE)
