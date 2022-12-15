@@ -14,12 +14,20 @@ const { partners, ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<section class="flex w-full p-8 gap-4 items-center justify-center  bg-sw-coal text-white">
+	<section class="flex w-full p-8 gap-4 items-center justify-center bg-sw-coal text-white">
 		{
-			partners.map((partner) => (
+			partners.map(({ src, description }) => (
 				<div>
-					<img class="w-32" src={partner.src} alt="" />
-					<p>{partner.description}</p>
+					<Image
+						class="w-32"
+						src={import(/* @vite-ignore */ `../../../assets/images/projects/${src}.png`)}
+						fit="cover"
+						aspectRatio="16:9"
+						width="300"
+						format="webp"
+						alt=""
+					/>
+					<p>{description}</p>
 				</div>
 			))
 		}

@@ -5,6 +5,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
 	mode: 'jit',
 	content: [
+		'./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
 		'./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
 		'./src/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
 	],
@@ -100,6 +101,7 @@ module.exports = {
 		require('@tailwindcss/line-clamp'),
 		require('@tailwindcss/aspect-ratio'),
 		require('daisyui'),
+		require('flowbite/plugin'),
 	],
 	darkMode: 'class',
 

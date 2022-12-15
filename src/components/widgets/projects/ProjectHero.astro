@@ -1,0 +1,20 @@
+---
+import { Image } from '@astrojs/image/components';
+
+type Props = {
+	src: string;
+};
+
+const { src } = Astro.props as Props;
+---
+
+<figure class="h-full w-full">
+	<Image
+		src={import(/* @vite-ignore */ `../../../assets/images/projects/${src}.png`)}
+		fit="cover"
+		aspectRatio="16:9"
+		width="600"
+		format="webp"
+		alt=""
+	/>
+</figure>
