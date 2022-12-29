@@ -5,6 +5,6 @@ import type { CarouselProps } from '@atoms/SimpleCarousel';
 const { images, ...props } = Astro.props as CarouselProps;
 ---
 
-<div {...props}>
+<figure {...props}>
 	<SimpleCarousel images={images} client:load />
-</div>
+</figure>

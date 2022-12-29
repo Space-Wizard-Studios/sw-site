@@ -12,12 +12,10 @@ export type CarouselProps = {
 
 export default function SimpleCarousel({ images }: CarouselProps) {
 	return (
-		<div className="h-56">
-			<Carousel slide={false}>
-				{images.map(({ src, title, description }, i) => (
-					<img key={i} src={src} alt="" />
-				))}
-			</Carousel>
-		</div>
+		<Carousel slide={false} className="h-56">
+			{images.map(({ src, title, description }, i) => (
+				<img key={i} src={src} alt="" />
+			))}
+		</Carousel>
 	);
 }

@@ -18,15 +18,15 @@ const { hero, carousel, partners } = Astro.props as Props;
 
 <Layout>
 	<div class="h-full spacewiz__container">
-		<div class="spacewiz__text bg-sw-secondary-100 dark:bg-sw-primary-700">
+		<div class="spacewiz__text bg-sw-secondary-100 dark:bg-sw-primary-700 pb-8">
 			{hero && <ProjectHero src={hero} />}
 
 			<article class="project p-6">
 				<slot />
 			</article>
 
-			{carousel && <ProjectCarousel images={carousel} />}
 			{partners && <ProjectPartners partners={partners} />}
+			{carousel && <ProjectCarousel images={carousel} class="px-8"/>}
 		</div>
 	</div>
 </Layout>
