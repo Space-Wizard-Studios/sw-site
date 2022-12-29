@@ -2,6 +2,12 @@
 import SimpleCarousel from '@atoms/SimpleCarousel';
 import type { CarouselProps } from '@atoms/SimpleCarousel';
 
+export type ImageProps = {
+	src: string;
+	title: string;
+	description: string;
+};
+
 const { images, ...props } = Astro.props as CarouselProps;
 ---
 

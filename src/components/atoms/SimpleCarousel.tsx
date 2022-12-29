@@ -1,10 +1,5 @@
 import { Carousel } from 'flowbite-react';
-
-type ImageProps = {
-	src: string;
-	title: string;
-	description: string;
-};
+import type { ImageProps } from '@widgets/projects/ProjectCarousel.astro';
 
 export type CarouselProps = {
 	images: ImageProps[];
