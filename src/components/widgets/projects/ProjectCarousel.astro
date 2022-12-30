@@ -12,5 +12,6 @@ const { images, ...props } = Astro.props as CarouselProps;
 ---
 
 <figure {...props}>
+	<h2>Galeria</h2>
 	<SimpleCarousel images={images} client:load />
 </figure>
