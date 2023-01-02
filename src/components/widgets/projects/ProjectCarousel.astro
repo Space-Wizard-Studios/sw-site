@@ -8,7 +8,11 @@ export type ImageProps = {
 	description: string;
 };
 
-const { images, ...props } = Astro.props as CarouselProps;
+export type Props = CarouselProps & {
+	[props: string]: any;
+};
+
+const { images, ...props } = Astro.props as Props;
 ---
 
 <figure {...props}>

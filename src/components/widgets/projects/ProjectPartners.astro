@@ -8,6 +8,7 @@ export type PartnersProps = {
 
 type Props = {
 	partners: PartnersProps[];
+	[props: string]: any;
 };
 
 const { partners, ...props } = Astro.props as Props;
