@@ -26,7 +26,7 @@ const { hero, carousel, partners } = Astro.props as Props;
 			</article>
 
 			{carousel && <ProjectCarousel images={carousel} class="px-8"/>}
-			{partners && <ProjectPartners partners={partners}/>}
+			{partners && <ProjectPartners partners={partners} class="px-8"/>}
 		</div>
 	</div>
 </Layout>
