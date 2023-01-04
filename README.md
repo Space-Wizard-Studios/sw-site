@@ -23,7 +23,8 @@ Requerimentos:
 - npm
 
 ```pwsh
-git clone https://github.com/Space-Wizard-Studios/sw_site.git
-cd sw_site
+git clone https://github.com/Space-Wizard-Studios/sw-site.git
+cd sw-site
 npm i
 npm run
+```
