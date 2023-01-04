@@ -1,0 +1,51 @@
+---
+import Layout from '@layouts/PageLayout.astro';
+import { getSlugFromURL } from '@core/Path';
+
+async function getProjects() {
+	const all = await Astro.glob('../../data/projects/**/*.mdx');
+	return all
+		.filter((page) => !page.frontmatter.draft)
+		.sort((pageA, pageB) => {
+			const dateA = new Date(pageA.frontmatter.date).getTime();
+			const dateB = new Date(pageB.frontmatter.date).getTime();
+			return dateB - dateA;
+		})
+		.map((page) => {
+			return {
+				slug: getSlugFromURL(page.file),
+				...page,
+			};
+		});
+}
+
+const projects = await getProjects();
+---
+
+<Layout>
+	<h2>Projetos</h2>
+	<section class="flex flex-col gap-12 my-6 min-h-[100vh]">
+		{
+			projects.map((page) => (
+				<div>
+					<h2>
+						<a href={'/projects/' + page.slug}>{page.frontmatter.title}</a>
+					</h2>
+					<div>{page.frontmatter.description}</div>
+					<div class="flex gap-2">
+						{page.frontmatter.tags?.map((tag: string) => (
+							<span>{tag}</span>
+						))}
+					</div>
+					<div>
+						{new Date(page.frontmatter.date ?? '').toLocaleDateString('pt-BR', {
+							timeZone: 'UTC',
+							year: 'numeric',
+							month: 'long'
+						})}
+					</div>
+				</div>
+			))
+		}
+	</section>
+</Layout>

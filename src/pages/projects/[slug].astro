@@ -1,0 +1,28 @@
+---
+import Layout from '@layouts/ProjectLayout.astro';
+import { getSlugFromURL } from '@core/Path';
+
+export async function getStaticPaths() {
+	const all = await Astro.glob('../../data/projects/**/*.mdx');
+	return all.map(({ file, ...page }) => {
+		const slug = getSlugFromURL(file);
+		return {
+			params: {
+				slug: slug,
+			},
+
+			props: {
+				page: {
+					...page,
+				},
+			},
+		};
+	});
+}
+
+const { page } = Astro.props;
+---
+
+<Layout hero={page.frontmatter.hero} carousel={page.frontmatter.carousel} partners={page.frontmatter.partners}>
+	<page.Content />
+</Layout>
