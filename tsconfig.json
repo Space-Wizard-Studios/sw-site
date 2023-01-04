@@ -14,18 +14,18 @@
 		"allowJs": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["src/*"],
 			"@images/*": ["src/assets/images/*"],
-			"@images/projects/*": ["src/assets/images/projects/*"],
 			"@styles/*": ["src/assets/styles/*"],
-			"@components/*": ["src/components/*"],
-			"@data/*": ["src/data/*"],
 			"@atoms/*": ["src/components/atoms/*"],
 			"@core/*": ["src/components/core/*"],
-			"@widgets/*": ["src/components/widgets/*"],
 			"@icons/*": ["src/components/icons/*"],
 			"@projects/*": ["src/components/projects/*"],
-			"@layouts/*": ["src/layouts/*"]
+			"@widgets/*": ["src/components/widgets/*"],
+			"@components/*": ["src/components/*"],
+			"@data/*": ["src/data/*"],
+			"@hooks/*": ["src/hooks/*"],
+			"@layouts/*": ["src/layouts/*"],
+			"@/*": ["src/*"]
 		}
 	}
 }
