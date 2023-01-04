@@ -16,10 +16,10 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 		<LayoutGroup>
 			<motion.div
 				layout
-				style={{ borderRadius: '99999px' }}
-				className="card-actions mt-auto bg-sw-secondary-900 dark:bg-sw-primary-900"
+				// style={{ borderRadius: '99999px' }}
+				className="flex w-full m-2 align-center justify-center"
 			>
-				<div className="flex flex-wrap p-4 gap-2">
+				<div className="flex flex-wrap align-center justify-center p-4 gap-2 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">
 					<Toggle isOpen={isOpen} onClick={toggleOpen} />
 
 					<AnimatePresence>
