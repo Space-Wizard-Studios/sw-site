@@ -20,15 +20,6 @@
 				]
 			}
 		],
-		"overrides": [
-			{
-				"files": [
-					"*.scss",
-					"**/*.scss"
-				],
-				"customSyntax": "postcss-scss"
-			}
-		],
 		"declaration-block-trailing-semicolon": null,
 		"no-descending-specificity": null
 	}
