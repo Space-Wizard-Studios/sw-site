@@ -1,99 +1,99 @@
 ---
-import { LoremIpsum } from 'lorem-ipsum';
 import DividerArrowDown from '@atoms/dividers/DividerArrowDown.astro';
 
-const lorem = new LoremIpsum(
-	{
-		sentencesPerParagraph: {
-			max: 10,
-			min: 5,
-		},
-		wordsPerSentence: {
-			max: 20,
-			min: 10,
-		},
-	},
-	'html'
-);
+import logo from '@images/spacewiz_logo_horizontal.svg';
 ---
 
-<!-- ! <DividerArrowDown class="spacewiz__fill--reversed bg-sw-coal-700" /> --><!--  TODO  <footer class="footer p-10 bg-sw-coal-700 text-sw-coal-400">
-	<div>
-		<span class="footer-title text-sw-coal-100">Serviços</span>
-		<a class="link link-hover">Web</a>
-		<a class="link link-hover">Games</a>
-		<a class="link link-hover">Apps</a>
-		<a class="link link-hover">Audiovisual</a>
-	</div>
-	<div class="justify-items-center">
-		<span class="footer-title text-sw-coal-100">Sobre nós</span>
-		<a class="link link-hover">About us</a>
-		<a class="link link-hover">Contato</a>
-		<a class="link link-hover">Press kit</a>
-	</div>
-	<div class="justify-items-center">
-		<span class="footer-title text-sw-coal-100">Lenga lenga jurídico</span>
-		<a class="link link-hover">Terms of use</a>
-		<a class="link link-hover">Privacy policy</a>
-		<a class="link link-hover">Cookie policy</a>
-	</div>
-</footer> -->
-<footer class="footer px-10 py-6 border-t bg-sw-coal-800 text-sw-secondary-300 border-sw-coal-200">
-	<div class="items-center grid-flow-col">
-		<svg
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			xmlns="http://www.w3.org/2000/svg"
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			class="fill-current"
-			><path
-				d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"
-			></path>
-		</svg>
-		<p>
-			Space Wizard Studios
-			<br>
-			Desenvolvento com magia e tecnologia desde 2020
-			<br>
-			<a href="mailto:contato@spacewiz.dev">contato@spacewiz.dev</a>
-		</p>
-	</div>
-	<div class="md:place-self-center md:justify-self-end">
-		<div class="grid grid-flow-col gap-4">
-			<a href="https://github.com/space-wizard-studios/">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+<DividerArrowDown class="spacewiz__fill--reversed bg-sw-coal-500" />
+<footer class="text-xs md:text-sm">
+	<section class="w-full py-8 bg-sw-coal-500">
+		<div class="flex flex-col spacewiz__container bg-sw-coal-500">
+			<div class="h-full grid grid-cols-4 gap-8">
+				<div class="h-full grid grid-flow-row justify-around">
+					<p class="mb-3 font-semibold uppercase text-white">Portifólio</p>
+					<ul class="text-gray-400">
+						<li class="my-2">
+							<a class="hover:underline" href="#">Apps</a>
+						</li>
+						<li class="my-2">
+							<a class="hover:underline" href="#">AR/VR</a>
+						</li>
+						<li class="my-2">
+							<a class="hover:underline" href="#">Games</a>
+						</li>
+						<li class="my-2">
+							<a class="hover:underline" href="#">Web</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<p class="mb-3 font-semibold uppercase text-white">Nossas redes</p>
+					<ul class="text-gray-400">
+						<li class="my-2">
+							<a class="hover:underline" href="#">Sobre Nós</a>
+						</li>
+						<li class="my-2">
+							<a class="hover:underline" href="#">Contato</a>
+						</li>
+						<li class="my-2">
+							<a class="hover:underline" href="#">Press kit</a>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<p class="mb-3 text-sm font-semibold uppercase text-white">Redes Sociais</p>
+					<div class="flex gap-2">
+						<a  href="#" class="text-gray-500 hover:text-white">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									fill-rule="evenodd"
+									d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+									clip-rule="evenodd"
+								>
+								</path>
+							</svg>
+							<span class="sr-only">Instagram page</span>
+						</a>
+						<a href="#" class="text-gray-500 hover:text-white" >
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									fill-rule="evenodd"
+									d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+									clip-rule="evenodd"
+								>
+								</path>
+							</svg>
+							<span class="sr-only">GitHub account</span>
+						</a>
+					</div>
+				</div>
+				<div>
+					<p class="mb-3 font-semibold uppercase text-white">Lenga lenga Jurídico</p>
+					<ul class="text-gray-400">
+						<li class="my-2">
+							<a class="hover:underline" href="#">Políticas de Privacidade</a>
+						</li>
+						<li class="my-2">
+							<a class="hover:underline" href="#">Termos de Uso</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="flex mt-4 justify-center md:justify-end w-full">
+				<svg class="fill-white w-12 h-12" viewBox="0 0 1024 1024">
 					<path
-						d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z"
-					>
-					</path>
+						d="M892.89,886.32c62.09-96.43-20.63-314.69-20.63-314.69,0,0,139.77-170.07,105.62-292.81-22.21-79.85-287.09-64.35-287.09-64.35,0,0-140.13-209.4-226.32-202.78-106.59,8.19-174.6,286.06-174.6,286.06,0,0-221.38,74.48-247.11,178.72-24.37,98.73,182.86,223.22,182.86,223.22,0,0,14.43,272.61,85.35,308.45,64.56,32.63,280.95-130.21,280.95-130.21,0,0,266.9,61.33,300.99,8.39Z"
+					></path>
 				</svg>
-			</a>
-			<!-- <a href="#">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-					<path
-						d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
-					>
-					</path>
-				</svg>
-			</a>
-			<a href="#">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-					<path
-						d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
-					>
-					</path>
-				</svg>
-			</a>
-			<a href="#">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
-					<path
-						d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
-					>
-					</path>
-				</svg>
-			</a> -->
+			</div>
 		</div>
-	</div>
+	</section>
+
+	<section class="w-full py-4 bg-sw-coal-600 border-0 border-t-2 border-white">
+		<div class="flex items-center justify-center spacewiz__container">
+			<span class="text-gray-400"
+				>2023 <a href="/" class="hover:underline">Space Wizard Studios</a>. Todos os direitos reservados.
+			</span>
+		</div>
+	</section>
 </footer>

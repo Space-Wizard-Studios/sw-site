@@ -14,8 +14,9 @@
 		"allowJs": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["src/*"],
+			"@/*": ["src/*"],
 			"@images/*": ["src/assets/images/*"],
+			"@images/projects/*": ["src/assets/images/projects/*"],
 			"@styles/*": ["src/assets/styles/*"],
 			"@components/*": ["src/components/*"],
 			"@data/*": ["src/data/*"],
@@ -24,7 +25,7 @@
 			"@widgets/*": ["src/components/widgets/*"],
 			"@icons/*": ["src/components/icons/*"],
 			"@projects/*": ["src/components/projects/*"],
-			"@layouts/*": ["src/layouts/*"],
+			"@layouts/*": ["src/layouts/*"]
 		}
 	}
 }

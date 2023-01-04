@@ -20,7 +20,7 @@ export function MemberPicture({ photo, isOpen }: Props) {
 			variants={variants}
 			initial="closed"
 			animate={isOpen ? 'opened' : 'closed'}
-			className="avatar absolute w-24"
+			className="flex absolute w-full h-24 items-center content-center justify-center"
 		>
 			<motion.div
 				animate={{
@@ -32,12 +32,12 @@ export function MemberPicture({ photo, isOpen }: Props) {
 						ease: 'linear',
 					},
 				}}
-				className="avatar absolute w-full -mt-8 p-1 rounded-full bg-gradient-to-bl from-sw-navy-800 via-sw-navy-400 to-sw-navy-800 dark:from-sw-flamingo-800 dark:via-sw-flamingo-400 dark:to-sw-flamingo-800"
+				className="absolute w-[6.5rem] h-[6.5rem] -mt-8 rounded-full bg-gradient-to-bl from-sw-navy-800 via-sw-navy-400 to-sw-navy-800 dark:from-sw-flamingo-800 dark:via-sw-flamingo-400 dark:to-sw-flamingo-800"
 			>
 				<div className="w-full"></div>
 			</motion.div>
-			<div className="avatar absolute -mt-8 p-1">
-				<div className="w-full rounded-full">{photo}</div>
+			<div className="absolute -mt-8">
+				<div className="w-24 h-full rounded-full overflow-hidden">{photo}</div>
 			</div>
 		</motion.div>
 	);

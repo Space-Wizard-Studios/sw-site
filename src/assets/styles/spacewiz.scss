@@ -62,4 +62,8 @@
 			@apply stroke-sw-primary;
 		}
 	}
+
+	&__container {
+		@apply max-w-6xl mx-auto px-6;
+	}
 }

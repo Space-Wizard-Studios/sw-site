@@ -17,9 +17,9 @@ export function ProductDescription({ isOpen, description }: Props) {
 					clipPath: isOpen ? openedClipPath : closedClipPath,
 				}}
 				transition={{ duration: 0.4, ease: 'easeInOut' }}
-				className="flex items-start w-full h-full overflow-y-auto md:py-0 md:pr-24 text-base bg-gradient-to-b from-sw-secondary-200 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800"
+				className="items-start w-full h-full overflow-y-auto md:py-0 md:pr-24 text-base bg-gradient-to-b from-sw-secondary-200 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800"
 			>
-				<p className="p-6 spacewiz__text--reversed text-sw-primary dark:text-sw-secondary">{description}</p>
+				<p className="pt-6 pl-6 spacewiz__text--reversed text-sw-primary dark:text-sw-secondary">{description}</p>
 			</motion.div>
 		</div>
 	);
