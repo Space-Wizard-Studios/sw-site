@@ -36,7 +36,7 @@
 		@apply text-base;
 	}
 
-	a:not(footer a) {
+	p > a {
 		@apply font-semibold decoration-1 underline underline-offset-2 transition-all;
 		@apply spacewiz__decoration dark:spacewiz__decoration--reversed;
 	}
