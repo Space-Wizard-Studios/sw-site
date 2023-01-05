@@ -1,4 +1,4 @@
-.single-page {
+.policy {
 	h1 {
 		@apply pt-8;
 	}
@@ -12,7 +12,7 @@
 	}
 
 	h2 {
-		@apply pt-8 pb-4 spacewiz__text--accent;
+		@apply pt-8 pb-4;
 
 		&:not(:first-child) {
 			@apply pt-4;
