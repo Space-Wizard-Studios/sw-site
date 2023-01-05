@@ -1,9 +1,11 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
+import DividerArrowDown from '@atoms/dividers/DividerArrowDown.astro';
 ---
 
 <Layout>
 	<main>
 		<slot />
+		<DividerArrowDown class="fill-sw-secondary-100 dark:fill-sw-primary-700 bg-sw-coal-500" />
 	</main>
 </Layout>

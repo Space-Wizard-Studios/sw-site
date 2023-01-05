@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
 import Hero from '@widgets/Hero.astro';
-
+import DividerArrowDown from '@atoms/dividers/DividerArrowDown.astro';
 ---
 
 <Layout>
@@ -9,4 +9,5 @@ import Hero from '@widgets/Hero.astro';
 	<main>
 		<slot />
 	</main>
+	<DividerArrowDown class="spacewiz__fill--reversed bg-sw-coal-500" />
 </Layout>
