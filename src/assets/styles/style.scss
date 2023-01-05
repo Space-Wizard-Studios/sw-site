@@ -6,6 +6,7 @@
 @layer base {
 	@import "focus";
 	@import "project";
+	@import "policy";
 	@import "scrollbar";
 	@import "spacewiz";
 	@import "text";
@@ -33,5 +34,10 @@
 
 	h6 {
 		@apply text-base;
+	}
+
+	a:not(footer a) {
+		@apply font-semibold decoration-1 underline underline-offset-2 transition-all;
+		@apply spacewiz__decoration dark:spacewiz__decoration--reversed;
 	}
 }
