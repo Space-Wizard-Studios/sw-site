@@ -1,29 +1,25 @@
 .policy {
 	h1 {
-		@apply pt-8;
+		@apply text-center md:text-left py-4;
 	}
 
 	blockquote {
-		@apply pb-4;
-
-		strong {
-			@apply spacewiz__text--accent;
-		}
+		@apply mx-4 my-4 py-2 px-2 italic rounded-2xl bg-sw-secondary dark:bg-sw-primary;
 	}
 
 	h2 {
-		@apply pt-8 pb-4;
+		@apply py-4;
+	}
 
-		&:not(:first-child) {
-			@apply pt-4;
-		}
+	h3 {
+		@apply py-4;
 	}
 
 	p {
-		@apply pl-8 py-2;
+		@apply md:px-4 py-2 text-justify;
 	}
 
 	ul {
-		@apply list-disc pl-16;
+		@apply list-disc pl-8 md:pl-16;
 	}
 }

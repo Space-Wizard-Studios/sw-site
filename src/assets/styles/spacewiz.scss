@@ -66,4 +66,12 @@
 	&__container {
 		@apply max-w-6xl mx-auto px-6;
 	}
+
+	&__decoration {
+		@apply decoration-sw-navy;
+
+		&--reversed {
+			@apply decoration-sw-flamingo;
+		}
+	}
 }

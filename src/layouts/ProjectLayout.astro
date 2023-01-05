@@ -7,6 +7,8 @@ import ProjectPartners from '@widgets/projects/ProjectPartners.astro';
 import type { ImageProps } from '@widgets/projects/ProjectCarousel.astro';
 import type { PartnersProps } from '@widgets/projects/ProjectPartners.astro';
 
+import DividerArrowDown from '@atoms/dividers/DividerArrowDown.astro';
+
 type Props = {
 	hero?: string;
 	carousel?: ImageProps[];
@@ -18,7 +20,7 @@ const { hero, carousel, partners } = Astro.props as Props;
 
 <Layout>
 	<div class="min-h-screen spacewiz__container project">
-		<div class="pb-8 h-full bg-sw-secondary-100 dark:bg-sw-primary-700">
+		<div class="pb-8 h-full bg-sw-secondary-200 dark:bg-sw-primary-700">
 			{hero && <ProjectHero src={hero} />}
 
 			<article class="px-8">
@@ -29,4 +31,6 @@ const { hero, carousel, partners } = Astro.props as Props;
 			{partners && <ProjectPartners partners={partners} class="px-8"/>}
 		</div>
 	</div>
+	<DividerArrowDown class="fill-sw-secondary-200 dark:fill-sw-primary-700 bg-sw-coal-500" />
+
 </Layout>
