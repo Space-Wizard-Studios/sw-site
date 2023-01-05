@@ -1,0 +1,34 @@
+---
+import Layout from '@layouts/PoliciesPageLayout.astro';
+import { getSlugFromURL } from '@core/Path';
+
+export async function getStaticPaths() {
+	const all = await Astro.glob('../../data/policies/*.mdx');
+	return all.map(({ file, ...page }) => {
+		const slug = getSlugFromURL(file);
+		return {
+			params: {
+				slug: slug,
+			},
+
+			props: {
+				page: {
+					...page,
+				},
+			},
+		};
+	});
+}
+
+const { page } = Astro.props;
+---
+
+<Layout>
+	<div class="min-h-screen spacewiz__container single-page">
+		<div class="pb-8 h-full bg-sw-secondary-100 dark:bg-sw-primary-700">
+			<article class="px-8">
+				<page.Content />
+			</article>
+		</div>
+	</div>
+</Layout>
