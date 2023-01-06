@@ -12,14 +12,34 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 	const links_dict = Object.entries(links);
 	const n_links = links_dict.length;
 
+	const variants = {
+		hidden: { opacity: 0, translateX: '-100%' },
+		show: (index: number) => ({
+			opacity: 1,
+			translateX: '0%',
+			transition: {
+				delay: 0.15 * (index + 1),
+				duration: 0.25,
+			},
+		}),
+		hide: (index: number) => ({
+			opacity: 0,
+			translateX: '-50%',
+			transition: {
+				delay: 0.1 * (n_links - index),
+				duration: 0.12,
+			},
+		}),
+	};
+
 	return (
 		<LayoutGroup>
-			<motion.div
-				layout
-				// style={{ borderRadius: '99999px' }}
-				className="flex w-full m-2 align-center justify-center"
-			>
-				<div className="flex flex-wrap align-center justify-center p-4 gap-2 rounded-full bg-sw-secondary-900 dark:bg-sw-primary-900">
+			<div className="flex w-full justify-center mb-auto">
+				<motion.div
+					layout
+					style={{ borderRadius: '99999px' }}
+					className="flex flex-wrap p-4 gap-2 bg-sw-secondary-900 dark:bg-sw-primary-900 rounded-full"
+				>
 					<Toggle isOpen={isOpen} onClick={toggleOpen} />
 
 					<AnimatePresence>
@@ -30,34 +50,22 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 										key={key}
 										target="_blank"
 										href={value}
-										initial={{ opacity: 0, translateX: '-100%' }}
-										animate={{
-											opacity: 1,
-											translateX: '0%',
-											transition: { delay: 0.15 * (index + 1) },
-										}}
-										exit={{
-											opacity: 0,
-											translateX: '-50%',
-											transition: {
-												delay: 0.1 * (n_links - index),
-												duration: 0.08,
-											},
-										}}
-										whileHover={{ scale: 1.1 }}
-										whileTap={{ scale: 0.9 }}
-										className="relative z-0 w-10 h-10 rounded-full bg-sw-navy dark:bg-sw-flamingo border-none"
+										variants={variants}
+										custom={index}
+										initial="hidden"
+										animate="show"
+										exit="hide"
+										className="z-0 inline-flex items-center w-10 h-10 rounded-full bg-sw-navy dark:bg-sw-flamingo border-none"
 									>
 										{socials[key].icon({
-											className:
-												'absolute m-auto top-0 bottom-0 left-0 right-0 w-8 h-8 text-sw-primary',
+											className: 'm-auto w-8 h-8 text-sw-secondary dark:text-sw-primary',
 										})}
 									</motion.a>
 								);
 							})}
 					</AnimatePresence>
-				</div>
-			</motion.div>
+				</motion.div>
+			</div>
 		</LayoutGroup>
 	);
 }

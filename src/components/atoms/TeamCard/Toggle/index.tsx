@@ -10,16 +10,10 @@ export function Toggle({ isOpen, onClick }: Props) {
 	return (
 		<motion.button
 			layout
-			whileHover={{ scale: 1.1 }}
-			whileTap={{ scale: 0.9 }}
 			onClick={(e) => onClick(e)}
-			className="z-10 w-10 h-10 p-3 rounded-full bg-sw-navy dark:bg-sw-flamingo border-none"
+			className="z-10 w-10 h-10 p-3 rounded-full bg-sw-navy dark:bg-sw-flamingo border-none text-sw-secondary dark:text-sw-primary"
 		>
-			{isOpen ? (
-				<Minus className="m-auto w-4 h-4 text-sw-primary" />
-			) : (
-				<Plus className="m-auto w-4 h-4 text-sw-primary" />
-			)}
+			{isOpen ? <Minus className="m-auto w-4 h-4 " /> : <Plus className="m-auto w-4 h-4" />}
 		</motion.button>
 	);
 }
