@@ -1,6 +1,9 @@
 export const SITE = {
 	name: 'spacewiz.dev',
 
+  origin: 'https://spacewiz.dev',
+  basePathname: '/',
+
 	title: 'Space Wizard Studios',
 	description: 'Da direção à criação, buscamos sempre inovar com o melhor da produção criativa: trazemos o seus projetos de apps, jogos e páginas à vida! 🚀',
 
