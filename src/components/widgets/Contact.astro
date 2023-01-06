@@ -1,19 +1,9 @@
 ---
-import { LoremIpsum } from 'lorem-ipsum';
+import { Icon } from 'astro-icon';
 
-const lorem = new LoremIpsum(
-	{
-		sentencesPerParagraph: {
-			max: 10,
-			min: 5,
-		},
-		wordsPerSentence: {
-			max: 20,
-			min: 10,
-		},
-	},
-	'html'
-);
+import { Image } from '@astrojs/image/components';
+import contactImage from '@images/cosmonaut_suit.png';
+
 export interface Props {
 	[props: string]: any;
 }
@@ -23,81 +13,70 @@ const { ...props } = Astro.props as Props;
 
 <div {...props}>
 	<header>
-		<h2 class="font-black uppercase">
+		<h2 class="text-4xl font-black uppercase">
 			<span>Entre em contato</span>
 		</h2>
-		<p class="text-2xl mb-12">
-			<span class="text-gradient bg-gradient-to-t from-sw-navy-700 to-sw-flamingo">Nos conte uma história</span
-			>
-		</p>
+		<h3 class="mb-12">
+			<span class="text-gradient bg-gradient-to-t from-sw-navy-700 to-sw-flamingo">Nos conte uma história</span>
+		</h3>
 	</header>
 
-	<section class="text-justify">
+	<section class="flex my-8">
+		<div class="w-full flex">
+			<div class="w-full h-auto bg-sw-coal hidden lg:block lg:w-2/5 rounded-l-2xl overflow-hidden">
+				<Image class="w-full h-full" fit="contain" format="webp" src={contactImage} alt="" />
+			</div>
+			<div
+				class="flex items-center content-center w-full p-4 lg:p-8 rounded-2xl lg:rounded-l-none shadow-md bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800"
+			>
+				<div class="grid grid-cols-1 gap-4 lg:gap-8">
+					<div class="p-2 flex flex-wrap gap-4">
+						<div class="flex flex-row gap-4 items-center">
+							<div class="w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo">
+								<Icon name="mdi:email" class="text-sw-secondary dark:text-sw-primary" />
+							</div>
+							<h4 class="spacewiz__text--accent block md:hidden">Email</h4>
+						</div>
 
-		<div class="container mx-auto">
-			<div class="flex my-8">
-				<div class="w-full lg:w-11/12 flex">
-					<div
-						class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
-						style="background-image: url('https://source.unsplash.com/kvHhSroTNPY/600x800')"
-					>
+						<div class="flex flex-col justify-center">
+							<h4 class="spacewiz__text--accent hidden md:block">Email</h4>
+							<p>
+								Envie um email para o endereço <a href="mailto:contato@spacewiz.dev"
+									>contato@spacewiz.dev</a
+								>.
+							</p>
+						</div>
 					</div>
-					<div class="w-full bg-white p-5 rounded-lg lg:rounded-l-none shadow-md">
-						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-							<div class="mb-4 md:flex md:justify-between">
-								<div class="mb-4 md:mr-2 md:mb-0">
-									<label class="block mb-2 text-sm font-bold text-gray-700" for="firstName">
-										Nome
-									</label>
-									<input
-										class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:shadow-outline"
-										id="firstName"
-										type="text"
-										placeholder="seu nome"
-									/>
-								</div>
-								<div class="md:ml-2">
-									<label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
-										Sobrenome
-									</label>
-									<input
-										class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:shadow-outline"
-										id="lastName"
-										type="text"
-										placeholder="seu sobrenome"
-									/>
-								</div>
+
+					<div class="p-2 flex flex-wrap gap-4">
+						<div class="flex flex-row gap-4 items-center">
+							<div class="w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo">
+								<Icon name="ph:phone-call-fill" class="text-sw-secondary dark:text-sw-primary" />
 							</div>
-							<div class="mb-4">
-								<label class="block mb-2 text-sm font-bold text-gray-700" for="email"> Email</label>
-								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:shadow-outline"
-									id="email"
-									type="email"
-									placeholder="seu email"
-								/>
+							<h4 class="spacewiz__text--accent block md:hidden">Telefone</h4>
+						</div>
+
+						<div class="flex flex-col justify-center">
+							<h4 class="spacewiz__text--accent hidden md:block">Telefone</h4>
+							<p>Envie uma mensagem por <a href="https://wa.me/5561993527377">WhatsApp</a> ou <a href="https://t.me/dankonobre">Telegram</a>.</p>
+						</div>
+					</div>
+
+					<div class="p-2 flex flex-wrap gap-4">
+						<div class="flex flex-row gap-4 items-center">
+							<div class="w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo">
+								<Icon name="ion:share-social" class="text-sw-secondary dark:text-sw-primary" />
 							</div>
-							<div class="mb-4">
-								<label class="block mb-2 text-sm font-bold text-gray-700" for="text">Descrição</label>
-								<textarea
-									class="w-full h-32 px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow-md appearance-none focus:outline-none focus:shadow-outline"
-									id="text"
-									placeholder="nos deixe sua mensagem :)"
-								/>
-							</div>
-							<div class="mb-6 text-center">
-								<button
-									class="w-full px-6 py-2 font-bold text-white spacewiz__bg--accent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-									type="button"
-								>
-									Enviar!
-								</button>
-							</div>
-						</form>
+							<h4 class="spacewiz__text--accent block md:hidden">Redes Sociais</h4>
+						</div>
+
+						<div class="flex flex-col justify-center">
+							<h4 class="spacewiz__text--accent hidden md:block">Redes Sociais</h4>
+							<p>Faça parte do nosso <a href="https://discord.com/invite/4rAZ8HhuAh">Dscord</a> e nos siga no <a href="https://www.instagram.com/spacewiz.dev/">Instagram</a>.</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</section>
 </div>

@@ -40,5 +40,6 @@
 	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.stylelint": true
-	}
+	},
+	"cSpell.language": "en,pt-BR"
 }
