@@ -3,9 +3,9 @@ import { AstroSeo } from '@astrolib/seo';
 import { GoogleAnalytics } from '@astrolib/analytics';
 
 import { SITE } from '@/config.mjs';
-import type { MetaSEO } from '@types/metaseo';
 
 import Fonts from '@atoms/Fonts.astro';
+import { MetaSEO } from 'types/metaseo';
 
 export interface Props extends MetaSEO {
 	dontUseTitleTemplate?: boolean;
