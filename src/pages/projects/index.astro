@@ -2,6 +2,9 @@
 import Layout from '@layouts/PageLayout.astro';
 import { getSlugFromURL } from '@core/Path';
 
+import { SITE } from '@/config.mjs';
+import type { MetaSEO } from '@/metaseo';
+
 async function getProjects() {
 	const all = await Astro.glob('../../data/projects/**/*.mdx');
 	return all
@@ -20,9 +23,15 @@ async function getProjects() {
 }
 
 const projects = await getProjects();
+
+const meta: MetaSEO = {
+	title: 'Portifolio',
+	description: SITE.description,
+	ogType: 'website',
+};
 ---
 
-<Layout>
+<Layout {meta}>
 	<h2>Projetos</h2>
 	<section class="flex flex-col gap-12 my-6 min-h-[100vh]">
 		{

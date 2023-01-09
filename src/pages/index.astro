@@ -8,14 +8,22 @@ import Team from '@widgets/Team.astro';
 
 import DividerRect from '@atoms/dividers/DividerRect.astro';
 
+import { SITE } from '@/config.mjs';
+import type { MetaSEO } from '@/metaseo';
+
+const meta: MetaSEO = {
+	title: SITE.title,
+	description: SITE.description,
+	ogType: 'website',
+};
 ---
 
-<Layout>
+<Layout {meta}>
 	<section class="spacewiz__container mt-10">
 		<Products class="relative z-20" />
 	</section>
 
-	<div class="shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700 z-20" >
+	<div class="shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700 z-20">
 		<DividerRect class="w-full -mt-16 h-16 absolute z-10 bg-sw-secondary-700 dark:bg-sw-primary-700" />
 		<section class="spacewiz__container py-8">
 			<About />
@@ -26,7 +34,7 @@ import DividerRect from '@atoms/dividers/DividerRect.astro';
 		<Team />
 	</section>
 
-	<section class="spacewiz__container my-16 ">
+	<section class="spacewiz__container my-16">
 		<Contact />
 	</section>
 </Layout>
