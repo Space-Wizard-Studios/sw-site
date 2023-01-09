@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 interface Props {
-	photo?: React.ReactNode;
+	photo?: string;
 	isOpen: boolean;
 }
 
@@ -37,7 +37,9 @@ export function MemberPicture({ photo, isOpen }: Props) {
 				<div className="w-full"></div>
 			</motion.div>
 			<div className="absolute -mt-8">
-				<div className="w-24 h-full rounded-full overflow-hidden">{photo}</div>
+				<div className="w-24 h-full rounded-full overflow-hidden">
+					<img src={photo} width="100%" height="100%" />
+				</div>
 			</div>
 		</motion.div>
 	);

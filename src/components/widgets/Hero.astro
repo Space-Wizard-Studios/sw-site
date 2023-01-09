@@ -1,19 +1,14 @@
 ---
-import { Image } from '@astrojs/image/components';
-
-import heroImageSM from '@images/hero_sm.png';
-import heroImageMD from '@images/hero_md.png';
-
 import DividerWave from '@atoms/dividers/DividerWave.astro';
 import HeroCanvas from '@atoms/HeroCanvas';
-
 ---
 
 <section class="relative">
-	<DividerWave class="spacewiz__fill--reversed bottom-0"/>
-	<Image class="block md:hidden w-screen" fit="cover" aspectRatio="16:9" format="webp" src={heroImageSM} alt="" />
-	<Image class="hidden md:block w-screen" fit="cover" aspectRatio="16:9" format="webp" src={heroImageMD} alt="" />
+	<DividerWave class="spacewiz__fill--reversed bottom-0" />
+	<img class="block md:hidden w-screen cover aspect-ratio-16/9" src="/images/hero_sm.png" alt="" />
+	<img class="hidden md:block w-screen cover aspect-ratio-16/9" src="/images/hero_md.png" alt="" />
+
 	<!-- <figure class="absolute top-0 right-0 w-full h-full"> -->
-		<!-- <HeroCanvas client:load/> -->
+	<!-- <HeroCanvas client:load/> -->
 	<!-- </figure> -->
 </section>

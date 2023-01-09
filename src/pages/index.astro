@@ -14,6 +14,7 @@ import type { MetaSEO } from '@/metaseo';
 const meta: MetaSEO = {
 	title: SITE.title,
 	description: SITE.description,
+	canonical: Astro.url.toString(),
 	ogType: 'website',
 };
 ---

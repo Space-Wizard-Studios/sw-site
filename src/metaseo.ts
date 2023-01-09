@@ -1,7 +1,7 @@
 export interface MetaSEO {
 	title?: string;
 	description?: string;
-	image?: astroHTML.JSX.ImgHTMLAttributes;
+	image?: string;
 
 	canonical?: string | URL;
 	nofollow?: boolean;

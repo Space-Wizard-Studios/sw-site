@@ -7,7 +7,7 @@ import { MemberSocials } from './MemberSocials';
 import { MemberInfo } from './MemberInfo';
 
 export interface Props {
-	photo?: React.ReactNode;
+	photo?: string;
 	name: string;
 	roles: string[];
 	skills: string[];

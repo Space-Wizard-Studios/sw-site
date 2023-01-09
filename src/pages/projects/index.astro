@@ -27,6 +27,7 @@ const projects = await getProjects();
 const meta: MetaSEO = {
 	title: 'Portifolio',
 	description: SITE.description,
+	canonical: Astro.url.toString(),
 	ogType: 'website',
 };
 ---
@@ -50,7 +51,7 @@ const meta: MetaSEO = {
 						{new Date(page.frontmatter.date ?? '').toLocaleDateString('pt-BR', {
 							timeZone: 'UTC',
 							year: 'numeric',
-							month: 'long'
+							month: 'long',
 						})}
 					</div>
 				</div>
