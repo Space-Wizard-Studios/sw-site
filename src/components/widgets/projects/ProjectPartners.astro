@@ -20,15 +20,7 @@ const { partners, ...props } = Astro.props as Props;
 		{
 			partners.map(({ src, description }) => (
 				<div>
-					<Image
-						class="w-32"
-						src={import(/* @vite-ignore */ `../../../assets/images/projects/${src}.png`)}
-						fit="cover"
-						aspectRatio="16:9"
-						width="300"
-						format="webp"
-						alt=""
-					/>
+					<img class="w-32 cover aspect-ratio-16/9" src={src} width="300" alt="" />
 					<p>{description}</p>
 				</div>
 			))
