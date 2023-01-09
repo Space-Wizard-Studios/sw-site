@@ -2,6 +2,11 @@
 import Layout from '@layouts/ProjectLayout.astro';
 import { getSlugFromURL } from '@core/Path';
 
+import { getImage } from '@astrojs/image';
+
+import { SITE } from '@/config.mjs';
+import type { MetaSEO } from '@/metaseo';
+
 export async function getStaticPaths() {
 	const all = await Astro.glob('../../data/projects/**/*.mdx');
 	return all.map(({ file, ...page }) => {
@@ -21,8 +26,15 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
+
+const meta: MetaSEO = {
+	title: page.frontmatter.title,
+	description: page.frontmatter.description,
+	canonical: page.canonical || undefined,
+	ogType: 'article',
+};
 ---
 
-<Layout hero={page.frontmatter.hero} carousel={page.frontmatter.carousel} partners={page.frontmatter.partners}>
+<Layout {meta} hero={page.frontmatter.hero} carousel={page.frontmatter.carousel} partners={page.frontmatter.partners}>
 	<page.Content />
 </Layout>
