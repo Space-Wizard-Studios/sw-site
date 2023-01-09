@@ -7,13 +7,13 @@ import Header from '@widgets/Header.astro';
 import Footer from '@widgets/Footer.astro';
 import Scripts from '@core/Scripts.astro';
 
-import type { MetaSEO } from '@/metaseo';
+import type { MetaSEO } from 'types/metaseo';
 
 type Props = {
 	meta?: MetaSEO;
-}
+};
 
-const { meta = {} } = Astro.props as Props;
+const { meta } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>

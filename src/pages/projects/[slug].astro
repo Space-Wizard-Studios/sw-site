@@ -1,16 +1,13 @@
 ---
 import Layout from '@layouts/ProjectLayout.astro';
 import { getSlugFromURL } from '@core/Path';
-
-import { getImage } from '@astrojs/image';
-
-import { SITE } from '@/config.mjs';
-import type { MetaSEO } from '@/metaseo';
+import type { MetaSEO } from 'types/metaseo';
 
 export async function getStaticPaths() {
 	const all = await Astro.glob('../../data/projects/**/*.mdx');
 	return all.map(({ file, ...page }) => {
 		const slug = getSlugFromURL(file);
+
 		return {
 			params: {
 				slug: slug,
@@ -30,7 +27,8 @@ const { page } = Astro.props;
 const meta: MetaSEO = {
 	title: page.frontmatter.title,
 	description: page.frontmatter.description,
-	canonical: page.canonical || undefined,
+	image: page.frontmatter.hero,
+	canonical: Astro.url.toString(),
 	ogType: 'article',
 };
 ---

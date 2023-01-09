@@ -8,7 +8,7 @@ import type { ImageProps } from '@widgets/projects/ProjectCarousel.astro';
 import type { PartnersProps } from '@widgets/projects/ProjectPartners.astro';
 
 import DividerArrowDown from '@atoms/dividers/DividerArrowDown.astro';
-import type { MetaSEO } from '@/metaseo';
+import type { MetaSEO } from 'types/metaseo';
 
 type Props = {
 	meta?: MetaSEO;
@@ -17,7 +17,7 @@ type Props = {
 	partners?: PartnersProps[];
 };
 
-const {meta, hero, carousel, partners } = Astro.props as Props;
+const { meta, hero, carousel, partners } = Astro.props as Props;
 ---
 
 <Layout {meta}>
@@ -29,8 +29,8 @@ const {meta, hero, carousel, partners } = Astro.props as Props;
 				<slot />
 			</article>
 
-			{carousel && <ProjectCarousel images={carousel} class="px-8"/>}
-			{partners && <ProjectPartners partners={partners} class="px-8"/>}
+			{carousel && <ProjectCarousel images={carousel} class="px-8" />}
+			{partners && <ProjectPartners partners={partners} class="px-8" />}
 		</div>
 	</div>
 	<DividerArrowDown class="fill-sw-secondary-200 dark:fill-sw-primary-700 bg-sw-coal-500" />

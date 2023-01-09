@@ -8,7 +8,7 @@ export const SITE = {
 	title: 'Space Wizard Studios',
 	description: 'Da direção à criação, buscamos sempre inovar com o melhor da produção criativa: trazemos o seus projetos de apps, jogos e páginas à vida! 🚀',
 
-	defaultImage: '@images/meta.png',
+	defaultImage: '/images/spacewizard_website.webp',
 
 	language: 'pt-BR',
 	textDirection: 'ltr',

@@ -1,12 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
 import TeamCard from '@atoms/TeamCard';
-
-import alex from '@images/team/alex_profile.png';
-import danilo from '@images/team/danilo_profile.png';
-import gustavo from '@images/team/gustavo_profile.png';
-import rhayane from '@images/team/rhayane_profile.png';
-import william from '@images/team/william_profile.png';
 
 export interface Props {
 	[props: string]: any;
@@ -21,7 +14,8 @@ const { ...props } = Astro.props as Props;
 			<span>Quem somos</span>
 		</h2>
 		<h3 class="mb-18">
-			<span class="text-gradient bg-gradient-to-t from-sw-navy-700 to-sw-flamingo">Essa é a nossa tripulação</span>
+			<span class="text-gradient bg-gradient-to-t from-sw-navy-700 to-sw-flamingo">Essa é a nossa tripulação</span
+			>
 		</h3>
 	</header>
 
@@ -36,9 +30,8 @@ const { ...props } = Astro.props as Props;
 				linkedin: 'https://www.linkedin.com/in/alexandre-barbosa-083b83b4/',
 				youtube: 'https://www.youtube.com/channel/UCYSb-3wJyK-L0E9YyHeqkiQ/',
 			}}
-		>
-			<Image slot="photo" src={alex} alt="Profile Picture" />
-		</TeamCard>
+			photo="/images/team/alex_profile.webp"
+		/>
 
 		<TeamCard
 			client:load
@@ -48,9 +41,8 @@ const { ...props } = Astro.props as Props;
 			links={{
 				linkedin: 'https://www.linkedin.com/in/danilo-nobre/',
 			}}
-		>
-			<Image slot="photo" src={danilo} alt="Profile Picture" />
-		</TeamCard>
+			photo="/images/team/danilo_profile.webp"
+		/>
 
 		<TeamCard
 			client:load
@@ -61,9 +53,8 @@ const { ...props } = Astro.props as Props;
 				linkedin: 'https://www.linkedin.com/in/gustav-arantes/',
 				portfolio: 'https://gustavarantes.myportfolio.com/',
 			}}
-		>
-			<Image slot="photo" src={gustavo} alt="Profile Picture" />
-		</TeamCard>
+			photo="/images/team/gustavo_profile.webp"
+		/>
 
 		<TeamCard
 			client:load
@@ -73,9 +64,8 @@ const { ...props } = Astro.props as Props;
 			links={{
 				linkedin: 'https://www.linkedin.com/in/rhayane-miranda/',
 			}}
-		>
-			<Image slot="photo" src={rhayane} alt="Profile Picture" />
-		</TeamCard>
+			photo="/images/team/rhayane_profile.webp"
+		/>
 
 		<TeamCard
 			client:load
@@ -86,8 +76,7 @@ const { ...props } = Astro.props as Props;
 				github: 'https://github.com/wbmagalhaes/',
 				linkedin: 'https://www.linkedin.com/in/william-bernardes-magalhaes/',
 			}}
-		>
-			<Image slot="photo" src={william} alt="Profile Picture" />
-		</TeamCard>
+			photo="/images/team/william_profile.webp"
+		/>
 	</section>
 </div>

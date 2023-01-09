@@ -3,7 +3,7 @@ import Layout from '@layouts/PageLayout.astro';
 import { getSlugFromURL } from '@core/Path';
 
 import { SITE } from '@/config.mjs';
-import type { MetaSEO } from '@/metaseo';
+import type { MetaSEO } from 'types/metaseo';
 
 async function getProjects() {
 	const all = await Astro.glob('../../data/projects/**/*.mdx');
@@ -27,6 +27,7 @@ const projects = await getProjects();
 const meta: MetaSEO = {
 	title: 'Portifolio',
 	description: SITE.description,
+	canonical: Astro.url.toString(),
 	ogType: 'website',
 };
 ---
@@ -50,7 +51,7 @@ const meta: MetaSEO = {
 						{new Date(page.frontmatter.date ?? '').toLocaleDateString('pt-BR', {
 							timeZone: 'UTC',
 							year: 'numeric',
-							month: 'long'
+							month: 'long',
 						})}
 					</div>
 				</div>
