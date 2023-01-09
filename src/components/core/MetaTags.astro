@@ -23,11 +23,12 @@ export interface Props extends MetaSEO {
 // 	: '';
 
 const {
-	title = SITE.title,
-	description = '',
-	image,
+	title = SITE.name,
+	description = SITE.description,
+	image: _image = defaultImage,
+	canonical,
+	noindex = false,
 
-	canonical = Astro.url.toString(),
 	nofollow = false,
 
 	ogTitle = title,
