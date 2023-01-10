@@ -13,6 +13,6 @@ export const SITE = {
 	language: 'pt-BR',
 	textDirection: 'ltr',
 
-	googleAnalyticsId: 'G-337095792',
+	googleAnalyticsId: 'GTM-KH6DHDG',
 	googleSiteVerificationId: 'psQe6AIBb-tp74gfg1VJcAbH2EseZF8LNVwsGJCyQRI',
 };
