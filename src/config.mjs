@@ -14,7 +14,7 @@ export const SITE = {
 	textDirection: 'ltr',
 
 	googleAnalyticsId: 'G-337095792',
-	googleAnalyticsStream: 'G-YDMYGDKGN9',
+	googleAnalyticsStreamId: 'G-YDMYGDKGN9',
 	googleTagId: 'GTM-KH6DHDG',
 	googleSiteVerificationId: 'psQe6AIBb-tp74gfg1VJcAbH2EseZF8LNVwsGJCyQRI',
 };
