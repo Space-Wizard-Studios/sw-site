@@ -48,10 +48,8 @@ const {
 	}}
 />
 
-<Fonts />
-
 <!-- Google Site Verification -->
-{SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
+<meta name="google-site-verification" content={SITE.googleSiteVerificationId} />
 
 <!-- Google Analytics -->
-{SITE.googleAnalyticsId && <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />}
+<GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />
