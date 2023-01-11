@@ -21,6 +21,7 @@
 		"@astrojs/tailwind": "^2.1.2",
 		"@astrolib/analytics": "^0.2.4",
 		"@astrolib/seo": "^0.2.1",
+		"@firebase/analytics": "^0.9.0",
 		"@fontsource/roboto": "^4.5.8",
 		"@react-three/drei": "^9.40.0",
 		"@react-three/fiber": "^8.9.1",
@@ -61,11 +62,11 @@
 		"eslint-plugin-jsx-a11y": "^6.6.1",
 		"firebase-tools": "^11.16.1",
 		"stylelint": "^14.16.1",
-		"stylelint-scss": "^4.3.0",
 		"stylelint-config-prettier": "^9.0.4",
 		"stylelint-config-recommended-scss": "^8.0.0",
 		"stylelint-config-standard": "^29.0.0",
 		"stylelint-config-standard-scss": "^6.1.0",
+		"stylelint-scss": "^4.3.0",
 		"terser": "^5.15.1"
 	}
 }

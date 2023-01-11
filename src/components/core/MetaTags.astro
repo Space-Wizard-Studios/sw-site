@@ -1,10 +1,9 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
-import { GoogleAnalytics } from '@astrolib/analytics';
+import { analytics, GAPageView, GAEvent } from '@core/Firebase';
 
 import { SITE } from '@/config.mjs';
 
-import Fonts from '@atoms/Fonts.astro';
 import { MetaSEO } from 'types/metaseo';
 
 export interface Props extends MetaSEO {
@@ -39,19 +38,18 @@ const {
 		title: ogTitle,
 		description: description,
 		type: ogType,
-		images: image ? [
-			{
-				url: image,
-				alt: ogTitle,
-			}
-		] : undefined
+		images: image
+			? [
+					{
+						url: image,
+						alt: ogTitle,
+					},
+			  ]
+			: undefined,
 	}}
 />
 
-<Fonts />
-
 <!-- Google Site Verification -->
-{SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
+<meta name="google-site-verification" content={SITE.googleSiteVerificationId} />
 
-<!-- Google Analytics -->
-{SITE.googleAnalyticsId && <GoogleAnalytics id={String(SITE.googleAnalyticsId)} partytown={true} />}
+<script type="text/partytown" content={GAPageView}></script>
