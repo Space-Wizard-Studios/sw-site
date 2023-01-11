@@ -28,7 +28,10 @@ export default defineConfig({
 		// SEO | Analytics
 		sitemap(),
 		partytown({
-			config: { forward: ['dataLayer.push'] },
+			config: {
+				forward: ['dataLayer.push'],
+				debug: true
+			},
 		}),
 	],
 
