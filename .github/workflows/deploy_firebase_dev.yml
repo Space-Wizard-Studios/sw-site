@@ -33,7 +33,8 @@ jobs:
           repository: 'myactionway/lighthouse-badges'
           path: temp_lighthouse_badges_nested
 
-      - run: echo ${{steps.deploy.outputs.url}}
+      - run: echo ${{ steps.deploy.outputs.urls }}
+      - run: echo ${{ steps.deploy.outputs.details_url }}
 
       - uses: myactionway/lighthouse-badger-action@v2.2
         with:
