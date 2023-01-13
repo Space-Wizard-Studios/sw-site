@@ -23,17 +23,11 @@ jobs:
           channelId: dev
           expires: 30d
 
-      - name: Lighthouse
-        run: |
-          REPOSITORY=`expr "${{ env.REPO_BRANCH }}" : "\([^ ]*\)"`
-          BRANCH=`expr "${{ env.REPO_BRANCH }}" : ".* \([^ ]*\)"`
-          echo "REPOSITORY=$REPOSITORY" >> $GITHUB_ENV
-          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
       - uses: actions/checkout@v3
         with:
-          repository: ${{ env.REPOSITORY }}
+          repository: ${{ github.repository }}
           token: '${{ secrets.GITHUB_TOKEN }}'
-          ref: ${{ env.BRANCH }}
+          ref: ${{ github.ref_name }}
       - uses: actions/checkout@v3
         with:
           repository: 'myactionway/lighthouse-badges'
