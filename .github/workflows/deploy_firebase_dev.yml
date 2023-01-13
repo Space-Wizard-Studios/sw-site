@@ -38,5 +38,5 @@ jobs:
 
       - uses: myactionway/lighthouse-badger-action@v2.2
         with:
-          urls: ${{steps.deploy.outputs.url}}
+          urls: ${{steps.deploy.outputs.urls}}
           
