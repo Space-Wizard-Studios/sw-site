@@ -16,8 +16,28 @@ jobs:
 
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
+        id: deploy
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}'
           channelId: dev
           expires: 30d
+
+      - name: Lighthouse
+        run: |
+          REPOSITORY=`expr "${{ env.REPO_BRANCH }}" : "\([^ ]*\)"`
+          BRANCH=`expr "${{ env.REPO_BRANCH }}" : ".* \([^ ]*\)"`
+          echo "REPOSITORY=$REPOSITORY" >> $GITHUB_ENV
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ env.REPOSITORY }}
+          token: '${{ secrets.GITHUB_TOKEN }}'
+          ref: ${{ env.BRANCH }}
+      - uses: actions/checkout@v3
+        with:
+          repository: 'myactionway/lighthouse-badges'
+          path: temp_lighthouse_badges_nested
+      - uses: myactionway/lighthouse-badger-action@v2.2
+        with:
+          urls: ${{steps.deploy.outputs.url}}

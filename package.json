@@ -38,6 +38,7 @@
 		"flowbite-react": "^0.3.7",
 		"framer-motion": "^7.6.7",
 		"framer-motion-3d": "^7.6.7",
+		"lighthouse": "^9.6.8",
 		"limax": "^3.0.0",
 		"lorem-ipsum": "^2.0.8",
 		"postcss-import": "^15.0.0",
