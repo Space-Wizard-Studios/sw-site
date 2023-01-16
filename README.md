@@ -1,4 +1,6 @@
-# Space Wizard Studios - Site
+# spacewiz.dev
+
+[https://spacewiz.dev/](https://spacewiz.dev/)
 
 [![Site Status](https://img.shields.io/website?url=https%3A%2F%2Fspacewiz.dev%2F)](https://spacewiz.dev/)
 [![Deploy Status](https://img.shields.io/github/actions/workflow/status/Space-Wizard-Studios/sw-site/deploy_firebase_live.yml?label=deploy)](https://github.com/Space-Wizard-Studios/sw_site/actions/workflows/deploy_firebase_live.yml)
@@ -11,11 +13,16 @@
 [![React Version](https://img.shields.io/github/package-json/dependency-version/Space-Wizard-Studios/sw-site/react?logo=react)](https://pt-br.reactjs.org/)
 [![Tailwind Version](https://img.shields.io/github/package-json/dependency-version/Space-Wizard-Studios/sw-site/tailwindcss?label=tailwind&logo=tailwindcss)](https://tailwindcss.com/)
 
-## Sobre
+[![Relatório do Lighthouse resumido](./lighthouse_results/desktop/pagespeed.svg)]
+[Relatório do Lighthouse](https://htmlpreview.github.io/?https://github.com/Space-Wizard-Studios/sw-site/blob/main/lighthouse_results/desktop/spacewiz__dev.html)
 
-Este é o repositório que contém o site de apresentação, portfólio e showcase dos serviços prestados pela SpaceWizard.
+## Sobre o projeto
 
-## Como rodar este site localmente
+Baseado em [Astro](https://astro.build/) + [React](https://pt-br.reactjs.org/)  + [Tailwind CSS](https://tailwindcss.com/) e projetado levando em conta as melhores práticas de desenvolvimento web, este é um projeto open-source que tem como objetivo entregar um site rápido, otimizado e um ambiente amigável ao desenvolvedor.
+
+Sinta-se livre para clonar este projeto, modificá-lo, alterar seu conteúdo, testar as funcionalidades ou utilizá-lo como **base** para um projeto de sua autoria (comercial ou não comercial). Para mais informações, veja em [Licença](https://github.com/Space-Wizard-Studios/sw-site#Licença).
+
+## Comandos
 
 Requerimentos:
 
@@ -25,6 +32,51 @@ Requerimentos:
 ```pwsh
 git clone https://github.com/Space-Wizard-Studios/sw-site.git
 cd sw-site
-npm i
-npm run
 ```
+
+Todos os comandos rodam em um terminal a partir da raiz do projeto.
+
+| Comando                   | Ação                                              |
+| :------------------------ | :-------------------------------------------------|
+| `npm install`             | Instala as dependências                           |
+| `npm run dev`             | Inicia um servidor local de desenvolvimento       |
+| `npm run build`           | Builda o site para produção em .dist/             |
+| `npm preview`             | Abre uma preview da build localmente              |
+| `npm run astro`           | Roda o CLI do astro como `astro add`              |
+| -                         | -                                                 |
+| `npm run lint`            | Roda o StyleLint                                  |
+
+## Estrutura do projeto
+
+```txt
+.
+├── public/
+│   ├── images/
+│   │   ├── projects/
+│   │   └── team/
+│   └── models/
+└── src/
+    ├── assets/
+    │   └── styles/
+    ├── components/
+    │   ├── atoms/
+    │   ├── core/
+    │   ├── icons/
+    │   └── widgets/
+    ├── data/
+    │   ├── policies/
+    │   └── projects/
+    ├── hooks/
+    ├── layout/
+    └── pages/
+```
+
+### Configuração
+
+Arquivo de configuração básica: `./src/config.mjs`
+
+### Licença
+
+Esse **projeto** é licenciado sobre a licença MIT em [LICENCE.md](https://github.com/Space-Wizard-Studios/sw-site/blob/main/LICENSE.md).
+
+Os materiais audiovisuais distribuídos nesse projeto (como gráficos, imagens, textos, sons e outros) são de propriedade de Space Wizard Studios, pessoa jurídica de propriedade privada. Para mais informações, acesse [https://spacewiz.dev/policies/terms/](https://spacewiz.dev/policies/terms/). Em hipótese alguma distribua os **materiais** aqui disponíveis para uso comercial ou não comercial.
