@@ -1,8 +1,6 @@
-# Sobre o projeto
+# spacewiz.dev
 
-Baseado em [Astro](https://astro.build/) + [React](https://pt-br.reactjs.org/)  + [Tailwind CSS](https://tailwindcss.com/) e projetado levando em conta as melhores práticas de desenvolvimento web, este é um projeto open-source que tem como objetivo entregar um site rápido, otimizado e um ambiente amigável ao desenvolvedor.
-
-Sinta-se livre para clonar este projeto, modificá-lo, alterar seu conteúdo, testar as funcionalidades ou utilizá-lo como **base** para um projeto de sua autoria (comercial ou não comercial). Mais informações veja em [Licença](https://github.com/Space-Wizard-Studios/sw-site#Licença).
+[https://spacewiz.dev/](https://spacewiz.dev/)
 
 [![Site Status](https://img.shields.io/website?url=https%3A%2F%2Fspacewiz.dev%2F)](https://spacewiz.dev/)
 [![Deploy Status](https://img.shields.io/github/actions/workflow/status/Space-Wizard-Studios/sw-site/deploy_firebase_live.yml?label=deploy)](https://github.com/Space-Wizard-Studios/sw_site/actions/workflows/deploy_firebase_live.yml)
@@ -15,9 +13,14 @@ Sinta-se livre para clonar este projeto, modificá-lo, alterar seu conteúdo, te
 [![React Version](https://img.shields.io/github/package-json/dependency-version/Space-Wizard-Studios/sw-site/react?logo=react)](https://pt-br.reactjs.org/)
 [![Tailwind Version](https://img.shields.io/github/package-json/dependency-version/Space-Wizard-Studios/sw-site/tailwindcss?label=tailwind&logo=tailwindcss)](https://tailwindcss.com/)
 
-## spacewiz.dev
+[![Relatório do Lighthouse resumido](./lighthouse_results/desktop/pagespeed.svg)]
+[Relatório do Lighthouse](https://htmlpreview.github.io/?https://github.com/Space-Wizard-Studios/sw-site/blob/main/lighthouse_results/desktop/spacewiz__dev.html)
 
-[https://spacewiz.dev/](https://spacewiz.dev/)
+## Sobre o projeto
+
+Baseado em [Astro](https://astro.build/) + [React](https://pt-br.reactjs.org/)  + [Tailwind CSS](https://tailwindcss.com/) e projetado levando em conta as melhores práticas de desenvolvimento web, este é um projeto open-source que tem como objetivo entregar um site rápido, otimizado e um ambiente amigável ao desenvolvedor.
+
+Sinta-se livre para clonar este projeto, modificá-lo, alterar seu conteúdo, testar as funcionalidades ou utilizá-lo como **base** para um projeto de sua autoria (comercial ou não comercial). Para mais informações, veja em [Licença](https://github.com/Space-Wizard-Studios/sw-site#Licença).
 
 ## Comandos
 
@@ -63,6 +66,7 @@ Todos os comandos rodam em um terminal a partir da raiz do projeto.
     ├── data/
     │   ├── policies/
     │   └── projects/
+    ├── hooks/
     ├── layout/
     └── pages/
 ```
