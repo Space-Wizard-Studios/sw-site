@@ -50,8 +50,8 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
-          channelId: ${{ ${{ github.ref_name }} == 'main' && 'live' || ${{ github.ref_name }} }}
-          expires: ${{ ${{ github.ref_name }} == 'dev' && '30d' || '7d' }}
+          channelId: ${{ github.ref_name }} == 'main' && 'live' || ${{ github.ref_name }}
+          expires: ${{ github.ref_name }} == 'dev' && '30d' || '7d'
 
     outputs:
       url: ${{ steps.deploy.outputs.details_url }}
