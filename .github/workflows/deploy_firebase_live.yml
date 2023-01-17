@@ -2,7 +2,14 @@ name: Deploy to Live
 
 on:
   push:
-    branches: [ main, dev ]
+    branches:
+      - main
+      - dev
+  pull_request:
+      branches:
+        - '*'
+        - '!main'
+        - '!dev'
 
 permissions:
   contents: read
@@ -11,7 +18,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+
+      - run: echo ${{ github.ref }}
+
+      - name: Checkout your repository
         uses: actions/checkout@v3
 
       - name: Install, build, and upload your site
@@ -28,7 +38,7 @@ jobs:
     needs: build
 
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout your repository
         uses: actions/checkout@v3
 
       - name: Cache build restore
@@ -42,7 +52,9 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
-          channelId: ${{ github.ref == 'main' && 'live' || 'dev' }}
+          channelId: ${{ github.ref == 'main' && 'live' || github.ref }}
+          expires: ${{ github.ref == 'dev' && '30d' || '7d' }}
+
         id: deploy
 
     outputs:
@@ -56,17 +68,16 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: ${{ github.repository }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.ref_name }}
+      - name: Checkout your repository
+        uses: actions/checkout@v3
 
-      - uses: actions/checkout@v3
+      - name: Checkout the Lighthouse repository
+        uses: actions/checkout@v3
         with:
           repository: 'myactionway/lighthouse-badges'
           path: temp_lighthouse_badges_nested
 
-      - uses: myactionway/lighthouse-badger-action@v2.2
+      - name: Analyze and generate badge
+        uses: myactionway/lighthouse-badger-action@v2.2
         with:
           urls: ${{ needs.deploy.outputs.url }}
