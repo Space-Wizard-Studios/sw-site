@@ -17,8 +17,8 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 
-      - name: Cache build
-        uses: actions/cache@v3
+      - name: Cache build save
+        uses: actions/cache/save@v3
         with:
           path: dist
           key: ${{ runner.os }}-build
@@ -28,6 +28,12 @@ jobs:
     needs: build
 
     steps:
+      - name: Cache build restore
+        uses: actions/cache/restore@v3
+        with:
+          path: dist
+          key: ${{ runner.os }}-build
+
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
