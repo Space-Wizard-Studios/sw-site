@@ -4,8 +4,11 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
-  deploy_to_live:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -14,24 +17,41 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
       - name: Deploy to Firebase
-        id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}'
           channelId: live
+        id: deploy
 
+    outputs:
+      url: ${{ steps.deploy.outputs.details_url }}
+
+  analysis:
+    runs-on: ubuntu-latest
+    needs: deploy
+
+    permissions:
+      contents: write
+
+    steps:
       - uses: actions/checkout@v3
         with:
           repository: ${{ github.repository }}
           token: '${{ secrets.GITHUB_TOKEN }}'
           ref: ${{ github.ref_name }}
+
       - uses: actions/checkout@v3
         with:
           repository: 'myactionway/lighthouse-badges'
           path: temp_lighthouse_badges_nested
+
       - uses: myactionway/lighthouse-badger-action@v2.2
         with:
-          urls: ${{steps.deploy.outputs.url}}
-          
+          urls: ${{ needs.deploy.outputs.url }}
