@@ -52,7 +52,10 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
           channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
-          expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
+          # expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
+
+      - run: echo ${{ steps.deploy.outputs.urls }}
+      - run: echo ${{ steps.deploy.outputs.details_url }}
 
     outputs:
       url: ${{ steps.deploy.outputs.details_url }}
