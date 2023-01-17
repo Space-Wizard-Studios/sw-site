@@ -20,8 +20,8 @@ jobs:
 
     steps:
       - run: |
-          echo ${{ github.ref_name }} == 'main' && 'live' || ${{ github.ref_name }}
-          echo: ${{ github.ref_name }} == 'dev' && '30d' || '7d'
+          echo ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
+          echo: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
 
       - name: Checkout your repository
         uses: actions/checkout@v3
