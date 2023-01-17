@@ -70,6 +70,8 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Checkout the Lighthouse repository
         uses: actions/checkout@v3
