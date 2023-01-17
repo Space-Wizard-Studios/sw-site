@@ -54,11 +54,8 @@ jobs:
           channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
           expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
 
-      - run: echo ${{ steps.deploy.outputs.urls }}
-      - run: echo ${{ steps.deploy.outputs.details_url }}
-
     outputs:
-      url: ${{ steps.deploy.outputs.details_url }}
+      url: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
 
   analysis:
     runs-on: ubuntu-latest
@@ -82,4 +79,4 @@ jobs:
       - name: Analyze and generate badge
         uses: myactionway/lighthouse-badger-action@v2.2
         with:
-          urls: ${{ needs.deploy.outputs.url || 'https://spacewiz.dev/' }}
+          urls: ${{ needs.deploy.outputs.url }}
