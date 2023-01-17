@@ -82,4 +82,4 @@ jobs:
       - name: Analyze and generate badge
         uses: myactionway/lighthouse-badger-action@v2.2
         with:
-          urls: ${{ needs.deploy.outputs.url }}
+          urls: ${{ needs.deploy.outputs.url || 'https://spacewiz.dev/' }}
