@@ -41,7 +41,6 @@ const meta: MetaSEO = {
 					<h2>
 						<a href={'/projects/' + page.slug}>{page.frontmatter.title}</a>
 					</h2>
-					<div>{page.frontmatter.description}</div>
 					<div class="flex gap-2">
 						{page.frontmatter.tags?.map((tag: string) => (
 							<span>{tag}</span>
