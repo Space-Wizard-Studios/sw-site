@@ -4,52 +4,25 @@ import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 import ButtonToggleTheme from '@core/ButtonToggleTheme';
 ---
 
-<header
-	class="sticky flex top-0 z-40 h-28 w-full items-center mx-auto md:backdrop-blur-sm shadow-md bg-sw-secondary/95 dark:bg-sw-primary/95"
->
-	<div class="flex mx-8 w-full items-center justify-between max-w-6xl">
-		<nav class="flex w-full justify-between">
-			<a class="flex items-center w-48 spacewiz__fill" href="/">
+<header class="sticky top-0 z-40 w-full md:backdrop-blur-sm shadow-md bg-sw-secondary/95 dark:bg-sw-primary/95">
+	<nav
+		class="flex w-full h-16 lg:h-28 justify-center items-center"
+	>
+		<div class="flex w-full spacewiz__container items-center justify-between ">
+			<a class="w-48 spacewiz__fill" href="/">
 				<SiteLogo client:load />
 			</a>
+
 			<!-- MOBILE -->
-			<div class="flex items-center md:hidden">
+			<div class="flex flex-grow justify-end md:hidden gap-8">
 				<ButtonToggleTheme client:load />
 				<ButtonToggleMenu />
 			</div>
-		</nav>
-
-		<nav
-			class="items-center w-full md:w-auto md:flex text-sw-primary dark:text-sw-secondary md:h-auto"
-			aria-label="Main navigation"
-			id="menu"
-		>
-			<!-- MOBILE -->
-			<div class="block position-absolute w-full md:hidden md:w-auto">
-				<ul
-					class="flex flex-col p-4 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-500 dark:bg-sw-primary-800"
-				>
-					<li>
-						<a
-							href="/"
-							class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-							aria-current="page">Início</a
-						>
-					</li>
-					<li>
-						<a
-							href="/projects"
-							class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-							>Projetos</a
-						>
-					</li>
-				</ul>
-			</div>
 
 			<!-- DESKTOP -->
-			<div class="hidden w-full md:block md:w-auto mx-4">
+			<div class="hidden md:flex md:flex-grow justify-end">
 				<ul
-					class="flex flex-col p-3 rounded-lg md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-500 dark:bg-sw-primary-800"
+					class="flex flex-col p-3 mx-4 rounded-lg md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-500 dark:bg-sw-primary-800"
 				>
 					<li>
 						<a
@@ -66,13 +39,30 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 						>
 					</li>
 				</ul>
-			</div>
 
-			<div class="md:self-center flex items-center">
-				<div class="hidden items-center md:flex">
-					<ButtonToggleTheme client:load/>
+				<div class="items-center md:flex">
+					<ButtonToggleTheme client:load />
 				</div>
 			</div>
-		</nav>
-	</div>
+		</div>
+	</nav>
+
+	<nav class="hidden w-full spacewiz__container text-sw-primary dark:text-sw-secondary" id="menu">
+		<ul class="flex flex-col p-4 mt-4">
+			<li>
+				<a
+					href="/"
+					class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+					aria-current="page">Início</a
+				>
+			</li>
+			<li>
+				<a
+					href="/projects"
+					class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+					>Projetos</a
+				>
+			</li>
+		</ul>
+	</nav>
 </header>
