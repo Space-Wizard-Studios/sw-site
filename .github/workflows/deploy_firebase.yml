@@ -45,8 +45,6 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
-          channelId: live
-          expires: 7d
 
     outputs:
       url: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
