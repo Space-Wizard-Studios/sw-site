@@ -38,7 +38,7 @@ function Button(props: ButtonToggleThemeProps) {
 	return (
 		<motion.button
 			type="button"
-			className="rounded-lg p-2 items-center relative overflow-hidden"
+			className="rounded-lg p-3 items-center relative overflow-hidden"
 			aria-label="Toggle Theme"
 			onClick={() => toggleTheme()}
 			animate={{
@@ -56,7 +56,7 @@ function Button(props: ButtonToggleThemeProps) {
 				<Stars className="absolute w-full h-full top-0 left-0" fillColor="#E4E8EC" />
 			</motion.div>
 
-			<motion.div className="w-6 h-6" key={theme} initial={{ scale: 0.2 }} animate={{ scale: 1 }}>
+			<motion.div className="w-5 h-5" key={theme} initial={{ scale: 0.2 }} animate={{ scale: 1 }}>
 				{theme === 'dark' ? <Moon fillColor="#E4E8EC" /> : <Sun fillColor="#F0F6FF" />}
 			</motion.div>
 

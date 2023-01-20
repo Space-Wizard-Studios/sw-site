@@ -21,7 +21,7 @@ export function MemberInfo({ name, roles, skills, isOpen }: Props) {
 				{skills.map((s, i) => (
 					<span
 						key={i}
-						className="font-light text-sm rounded-xl p-2 text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 border-none"
+						className="font-light text-xs rounded-xl p-2 text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 border-none"
 					>
 						{s}
 					</span>

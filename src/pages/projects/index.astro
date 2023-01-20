@@ -33,25 +33,33 @@ const meta: MetaSEO = {
 ---
 
 <Layout {meta}>
-	<h2>Projetos</h2>
-	<section class="flex flex-col gap-12 my-6 min-h-[100vh]">
+	<h1>Projetos</h1>
+	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
 		{
 			projects.map((page) => (
-				<div>
-					<h2>
-						<a href={'/projects/' + page.slug}>{page.frontmatter.title}</a>
-					</h2>
-					<div class="flex gap-2">
-						{page.frontmatter.tags?.map((tag: string) => (
-							<span>{tag}</span>
-						))}
-					</div>
-					<div>
-						{new Date(page.frontmatter.date ?? '').toLocaleDateString('pt-BR', {
-							timeZone: 'UTC',
-							year: 'numeric',
-							month: 'long',
-						})}
+				<div class="flex relative min-h-[16rem]">
+					<div class="grid grid-cols-1 w-full h-full overflow-hidden content-between shadow-md hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10 transition-shadow duration-500 bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-sw-primary dark:text-sw-secondary">
+						<img src={page.frontmatter.hero} />
+
+						<div class="p-4">
+							<h2 class="font-bold text-base">
+								<a href={'/projects/' + page.slug}>{page.frontmatter.title}</a>
+							</h2>
+							<div class="flex gap-2 p-2">
+								{page.frontmatter.tags?.map((tag: string) => (
+									<span class="font-light text-xs rounded-xl p-2 text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 border-none">
+										{tag}
+									</span>
+								))}
+							</div>
+							<div class="py-2 text-right">
+								{new Date(page.frontmatter.date ?? '').toLocaleDateString('pt-BR', {
+									timeZone: 'UTC',
+									year: 'numeric',
+									month: 'long',
+								})}
+							</div>
+						</div>
 					</div>
 				</div>
 			))
