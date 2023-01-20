@@ -45,8 +45,8 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
-          channelId: ${{ if github.ref_name == 'main'; then ~; else github.ref_name; }}
-          expires: ${{ if github.ref_name == 'main'; then ~; elif github.ref_name == 'dev'; then '30d'; else '7d'; }}
+          channelId: live
+          expires: ~
 
     outputs:
       url: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
