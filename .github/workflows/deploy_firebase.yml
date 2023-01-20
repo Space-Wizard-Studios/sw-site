@@ -14,13 +14,13 @@ jobs:
 
     steps:
       - name: Checkout your repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 
       - name: Cache build save
-        uses: actions/cache/save@v2
+        uses: actions/cache/save@v3
         with:
           path: dist
           key: ${{ runner.os }}-build
@@ -31,10 +31,10 @@ jobs:
 
     steps:
       - name: Checkout your repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Cache build restore
-        uses: actions/cache/restore@v2
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-build
@@ -61,13 +61,13 @@ jobs:
 
     steps:
       - name: Checkout your repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.ref_name }}
 
       - name: Checkout the Lighthouse repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: 'myactionway/lighthouse-badges'
           path: temp_lighthouse_badges_nested
