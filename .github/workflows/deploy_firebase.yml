@@ -6,38 +6,21 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.ref_name }}
 
       - name: Install, build, and upload your site
         uses: withastro/action@v0
-
-      - name: Cache build save
-        uses: actions/cache/save@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-build
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Checkout your repository
-        uses: actions/checkout@v3
-
-      - name: Cache build restore
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-build
 
       - name: Deploy to Firebase
         id: deploy
@@ -46,25 +29,6 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
           channelID: live
-          
-    outputs:
-      url: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
-
-  analysis:
-    if: ${{ github.ref_name != 'main' }}
-
-    runs-on: ubuntu-latest
-    needs: deploy
-
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout your repository
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.ref_name }}
 
       - name: Checkout the Lighthouse repository
         uses: actions/checkout@v3
@@ -75,4 +39,4 @@ jobs:
       - name: Analyze and generate badge
         uses: myactionway/lighthouse-badger-action@v2.2
         with:
-          urls: ${{ needs.deploy.outputs.url }}
+          urls: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
