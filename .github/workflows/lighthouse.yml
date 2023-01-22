@@ -4,20 +4,32 @@ on:
   workflow_dispatch:
     inputs:
       url:
-        description: 'URL da página analisada'
+        description: 'URL to be checked'
         required: true
         type: string
         default: 'https://spacewiz.dev/'
+      commit_message:
+        description: 'Commit message'
+        required: true
+        default: 'Lighthouse Results Added'
 
 jobs:
   analysis:
     runs-on: ubuntu-latest
 
     steps:
+
+      - run: |
+          echo $$ {{ github.event.inputs.user_name }}
+          echo $$ {{ github.event.inputs.user_email }}
+          echo $$ {{ env.USER_NAME }}
+          echo $$ {{ env.USER_EMAIL }}
+
       - name: Checkout your repository
         uses: actions/checkout@v3
         with:
           ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout the Lighthouse repository
         uses: actions/checkout@v3
@@ -29,3 +41,6 @@ jobs:
         uses: myactionway/lighthouse-badger-action@v2.2
         with:
           urls: ${{ inputs.url }}
+          user_name: $$ {{ github.event.inputs.user_name }}
+          user_email: $$ {{ github.event.inputs.user_email }}
+          commit_message: ${{ github.event.inputs.commit_message }}
