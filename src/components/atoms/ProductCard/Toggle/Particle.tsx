@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { seededRandom } from 'three/src/math/MathUtils';
 
 interface Props {
 	isOpen: boolean;
@@ -54,7 +55,7 @@ export function Particle({ isOpen }: Props) {
 		// While there remain elements to shuffle.
 		while (currentIndex != 0) {
 			// Pick a remaining element.
-			randomIndex = Math.floor(Math.random() * currentIndex);
+			randomIndex = Math.floor(seededRandom(0) * currentIndex);
 			currentIndex--;
 
 			// And swap it with the current element.
@@ -67,7 +68,7 @@ export function Particle({ isOpen }: Props) {
 	const deltaAngle = (2 * Math.PI) / nParticles;
 	const angles = Array(nParticles)
 		.fill(0)
-		.map((_, i) => (i + (2 * Math.random() - 1)) * deltaAngle);
+		.map((_, i) => (i + (2 * seededRandom(0) - 1)) * deltaAngle);
 
 	shuffle(angles);
 
