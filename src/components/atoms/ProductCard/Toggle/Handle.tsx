@@ -80,6 +80,7 @@ export function Handle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef
 			initial="closed"
 			animate={clickOpen ? 'opened' : 'closed'}
 			className="absolute left-0 bottom-2 w-12 h-12 rounded-full p-2.5 z-10 bg-sw-navy dark:bg-sw-flamingo"
+			aria-label="Detalhes do serviço"
 		>
 			<Rocket
 				flames={isMoving ? 1 : 0}
