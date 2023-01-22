@@ -2,8 +2,9 @@ name: Deploy to Firebase
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [main, dev]
   pull_request:
+    branches: ['*']
 
 jobs:
   build-and-deploy:
@@ -13,7 +14,6 @@ jobs:
       - name: Checkout your repository
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.ref_name }}
 
       - name: Install, build, and upload your site
@@ -25,16 +25,8 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
-          projectID: sw-space-site
-          channelID: live
+          channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
+          expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
 
-      - name: Checkout the Lighthouse repository
-        uses: actions/checkout@v3
-        with:
-          repository: 'myactionway/lighthouse-badges'
-          path: temp_lighthouse_badges_nested
-
-      - name: Analyze and generate badge
-        uses: myactionway/lighthouse-badger-action@v2.2
-        with:
-          urls: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
+    outputs:
+      url: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}

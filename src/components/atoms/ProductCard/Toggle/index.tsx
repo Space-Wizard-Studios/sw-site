@@ -4,6 +4,7 @@ import { Track } from './Track';
 import { Target } from './Target';
 import { Particle } from './Particle';
 import { Handle } from './Handle';
+import { SpeechBubble } from '@atoms/SpeechBubble';
 
 interface Props {
 	tooltip: boolean;
@@ -30,11 +31,9 @@ export function Toggle({ tooltip, isOpen, setOpen }: Props) {
 				constraintsRef={constraintsRef}
 			/>
 
-			{tooltip && !hasMoved && (
-				<div className="absolute left-6 bottom-16 tooltip tooltip-open bg-sw-flamingo" data-tip="Clica aqui :)">
-					<div className="absolute left-0 bottom-0" />
-				</div>
-			)}
+			<div className="absolute left-12 bottom-12 w-20 h-20">
+				<SpeechBubble show={tooltip && !hasMoved} />
+			</div>
 		</div>
 	);
 }
