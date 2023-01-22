@@ -39,7 +39,7 @@ export function MemberPicture({ name, photoSrc, isOpen }: Props) {
 			</motion.div>
 			<div className="absolute -mt-8">
 				<div className="w-24 h-full rounded-full overflow-hidden">
-					<img src={photoSrc} width="100%" height="100%" alt={name} />
+					<img src={photoSrc} width="100%" height="100%" title={name} alt={name} />
 				</div>
 			</div>
 		</motion.div>

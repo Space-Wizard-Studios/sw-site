@@ -1,6 +1,8 @@
 ---
 export type PartnersProps = {
 	src: string;
+	title: string;
+	alt: string;
 	description: string;
 };
 
@@ -16,9 +18,9 @@ const { partners, ...props } = Astro.props as Props;
 	<h2>Devs</h2>
 	<div class="flex w-full gap-4">
 		{
-			partners.map(({ src, description }) => (
+			partners.map(({ src, title, alt, description }) => (
 				<div>
-					<img class="w-32 cover aspect-ratio-16/9" src={src} width="300" alt="" />
+					<img class="w-32 cover aspect-ratio-16/9" src={src} width="300" title={title} alt={alt} />
 					<p>{description}</p>
 				</div>
 			))
