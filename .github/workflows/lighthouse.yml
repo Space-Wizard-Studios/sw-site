@@ -18,19 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - run: |
-          echo ${{ github.actor }}
-          echo ${{ github.event.inputs.user_name }}
-          echo ${{ github.event.inputs.user_email }}
-          echo ${{ env.USER_NAME }}
-          echo ${{ env.USER_EMAIL }}
-
       - name: Checkout your repository
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.ref }}
 
       - name: Checkout the Lighthouse repository
         uses: actions/checkout@v3
