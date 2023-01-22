@@ -1,59 +1,31 @@
-name: Lighthouse analysis
+name: Lighthouse Analysis
 
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      url:
+        description: 'URL da página analisada'
         required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true
+        type: string
+        default: 'https://spacewiz.dev/'
 
 jobs:
-  log-the-inputs:
+  analysis:
     runs-on: ubuntu-latest
+
     steps:
-      - run: |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          echo "Environment: $ENVIRONMENT"
-        env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
-          ENVIRONMENT: ${{ inputs.environment }}
+      - name: Checkout your repository
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
 
+      - name: Checkout the Lighthouse repository
+        uses: actions/checkout@v3
+        with:
+          repository: 'myactionway/lighthouse-badges'
+          path: temp_lighthouse_badges_nested
 
-  # analysis:
-  #   if: ${{ github.ref_name == 'dev' }}
-
-  #   runs-on: ubuntu-latest
-  #   needs: build-and-deploy
-
-  #   steps:
-  #     - name: Checkout your repository
-  #       uses: actions/checkout@v3
-  #       with:
-  #         ref: ${{ github.ref_name }}
-
-  #     - name: Checkout the Lighthouse repository
-  #       uses: actions/checkout@v3
-  #       with:
-  #         repository: 'myactionway/lighthouse-badges'
-  #         path: temp_lighthouse_badges_nested
-
-  #     - name: Analyze and generate badge
-  #       uses: myactionway/lighthouse-badger-action@v2.2
-  #       with:
-  #         urls: ${{ needs.deploy.outputs.url }}
+      - name: Analyze and generate badge
+        uses: myactionway/lighthouse-badger-action@v2.2
+        with:
+          urls: ${{ inputs.url }}
