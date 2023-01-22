@@ -7,12 +7,13 @@ import { Handle } from './Handle';
 import { SpeechBubble } from '@atoms/SpeechBubble';
 
 interface Props {
+	index: number;
 	tooltip: boolean;
 	isOpen: boolean;
 	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Toggle({ tooltip, isOpen, setOpen }: Props) {
+export function Toggle({ index, tooltip, isOpen, setOpen }: Props) {
 	const [hasMoved, setHasMoved] = useState(false);
 
 	const constraintsRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export function Toggle({ tooltip, isOpen, setOpen }: Props) {
 		<div className="grow relative w-full h-16">
 			<Track isOpen={isOpen} constraintsRef={constraintsRef} />
 			<Target isOpen={isOpen} targetRef={targetRef} />
-			<Particle isOpen={isOpen} />
+			<Particle seed={index} isOpen={isOpen} />
 			<Handle
 				isOpen={isOpen}
 				setOpen={setOpen}

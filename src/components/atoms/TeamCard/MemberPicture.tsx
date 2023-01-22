@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 
 interface Props {
-	photo?: string;
+	name: string;
+	photoSrc: string;
 	isOpen: boolean;
 }
 
@@ -14,7 +15,7 @@ const variants = {
 	},
 };
 
-export function MemberPicture({ photo, isOpen }: Props) {
+export function MemberPicture({ name, photoSrc, isOpen }: Props) {
 	return (
 		<motion.div
 			variants={variants}
@@ -38,7 +39,7 @@ export function MemberPicture({ photo, isOpen }: Props) {
 			</motion.div>
 			<div className="absolute -mt-8">
 				<div className="w-24 h-full rounded-full overflow-hidden">
-					<img src={photo} width="100%" height="100%" />
+					<img src={photoSrc} width="100%" height="100%" alt={name} />
 				</div>
 			</div>
 		</motion.div>
