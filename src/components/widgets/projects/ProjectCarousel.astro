@@ -17,5 +17,5 @@ const { images, ...props } = Astro.props as Props;
 
 <figure {...props}>
 	<h2>Galeria</h2>
-	<SimpleCarousel images={images} client:load />
+	<SimpleCarousel images={images} client:visible />
 </figure>
