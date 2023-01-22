@@ -61,5 +61,3 @@ export default function Ship({ ...props }: ShipProps) {
 		</group>
 	);
 }
-
-useGLTF.preload('./models/hero/ship.gltf');

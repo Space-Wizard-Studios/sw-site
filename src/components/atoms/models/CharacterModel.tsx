@@ -149,5 +149,3 @@ export default function Character({ ...props }: CharacterProps) {
 		</group>
 	);
 }
-
-useGLTF.preload('./models/hero/character.gltf');
