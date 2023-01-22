@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { seededRandom } from 'three/src/math/MathUtils';
 
 interface Props {
 	seed: number;
