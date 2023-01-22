@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Install, build, and upload your site
         uses: withastro/action@v0
@@ -34,6 +36,8 @@ jobs:
     steps:
       - name: Checkout your repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Cache build restore
         uses: actions/cache/restore@v3
@@ -63,7 +67,6 @@ jobs:
       - name: Checkout your repository
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.ref_name }}
 
       - name: Checkout the Lighthouse repository
