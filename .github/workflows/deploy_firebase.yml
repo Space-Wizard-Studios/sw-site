@@ -54,7 +54,7 @@ jobs:
       url: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
 
   analysis:
-    if: ${{ github.ref_name != 'main' }}
+    if: ${{ github.ref_name == 'dev' }}
 
     runs-on: ubuntu-latest
     needs: deploy
