@@ -1,17 +1,8 @@
-/* stylelint-disable no-invalid-position-at-import-rule */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-	@import "focus";
-	@import "project";
-	@import "policy";
-	@import "scrollbar";
-	@import "spacewiz";
-	@import "text";
-	@import "toggle";
-
 	h1 {
 		@apply text-4xl;
 	}
