@@ -14,7 +14,7 @@
 [![Tailwind Version](https://img.shields.io/github/package-json/dependency-version/Space-Wizard-Studios/sw-site/tailwindcss?label=tailwind&logo=tailwindcss)](https://tailwindcss.com/)
 
 ![Relatório do Lighthouse resumido](./lighthouse_results/desktop/pagespeed.svg)
-[Relatório do Lighthouse](https://htmlpreview.github.io/?https://github.com/Space-Wizard-Studios/sw-site/blob/main/lighthouse_results/desktop/spacewiz__dev.html)
+[Relatório do Lighthouse](https://htmlpreview.github.io/?https://github.com/Space-Wizard-Studios/sw-site/blob/main/lighthouse_results/desktop/sw_space_site__dev_vakkwqk0_web_app.html)
 
 ## Sobre o projeto
 
