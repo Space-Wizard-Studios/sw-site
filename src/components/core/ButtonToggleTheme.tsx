@@ -39,7 +39,7 @@ function Button(props: ButtonToggleThemeProps) {
 		<motion.button
 			type="button"
 			className="rounded-lg p-3 items-center relative overflow-hidden"
-			aria-label="Toggle Theme"
+			aria-label="Alternar tema (claro/escuro)"
 			onClick={() => toggleTheme()}
 			animate={{
 				backgroundColor: theme === 'dark' ? '#060614' : '#8AB9FF',
