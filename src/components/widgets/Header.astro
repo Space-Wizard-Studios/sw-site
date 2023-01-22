@@ -1,4 +1,6 @@
 ---
+import '@styles/toggle.scss';
+
 import { SiteLogo } from '@atoms/SiteLogo';
 import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 import ButtonToggleTheme from '@core/ButtonToggleTheme';
@@ -10,12 +12,12 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 	>
 		<div class="flex w-full spacewiz__container items-center justify-between ">
 			<a class="w-48 spacewiz__fill" href="/">
-				<SiteLogo client:load />
+				<SiteLogo client:idle />
 			</a>
 
 			<!-- MOBILE -->
 			<div class="flex flex-grow justify-end md:hidden gap-8">
-				<ButtonToggleTheme client:load />
+				<ButtonToggleTheme client:idle />
 				<ButtonToggleMenu />
 			</div>
 
@@ -41,7 +43,7 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 				</ul>
 
 				<div class="items-center md:flex">
-					<ButtonToggleTheme client:load />
+					<ButtonToggleTheme client:idle />
 				</div>
 			</div>
 		</div>

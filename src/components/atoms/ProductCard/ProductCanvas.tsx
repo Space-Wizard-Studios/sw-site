@@ -1,6 +1,6 @@
 import { Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, Preload } from '@react-three/drei';
+import { PerspectiveCamera } from '@react-three/drei';
 import { useInView } from 'framer-motion';
 
 import Icon from '@atoms/models/IconModel.dev';
@@ -30,7 +30,6 @@ export function ProductCanvas({ isOpen, modelPath, modelColor }: Props) {
 					scale={5}
 				/>
 			</Suspense>
-			<Preload all />
 		</Canvas>
 	);
 }
