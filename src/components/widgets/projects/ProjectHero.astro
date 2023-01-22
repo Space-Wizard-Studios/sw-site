@@ -1,11 +1,13 @@
 ---
 type Props = {
-	src: string;
+	heroSrc: string;
+	heroTitle?: string;
+	heroAltText?: string;
 };
 
-const { src } = Astro.props as Props;
+const { heroSrc, heroTitle, heroAltText } = Astro.props as Props;
 ---
 
 <figure class="h-full w-full">
-	<img src={src} class="w-full aspect-ratio-16/9 cover" width="1200" alt="" />
+	<img width="1200" class="w-full aspect-ratio-16/9 cover" src={heroSrc} title={heroTitle} alt={heroAltText} />
 </figure>
