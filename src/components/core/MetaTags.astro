@@ -1,10 +1,7 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
-import { analytics, GAPageView, GAEvent } from '@core/Firebase';
-
-import { SITE } from '@/config.mjs';
-
 import { MetaSEO } from 'types/metaseo';
+import { SITE } from '@/config.mjs';
 
 export interface Props extends MetaSEO {
 	dontUseTitleTemplate?: boolean;
@@ -53,7 +50,7 @@ const {
 <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />
 
 <!-- Google Tag Manager -->
-<script client:idle>
+<script type="text/partytown" client:idle>
 	(function (w, d, s, l, i) {
 		w[l] = w[l] || [];
 		w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
