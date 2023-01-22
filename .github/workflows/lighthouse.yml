@@ -36,6 +36,5 @@ jobs:
           urls: ${{ inputs.url }}
           user_name: ${{ github.actor }}
           commit_message: ${{ github.event.inputs.commit_message }}
-          badges_args: -b pagespeed -o lighthouse_results -r
           mobile_lighthouse_params: --throttling.cpuSlowdownMultiplier=2 --only-categories=accessibility,best-practices,performance,seo
           desktop_lighthouse_params: --preset=desktop --throttling.cpuSlowdownMultiplier=1 --only-categories=accessibility,best-practices,performance,seo
