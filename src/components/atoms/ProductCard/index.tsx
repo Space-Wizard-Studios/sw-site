@@ -6,6 +6,7 @@ import { ProductCanvas } from './ProductCanvas';
 import { Toggle } from './Toggle';
 
 interface Props {
+	index: number;
 	iconSrc: string;
 	iconColor: number;
 	title?: React.ReactNode;
@@ -14,7 +15,15 @@ interface Props {
 	tooltip?: boolean;
 }
 
-export default function ProductCard({ iconSrc, iconColor, title, subtitle, description, tooltip = false }: Props) {
+export default function ProductCard({
+	index,
+	iconSrc,
+	iconColor,
+	title,
+	subtitle,
+	description,
+	tooltip = false,
+}: Props) {
 	const [isOpen, setOpen] = useState(false);
 
 	return (
@@ -28,7 +37,7 @@ export default function ProductCard({ iconSrc, iconColor, title, subtitle, descr
 			>
 				<ProductTitle title={title} subtitle={subtitle} />
 				<ProductDescription isOpen={isOpen} description={description} />
-				<Toggle tooltip={tooltip} isOpen={isOpen} setOpen={setOpen} />
+				<Toggle index={index} tooltip={tooltip} isOpen={isOpen} setOpen={setOpen} />
 			</div>
 
 			<div className="absolute mx-auto z-10 -mt-8 md:-mt-4 md:-mr-12 right-0 left-0 md:left-auto top-0 w-16 h-16 md:w-24 md:h-24">

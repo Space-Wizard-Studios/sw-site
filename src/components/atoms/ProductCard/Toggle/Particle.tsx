@@ -1,13 +1,23 @@
 import { motion } from 'framer-motion';
 
 interface Props {
+	seed: number;
 	isOpen: boolean;
 }
 
 const nParticles = 12;
 const radius = 50;
 
-export function Particle({ isOpen }: Props) {
+function mulberry32(a: number) {
+	return function () {
+		var t = (a += 0x6d2b79f5);
+		t = Math.imul(t ^ (t >>> 15), t | 1);
+		t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+		return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+	};
+}
+
+export function Particle({ seed, isOpen }: Props) {
 	const shockWave = {
 		hidden: { opacity: 1, scale: 1 },
 		shown: {
@@ -47,6 +57,8 @@ export function Particle({ isOpen }: Props) {
 		}),
 	};
 
+	const prng = mulberry32(seed);
+
 	function shuffle(array: any[]) {
 		let currentIndex = array.length,
 			randomIndex;
@@ -54,7 +66,7 @@ export function Particle({ isOpen }: Props) {
 		// While there remain elements to shuffle.
 		while (currentIndex != 0) {
 			// Pick a remaining element.
-			randomIndex = Math.floor(Math.random() * currentIndex);
+			randomIndex = Math.floor(prng() * currentIndex);
 			currentIndex--;
 
 			// And swap it with the current element.
@@ -67,7 +79,7 @@ export function Particle({ isOpen }: Props) {
 	const deltaAngle = (2 * Math.PI) / nParticles;
 	const angles = Array(nParticles)
 		.fill(0)
-		.map((_, i) => (i + (2 * Math.random() - 1)) * deltaAngle);
+		.map((_, i) => (i + (2 * prng() - 1)) * deltaAngle);
 
 	shuffle(angles);
 

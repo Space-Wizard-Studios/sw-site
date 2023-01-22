@@ -3,12 +3,14 @@ import DividerWave from '@atoms/dividers/DividerWave.astro';
 import HeroCanvas from '@atoms/HeroCanvas';
 ---
 
-<section class="relative">
-	<DividerWave class="spacewiz__fill--reversed bottom-0" />
-	<img class="block md:hidden w-screen cover aspect-ratio-16/9" src="/images/hero_sm.webp" alt="" />
-	<img class="hidden md:block w-screen cover aspect-ratio-16/9" src="/images/hero_md.webp" alt="" />
+<section class="min-h-screen">
+	<div class="relative">
+		<DividerWave class="spacewiz__fill--reversed bottom-0" />
+		<img class="block md:hidden w-screen cover aspect-ratio-16/9" src="/images/hero_sm.webp" alt="" />
+		<img class="hidden md:block w-screen cover aspect-ratio-16/9" src="/images/hero_md.webp" alt="" />
+	</div>
 
 	<!-- <figure class="absolute top-0 right-0 w-full h-full"> -->
-	<!-- <HeroCanvas client:load/> -->
+	<!-- <HeroCanvas client:idle/> -->
 	<!-- </figure> -->
 </section>

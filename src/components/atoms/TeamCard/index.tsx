@@ -7,7 +7,7 @@ import { MemberSocials } from './MemberSocials';
 import { MemberInfo } from './MemberInfo';
 
 export interface Props {
-	photo?: string;
+	photoSrc: string;
 	name: string;
 	roles: string[];
 	skills: string[];
@@ -23,7 +23,7 @@ const variants = {
 	},
 };
 
-export default function TeamCard({ photo, name, roles, skills, links }: Props) {
+export default function TeamCard({ photoSrc, name, roles, skills, links }: Props) {
 	const [isOpen, setOpen] = useState(false);
 
 	function toggleOpen() {
@@ -44,7 +44,7 @@ export default function TeamCard({ photo, name, roles, skills, links }: Props) {
 					bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800
 					text-sw-secondary-500`}
 		>
-			<MemberPicture photo={photo} isOpen={isOpen} />
+			<MemberPicture name={name} photoSrc={photoSrc} isOpen={isOpen} />
 			<MemberInfo name={name} roles={roles} skills={skills} isOpen={isOpen} />
 			<MemberSocials links={links} isOpen={isOpen} toggleOpen={toggleOpen} />
 		</motion.div>

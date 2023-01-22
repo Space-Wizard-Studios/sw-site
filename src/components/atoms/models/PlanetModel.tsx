@@ -27,5 +27,3 @@ export default function Planet({ ...props }: PlanetProps) {
 		</group>
 	);
 }
-
-useGLTF.preload('./models/hero/planet.gltf');
