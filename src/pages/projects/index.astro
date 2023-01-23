@@ -25,7 +25,7 @@ async function getProjects() {
 const projects = await getProjects();
 
 const meta: MetaSEO = {
-	title: 'Portifolio',
+	title: 'Projetos - spacewiz.dev',
 	description: SITE.description,
 	canonical: Astro.url.toString(),
 	ogType: 'website',
@@ -33,7 +33,7 @@ const meta: MetaSEO = {
 ---
 
 <Layout {meta}>
-	<h1>Projetos</h1>
+	<h1 class="pt-4">Projetos</h1>
 	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
 		{
 			projects.map((page) => (
