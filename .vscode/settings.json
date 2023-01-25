@@ -20,9 +20,13 @@
 	"prettier.singleQuote": true,
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"cSpell.words": [
+		"astrojs",
 		"drei",
+		"flowbite",
 		"gltf",
-		"GLTF"
+		"GLTF",
+		"netlify",
+		"partytown"
 	],
 	"scss.lint.unknownAtRules": "ignore",
 	"css.validate": false,
