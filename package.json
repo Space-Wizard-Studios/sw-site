@@ -70,5 +70,12 @@
 		"stylelint-config-standard-scss": "^6.1.0",
 		"stylelint-scss": "^4.3.0",
 		"terser": "^5.15.1"
+	},
+	"overrides": {
+		"netlify-cms-app": {
+			"react": "^18.2.0",
+			"react-dom": "^18.2.0",
+			"@types/react": "^18.0.25"
+		}
 	}
 }
