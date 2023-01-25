@@ -35,10 +35,10 @@ export default defineConfig({
 		}),
 		NetlifyCMS({
 			config: {
-				// Use Netlify’s “Git Gateway” authentication and target our default branch
 				backend: {
-					name: 'git-gateway',
+					name: 'github',
 					branch: 'main',
+					repo: 'Space-Wizard-Studios/sw-site'
 				},
 				// Configure where our media assets are stored & served from
 				media_folder: 'public/images/projects',
