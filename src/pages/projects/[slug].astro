@@ -27,7 +27,7 @@ const { page } = Astro.props;
 const meta: MetaSEO = {
 	title: page.frontmatter.title,
 	description: page.frontmatter.description,
-	image: page.frontmatter.hero,
+	image: page.frontmatter.heroSrc,
 	canonical: Astro.url.toString(),
 	ogType: 'article',
 };
