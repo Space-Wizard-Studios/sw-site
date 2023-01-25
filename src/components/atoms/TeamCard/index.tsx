@@ -10,7 +10,7 @@ export interface Props {
 	photoSrc: string;
 	name: string;
 	roles: string[];
-	skills: string[];
+	skills: { name: string; tooltip: string; }[];
 	links: Socials;
 }
 
@@ -45,7 +45,7 @@ export default function TeamCard({ photoSrc, name, roles, skills, links }: Props
 					text-sw-secondary-500`}
 		>
 			<MemberPicture name={name} photoSrc={photoSrc} isOpen={isOpen} />
-			<MemberInfo name={name} roles={roles} skills={skills} isOpen={isOpen} />
+			<MemberInfo name={name} roles={roles} skills={skills} isOpen={isOpen}/>
 			<MemberSocials links={links} isOpen={isOpen} toggleOpen={toggleOpen} />
 		</motion.div>
 	);

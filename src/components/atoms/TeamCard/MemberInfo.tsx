@@ -1,7 +1,9 @@
+import { Tooltip } from "flowbite-react";
+
 interface Props {
 	name: string;
 	roles: string[];
-	skills: string[];
+	skills: { name: string; tooltip: string; }[];
 	isOpen: boolean;
 }
 
@@ -17,14 +19,16 @@ export function MemberInfo({ name, roles, skills, isOpen }: Props) {
 				</div>
 			</div>
 
-			<div className="flex flex-wrap content-start justify-center gap-1">
-				{skills.map((s, i) => (
+			<div className="flex flex-wrap content-start justify-center gap-3">
+				{skills.map(({ name, tooltip }, i) => (
+					<Tooltip content={tooltip}>
 					<span
 						key={i}
 						className="font-light text-xs rounded-xl p-2 text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 border-none"
 					>
-						{s}
+						{name}
 					</span>
+					</Tooltip>
 				))}
 			</div>
 		</>
