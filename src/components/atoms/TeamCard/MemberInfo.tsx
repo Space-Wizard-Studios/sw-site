@@ -21,9 +21,8 @@ export function MemberInfo({ name, roles, skills, isOpen }: Props) {
 
 			<div className="flex flex-wrap content-start justify-center gap-3">
 				{skills.map(({ name, tooltip }, i) => (
-					<Tooltip content={tooltip}>
+					<Tooltip key={i} content={tooltip}>
 					<span
-						key={i}
 						className="font-light text-xs rounded-xl p-2 text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 border-none"
 					>
 						{name}
