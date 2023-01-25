@@ -38,7 +38,7 @@ export default defineConfig({
 			config: {
 				backend: {
 					name: 'github',
-					branch: 'main',
+					branch: 'feature/netlify-cms',
 					repo: 'Space-Wizard-Studios/sw-site',
 				},
 				// Configure where our media assets are stored & served from
