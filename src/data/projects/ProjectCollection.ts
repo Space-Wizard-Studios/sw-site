@@ -9,13 +9,25 @@ export const ProjectCollection: CmsCollection = {
 	create: true,
 	delete: true,
 	fields: [
-		{ name: 'title', widget: 'string', label: 'Title' },
-		{ name: 'subtitle', widget: 'string', label: 'Subtitle' },
-		{ name: 'description', widget: 'string', label: 'Description' },
+		{
+			name: 'title',
+			label: 'Title',
+			widget: 'string',
+		},
+		{
+			name: 'subtitle',
+			label: 'Subtitle',
+			widget: 'string',
+		},
+		{
+			name: 'description',
+			label: 'Description',
+			widget: 'text',
+		},
 		{
 			name: 'category',
-			widget: 'select',
 			label: 'Category',
+			widget: 'select',
 			default: 'WebDev',
 			options: [
 				{ label: 'GameDev', value: 'GameDev' },
@@ -24,13 +36,67 @@ export const ProjectCollection: CmsCollection = {
 			],
 		},
 		{
+			name: 'tags',
+			label: 'Tags',
+			widget: 'list',
+		},
+		{
 			name: 'date',
+			label: 'Date',
 			widget: 'datetime',
 			format: 'YYYY-MM',
 			date_format: 'YYYY-MM',
 			time_format: false,
-			label: 'Date',
 		},
-		{ name: 'body', widget: 'markdown', label: 'Body' },
+		{
+			name: 'hero',
+			label: 'Hero',
+			widget: 'object',
+			summary: '{{fields.image}} - {{fields.alt}}: {{fields.title}}',
+			fields: [
+				{
+					label: 'Image',
+					name: 'image',
+					widget: 'image',
+				},
+				{
+					label: 'Title',
+					name: 'title',
+					widget: 'string',
+				},
+				{
+					label: 'Alt',
+					name: 'alt',
+					widget: 'string',
+				},
+			]
+		},
+		{
+			name: 'carousel',
+			label: 'Carousel',
+			widget: 'list',
+			summary: '{{fields.image}}',
+			field: {
+				label: 'Image',
+				name: 'image',
+				widget: 'image',
+			},
+		},
+		{
+			name: 'partners',
+			label: 'Partners',
+			widget: 'list',
+			summary: '{{fields.image}}',
+			field: {
+				label: 'Image',
+				name: 'image',
+				widget: 'image',
+			},
+		},
+		{
+			name: 'body',
+			label: 'Body',
+			widget: 'markdown',
+		},
 	],
 };
