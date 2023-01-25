@@ -39,7 +39,7 @@ export default defineConfig({
 				backend: {
 					name: 'github',
 					branch: 'main',
-					repo: 'Space-Wizard-Studios/sw-site'
+					repo: 'Space-Wizard-Studios/sw-site',
 				},
 				// Configure where our media assets are stored & served from
 				media_folder: 'public/images/projects',
