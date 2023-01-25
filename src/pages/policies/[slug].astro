@@ -3,7 +3,7 @@ import Layout from '@layouts/PoliciesPageLayout.astro';
 import { getSlugFromURL } from '@core/Path';
 
 export async function getStaticPaths() {
-	const all = await Astro.glob('../../data/policies/*.mdx');
+	const all = await Astro.glob('../../data/policies/*.md');
 	return all.map(({ file, ...page }) => {
 		const slug = getSlugFromURL(file);
 		return {

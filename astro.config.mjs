@@ -50,6 +50,7 @@ export default defineConfig({
 						label: 'Project Posts',
 						label_singular: 'Project Post',
 						folder: 'src/data/projects',
+						identifier_field: 'title',
 						create: true,
 						delete: true,
 						fields: [
@@ -58,11 +59,11 @@ export default defineConfig({
 							{ name: 'description', widget: 'string', label: 'Description' },
 							{
 								name: 'category', widget: 'select', label: 'Category',
-								default: 'Game',
+								default: 'WebDev',
 								options: [
-									{ label: 'Game', value: 'Game' },
+									{ label: 'GameDev', value: 'GameDev' },
 									{ label: 'AR', value: 'AR' },
-									{ label: 'Web', value: 'Web' },
+									{ label: 'WebDev', value: 'WebDev' },
 								],
 							},
 							{

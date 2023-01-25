@@ -6,7 +6,7 @@ import { SITE } from '@/config.mjs';
 import type { MetaSEO } from 'types/metaseo';
 
 async function getProjects() {
-	const all = await Astro.glob('../../data/projects/**/*.mdx');
+	const all = await Astro.glob('../../data/projects/*.md');
 	return all
 		.filter((page) => !page.frontmatter.draft)
 		.sort((pageA, pageB) => {
