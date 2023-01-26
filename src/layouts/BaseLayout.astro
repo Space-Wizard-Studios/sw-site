@@ -12,6 +12,7 @@ import Footer from '@widgets/Footer.astro';
 import Scripts from '@core/Scripts.astro';
 
 import type { MetaSEO } from 'types/metaseo';
+import { SITE } from '@/config.mjs';
 
 type Props = {
 	meta?: MetaSEO;
@@ -30,7 +31,7 @@ const { meta } = Astro.props as Props;
 		<!-- Google Tag Manager (noscript) -->
 		<noscript
 			><iframe
-				src="https://www.googletagmanager.com/ns.html?id=GTM-KH6DHDG"
+				src={"https://www.googletagmanager.com/ns.html?id=" + SITE.googleTagId}
 				height="0"
 				width="0"
 				style="display:none;visibility:hidden"></iframe>
