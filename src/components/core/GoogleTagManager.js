@@ -1,3 +1,5 @@
+import { SITE } from "@/config.mjs";
+
 (function (w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -7,4 +9,4 @@
     j.async = true;
     j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
     f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-KH6DHDG');
+})(window, document, 'script', 'dataLayer', SITE.googleTagId);
