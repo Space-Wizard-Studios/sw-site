@@ -1,0 +1,13 @@
+@mixin spacewiz {
+	.-text {
+		@apply text-sw-primary dark:text-sw-secondary;
+
+		&--reversed {
+			@apply text-sw-secondary dark:text-sw-primary;
+		}
+
+		&--accent {
+			@apply font-bold text-sw-navy dark:text-sw-flamingo;
+		}
+	}
+}

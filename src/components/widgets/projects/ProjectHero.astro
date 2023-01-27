@@ -8,6 +8,6 @@ type Props = {
 const { heroSrc, heroTitle, heroAltText } = Astro.props as Props;
 ---
 
-<figure class="h-full w-full">
-	<img width="1200" class="w-full aspect-ratio-16/9 cover" src={heroSrc} title={heroTitle} alt={heroAltText} />
+<figure class="w-full">
+	<img class="w-full aspect-ratio-16/9 cover" src={heroSrc} title={heroTitle} alt={heroAltText} />
 </figure>
