@@ -3,6 +3,8 @@ import Layout from '@layouts/ProjectLayout.astro';
 import { getSlugFromURL } from '@core/Path';
 import type { MetaSEO } from 'types/metaseo';
 
+import { components } from '@widgets/projects/components/Components.astro';
+
 export async function getStaticPaths() {
 	const all = await Astro.glob('../../data/projects/**/*.mdx');
 	return all.map(({ file, ...page }) => {
@@ -33,6 +35,13 @@ const meta: MetaSEO = {
 };
 ---
 
-<Layout {meta} heroSrc={page.frontmatter.heroSrc} heroTitle={page.frontmatter.heroTitle} heroAltText={page.frontmatter.heroAltText} carousel={page.frontmatter.carousel} partners={page.frontmatter.partners}>
-	<page.Content />
+<Layout
+	{meta}
+	heroSrc={page.frontmatter.heroSrc}
+	heroTitle={page.frontmatter.heroTitle}
+	heroAltText={page.frontmatter.heroAltText}
+	carousel={page.frontmatter.carousel}
+	partners={page.frontmatter.partners}
+>
+	<page.Content components={components} />
 </Layout>
