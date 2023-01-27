@@ -7,10 +7,8 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 ---
 
 <header class="sticky top-0 z-40 w-full md:backdrop-blur-sm shadow-md bg-sw-secondary/95 dark:bg-sw-primary/95">
-	<nav
-		class="flex w-full h-16 lg:h-28 justify-center items-center"
-	>
-		<div class="flex w-full spacewiz__container items-center justify-between ">
+	<nav class="flex w-full h-16 lg:h-28 justify-center items-center">
+		<div class="flex w-full spacewiz__container items-center justify-between">
 			<a class="w-48 spacewiz__fill" href="/" title="Space Wizard Studios">
 				<span class="sr-only">Space Wizard Studios</span>
 				<SiteLogo client:idle />
@@ -50,7 +48,7 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 		</div>
 	</nav>
 
-	<nav class="hidden w-full spacewiz__container" id="menu">
+	<nav class="hidden absolute w-full spacewiz__container bg-sw-secondary" id="menu">
 		<ul class="flex flex-col p-4">
 			<li>
 				<a
