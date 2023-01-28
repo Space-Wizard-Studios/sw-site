@@ -26,7 +26,6 @@ export async function getStaticPaths() {
 			params: {
 				category: category.toLowerCase(),
 			},
-
 			props: {
 				category: category,
 				projects: filtered,
@@ -45,7 +44,7 @@ const meta: MetaSEO = {
 };
 ---
 
-<Layout {meta}>
+<Layout meta={meta}>
 	<h1>Projetos: {category}</h1>
 	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
 		{
