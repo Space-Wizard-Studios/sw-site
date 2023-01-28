@@ -7,7 +7,8 @@ import mdx from '@astrojs/mdx';
 
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
-import image from '@astrojs/image';
+
+import partytown from '@astrojs/partytown';
 
 import { SITE } from './src/config.mjs';
 import { ProjectCollection } from './src/data/projects/ProjectCollection';
@@ -25,9 +26,6 @@ export default defineConfig({
 				applyBaseStyles: false,
 			},
 		}),
-		image(),
-
-		// SEO | Analytics
 		sitemap(),
 		partytown({
 			config: {

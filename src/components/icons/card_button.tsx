@@ -152,9 +152,9 @@ export function LinkTree({ color = 'currentColor', ...props }: IconProps) {
 			<path
 				fill="none"
 				stroke={color}
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth="2"
 				d="M9 3L2 15h3v5h5v-5H8l4-7zm6 0l7 12h-3v5h-5v-5h2l-4-7z"
 			/>
 		</svg>
@@ -167,9 +167,9 @@ export function Portfolio({ color = 'currentColor', ...props }: IconProps) {
 			<path
 				fill="none"
 				stroke={color}
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+				strokeWidth="2"
 				d="M29 17v11H3V17M2 8h28v8s-6 4-14 4s-14-4-14-4V8Zm14 14v-4m4-10s0-4-4-4s-4 4-4 4"
 			/>
 		</svg>

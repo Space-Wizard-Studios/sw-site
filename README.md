@@ -1,7 +1,5 @@
 # spacewiz.dev
 
-[https://spacewiz.dev/](https://spacewiz.dev/)
-
 [![Site Status](https://img.shields.io/website?url=https%3A%2F%2Fspacewiz.dev%2F)](https://spacewiz.dev/)
 [![Deploy Status](https://img.shields.io/github/actions/workflow/status/Space-Wizard-Studios/sw-site/deploy_firebase.yml?label=deploy)](https://github.com/Space-Wizard-Studios/sw_site/actions/workflows/deploy_firebase_live.yml)
 [![Current Version](https://img.shields.io/github/package-json/v/Space-Wizard-Studios/sw-site)](https://spacewiz.dev/)
@@ -13,8 +11,8 @@
 [![React Version](https://img.shields.io/github/package-json/dependency-version/Space-Wizard-Studios/sw-site/react?logo=react)](https://pt-br.reactjs.org/)
 [![Tailwind Version](https://img.shields.io/github/package-json/dependency-version/Space-Wizard-Studios/sw-site/tailwindcss?label=tailwind&logo=tailwindcss)](https://tailwindcss.com/)
 
-![Relatório do Lighthouse resumido](./lighthouse_results/desktop/pagespeed.svg)
-[Relatório do Lighthouse](https://htmlpreview.github.io/?https://github.com/Space-Wizard-Studios/sw-site/blob/main/lighthouse_results/desktop/sw_space_site__dev_vakkwqk0_web_app.html)
+![Relatório do Lighthouse resumido](./lighthouse_results/mobile/pagespeed.svg)
+[Relatório do Lighthouse](https://htmlpreview.github.io/?https://github.com/Space-Wizard-Studios/sw-site/blob/main/lighthouse_results/mobile/sw_space_site__dev_vakkwqk0_web_app.html)
 
 ## Sobre o projeto
 
