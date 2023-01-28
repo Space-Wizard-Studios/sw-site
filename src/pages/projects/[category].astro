@@ -10,21 +10,18 @@ export async function getStaticPaths() {
 		.filter((page) => !page.frontmatter.draft)
 		.filter((page) => page.frontmatter.category);
 
-	const categorized = {};
-	all.forEach(({ file, ...page }) => {
-		const category = page.frontmatter.category;
+	const categories = [...new Set(all.map((page) => page.frontmatter.category))];
 
-		if (!categorized[category]) {
-			categorized[category] = [];
-		}
+	return categories.map((category) => {
+		const filtered = all
+			.filter((page) => category == page.frontmatter.category)
+			.map(({ file, ...page }) => {
+				return {
+					slug: getSlugFromURL(file),
+					...page,
+				};
+			});
 
-		categorized[category].push({
-			slug: getSlugFromURL(file),
-			...page,
-		});
-	});
-
-	return Object.keys(categorized).map((category) => {
 		return {
 			params: {
 				category: category.toLowerCase(),
@@ -32,7 +29,7 @@ export async function getStaticPaths() {
 
 			props: {
 				category: category,
-				projects: categorized[category],
+				projects: filtered,
 			},
 		};
 	});
@@ -52,7 +49,7 @@ const meta: MetaSEO = {
 	<h1>Projetos: {category}</h1>
 	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
 		{
-			projects.map((page) => (
+			projects.map((page: any) => (
 				<div class="flex relative min-h-[16rem]">
 					<div class="grid grid-cols-1 w-full h-full overflow-hidden content-between shadow-md hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10 transition-shadow duration-500 bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-sw-primary dark:text-sw-secondary">
 						<img
