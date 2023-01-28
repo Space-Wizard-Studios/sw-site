@@ -6,7 +6,7 @@ import { SITE } from '@/config.mjs';
 import type { MetaSEO } from 'types/metaseo';
 
 export async function getStaticPaths() {
-	const all = (await Astro.glob('../../data/projects/**/*.mdx'))
+	const all = (await Astro.glob('../../data/projects/*.md'))
 		.filter((page) => !page.frontmatter.draft)
 		.filter((page) => page.frontmatter.category);
 
