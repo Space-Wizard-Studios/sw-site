@@ -8,8 +8,6 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 
-import partytown from '@astrojs/partytown';
-
 import { SITE } from './src/config.mjs';
 import { ProjectCollection } from './src/data/projects/ProjectCollection';
 
