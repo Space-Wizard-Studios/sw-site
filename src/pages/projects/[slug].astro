@@ -7,21 +7,17 @@ import { components } from '@widgets/projects/components/Components.astro';
 
 export async function getStaticPaths() {
 	const all = await Astro.glob('../../data/projects/**/*.mdx');
-	return all.map(({ file, ...page }) => {
-		const slug = getSlugFromURL(file);
+	return all.map(({ file, ...page }) => ({
+		params: {
+			slug: getSlugFromURL(file),
+		},
 
-		return {
-			params: {
-				slug: slug,
+		props: {
+			page: {
+				...page,
 			},
-
-			props: {
-				page: {
-					...page,
-				},
-			},
-		};
-	});
+		},
+	}));
 }
 
 const { page } = Astro.props;

@@ -5,25 +5,40 @@ import { getSlugFromURL } from '@core/Path';
 import { SITE } from '@/config.mjs';
 import type { MetaSEO } from 'types/metaseo';
 
-async function getProjects() {
-	const all = (await Astro.glob('../../data/projects/**/*.mdx')).filter((page) => !page.frontmatter.draft);
+export async function getStaticPaths() {
+	const all = (await Astro.glob('../../data/projects/**/*.mdx'))
+		.filter((page) => !page.frontmatter.draft)
+		.filter((page) => page.frontmatter.category);
 
-	return all
-		.sort((pageA, pageB) => {
-			const dateA = new Date(pageA.frontmatter.date).getTime();
-			const dateB = new Date(pageB.frontmatter.date).getTime();
-			return dateB - dateA;
-		})
-		.map(({ file, ...page }) => ({
-			slug: getSlugFromURL(file),
-			...page,
-		}));
+	const categories = [...new Set(all.map((page) => page.frontmatter.category))];
+
+	return categories.map((category) => {
+		const filtered = all
+			.filter((page) => category == page.frontmatter.category)
+			.map(({ file, ...page }) => {
+				return {
+					slug: getSlugFromURL(file),
+					...page,
+				};
+			});
+
+		return {
+			params: {
+				category: category.toLowerCase(),
+			},
+
+			props: {
+				category: category,
+				projects: filtered,
+			},
+		};
+	});
 }
 
-const projects = await getProjects();
+const { category, projects } = Astro.props;
 
 const meta: MetaSEO = {
-	title: 'Projetos - spacewiz.dev',
+	title: `Portifolio - ${category}`,
 	description: SITE.description,
 	canonical: Astro.url.toString(),
 	ogType: 'website',
@@ -31,10 +46,10 @@ const meta: MetaSEO = {
 ---
 
 <Layout {meta}>
-	<h1 class="pt-4">Projetos</h1>
+	<h1>Projetos: {category}</h1>
 	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
 		{
-			projects.map((page) => (
+			projects.map((page: any) => (
 				<div class="flex relative min-h-[16rem]">
 					<div class="grid grid-cols-1 w-full h-full overflow-hidden content-between shadow-md hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10 transition-shadow duration-500 bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-sw-primary dark:text-sw-secondary">
 						<img
