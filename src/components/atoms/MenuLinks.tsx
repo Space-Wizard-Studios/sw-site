@@ -28,8 +28,8 @@ export function MenuLinks() {
 							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
 						</svg>
 					</Menu.Button>
-					<ul>
-						<Menu.Items className="absolute p-2 m-4 z-10 grid grid-cols-2 text-xs bg-white border rounded-lg shadow-md">
+					<ul className="absolute p-2 m-4 z-10 grid grid-cols-2 text-xs bg-white border rounded-lg shadow-md">
+						<Menu.Items as={Fragment} >
 							{projects.map((link) => (
 								<Menu.Item key={link.href} as={Fragment}>
 									{({ active }) => (
@@ -57,8 +57,8 @@ export function MenuLinks() {
 							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
 						</svg>
 					</Menu.Button>
-					<ul>
-						<Menu.Items className="absolute p-2 mt-4 z-10 grid text-xs bg-white border rounded-lg shadow-md">
+					<ul className="absolute p-2 mt-4 z-10 grid text-xs bg-white border rounded-lg shadow-md">
+						<Menu.Items as={Fragment}>
 							{support.map((link) => (
 								<Menu.Item key={link.href} as={Fragment}>
 									{({ active }) => (
