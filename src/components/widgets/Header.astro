@@ -2,6 +2,9 @@
 import '@styles/toggle.scss';
 
 import { SiteLogo } from '@atoms/SiteLogo';
+
+import { MenuLinks } from '@atoms/MenuLinks';
+
 import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 import ButtonToggleTheme from '@core/ButtonToggleTheme';
 ---
@@ -22,24 +25,8 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 
 			<!-- DESKTOP -->
 			<div class="hidden md:flex md:flex-grow justify-end">
-				<ul
-					class="flex flex-col p-3 mx-4 rounded-lg md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-500 dark:bg-sw-primary-800"
-				>
-					<li>
-						<a
-							href="/"
-							class="block p-3 md:p-0 rounded text-sw-coal-400 hover:text-sw-navy dark:text-white dark:hover:text-sw-flamingo"
-							aria-current="page">Início</a
-						>
-					</li>
-					<li>
-						<a
-							href="/projects"
-							class="block p-3 md:p-0 rounded text-sw-coal-400 hover:text-sw-navy dark:text-white dark:hover:text-sw-flamingo"
-							>Projetos</a
-						>
-					</li>
-				</ul>
+
+				<MenuLinks client:idle />
 
 				<div class="items-center md:flex">
 					<ButtonToggleTheme client:idle />
