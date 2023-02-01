@@ -11,7 +11,7 @@ export function MemberInfo({ name, roles, skills, isOpen }: Props) {
 	return (
 		<>
 			<div className="flex flex-col text-center">
-				<h2 className="text-lg font-extrabold spacewiz__text">{name}</h2>
+				<h4 className="text-lg font-extrabold spacewiz__text">{name}</h4>
 				<div className="my-2 text-sw-primary/60 dark:text-sw-secondary/60">
 					{roles.map((r, i) => (
 						<p key={i}>{r}</p>
