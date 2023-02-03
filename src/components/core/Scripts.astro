@@ -32,17 +32,13 @@
 	window.onload = function () {
 		attachEvent('[data-sw-btn-toggle-menu]', 'click', function (elem) {
 			elem.classList.toggle('toggled');
-			document.body.classList.toggle('overflow-hidden');
 			document.getElementById('menu')?.classList.toggle('hidden');
 		});
 	};
 
 	window.onpageshow = function () {
 		const elem = document.querySelector('[data-sw-btn-toggle-menu]');
-		if (elem) {
-			elem.classList.remove('toggled');
-		}
-		document.body.classList.remove('overflow-hidden');
+		elem?.classList.remove('toggled');
 		document.getElementById('menu')?.classList.add('hidden');
 	};
 </script>
