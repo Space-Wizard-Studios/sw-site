@@ -33,7 +33,6 @@
 		"@types/three": "^0.148.1",
 		"astro": "^2.0.1",
 		"astro-icon": "^0.8.0",
-		"astro-netlify-cms": "^0.5.2",
 		"lighthouse": "^9.6.8",
 		"limax": "^3.0.0",
 		"lorem-ipsum": "^2.0.8",
