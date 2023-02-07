@@ -19,7 +19,7 @@ type Props = {
 
 export function MenuLinks({ menus }: Props) {
 	return (
-		<ul className="flex flex-col p-3 mx-4 rounded-lg md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-500 dark:bg-sw-primary-800">
+		<ul className="flex flex-col p-3 mx-4 rounded-lg md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-200 dark:bg-sw-primary-700">
 			{menus.map(({ label, links }, i) => (
 				<li key={i}>
 					<Menu>
@@ -41,7 +41,7 @@ export function MenuLinks({ menus }: Props) {
 						</Menu.Button>
 						<Menu.Items
 							as="ul"
-							className="absolute p-2 mt-4 z-10 grid grid-cols-2 text-xs bg-white border rounded-lg shadow-md"
+							className="absolute p-2 mt-4 z-10 grid grid-cols-2 text-xs bg-sw-secondary-200 dark:bg-sw-primary-700 border rounded-lg shadow-md"
 						>
 							{links.map(({ label, href }) => (
 								<Menu.Item key={href} as={Fragment}>
@@ -51,8 +51,8 @@ export function MenuLinks({ menus }: Props) {
 												href={href}
 												className={`${
 													active
-														? 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500'
-														: 'bg-white text-black'
+														? 'text-gray-500 dark:text-gray-400 hover:text-sw-navy dark:hover:text-sw-flamingo'
+														: ' text-black dark:text-white'
 												}`}
 											>
 												{label}
