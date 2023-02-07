@@ -14,17 +14,19 @@
 		"allowJs": true,
 		"baseUrl": ".",
 		"paths": {
-			"@images/*": ["src/assets/images/*"],
 			"@styles/*": ["src/assets/styles/*"],
+			"@assets/*": ["src/assets/*"],
+
 			"@atoms/*": ["src/components/atoms/*"],
 			"@core/*": ["src/components/core/*"],
 			"@icons/*": ["src/components/icons/*"],
 			"@projects/*": ["src/components/projects/*"],
 			"@widgets/*": ["src/components/widgets/*"],
 			"@components/*": ["src/components/*"],
-			"@data/*": ["src/data/*"],
-			"@hooks/*": ["src/hooks/*"],
+
+			"@collections/*": ["src/collections/*"],
 			"@layouts/*": ["src/layouts/*"],
+			"@hooks/*": ["src/hooks/*"],
 			"types/*": ["src/types/*"],
 			"@/*": ["src/*"]
 		}

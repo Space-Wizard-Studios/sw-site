@@ -1,10 +1,10 @@
 import type { CmsCollection } from 'netlify-cms-core';
 
-export const ProjectCollection: CmsCollection = {
+const ProjectCollection: CmsCollection = {
 	name: 'projects',
-	label: 'Project Posts',
-	label_singular: 'Project Post',
-	folder: 'src/data/projects',
+	label: 'Projects',
+	label_singular: 'Project',
+	folder: 'src/collections/projects',
 	identifier_field: 'title',
 	create: true,
 	delete: true,
@@ -30,8 +30,8 @@ export const ProjectCollection: CmsCollection = {
 			widget: 'select',
 			default: 'WebDev',
 			options: [
-				{ label: 'GameDev', value: 'GameDev' },
 				{ label: 'AR', value: 'AR' },
+				{ label: 'GameDev', value: 'GameDev' },
 				{ label: 'WebDev', value: 'WebDev' },
 			],
 		},
@@ -69,7 +69,7 @@ export const ProjectCollection: CmsCollection = {
 					name: 'alt',
 					widget: 'string',
 				},
-			]
+			],
 		},
 		{
 			name: 'carousel',
@@ -100,3 +100,5 @@ export const ProjectCollection: CmsCollection = {
 		},
 	],
 };
+
+export default ProjectCollection;

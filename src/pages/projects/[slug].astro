@@ -6,7 +6,7 @@ import type { MetaSEO } from 'types/metaseo';
 import { components } from '@widgets/projects/components/Components.astro';
 
 export async function getStaticPaths() {
-	const all = await Astro.glob('../../data/projects/*.md');
+	const all = await Astro.glob('/src/collections/projects/*.md');
 	return all.map(({ file, ...page }) => ({
 		params: {
 			slug: getSlugFromURL(file),

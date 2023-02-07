@@ -9,7 +9,9 @@ import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 
 import { SITE } from './src/config.mjs';
-import { ProjectCollection } from './src/data/projects/ProjectCollection';
+
+import ProjectCollection from '@collections/projects/ProjectCollection';
+import PoliciesCollection from '@collections/policies/PoliciesCollection';
 
 export default defineConfig({
 	site: SITE.origin,
@@ -34,7 +36,7 @@ export default defineConfig({
 			config: {
 				backend: {
 					name: 'github',
-					branch: 'feature/netlify-cms',
+					branch: 'main',
 					repo: 'Space-Wizard-Studios/sw-site',
 				},
 				// Configure where our media assets are stored & served from
@@ -42,7 +44,8 @@ export default defineConfig({
 				public_folder: '/images/projects',
 				// Configure the content collections
 				collections: [
-					ProjectCollection
+					ProjectCollection,
+					PoliciesCollection,
 				],
 			},
 		}),
