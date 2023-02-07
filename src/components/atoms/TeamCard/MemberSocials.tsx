@@ -13,9 +13,14 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 	const n_links = links_dict.length;
 
 	const variants = {
-		hidden: { opacity: 0, translateX: '-100%' },
+		hidden: {
+			opacity: 0,
+			scale: 0,
+			translateX: '-100%',
+		},
 		show: (index: number) => ({
 			opacity: 1,
+			scale: 1,
 			translateX: '0%',
 			transition: {
 				delay: 0.15 * (index + 1),
@@ -24,9 +29,10 @@ export function MemberSocials({ links, isOpen, toggleOpen }: Props) {
 		}),
 		hide: (index: number) => ({
 			opacity: 0,
+			scale: 0,
 			translateX: '-50%',
 			transition: {
-				delay: 0.1 * (n_links - index),
+				delay: 0.075 * (n_links - index),
 				duration: 0.12,
 			},
 		}),
