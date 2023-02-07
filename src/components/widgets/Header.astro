@@ -8,7 +8,7 @@ import { MenuLinks } from '@atoms/MenuLinks';
 import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 import ButtonToggleTheme from '@core/ButtonToggleTheme';
 
-const allProjects = await Astro.glob('/src/data/projects/**/*.mdx');
+const allProjects = await Astro.glob('/src/collections/projects/**/*.md');
 const categories = [...new Set(allProjects.map(({ frontmatter }) => frontmatter.category))];
 
 const projects = categories.map((category) => ({
@@ -16,8 +16,8 @@ const projects = categories.map((category) => ({
 	label: category ?? 'Label',
 }));
 
-const allPolicies = await Astro.glob('/src/data/policies/**/*.mdx');
-const policies = [...new Set(allPolicies.map(({ url }) => url?.split('/')[3].split('.')[0]))];
+const allPolicies = await Astro.glob('/src/collections/policies/*.md');
+const policies = [...new Set(allPolicies.map(({ file }) => file?.split('/').reverse()[0].split('.')[0]))];
 
 const support = policies.map((policy) => ({
 	href: `/${policy}`,

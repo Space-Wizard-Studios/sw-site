@@ -10,8 +10,8 @@ import sitemap from '@astrojs/sitemap';
 
 import { SITE } from './src/config.mjs';
 
-import ProjectCollection from '@collections/projects/ProjectCollection';
-import PoliciesCollection from '@collections/policies/PoliciesCollection';
+import ProjectCollection from './src/collections/projects/ProjectCollection';
+import PoliciesCollection from './src/collections/policies/PoliciesCollection';
 
 export default defineConfig({
 	site: SITE.origin,
