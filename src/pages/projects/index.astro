@@ -6,7 +6,8 @@ import { SITE } from '@/config.mjs';
 import type { MetaSEO } from 'types/metaseo';
 
 async function getProjects() {
-	const all = (await Astro.glob('../../data/projects/**/*.mdx')).filter((page) => !page.frontmatter.draft);
+	const all = (await Astro.glob('/src/collections/projects/*.md'))
+		.filter((page) => !page.frontmatter.draft);
 
 	return all
 		.sort((pageA, pageB) => {
@@ -30,7 +31,7 @@ const meta: MetaSEO = {
 };
 ---
 
-<Layout {meta}>
+<Layout meta={meta}>
 	<h1 class="pt-4 text-4xl font-black uppercase">Projetos</h1>
 	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
 		{
