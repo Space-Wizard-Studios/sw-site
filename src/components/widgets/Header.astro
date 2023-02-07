@@ -2,8 +2,41 @@
 import '@styles/toggle.scss';
 
 import { SiteLogo } from '@atoms/SiteLogo';
+
+import { MenuLinks } from '@atoms/MenuLinks';
+
 import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
 import ButtonToggleTheme from '@core/ButtonToggleTheme';
+
+const allProjects = await Astro.glob('/src/data/projects/**/*.mdx');
+const categories = [...new Set(allProjects.map(({ frontmatter }) => frontmatter.category))];
+
+const projects = categories.map((category) => ({
+	href: `/projects/${category.toLowerCase()}`,
+	label: category ?? 'Label',
+}));
+
+const allPolicies = await Astro.glob('/src/data/policies/**/*.mdx');
+const policies = [...new Set(allPolicies.map(({ url }) => url?.split('/')[3].split('.')[0]))];
+
+const support = policies.map((policy) => ({
+	href: `/${policy}`,
+	label: policy?.toUpperCase() ?? 'Label',
+}));
+
+const menus = [
+	{
+		label: 'Projetos',
+		links: [
+			{
+				href: '/projects',
+				label: 'Portfolio',
+			},
+			...projects,
+		],
+	},
+	{ label: 'Suporte', links: support },
+];
 ---
 
 <header class="sticky top-0 z-40 w-full md:backdrop-blur-sm shadow-md bg-sw-secondary/95 dark:bg-sw-primary/95">
@@ -22,24 +55,7 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 
 			<!-- DESKTOP -->
 			<div class="hidden md:flex md:flex-grow justify-end">
-				<ul
-					class="flex flex-col p-3 mx-4 rounded-lg md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-500 dark:bg-sw-primary-800"
-				>
-					<li>
-						<a
-							href="/"
-							class="block p-3 md:p-0 rounded text-sw-coal-400 hover:text-sw-navy dark:text-white dark:hover:text-sw-flamingo"
-							aria-current="page">Início</a
-						>
-					</li>
-					<li>
-						<a
-							href="/projects"
-							class="block p-3 md:p-0 rounded text-sw-coal-400 hover:text-sw-navy dark:text-white dark:hover:text-sw-flamingo"
-							>Projetos</a
-						>
-					</li>
-				</ul>
+				<MenuLinks menus={menus} client:idle />
 
 				<div class="items-center md:flex">
 					<ButtonToggleTheme client:idle />
@@ -50,20 +66,20 @@ import ButtonToggleTheme from '@core/ButtonToggleTheme';
 
 	<nav class="hidden absolute w-full spacewiz__container bg-sw-secondary" id="menu">
 		<ul class="flex flex-col p-4">
-			<li>
-				<a
-					href="/"
-					class="block p-3 md:p-0 rounded text-sw-coal-400 hover:text-sw-navy dark:text-white dark:hover:text-sw-flamingo"
-					aria-current="page">Início</a
-				>
-			</li>
-			<li>
-				<a
-					href="/projects"
-					class="block p-3 md:p-0 rounded text-sw-coal-400 hover:text-sw-navy dark:text-white dark:hover:text-sw-flamingo"
-					>Projetos</a
-				>
-			</li>
+			{
+				menus.map(({ label, links }) => (
+					<ul class="block pb-4">
+						<li class="block p-1.5 rounded text-sw-coal-400 font-semibold">{label}</li>
+						<ul>
+							{links.map(({ href, label }) => (
+								<li class="block p-1.5 pl-4 rounded text-sw-coal-400">
+									<a href={href}>{label}</a>
+								</li>
+							))}
+						</ul>
+					</ul>
+				))
+			}
 		</ul>
 	</nav>
 </header>

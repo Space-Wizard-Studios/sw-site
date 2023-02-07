@@ -21,6 +21,7 @@
 		"@astrolib/analytics": "^0.3.0",
 		"@astrolib/seo": "^0.3.0",
 		"@fontsource/roboto": "^4.5.8",
+		"@headlessui/react": "^1.7.8",
 		"@react-three/drei": "^9.56.2",
 		"@react-three/fiber": "^8.10.1",
 		"@react-three/postprocessing": "^2.7.0",
