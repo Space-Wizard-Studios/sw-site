@@ -33,6 +33,11 @@
 		"@types/three": "^0.148.1",
 		"astro": "^2.0.1",
 		"astro-icon": "^0.8.0",
+		"astro-netlify-cms": "^0.5.2",
+		"lighthouse": "^9.6.8",
+		"limax": "^3.0.0",
+		"lorem-ipsum": "^2.0.8",
+		"netlify-cms-app": "^2.15.72",
 		"firebase": "^9.16.0",
 		"flowbite-react": "^0.3.8",
 		"framer-motion": "^8.5.3",
@@ -64,5 +69,12 @@
 		"stylelint-config-standard-scss": "^6.1.0",
 		"stylelint-scss": "^4.3.0",
 		"terser": "^5.16.1"
+	},
+	"overrides": {
+		"netlify-cms-app": {
+			"react": "^18.2.0",
+			"react-dom": "^18.2.0",
+			"@types/react": "^18.0.25"
+		}
 	}
 }
