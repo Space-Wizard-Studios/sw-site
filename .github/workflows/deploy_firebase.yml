@@ -18,6 +18,7 @@ jobs:
         uses: withastro/action@v0
         with:
           package-manager: npm
+          node-version: 18
 
       - name: Deploy to Firebase
         id: deploy
