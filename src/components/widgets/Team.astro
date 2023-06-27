@@ -1,5 +1,6 @@
 ---
 import TeamCard from '@atoms/TeamCard';
+import { Portfolio } from '@icons/card_button';
 
 export interface Props {
 	[props: string]: any;
@@ -113,7 +114,7 @@ const { ...props } = Astro.props as Props;
 			}}
 			photoSrc="/images/team/rhayane_profile.webp"
 		/>
-
+		
 		<TeamCard
 			client:visible
 			name="William Magalhães"
@@ -138,5 +139,44 @@ const { ...props } = Astro.props as Props;
 			}}
 			photoSrc="/images/team/william_profile.webp"
 		/>
+
+		<TeamCard
+			client:visible
+			name="Bárbara Faraco"
+			roles={['User Interface Designer']}
+			skills={[
+				{
+					name: 'UX/UI',
+					tooltip: 'UX/UI',
+				},
+			]}
+			links={{
+				linkedin: 'https://br.linkedin.com/in/barbara-faraco',
+				portfolio: 'https://www.behance.net/barbarafaraco',
+			}}
+			photoSrc='https://mir-s3-cdn-cf.behance.net/user/115/e9f7859574753.609ac6db7b553.jpg'
+		/>
+
+		<TeamCard
+			client:visible
+			name="Ruan Blotta"
+			roles={['Desenvolvedor Web']}
+			skills={[
+				{
+					name: 'Front End',
+					tooltip: 'Front End',
+				},
+				{		
+					name: 'QA',
+					tooltip: 'QA',
+				},
+			]}
+			links={{
+				github: 'https://github.com/ruanblotta',
+				linkedin: 'https://www.linkedin.com/in/ruanblotta/',
+			}}
+			photoSrc="/images/team/ruan_profile.jpg"
+		/>
+
 	</section>
 </div>
