@@ -2,10 +2,30 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"command": "./node_modules/.bin/astro dev",
 			"name": "Development server",
+			"type": "node-terminal",
+			"command": "./node_modules/.bin/astro dev",
+			"request": "launch"
+		},
+		{
+			"name": "Next.js: debug full stack",
+			"type": "node",
 			"request": "launch",
-			"type": "node-terminal"
+			"program": "${workspaceFolder}/node_modules/next/dist/bin/next",
+			"runtimeArgs": [
+				"--inspect"
+			],
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"serverReadyAction": {
+				"action": "debugWithChrome",
+				"killOnServerStop": true,
+				"pattern": "- Local:.+(https?://.+)",
+				"uriFormat": "%s",
+				"webRoot": "${workspaceFolder}"
+			},
+			"cwd": "${workspaceFolder}"
 		}
 	]
 }

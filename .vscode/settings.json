@@ -1,49 +1,45 @@
 {
-	"files.associations": {
-		"*.css": "postcss"
-	},
-	"liveSassCompile.settings.formats": [
-		{
-			"format": "expanded",
-			"extensionName": ".css",
-			"savePath": "/.watch",
-			"savePathReplacementPairs": null
-		}
-	],
-	"tailwindCSS.includeLanguages": {
-		"astro": "html"
-	},
-	"editor.quickSuggestions": {
-		"strings": true
-	},
-	"prettier.jsxSingleQuote": true,
-	"prettier.singleQuote": true,
+	"npm.packageManager": "pnpm",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"cSpell.words": [
-		"astrojs",
-		"drei",
-		"flowbite",
-		"gltf",
-		"GLTF",
-		"netlify",
-		"partytown"
-	],
-	"scss.lint.unknownAtRules": "ignore",
-	"css.validate": false,
-	"less.validate": false,
-	"scss.validate": false,
+	"editor.formatOnSaveMode": "file",
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		}
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		}
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		}
+	},
+	"[javascript][typescript][typescriptreact]": {
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": "explicit"
+		}
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
 	"stylelint.validate": [
 		"css",
 		"scss"
 	],
-	"[css]": {
-		"editor.defaultFormatter": "stylelint.vscode-stylelint"
-	},
-	"[scss]": {
-		"editor.defaultFormatter": "stylelint.vscode-stylelint"
-	},
-	"editor.codeActionsOnSave": {
-		"source.fixAll.stylelint": "explicit"
-	},
 	"cSpell.language": "en,pt-BR,pt"
 }
