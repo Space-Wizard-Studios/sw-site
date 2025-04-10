@@ -2,30 +2,15 @@
 	"extends": "astro/tsconfigs/base",
 	"compilerOptions": {
 		"baseUrl": ".",
-		"allowSyntheticDefaultImports": true,
-		"declaration": true,
-		"esModuleInterop": true,
-		"lib": [
-			"ES2023",
-			"ESNext",
-			"DOM",
-			"WebWorker"
-		],
-		"module": "esnext",
-		"moduleResolution": "node",
 		"outDir": "dist",
-		"strict": true,
-		"target": "es2023",
 		"types": [
 			"astro/client"
 		],
-		"allowJs": true,
 		"plugins": [
 			{
 				"name": "@astrojs/ts-plugin"
 			},
 		],
-		"verbatimModuleSyntax": true,
 		"paths": {
 			"@styles/*": [
 				"src/assets/styles/*"

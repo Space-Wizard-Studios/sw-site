@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es2023",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "esModuleInterop": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+		"verbatimModuleSyntax": true,
+        "declaration": true,
+        "lib": [
+			"ES2023",
+			"ESNext",
+			"DOM",
+			"WebWorker"
+		],
+    }
+}

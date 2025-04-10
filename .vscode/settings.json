@@ -43,7 +43,7 @@
 		"editor.defaultFormatter": "stylelint.vscode-stylelint"
 	},
 	"editor.codeActionsOnSave": {
-		"source.fixAll.stylelint": true
+		"source.fixAll.stylelint": "explicit"
 	},
 	"cSpell.language": "en,pt-BR,pt"
 }
