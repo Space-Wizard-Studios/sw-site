@@ -1,5 +1,6 @@
 import { useRef } from 'react';
-import { motion, AnimatePresence, useInView, Variants } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'motion/react';
+import type { Variants } from 'motion/react';
 
 type Props = {
 	show: boolean;

@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import { GLTF } from 'three-stdlib';
+import type { GLTF } from 'three-stdlib';
 import { Color, LoopPingPong } from 'three';
 import { AnimationClip } from 'three';
 

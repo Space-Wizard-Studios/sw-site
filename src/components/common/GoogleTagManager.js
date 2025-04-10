@@ -1,4 +1,4 @@
-import { SITE } from "@/config.mjs";
+import { SITE } from "@config.js";
 
 (function (w, d, s, l, i) {
     w[l] = w[l] || [];
