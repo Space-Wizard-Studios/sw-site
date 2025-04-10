@@ -1,21 +1,19 @@
 ---
-import Layout from '@layouts/BaseLayout.astro';
-import Hero from '@widgets/Hero.astro';
-import DividerArrowDown from '@atoms/dividers/DividerArrowDown.astro';
+import Layout from '@layouts/BaseLayout.astro'
+import Hero from '@widgets/Hero.astro'
+import DividerArrowDown from '@common/dividers/DividerArrowDown.astro'
 
-import type { MetaSEO } from 'types/metaseo';
+import type { MetaSEO } from 'types/metaseo'
 
 type Props = {
-	meta?: MetaSEO;
-};
+  meta?: MetaSEO
+}
 
-const { meta } = Astro.props as Props;
+const { meta } = Astro.props as Props
 ---
 
 <Layout meta={meta}>
-	<Hero />
-	<main>
-		<slot />
-	</main>
-	<DividerArrowDown class="spacewiz__fill--reversed bg-sw-coal-500" />
+  <!-- <Hero /> -->
+  <slot />
+  <!-- <DividerArrowDown class="spacewiz__fill--reversed bg-sw-coal-500" /> -->
 </Layout>

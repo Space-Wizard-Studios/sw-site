@@ -1,72 +1,72 @@
 ---
-import '@styles/toggle.scss';
+import '@styles/toggle.scss'
 
-import { SiteLogo } from '@atoms/SiteLogo';
+// import { SiteLogo } from '@common/SiteLogo';
 
-import { MenuLinks } from '@atoms/MenuLinks';
+// import { MenuLinks } from '@common/MenuLinks';
 
-import ButtonToggleMenu from '@core/ButtonToggleMenu.astro';
-import ButtonToggleTheme from '@core/ButtonToggleTheme';
+// import ButtonToggleMenu from '@common/ButtonToggleMenu.astro';
+// import ButtonToggleTheme from '@common/ButtonToggleTheme';
 
-const allProjects = await Astro.glob('/src/collections/projects/**/*.md');
-const categories = [...new Set(allProjects.map(({ frontmatter }) => frontmatter.category))];
+// const allProjects = await Astro.glob('/src/content/projects/**/*.md');
+// const categories = [...new Set(allProjects.map(({ frontmatter }) => frontmatter.category))];
 
-const projects = categories.map((category) => ({
-	href: `/projects/${category.toLowerCase()}`,
-	label: category ?? 'Label',
-}));
+// const projects = categories.map((category) => ({
+// 	href: `/projects/${category.toLowerCase()}`,
+// 	label: category ?? 'Label',
+// }));
 
-const allPolicies = await Astro.glob('/src/collections/policies/*.md');
-const policies = [...new Set(allPolicies.map(({ file }) => file?.split('/').reverse()[0].split('.')[0]))];
+// const allPolicies = await Astro.glob('/src/collections/policies/*.md');
+// const policies = [...new Set(allPolicies.map(({ file }) => file?.split('/').reverse()[0].split('.')[0]))];
 
-const support = policies.map((policy) => ({
-	href: `/${policy}`,
-	label: policy?.toUpperCase() ?? 'Label',
-}));
+// const support = policies.map((policy) => ({
+// 	href: `/${policy}`,
+// 	label: policy?.toUpperCase() ?? 'Label',
+// }));
 
-const menus = [
-	{
-		label: 'Projetos',
-		links: [
-			{
-				href: '/projects',
-				label: 'Portfolio',
-			},
-			...projects,
-		],
-	},
-	{ label: 'Suporte', links: support },
-];
+// const menus = [
+// 	{
+// 		label: 'Projetos',
+// 		links: [
+// 			{
+// 				href: '/projects',
+// 				label: 'Portfolio',
+// 			},
+// 			...projects,
+// 		],
+// 	},
+// 	{ label: 'Suporte', links: support },
+// ];
 ---
 
-<header class="sticky top-0 z-40 w-full md:backdrop-blur-sm shadow-md bg-sw-secondary/95 dark:bg-sw-primary/95">
-	<nav class="flex w-full h-14 justify-center items-center">
-		<div class="flex w-full spacewiz__container items-center justify-between">
-			<a class="w-48 spacewiz__fill" href="/" title="Space Wizard Studios">
+<header class='sticky top-0 z-40 w-full md:backdrop-blur-sm shadow-md bg-sw-secondary/95 dark:bg-sw-primary/95'>
+  <nav class='flex w-full h-14 justify-center items-center'>
+    <div class='flex w-full spacewiz__container items-center justify-between'>
+      <!-- <a class="w-48 spacewiz__fill" href="/" title="Space Wizard Studios">
 				<span class="sr-only">Space Wizard Studios</span>
 				<SiteLogo client:idle />
-			</a>
+			</a> -->
 
-			<!-- MOBILE -->
-			<div class="flex flex-grow justify-end md:hidden gap-8">
+      <!-- MOBILE -->
+      <!-- <div class="flex flex-grow justify-end md:hidden gap-8">
 				<ButtonToggleTheme client:idle />
 				<ButtonToggleMenu />
-			</div>
+			</div> -->
 
-			<!-- DESKTOP -->
-			<div class="hidden md:flex md:flex-grow justify-end">
+      <!-- DESKTOP -->
+      <!-- <div class="hidden md:flex md:flex-grow justify-end">
 				<MenuLinks menus={menus} client:idle />
 
 				<div class="items-center md:flex">
 					<ButtonToggleTheme client:idle />
 				</div>
-			</div>
-		</div>
-	</nav>
+			</div> -->
+    </div>
+  </nav>
 
-	<nav class="hidden absolute w-full spacewiz__container bg-sw-secondary" id="menu">
-		<ul class="flex flex-col p-4">
-			{
+  <nav class='hidden absolute w-full spacewiz__container bg-sw-secondary' id='menu'>
+    <ul class='flex flex-col p-4'>
+      <!-- {
 				menus.map(({ label, links }) => (
 					<ul class="block pb-4">
 						<li class="block p-1.5 rounded text-sw-coal-400 font-semibold">{label}</li>
@@ -79,7 +79,7 @@ const menus = [
 						</ul>
 					</ul>
 				))
-			}
-		</ul>
-	</nav>
+			} -->
+    </ul>
+  </nav>
 </header>

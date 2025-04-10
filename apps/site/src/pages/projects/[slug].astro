@@ -1,37 +1,38 @@
 ---
-import Layout from '@layouts/ProjectLayout.astro';
-import { getSlugFromURL } from '@core/Path';
-import type { MetaSEO } from 'types/metaseo';
+import Layout from '@layouts/ProjectLayout.astro'
+import { getSlugFromURL } from '@common/Path'
+import type { MetaSEO } from 'types/metaseo'
 
-import { components } from '@widgets/projects/components/Components.astro';
+import { components } from '@widgets/projects/components/Components.astro'
 
-export async function getStaticPaths() {
-	const all = await Astro.glob('/src/collections/projects/*.md');
-	return all.map(({ file, ...page }) => ({
-		params: {
-			slug: getSlugFromURL(file),
-		},
+// export async function getStaticPaths() {
+// 	const all = await Astro.glob('/src/content/projects/*.md');
+// 	return all.map(({ file, ...page }) => ({
+// 		params: {
+// 			slug: getSlugFromURL(file),
+// 		},
 
-		props: {
-			page: {
-				...page,
-			},
-		},
-	}));
-}
+// 		props: {
+// 			page: {
+// 				...page,
+// 			},
+// 		},
+// 	}));
+// }
 
-const { page } = Astro.props;
+// const { page } = Astro.props;
 
-const meta: MetaSEO = {
-	title: page.frontmatter.title,
-	description: page.frontmatter.description,
-	image: page.frontmatter.heroSrc,
-	canonical: Astro.url.toString(),
-	ogType: 'article',
-};
+// const meta: MetaSEO = {
+// 	title: page.frontmatter.title,
+// 	description: page.frontmatter.description,
+// 	image: page.frontmatter.heroSrc,
+// 	canonical: Astro.url.toString(),
+// 	ogType: 'article',
+// };
 ---
 
-<Layout
+<Layout>
+  <!-- <Layout
 	meta={meta}
 	heroSrc={page.frontmatter.heroSrc}
 	heroTitle={page.frontmatter.heroTitle}
@@ -39,5 +40,5 @@ const meta: MetaSEO = {
 	carousel={page.frontmatter.carousel}
 	partners={page.frontmatter.partners}
 >
-	<page.Content components={components} />
+	<page.Content components={components} /> -->
 </Layout>

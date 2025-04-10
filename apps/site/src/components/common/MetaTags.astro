@@ -1,32 +1,29 @@
 ---
-import { AstroSeo } from '@astrolib/seo';
-import { MetaSEO } from 'types/metaseo';
-import { SITE } from '@config.js';
-
-export interface Props extends MetaSEO {
-	dontUseTitleTemplate?: boolean;
-}
+// import { AstroSeo } from '@astrolib/seo';
+import type { MetaSEO } from 'types/metaseo'
+import { SITE } from '@config.js'
 
 const {
-	title = SITE.name,
-	description = SITE.description,
-	image = SITE.defaultImage,
+  title = SITE.name,
+  description = SITE.description,
+  image = SITE.defaultImage,
 
-	canonical,
+  canonical,
 
-	nofollow = false,
+  nofollow = false,
 
-	ogTitle = title,
-	ogType = 'website',
-} = Astro.props as MetaSEO;
+  ogTitle = title,
+  ogType = 'website'
+} = Astro.props as MetaSEO
 ---
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
-<link rel="sitemap" href="/sitemap-index.xml">
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='icon' href='/favicon.svg' sizes='any' type='image/svg+xml' />
+<link rel='sitemap' href='/sitemap-index.xml' />
 
-<AstroSeo
+<!-- TODO -->
+<!-- <AstroSeo
 	title={title}
 	description={description}
 	canonical={String(canonical)}
@@ -45,11 +42,11 @@ const {
 			  ]
 			: undefined,
 	}}
-/>
+/> -->
 
 <!-- Google Site Verification -->
-<meta name="google-site-verification" content={SITE.googleSiteVerificationId} />
+<meta name='google-site-verification' content={SITE.googleSiteVerificationId} />
 
 <!-- Google Tag Manager -->
-<script type="text/partytown" src="./GoogleTagManager.js" client:idle></script>
+<script type='text/partytown' src='./GoogleTagManager.js'></script>
 <!-- End Google Tag Manager -->

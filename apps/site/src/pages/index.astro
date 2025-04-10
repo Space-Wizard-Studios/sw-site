@@ -1,26 +1,29 @@
 ---
-import Layout from '@layouts/HomeLayout.astro';
+import Layout from '@layouts/HomeLayout.astro'
 
-import Products from '@widgets/Products.astro';
-import Contact from '@widgets/Contact.astro';
-import About from '@widgets/About.astro';
-import Team from '@widgets/Team.astro';
+// import Products from '@widgets/Products.astro';
+// import Contact from '@widgets/Contact.astro';
+// import About from '@widgets/About.astro';
+// import Team from '@widgets/Team.astro';
 
-import DividerRect from '@atoms/dividers/DividerRect.astro';
+// import DividerRect from '@common/dividers/DividerRect.astro';
 
-import { SITE } from '@config.js';
-import type { MetaSEO } from 'types/metaseo';
+// import { SITE } from '@config.js';
+// import type { MetaSEO } from 'types/metaseo';
 
-const meta: MetaSEO = {
-	title: SITE.title,
-	description: SITE.description,
-	canonical: Astro.url.toString(),
-	ogType: 'website',
-};
+// const meta: MetaSEO = {
+// 	title: SITE.title,
+// 	description: SITE.description,
+// 	canonical: Astro.url.toString(),
+// 	ogType: 'website',
+// };
+
 ---
 
-<Layout {meta}>
-	<section class="spacewiz__container mt-10">
+<Layout>
+
+  <!-- <Layout {meta}> -->
+  <!-- <section class="spacewiz__container mt-10">
 		<Products class="relative z-20" />
 	</section>
 
@@ -37,5 +40,5 @@ const meta: MetaSEO = {
 
 	<section class="spacewiz__container my-16">
 		<Contact />
-	</section>
+	</section> -->
 </Layout>

@@ -1,51 +1,52 @@
 ---
-import Layout from '@layouts/PageLayout.astro';
-import { getSlugFromURL } from '@core/Path';
+import Layout from '@layouts/PageLayout.astro'
+import { getSlugFromURL } from '@common/Path'
 
-import { SITE } from '@config.js';
-import type { MetaSEO } from 'types/metaseo';
+import { SITE } from '@config.js'
+import type { MetaSEO } from 'types/metaseo'
 
-export async function getStaticPaths() {
-	const all = (await Astro.glob('/src/collections/projects/*.md'))
-		.filter((page) => !page.frontmatter.draft)
-		.filter((page) => page.frontmatter.category);
+// export async function getStaticPaths() {
+// 	const all = (await Astro.glob('/src/content/projects/*.md'))
+// 		.filter((page) => !page.frontmatter.draft)
+// 		.filter((page) => page.frontmatter.category);
 
-	const categories = [...new Set(all.map((page) => page.frontmatter.category))];
+// 	const categories = [...new Set(all.map((page) => page.frontmatter.category))];
 
-	return categories.map((category) => {
-		const filtered = all
-			.filter((page) => category == page.frontmatter.category)
-			.map(({ file, ...page }) => {
-				return {
-					slug: getSlugFromURL(file),
-					...page,
-				};
-			});
+// 	return categories.map((category) => {
+// 		const filtered = all
+// 			.filter((page) => category == page.frontmatter.category)
+// 			.map(({ file, ...page }) => {
+// 				return {
+// 					slug: getSlugFromURL(file),
+// 					...page,
+// 				};
+// 			});
 
-		return {
-			params: {
-				category: category.toLowerCase(),
-			},
-			props: {
-				category: category,
-				projects: filtered,
-			},
-		};
-	});
-}
+// 		return {
+// 			params: {
+// 				category: category.toLowerCase(),
+// 			},
+// 			props: {
+// 				category: category,
+// 				projects: filtered,
+// 			},
+// 		};
+// 	});
+// }
 
-const { category, projects } = Astro.props;
+// const { category, projects } = Astro.props;
 
-const meta: MetaSEO = {
-	title: `Portifolio - ${category}`,
-	description: SITE.description,
-	canonical: Astro.url.toString(),
-	ogType: 'website',
-};
+// const meta: MetaSEO = {
+// 	title: `Portifolio - ${category}`,
+// 	description: SITE.description,
+// 	canonical: Astro.url.toString(),
+// 	ogType: 'website',
+// };
 ---
 
-<Layout meta={meta}>
-	<h1 class="pt-4 text-4xl font-black uppercase">Projetos: {category}</h1>
+<Layout>
+  <!-- <Layout meta={meta}> -->
+  <!-- <h1 class="pt-4 text-4xl font-black uppercase">Projetos: {category}</h1>
 	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
 		{
 			projects.map((page: any) => (
@@ -79,5 +80,5 @@ const meta: MetaSEO = {
 				</div>
 			))
 		}
-	</section>
+	</section> -->
 </Layout>

@@ -1,16 +1,20 @@
 {
   "scripts": {
-    "dev": "concurrently \"pnpm --filter sw-site dev\" \"pnpm --filter cms dev\"",
+    "dev": "concurrently \"pnpm --filter sw-site dev\" \"pnpm --filter sw-site-cms dev\"",
     "dev:site": "pnpm --filter sw-site dev",
     "build:site": "pnpm --filter sw-site build",
     "preview:site": "pnpm --filter sw-site preview"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "nx": "^20.7.2"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "sharp"
     ]
+  },
+  "dependencies": {
+    "three-stdlib": "^2.35.15"
   }
 }

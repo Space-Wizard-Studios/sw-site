@@ -1,50 +1,53 @@
 ---
-import '@styles/style.scss';
+// import '@styles/style.scss';
+// import '@styles/focus.scss';
+// import '@styles/scrollbar.scss';
+// import '@styles/text.scss';
 
-import '@styles/focus.scss';
-import '@styles/scrollbar.scss';
-import '@styles/text.scss';
+import '@styles/theme.css'
 
-import MetaTags from '@core/MetaTags.astro';
+import MetaTags from '@common/MetaTags.astro'
 
-import Header from '@widgets/Header.astro';
-import Footer from '@widgets/Footer.astro';
-import Scripts from '@core/Scripts.astro';
+import Header from '@widgets/Header.astro'
+import Footer from '@widgets/Footer.astro'
+import Scripts from '@common/Scripts.astro'
 
-import type { MetaSEO } from 'types/metaseo';
-import { SITE } from '@config.js';
+import type { MetaSEO } from 'types/metaseo'
+import { SITE } from '@config.js'
 
 type Props = {
-	meta?: MetaSEO;
-};
+  meta?: MetaSEO
+}
 
-const { meta } = Astro.props as Props;
+const { meta } = Astro.props as Props
 ---
 
-<!DOCTYPE html>
-<html lang="pt" class="motion-safe:scroll-smooth 2xl:text-5">
-	<head>
+<!doctype html>
+<html lang='pt' class='motion-safe:scroll-smooth'>
+  <!-- <head>
 		<MetaTags {...meta} />
-	</head>
+	</head> -->
 
-	<body class="spacewiz__bg--reversed spacewiz__text align-middle">
-		<!-- Google Tag Manager (noscript) -->
-		<noscript
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- <noscript
 			><iframe
 				src={"https://www.googletagmanager.com/ns.html?id=" + SITE.googleTagId}
 				height="0"
 				width="0"
 				style="display:none;visibility:hidden"></iframe>
-		</noscript>
-		<!-- End Google Tag Manager (noscript) -->
+		</noscript> -->
+    <!-- End Google Tag Manager (noscript) -->
 
-		<Header />
+    <!-- <Header /> -->
 
-		<main class="min-h-screen overflow-x-hidden">
-			<slot />
-		</main>
+    <main class='flex flex-col min-h-screen overflow-x-hidden'>
+      <div class='flex flex-row w-full justify-center items-center'>
+        <div class='w-2/5 h-40 p-4 bg-sw-primary border-2 border-sw-flamingo-800 rounded-lg'>aaaaaaaaa</div>
+      </div>
+    </main>
 
-		<Footer />
-		<Scripts />
-	</body>
+    <!-- <Footer /> -->
+    <!-- <Scripts /> -->
+  </body>
 </html>
