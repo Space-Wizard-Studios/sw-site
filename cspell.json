@@ -1,0 +1,29 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaries": [
+        "developer-terms",
+        "people-names",
+        "project-terms",
+    ],
+    "dictionaryDefinitions": [
+        {
+            "name": "developer-terms",
+            "path": "./.cspell/developer-terms.txt",
+            "addWords": true
+        },
+        {
+            "name": "people-names",
+            "path": "./.cspell/people-names.txt",
+            "addWords": true
+        },
+        {
+            "name": "project-terms",
+            "path": "./.cspell/project-terms.txt",
+            "addWords": true
+        }
+    ],
+    "words": [],
+    "ignoreWords": [],
+    "import": []
+}

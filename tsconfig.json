@@ -1,34 +1,68 @@
 {
 	"extends": "astro/tsconfigs/base",
 	"compilerOptions": {
+		"baseUrl": ".",
 		"allowSyntheticDefaultImports": true,
 		"declaration": true,
 		"esModuleInterop": true,
-		"lib": ["es2021"],
+		"lib": [
+			"ES2023",
+			"ESNext",
+			"DOM",
+			"WebWorker"
+		],
 		"module": "esnext",
 		"moduleResolution": "node",
 		"outDir": "dist",
 		"strict": true,
-		"target": "es2021",
-		"types": ["astro/client"],
+		"target": "es2023",
+		"types": [
+			"astro/client"
+		],
 		"allowJs": true,
-		"baseUrl": ".",
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin"
+			},
+		],
+		"verbatimModuleSyntax": true,
 		"paths": {
-			"@styles/*": ["src/assets/styles/*"],
-			"@assets/*": ["src/assets/*"],
-
-			"@atoms/*": ["src/components/atoms/*"],
-			"@core/*": ["src/components/core/*"],
-			"@icons/*": ["src/components/icons/*"],
-			"@projects/*": ["src/components/projects/*"],
-			"@widgets/*": ["src/components/widgets/*"],
-			"@components/*": ["src/components/*"],
-
-			"@collections/*": ["src/collections/*"],
-			"@layouts/*": ["src/layouts/*"],
-			"@hooks/*": ["src/hooks/*"],
-			"types/*": ["src/types/*"],
-			"@/*": ["src/*"]
+			"@styles/*": [
+				"src/assets/styles/*"
+			],
+			"@images/*": [
+				"src/assets/images/*"
+			],
+			"@icons/*": [
+				"src/assets/icons/*"
+			],
+			"@assets/*": [
+				"src/assets/*"
+			],
+			"@common/*": [
+				"src/components/common/*"
+			],
+			"@widgets/*": [
+				"src/components/widgets/*"
+			],
+			"@components/*": [
+				"src/components/*"
+			],
+			"@content/*": [
+				"src/content/*"
+			],
+			"@layouts/*": [
+				"src/layouts/*"
+			],
+			"@hooks/*": [
+				"src/hooks/*"
+			],
+			"types/*": [
+				"src/types/*"
+			],
+			"@*": [
+				"src/*"
+			]
 		}
 	}
 }

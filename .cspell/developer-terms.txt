@@ -1,0 +1,6 @@
+Builda
+Codacy
+esnext
+LICENCE
+pwsh
+tsconfigs

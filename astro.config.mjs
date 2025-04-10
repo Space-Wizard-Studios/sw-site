@@ -1,27 +1,22 @@
 import { defineConfig } from 'astro/config';
-
-import tailwind from '@astrojs/tailwind';
-import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
+
+import react from '@astrojs/react';
+import tailwindcss from "@tailwindcss/vite";
 
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 
-import { SITE } from './src/config.mjs';
+import { SITE } from './src/config.js';
 
 export default defineConfig({
 	site: SITE.origin,
-	base: SITE.basePathname,
+	base: import.meta.env.VITE_BASE_PATH ?? '/',
 	output: 'static',
 
 	integrations: [
 		react(),
 		mdx(),
-		tailwind({
-			config: {
-				applyBaseStyles: false,
-			},
-		}),
 		sitemap(),
 		partytown({
 			config: {
@@ -31,8 +26,6 @@ export default defineConfig({
 	],
 
 	vite: {
-		build: {
-			target: 'es2020',
-		},
+		plugins: [tailwindcss()],
 	},
 });
