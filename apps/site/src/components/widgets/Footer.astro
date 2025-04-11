@@ -1,98 +1,40 @@
 ---
-import { SiteIcon } from '@common/SiteIcon';
-import { Icon } from 'astro-icon';
+
 ---
 
-<footer class="text-xs md:text-sm">
-	<section class="w-full py-8 bg-sw-coal-500">
-		<div class="flex flex-col spacewiz__container bg-sw-coal-500">
-			<div class="h-full grid grid-cols-4 gap-8">
-				<div>
-					<p class="mb-3 font-semibold uppercase text-white">Portifólio</p>
-					<ul class="text-gray-400">
-						<li class="my-2">
-							<a class="hover:underline" href="#">Apps</a>
-						</li>
-						<li class="my-2">
-							<a class="hover:underline" href="#">AR/VR</a>
-						</li>
-						<li class="my-2">
-							<a class="hover:underline" href="#">Games</a>
-						</li>
-						<li class="my-2">
-							<a class="hover:underline" href="#">Web</a>
-						</li>
-					</ul>
-				</div>
-				<div>
-					<p class="mb-3 font-semibold uppercase text-white">A spacewiz</p>
-					<ul class="text-gray-400">
-						<li class="my-2">
-							<a class="hover:underline" href="#">Sobre Nós</a>
-						</li>
-						<li class="my-2">
-							<a class="hover:underline" href="#">Contato</a>
-						</li>
-						<li class="my-2">
-							<a class="hover:underline" href="#">Press kit</a>
-						</li>
-					</ul>
-				</div>
-				<div>
-					<p class="mb-3 text-sm font-semibold uppercase text-white">Redes Sociais</p>
-					<div class="flex flex-wrap gap-2">
-						<a href="https://www.instagram.com/spacewiz.dev/" class="text-gray-500 hover:text-white">
-							<Icon name="simple-icons:instagram" class="w-6 h-6" />
-							<span class="sr-only">Instagram</span>
-						</a>
-						<a
-							href="https://linkedin.com/company/space-wizard-studios"
-							class="text-gray-500 hover:text-white"
-						>
-							<Icon name="simple-icons:linkedin" class="w-6 h-6" />
-							<span class="sr-only">Linkedin</span>
-						</a>
-						<a
-							href="https://github.com/Space-Wizard-Studios/sw-site/"
-							class="text-gray-500 hover:text-white"
-						>
-							<Icon name="simple-icons:github" class="w-6 h-6" />
-							<span class="sr-only">GitHub</span>
-						</a>
-					</div>
-				</div>
-				<div>
-					<p class="mb-3 font-semibold uppercase text-white">Lenga lenga Jurídico</p>
-					<ul class="text-gray-400">
-						<li class="my-2">
-							<a class="hover:underline" href="/policies/privacy">Privacidade e Cookies</a>
-						</li>
-						<li class="my-2">
-							<a class="hover:underline" href="/policies/terms">Termos de Uso</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="flex mt-4 justify-center md:justify-end w-full">
-				<div class="w-12 h-12 text-white">
-					<SiteIcon client:visible />
-				</div>
-			</div>
+<footer class='flex flex-col w-full text-sm items-center bg-surface-dim text-on-surface shadow-2xl'>
+	<div class="flex flex-row container justify-between">
+		<div class=' flex-col space-y-4'>
+			<h5 class='uppercase font-bold'>Portfolio</h5>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 4</li>
+			</ul>
 		</div>
-	</section>
-
-	<section class="w-full py-4 bg-sw-coal-600 border-0 border-t-2 border-white">
-		<div class="flex items-center justify-center spacewiz__container text-center">
-			<p class="text-gray-400">
-				2023 - Space Wizard Studios
-				<br />
-				<span class="text-light text-xs"
-					>Este é um projeto de código aberto, acesse <a
-						href="https://github.com/Space-Wizard-Studios/sw-site/"
-						class="underline">o repositório</a
-					>!</span
-				>
-			</p>
+		<div class=' flex-col space-y-4'>
+			<h5 class='uppercase font-bold'>@spacewiz</h5>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 4</li>
+			</ul>
 		</div>
-	</section>
+		<div class=' flex-col space-y-4'>
+			<h5 class='uppercase font-bold'>Lenga Lenga Jurídico</h5>
+			<ul>
+				<li>Item 1</li>
+				<li>Item 2</li>
+				<li>Item 3</li>
+				<li>Item 4</li>
+			</ul>
+		</div>
+	</div>
+	<div class="flex flex-col w-full items-center">
+		<div class='container text-center bg-sw-neutral-950'>
+			<p>© Space Wizard Studios - Todos os direitos reservados</p>
+		</div>
+	</div>
 </footer>
