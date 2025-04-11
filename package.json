@@ -11,6 +11,8 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "esbuild",
+      "nx",
       "sharp"
     ]
   },
