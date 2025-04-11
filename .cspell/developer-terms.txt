@@ -6,6 +6,7 @@ devsafe
 drei
 esnext
 frontmatter
+github
 GLTF
 imdb
 importmap
