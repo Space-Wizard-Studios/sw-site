@@ -1,22 +1,29 @@
 {
-  "scripts": {
-    "dev": "concurrently \"pnpm --filter sw-site dev\" \"pnpm --filter sw-site-cms dev\"",
-    "dev:site": "pnpm --filter sw-site dev",
-    "build:site": "pnpm --filter sw-site build",
-    "preview:site": "pnpm --filter sw-site preview"
-  },
-  "devDependencies": {
-    "concurrently": "^9.1.2",
-    "nx": "^20.7.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "nx",
-      "sharp"
-    ]
-  },
-  "dependencies": {
-    "three-stdlib": "^2.35.15"
-  }
+    "scripts": {
+        "dev": "concurrently \"pnpm --filter sw-site dev\" \"pnpm --filter sw-site-cms dev\"",
+        "dev:site": "pnpm --filter sw-site dev",
+        "build:site": "pnpm --filter sw-site build",
+        "preview:site": "pnpm --filter sw-site preview",
+        "check-deps": "pnpm dlx depcheck --ignore-patterns=*.d.ts"
+    },
+    "devDependencies": {
+        "concurrently": "^9.1.2",
+        "nx": "^20.7.2"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild",
+            "nx",
+            "sharp"
+        ],
+        "overrides": {
+            "react": "^19.1.0",
+            "react-dom": "^19.1.0"
+        }
+    },
+    "dependencies": {
+        "react": "^19.1.0",
+        "react-dom": "^19.1.0",
+        "three-stdlib": "^2.35.15"
+    }
 }

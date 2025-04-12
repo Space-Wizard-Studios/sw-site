@@ -22,8 +22,8 @@
     "graphql": "^16.8.1",
     "next": "15.2.3",
     "payload": "3.31.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "workspace:*",
+    "react-dom": "workspace:*",
     "sharp": "0.32.6",
     "@payloadcms/db-sqlite": "3.31.0"
   },
