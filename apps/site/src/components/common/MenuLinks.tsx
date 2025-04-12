@@ -1,29 +1,27 @@
-import '@styles/toggle.scss'
-
-import { Fragment } from 'react'
+import { Fragment } from 'react';
 
 type Link = {
-  href: string
-  label: string
-}
+    href: string;
+    label: string;
+};
 
 type MenuList = {
-  label: string
-  links: Link[]
-}
+    label: string;
+    links: Link[];
+};
 
 type Props = {
-  menus: MenuList[]
-}
+    menus: MenuList[];
+};
 
 export function MenuLinks({ menus }: Props) {
-  return (
-    <ul className='flex flex-col p-3 mx-4 rounded-lg md:flex-row md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium md:border-0 bg-sw-secondary-200 dark:bg-sw-primary-700'>
-      {menus.map(({ label, links }, i) => (
-        <li key={i}>
-          menu
-          {/* TODO */}
-          {/* <Menu>
+    return (
+        <ul className='bg-sw-secondary-200 dark:bg-sw-primary-700 mx-4 mt-4 flex flex-col rounded-lg p-3 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:text-sm md:font-medium'>
+            {menus.map(({ label, links }, i) => (
+                <li key={i}>
+                    menu
+                    {/* TODO */}
+                    {/* <Menu>
 						<Menu.Button className="flex items-center justify-between w-full">
 							<span className="font-bold">{label}</span>
 							<svg
@@ -64,8 +62,8 @@ export function MenuLinks({ menus }: Props) {
 							))}
 						</Menu.Items>
 					</Menu> */}
-        </li>
-      ))}
-    </ul>
-  )
+                </li>
+            ))}
+        </ul>
+    );
 }

@@ -1,10 +1,16 @@
 ---
 import ButtonToggleTheme from '@common/ButtonToggleTheme';
+import { SiteLogo } from '@assets/icons/SiteLogo';
 ---
 
-<header class='flex flex-col sticky w-full top-0 z-50 items-center justify-center bg-surface-bright text-on-surface shadow-2xl'>
-    <div class='container flex flex-row justify-between items-center'>
-		<h1>Space Wizard Studios</h1>
+<header
+    class='flex flex-col sticky w-full top-0 z-50 items-center justify-center bg-surface-bright text-on-surface shadow-2xl'
+>
+    <nav class='sw-container flex flex-row justify-between items-center'>
+        <a class='w-48 hover:scale-105 transition-all' href='/' title='Space Wizard Studios'>
+            <span class='sr-only'>Space Wizard Studios</span>
+            <SiteLogo client:idle />
+        </a>
         <ButtonToggleTheme client:idle />
-    </div>
+    </nav>
 </header>

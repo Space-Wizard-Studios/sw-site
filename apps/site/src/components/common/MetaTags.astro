@@ -1,20 +1,23 @@
 ---
-// import { AstroSeo } from '@astrolib/seo';
-import type { MetaSEO } from 'types/metaseo'
-import { SITE } from '@config.js'
+import { SEO } from 'astro-seo';
+
+import type { MetaSEO } from 'types/metaseo';
+import { config } from '@config.js';
 
 const {
-  title = SITE.name,
-  description = SITE.description,
-  image = SITE.defaultImage,
-
-  canonical,
-
-  nofollow = false,
-
-  ogTitle = title,
-  ogType = 'website'
-} = Astro.props as MetaSEO
+    title = config.name,
+    description = config.description,
+    canonical,
+    robots = {
+        noindex: false,
+        nofollow: false,
+    },
+    og = {
+        image: config.defaultImage,
+        title: title,
+        type: 'website',
+    },
+} = Astro.props as MetaSEO;
 ---
 
 <meta charset='UTF-8' />
@@ -22,31 +25,61 @@ const {
 <link rel='icon' href='/favicon.svg' sizes='any' type='image/svg+xml' />
 <link rel='sitemap' href='/sitemap-index.xml' />
 
-<!-- TODO -->
-<!-- <AstroSeo
-	title={title}
-	description={description}
-	canonical={String(canonical)}
-	nofollow={nofollow}
-	openGraph={{
-		url: String(canonical),
-		title: ogTitle,
-		description: description,
-		type: ogType,
-		images: image
-			? [
-					{
-						url: SITE.origin + image,
-						alt: ogTitle,
-					},
-			  ]
-			: undefined,
-	}}
-/> -->
+<SEO
+    canonical={''}
+    title={''}
+    description={''}
+    noindex={false}
+    nofollow={false}
+    languageAlternates={[]}
+    openGraph={{
+        basic: {
+            title: 'title',
+            type: 'type',
+            image: 'image',
+            url: canonical,
+        },
+        optional: {
+            description: 'description',
+            locale: 'locale',
+            siteName: 'siteName',
+        },
+        image: {
+            url: 'image',
+            alt: 'title',
+        },
+    }}
+/>
 
 <!-- Google Site Verification -->
-<meta name='google-site-verification' content={SITE.googleSiteVerificationId} />
+<meta name='google-site-verification' content={config.googleSiteVerificationId} />
 
 <!-- Google Tag Manager -->
-<script type='text/partytown' src='./GoogleTagManager.js'></script>
-<!-- End Google Tag Manager -->
+<google-tag data-gtag={config.googleTagId}></google-tag>
+
+<noscript>
+    <iframe
+        src={'https://www.googletagmanager.com/ns.html?id=' + config.googleTagId}
+        height='0'
+        width='0'
+        style='display:none;visibility:hidden'
+    >
+    </iframe>
+</noscript>
+
+<script>
+    class GTag extends HTMLElement {
+        constructor() {
+            super();
+            const tag = this.dataset['gtag'];
+            this.attachTagToWindow(window, tag);
+        }
+
+        attachTagToWindow(w: any, t: any) {
+            w['tag'] = t;
+        }
+    }
+    customElements.define('google-tag', GTag);
+</script>
+
+<script type='text/partytown' src='./GoogleTagManager.js' is:inline></script>

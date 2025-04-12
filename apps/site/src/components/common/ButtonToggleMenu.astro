@@ -1,15 +1,41 @@
 ---
-// import { Icon } from 'astro-icon'
-const {
-  label = 'Mostrar menu',
-  className = 'rounded-lg text-sm p-2.5 inline-flex items-center relative spacewiz__text',
-  iconClass = 'w-6 h-6',
-  iconName = 'tabler:menu'
-} = Astro.props
+import { IconMenu } from '@assets/icons/IconMenu';
 ---
 
-<button type='button' class={className} aria-label={label} data-sw-btn-toggle-menu>
-  icon
-  <!-- TODO -->
-  <!-- <Icon name={iconName} class={iconClass} optimize={false} /> -->
+<button
+    id='toggle-btn'
+    type='button'
+    class='rounded-lg text-sm inline-flex items-center relative text-white'
+    data-toggle-menu
+>
+    <IconMenu className='w-6 h-6' />
 </button>
+
+<script is:inline>
+    function attachEvent(selector, event, fn) {
+        const matches = document.querySelectorAll(selector);
+        if (matches && matches.length) {
+            matches.forEach((elem) => {
+                elem.addEventListener(event, () => fn(elem), false);
+            });
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function (e) {
+        attachEvent('[data-toggle-menu]', 'click', function (elem) {
+            elem.classList.toggle('toggled');
+
+            document.body.classList.toggle('overflow-hidden');
+            document.getElementById('menu')?.classList.toggle('hidden');
+        });
+    });
+
+    window.onpageshow = function () {
+        const elem = document.querySelector('[data-toggle-menu]');
+        if (elem) {
+            elem.classList.remove('toggled');
+        }
+        document.body.classList.remove('overflow-hidden');
+        document.getElementById('menu')?.classList.add('hidden');
+    };
+</script>

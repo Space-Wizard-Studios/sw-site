@@ -2,87 +2,87 @@
 import ProductCard from '@common/ProductCard';
 
 export interface Props {
-	[props: string]: any;
+    [props: string]: any;
 }
 
 const { ...props } = Astro.props as Props;
 ---
 
 <div {...props}>
-	<header>
-		<h2 class="text-4xl font-black uppercase">
-			<span>Nossos serviços</span>
-		</h2>
-		<h3 class="mb-12">
-			<span class="text-gradient bg-gradient-to-t from-sw-navy-700 to-sw-flamingo"
-				>Um resumo do que desenvolvemos</span
-			>
-		</h3>
-	</header>
+    <header>
+        <h2 class='text-4xl font-black uppercase'>
+            <span>Nossos serviços</span>
+        </h2>
+        <h3 class='mb-12'>
+            <span class='text-gradient bg-gradient-to-t from-sw-navy-700 to-sw-flamingo'
+                >Um resumo do que desenvolvemos</span
+            >
+        </h3>
+    </header>
 
-	<section class="my-8 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 content-around">
-		<ProductCard
-			client:visible
-			index={0}
-			iconSrc="./models/products/product_model-games_placeholder.gltf"
-			iconColor={0x005ce6}
-			tooltip
-		>
-			<span slot="title">GameDev</span>
-			<span slot="subtitle">e outsourcing</span>
-			<span slot="description">
-				<span class="font-black text-sw-navy dark:text-sw-flamingo">Jogos</span> incríveis sob demanda!
-				<br />
-				<br />
-				Nossa tripulação conta com profissionais de backgrounds nas mais diversas áreas de desenvolvimento.
-			</span>
-		</ProductCard>
-		<ProductCard
-			index={1}
-			client:visible
-			iconSrc="./models/products/product_model-web_placeholder.gltf"
-			iconColor={0xff62f2}
-		>
-			<span slot="title">WebDev</span>
-			<span slot="subtitle">e gamificação</span>
-			<span slot="description">
-				<span class="font-black text-sw-navy dark:text-sw-flamingo">Sites</span> e experiências únicas!
-				<br />
-				<br />
-				Podemos trabalhar conceitos de gamificação, incluir peças 3D ou 2D interativas ou até mesmo transformar sua
-				aplicação web em um jogo!
-			</span>
-		</ProductCard>
-		<ProductCard
-			index={2}
-			client:visible
-			iconSrc="./models/products/product_model-apps_placeholder.gltf"
-			iconColor={0x005ce6}
-		>
-			<span slot="title">Apps</span>
-			<span slot="subtitle">e soluções interativas</span>
-			<span slot="description">
-				<span class="font-black text-sw-navy dark:text-sw-flamingo">Aplicações</span> cativantes que atraem clientes!
-				<br />
-				<br />
-				Acreditamos que a melhor maneira de conectar pessoas à ideias é através de uma incrível experiência do usuário.
-			</span>
-		</ProductCard>
-		<ProductCard
-			index={3}
-			client:visible
-			iconSrc="./models/products/product_model-music_placeholder.gltf"
-			iconColor={0xff62f2}
-		>
-			<span slot="title">Sonoplastia</span>
-			<span slot="subtitle">áudio e música</span>
-			<span slot="description">
-				<span class="font-black text-sw-navy dark:text-sw-flamingo">Peças sonoras</span> envolventes!
-				<br />
-				<br />
-				Passamos por todas as fases da produção sonora e musical: desde a composição e produção à mixagem. Sua ideia
-				pode ser complementada e elaborada para uma maior imersão!
-			</span>
-		</ProductCard>
-	</section>
+    <section class='grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 content-around'>
+        <ProductCard
+            client:visible
+            index={0}
+            iconSrc='./models/products/product_model-games_placeholder.gltf'
+            iconColor={0x005ce6}
+            tooltip
+        >
+            <span slot='title'>GameDev</span>
+            <span slot='subtitle'>e outsourcing</span>
+            <span slot='description'>
+                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Jogos</span> incríveis sob demanda!
+                <br />
+                <br />
+                Nossa tripulação conta com profissionais de backgrounds nas mais diversas áreas de desenvolvimento.
+            </span>
+        </ProductCard>
+        <ProductCard
+            index={1}
+            client:visible
+            iconSrc='./models/products/product_model-web_placeholder.gltf'
+            iconColor={0xff62f2}
+        >
+            <span slot='title'>WebDev</span>
+            <span slot='subtitle'>e gameficação</span>
+            <span slot='description'>
+                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Sites</span> e experiências únicas!
+                <br />
+                <br />
+                Podemos trabalhar conceitos de gamificação, incluir peças 3D ou 2D interativas ou até mesmo transformar sua
+                aplicação web em um jogo!
+            </span>
+        </ProductCard>
+        <ProductCard
+            index={2}
+            client:visible
+            iconSrc='./models/products/product_model-apps_placeholder.gltf'
+            iconColor={0x005ce6}
+        >
+            <span slot='title'>Apps</span>
+            <span slot='subtitle'>e soluções interativas</span>
+            <span slot='description'>
+                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Aplicações</span> cativantes que atraem clientes!
+                <br />
+                <br />
+                Acreditamos que a melhor maneira de conectar pessoas à ideias é através de uma incrível experiência do usuário.
+            </span>
+        </ProductCard>
+        <ProductCard
+            index={3}
+            client:visible
+            iconSrc='./models/products/product_model-music_placeholder.gltf'
+            iconColor={0xff62f2}
+        >
+            <span slot='title'>Sonoplastia</span>
+            <span slot='subtitle'>áudio e música</span>
+            <span slot='description'>
+                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Peças sonoras</span> envolventes!
+                <br />
+                <br />
+                Passamos por todas as fases da produção sonora e musical: desde a composição e produção à mixagem. Sua ideia
+                pode ser complementada e elaborada para uma maior imersão!
+            </span>
+        </ProductCard>
+    </section>
 </div>

@@ -1,40 +1,43 @@
 ---
-
+import DividerArrowDown from '@common/dividers/DividerArrowDown.astro';
 ---
 
-<footer class='flex flex-col w-full text-sm items-center bg-surface-dim text-on-surface shadow-2xl'>
-	<div class="flex flex-row container justify-between">
-		<div class=' flex-col space-y-4'>
-			<h5 class='uppercase font-bold'>Portfolio</h5>
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-				<li>Item 4</li>
-			</ul>
-		</div>
-		<div class=' flex-col space-y-4'>
-			<h5 class='uppercase font-bold'>@spacewiz</h5>
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-				<li>Item 4</li>
-			</ul>
-		</div>
-		<div class=' flex-col space-y-4'>
-			<h5 class='uppercase font-bold'>Lenga Lenga Jurídico</h5>
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-				<li>Item 4</li>
-			</ul>
-		</div>
-	</div>
-	<div class="flex flex-col w-full items-center">
-		<div class='container text-center bg-sw-neutral-950'>
-			<p>© Space Wizard Studios - Todos os direitos reservados</p>
-		</div>
-	</div>
+<footer
+    class='flex flex-col w-full text-sm items-center bg-surface-dim text-on-surface shadow-2xl relative'
+    style='clip-path: polygon(0 0, calc(50% - 48px) 0, 50% 1.25rem, calc(50% + 48px) 0, 100% 0, 100% 100%, 0 100%);'
+>
+    <div class='flex flex-row container justify-between mt-4'>
+        <div class='flex-col space-y-4'>
+            <h5 class='uppercase font-bold'>Portfolio</h5>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+        <div class='flex-col space-y-4'>
+            <h5 class='uppercase font-bold'>@spacewiz</h5>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+        <div class='flex-col space-y-4'>
+            <h5 class='uppercase font-bold'>Lenga Lenga Jurídico</h5>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+    </div>
+    <div class='flex flex-col w-full items-center'>
+        <div class='container text-center bg-sw-neutral-950'>
+            <p>© Space Wizard Studios - Todos os direitos reservados</p>
+        </div>
+    </div>
 </footer>
