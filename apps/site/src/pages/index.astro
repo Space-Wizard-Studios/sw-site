@@ -1,44 +1,48 @@
 ---
-import Layout from '@layouts/HomeLayout.astro'
+import Layout from '@layouts/PageLayout.astro';
+import type { MetaSEO } from 'types/metaseo';
+import { config } from '@config.js';
 
-// import Products from '@widgets/Products.astro';
-// import Contact from '@widgets/Contact.astro';
-// import About from '@widgets/About.astro';
-// import Team from '@widgets/Team.astro';
+import Hero from '@widgets/Hero.astro';
 
-// import DividerRect from '@common/dividers/DividerRect.astro';
+import Products from '@widgets/Products.astro';
+import Contact from '@widgets/Contact.astro';
+import About from '@widgets/About.astro';
+import Team from '@widgets/Team.astro';
 
-// import { SITE } from '@config.js';
-// import type { MetaSEO } from 'types/metaseo';
+import DividerRect from '@common/dividers/DividerRect.astro';
 
-// const meta: MetaSEO = {
-// 	title: SITE.title,
-// 	description: SITE.description,
-// 	canonical: Astro.url.toString(),
-// 	ogType: 'website',
-// };
-
+const meta: MetaSEO = {
+    title: config.title,
+    description: config.description,
+    canonical: Astro.url.toString(),
+    og: {
+        type: 'website',
+    },
+};
 ---
 
-<Layout>
+<Layout {meta}>
+    <Hero />
 
-  <!-- <Layout {meta}> -->
-  <!-- <section class="spacewiz__container mt-10">
-		<Products class="relative z-20" />
-	</section>
+    <div class='relative flex flex-col w-full h-full items-center'>
+        <section class='sw-container'>
+            <Products class='relative w-full z-30' />
+        </section>
 
-	<div class="shadow-md bg-sw-secondary-700 dark:bg-sw-primary-700 z-20">
-		<DividerRect class="w-full -mt-16 h-16 absolute z-10 bg-sw-secondary-700 dark:bg-sw-primary-700" />
-		<section class="spacewiz__container py-8">
-			<About />
-		</section>
-	</div>
+        <div class='flex flex-col z-20 w-full items-center shadow-md bg-surface-dim'>
+            <DividerRect class='w-full -mt-16 h-16 absolute z-10 bg-surface-dim' />
+            <section class='sw-container'>
+                <About />
+            </section>
+        </div>
 
-	<section class="spacewiz__container my-16">
-		<Team />
-	</section>
+        <section class='sw-container'>
+            <Team />
+        </section>
 
-	<section class="spacewiz__container my-16">
-		<Contact />
-	</section> -->
+        <!-- <section class='my-16'>
+            <Contact />
+        </section> -->
+    </div>
 </Layout>

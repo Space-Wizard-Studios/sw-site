@@ -4,6 +4,8 @@ import Layout from '@layouts/BaseLayout.astro';
 import DividerArrowDown from '@common/dividers/DividerArrowDown.astro';
 
 import type { MetaSEO } from 'types/metaseo';
+import Footer from '@widgets/Footer.astro';
+import Header from '@widgets/Header.astro';
 
 type Props = {
     meta?: MetaSEO;
@@ -13,17 +15,7 @@ const { meta } = Astro.props as Props;
 ---
 
 <Layout meta={meta}>
-    <div class='flex flex-row w-full min-h-screen items-center justify-center'>
-        <div class='flex flex-col w-full max-w-5xl'>
-            <slot />
-        </div>
-    </div>
-    <!-- <div class="min-h-screen spacewiz__container">
-		<div class="pb-8 min-h-screen bg-sw-secondary-700 dark:bg-sw-primary-700">
-			<main class="px-8">
-				<slot />
-			</main>
-		</div>
-	</div>
-	<DividerArrowDown class="fill-sw-secondary-700 dark:fill-sw-primary-700 bg-sw-coal-500" /> -->
+    <Header />
+    <slot />
+    <Footer />
 </Layout>

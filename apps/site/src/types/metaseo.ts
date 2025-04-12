@@ -1,11 +1,15 @@
 export interface MetaSEO {
-	title?: string;
-	description?: string;
-	image?: string;
-
-	canonical?: string | URL;
-	nofollow?: boolean;
-
-	ogTitle?: string;
-	ogType?: string;
+    title?: string;
+    description?: string;
+    canonical?: string | URL;
+    robots?: {
+        noindex?: boolean;
+        nofollow?: boolean;
+    };
+    og?: {
+        title?: string;
+        description?: string;
+        type?: 'website' | 'article' | 'product';
+        image?: string;
+    };
 }
