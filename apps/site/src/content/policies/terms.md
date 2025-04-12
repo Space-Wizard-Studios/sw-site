@@ -12,7 +12,7 @@ A utilização deste site após as alterações significa que você aceitou os T
 
 ## Este Site
 
-O **projeto** de desenvolvimento deste site é licenciado nos termos da licença MIT, confome arquivo [LICENSE.md](https://github.com/Space-Wizard-Studios/sw-site/) no repositório do projeto. E, portanto, você pode utilizá-lo para consulta, modificação e redistribuição do código fonte sob os termos indicados.
+O **projeto** de desenvolvimento deste site é licenciado nos termos da licença MIT, conforme arquivo [LICENSE.md](https://github.com/Space-Wizard-Studios/sw-site/) no repositório do projeto. E, portanto, você pode utilizá-lo para consulta, modificação e redistribuição do código fonte sob os termos indicados.
 
 Ademais, a licença para utilização dos materiais de caráter audiovisuais (como textos, gráficos, imagens, sons e vídeos), serão retratados neste documento, indicados apenas como "materiais".
 
@@ -36,7 +36,7 @@ Esta licença será automaticamente rescindida se você violar alguma dessas res
 
 ### Limitações
 
-    Em nenhum caso o Space Wizard Studios ou seus fornecedores serão responsáveis ​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Space Wizard Studios, mesmo que Space Wizard Studios ou um representante autorizado da Space Wizard Studios tenha sido notificado oralmente ou por escrito da possibilidade de tais danos. Como algumas jurisdições não permitem limitações em garantias implícitas, ou limitações de responsabilidade por danos conseqüentes ou incidentais, essas limitações podem não se aplicar a você.
+    Em nenhum caso o Space Wizard Studios ou seus fornecedores serão responsáveis ​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Space Wizard Studios, mesmo que Space Wizard Studios ou um representante autorizado da Space Wizard Studios tenha sido notificado oralmente ou por escrito da possibilidade de tais danos. Como algumas jurisdições não permitem limitações em garantias implícitas, ou limitações de responsabilidade por danos consequentes ou incidentais, essas limitações podem não se aplicar a você.
 
 ### Precisão dos materiais
 
