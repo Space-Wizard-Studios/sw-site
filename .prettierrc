@@ -6,7 +6,7 @@
     "arrowParens": "always",
     "endOfLine": "lf",
     "jsxSingleQuote": true,
-    "printWidth": 180,
+    "printWidth": 120,
     "quoteProps": "consistent",
     "singleQuote": true,
     "trailingComma": "all",
