@@ -5,7 +5,6 @@
 	"extends": "stylelint-config-standard-scss",
 	"no-invalid-position-at-import-rule": false,
 	"rules": {
-		"indentation": "tab",
 		"alpha-value-notation": "number",
 		"at-rule-no-unknown": null,
 		"scss/at-rule-no-unknown": [
@@ -20,7 +19,6 @@
 				]
 			}
 		],
-		"declaration-block-trailing-semicolon": null,
 		"no-descending-specificity": null
 	}
 }
