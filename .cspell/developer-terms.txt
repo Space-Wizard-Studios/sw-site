@@ -5,9 +5,12 @@ Devs
 devsafe
 drei
 esnext
+evenodd
 frontmatter
 github
+gltf
 GLTF
+gtag
 imdb
 importmap
 LICENCE
