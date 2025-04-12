@@ -139,7 +139,7 @@ This palette was studied with the help of tints.dev
     --color-surface-dim: var(--sw-purply-950);
     --color-surface: var(--sw-purply-800);
     --color-surface-bright: var(--sw-purply-700);
-    --color-on-surface: var(--sw-purply-50);
+    --color-on-surface: var(--sw-neutral-50);
 
     --color-primary: var(--sw-flamingo-200);
     --color-on-primary: var(--sw-flamingo-950);
@@ -157,6 +157,6 @@ This palette was studied with the help of tints.dev
     --color-on-accent-container: var(--sw-pinkish-900);
 }
 
-.container {
-    @apply flex w-full max-w-6xl p-4 sm:p-6 lg:p-8;
+.sw-container {
+    @apply flex w-full max-w-6xl;
 }
