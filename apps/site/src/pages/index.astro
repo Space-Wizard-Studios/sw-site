@@ -9,8 +9,7 @@ import Products from '@widgets/Products.astro';
 import Contact from '@widgets/Contact.astro';
 import About from '@widgets/About.astro';
 import Team from '@widgets/Team.astro';
-
-import DividerRect from '@common/dividers/DividerRect.astro';
+import DividerTilt from '@common/dividers/DividerTilt.astro';
 
 const meta: MetaSEO = {
     title: config.title,
@@ -24,25 +23,38 @@ const meta: MetaSEO = {
 
 <Layout {meta}>
     <Hero />
-
-    <div class='relative flex flex-col w-full h-full items-center'>
-        <section class='sw-container'>
-            <Products class='relative w-full z-30' />
+    <div class='flex flex-col'>
+        <section class='flex flex-col w-full relative'>
+            <div class='flex flex-col sw-container mx-auto space-y-8'>
+                <header>
+                    <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
+                    <h3 class='sw-text-gradient from-primary to-accent'>Um resumo do que desenvolvemos</h3>
+                </header>
+                <Products className='z-20'/>
+            </div>
+            <DividerTilt class='absolute bottom-0 w-full -rotate-180 fill-surface-dim' />
         </section>
 
-        <div class='flex flex-col z-20 w-full items-center shadow-md bg-surface-dim'>
-            <DividerRect class='w-full -mt-16 h-16 absolute z-10 bg-surface-dim' />
-            <section class='sw-container'>
+        <section class='w-full bg-surface-dim shadow-md'>
+            <div class='flex flex-col sw-container mx-auto py-8 space-y-8'>
+                <header>
+                    <h2 class='uppercase text-on-surface'>Sobre nós</h2>
+                    <h3 class='sw-text-gradient from-primary to-accent'>Encantamos com tecnologia ❤</h3>
+                </header>
                 <About />
-            </section>
-        </div>
-
-        <section class='sw-container'>
-            <Team />
+            </div>
         </section>
 
-        <!-- <section class='my-16'>
+        <!-- <section class='w-full'>
+        <div class='sw-container mx-auto'>
+            <Team />
+        </div>
+    </section> -->
+
+        <!-- <section class='w-full'>
+        <div class='sw-container mx-auto'>
             <Contact />
-        </section> -->
+        </div>
+    </section> -->
     </div>
 </Layout>

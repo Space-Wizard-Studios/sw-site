@@ -28,7 +28,11 @@ export function LockClosed({ color = 'currentColor', ...props }: IconProps) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 20 20'>
             <g fill={color}>
-                <path fillRule='evenodd' clipRule='evenodd' d='M5 9V7a5 5 0 0 1 10 0v2a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2Zm8-2v2H7V7a3 3 0 0 1 6 0Z' />
+                <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M5 9V7a5 5 0 0 1 10 0v2a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2Zm8-2v2H7V7a3 3 0 0 1 6 0Z'
+                />
             </g>
         </svg>
     );
@@ -56,7 +60,13 @@ export function Key({ color = 'currentColor', ...props }: IconProps) {
 
 export function Rocket({ color = 'currentColor', flames = 1, ...props }: IconProps) {
     return (
-        <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 16 16'>
+        <svg
+            style={{ transform: 'rotate(-45deg)' }}
+            {...props}
+            xmlns='http://www.w3.org/2000/svg'
+            preserveAspectRatio='xMidYMid meet'
+            viewBox='0 0 16 16'
+        >
             <g fill='none' stroke={color} strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5'>
                 <path d='m4.25 9.75l-2-.5s0-1.5.5-3s4-1.5 4-1.5m-.5 7l.5 2s1.5 0 3-.5s1.5-4 1.5-4m-7 .5l2 2s5-2 6.5-4.5s1.5-5.5 1.5-5.5s-3 0-5.5 1.5s-4.5 6.5-4.5 6.5z' />
                 <path opacity={flames} d='m1.75 14.25l2-1l-1-1z' />
@@ -145,7 +155,14 @@ export function LinkedIn({ color = 'currentColor', ...props }: IconProps) {
 export function LinkTree({ color = 'currentColor', ...props }: IconProps) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
-            <path fill='none' stroke={color} strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 3L2 15h3v5h5v-5H8l4-7zm6 0l7 12h-3v5h-5v-5h2l-4-7z' />
+            <path
+                fill='none'
+                stroke={color}
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M9 3L2 15h3v5h5v-5H8l4-7zm6 0l7 12h-3v5h-5v-5h2l-4-7z'
+            />
         </svg>
     );
 }

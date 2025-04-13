@@ -1,40 +1,40 @@
 ---
 import ProductCard from '@common/ProductCard';
+import { Products as ProductsReact } from '@components/common/ProductCard/Products';
+import { cn } from '@helpers/cn';
 
 export interface Props {
+    className?: string;
     [props: string]: any;
 }
 
-const { ...props } = Astro.props as Props;
+const { className, ...props } = Astro.props as Props;
 ---
 
-<div {...props}>
-    <header>
-        <h2 class='text-4xl font-black uppercase'>
-            <span>Nossos serviços</span>
-        </h2>
-        <h3 class='mb-12'>
-            <span class='text-gradient bg-gradient-to-t from-sw-navy-700 to-sw-flamingo'
-                >Um resumo do que desenvolvemos</span
-            >
-        </h3>
-    </header>
+<div class={className} {...props}>
+    <section class='flex flex-col md:flex-row w-full justify-between'>
+        <ProductsReact client:only className={cn(className)} {...props} />
+    </section>
+</div>
 
-    <section class='grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 content-around'>
-        <ProductCard
+<!-- <ProductCard
             client:visible
             index={0}
             iconSrc='./models/products/product_model-games_placeholder.gltf'
             iconColor={0x005ce6}
             tooltip
         >
-            <span slot='title'>GameDev</span>
-            <span slot='subtitle'>e outsourcing</span>
+            <span slot='title'>Jogos e Gamificação</span>
+            <span slot='subtitle'>Magia e entretenimento em experiências jogáveis.</span>
             <span slot='description'>
-                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Jogos</span> incríveis sob demanda!
-                <br />
-                <br />
-                Nossa tripulação conta com profissionais de backgrounds nas mais diversas áreas de desenvolvimento.
+                Criar jogos é dar forma a ideias por meio de sistemas, mundos e interações. Desenvolvemos experiências
+                únicas com foco em narrativa, jogabilidade e design funcional.
+                <ul>
+                    <li>Desenvolvimento em C# (Godot);</li>
+                    <li>Prototipagem rápida e validação;</li>
+                    <li>Game design e balanceamento;</li>
+                    <li>Organização de projetos colaborativos.</li>
+                </ul>
             </span>
         </ProductCard>
         <ProductCard
@@ -43,14 +43,17 @@ const { ...props } = Astro.props as Props;
             iconSrc='./models/products/product_model-web_placeholder.gltf'
             iconColor={0xff62f2}
         >
-            <span slot='title'>WebDev</span>
-            <span slot='subtitle'>e gameficação</span>
+            <span slot='title'>Sistemas Web acessíveis e responsivos</span>
+            <span slot='subtitle'>Sites, páginas e plataformas que engajam de verdade.</span>
             <span slot='description'>
-                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Sites</span> e experiências únicas!
-                <br />
-                <br />
-                Podemos trabalhar conceitos de gamificação, incluir peças 3D ou 2D interativas ou até mesmo transformar sua
-                aplicação web em um jogo!
+                Unimos web e game design para transformar sites em experiências vivas. Incorporamos elementos 3D,
+                interações jogáveis e sistemas de progressão para dar vida ao conteúdo.
+                <ul>
+                    <li>Sites institucionais e interativos;</li>
+                    <li>Aplicações com gamificação;</li>
+                    <li>Integração com APIs e back-ends;</li>
+                    <li>Animações e navegação personalizada.</li>
+                </ul>
             </span>
         </ProductCard>
         <ProductCard
@@ -59,13 +62,17 @@ const { ...props } = Astro.props as Props;
             iconSrc='./models/products/product_model-apps_placeholder.gltf'
             iconColor={0x005ce6}
         >
-            <span slot='title'>Apps</span>
-            <span slot='subtitle'>e soluções interativas</span>
+            <span slot='title'>Apps e soluções interativas </span>
+            <span slot='subtitle'>Aplicações que encantam pela experiência.</span>
             <span slot='description'>
-                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Aplicações</span> cativantes que atraem clientes!
-                <br />
-                <br />
-                Acreditamos que a melhor maneira de conectar pessoas à ideias é através de uma incrível experiência do usuário.
+                Desenvolvemos apps com foco em UX, imersão e fluidez. Seja para fins educativos, culturais ou
+                promocionais, criamos experiências envolventes que conectam pessoas e ideias.
+                <ul>
+                    <li>Apps multiplataforma;</li>
+                    <li>Protótipos navegáveis;</li>
+                    <li>Interfaces intuitivas e acessíveis;</li>
+                    <li>Mecânicas lúdicas e interativas.</li>
+                </ul>
             </span>
         </ProductCard>
         <ProductCard
@@ -74,15 +81,16 @@ const { ...props } = Astro.props as Props;
             iconSrc='./models/products/product_model-music_placeholder.gltf'
             iconColor={0xff62f2}
         >
-            <span slot='title'>Sonoplastia</span>
-            <span slot='subtitle'>áudio e música</span>
+            <span slot='title'>Sonoplastia, áudio e música</span>
+            <span slot='subtitle'>Imersão sonora sob medida para o seu projeto.</span>
             <span slot='description'>
-                <span class='font-black text-sw-navy dark:text-sw-flamingo'>Peças sonoras</span> envolventes!
-                <br />
-                <br />
-                Passamos por todas as fases da produção sonora e musical: desde a composição e produção à mixagem. Sua ideia
-                pode ser complementada e elaborada para uma maior imersão!
+                Cuidamos de cada etapa da produção sonora - da composição à finalização. Criamos trilhas e paisagens
+                sonoras que ampliam o impacto emocional e narrativo dos projetos.
+                <ul>
+                    <li>Trilha sonora original;</li>
+                    <li>Efeitos sonoros e ambiências;</li>
+                    <li>Mixagem e masterização;</li>
+                    <li>Áudio adaptado para jogos e vídeos.</li>
+                </ul>
             </span>
-        </ProductCard>
-    </section>
-</div>
+        </ProductCard> -->

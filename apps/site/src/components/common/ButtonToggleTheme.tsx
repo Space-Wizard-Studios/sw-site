@@ -4,6 +4,35 @@ import { Sun, Moon, Cloud, Stars } from '@icons/sky';
 
 export interface ButtonToggleThemeProps {}
 
+// Add this function outside your components
+function getInitialTheme() {
+    // Check if we're in the browser
+    if (typeof window !== 'undefined') {
+        // First check localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            return savedTheme;
+        }
+
+        // If no saved preference, check system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return prefersDark ? 'dark' : 'light';
+    }
+
+    // Default to light if not in browser
+    return 'light';
+}
+
+// Initialize theme before React hydrates
+if (typeof window !== 'undefined') {
+    const initialTheme = getInitialTheme();
+    if (initialTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+}
+
 export default function ButtonToggleTheme(props: ButtonToggleThemeProps) {
     const [showButton, setShowButton] = useState(false);
 
@@ -15,7 +44,7 @@ export default function ButtonToggleTheme(props: ButtonToggleThemeProps) {
 }
 
 function Button(props: ButtonToggleThemeProps) {
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState(getInitialTheme());
 
     const setMode = (theme: string) => {
         if (theme === 'dark') document.documentElement.classList.add('dark');
@@ -29,11 +58,6 @@ function Button(props: ButtonToggleThemeProps) {
         if (theme === 'dark') setMode('light');
         else setMode('dark');
     };
-
-    useLayoutEffect(() => {
-        const defaultTheme = localStorage.getItem('theme');
-        setTheme(defaultTheme ?? 'light');
-    }, []);
 
     return (
         <motion.button
