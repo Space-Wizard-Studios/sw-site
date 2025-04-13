@@ -4,17 +4,13 @@
         "module": "ESNext",
         "moduleResolution": "node",
         "strict": true,
-        "jsx": "preserve",
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
         "esModuleInterop": true,
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
-		"verbatimModuleSyntax": true,
+        "verbatimModuleSyntax": true,
         "declaration": true,
-        "lib": [
-			"ES2023",
-			"ESNext",
-			"DOM",
-			"WebWorker"
-		],
+        "lib": ["ES2023", "ESNext", "DOM", "WebWorker"]
     }
 }
