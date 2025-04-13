@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useAnimationControls } from 'motion/react';
-import { Rocket } from '@icons/card_button';
-import { useProductsContext } from './ProductsContext';
+import { Rocket } from '@icons/ProductCardIcons';
+import { useProductsContext } from '../ProductsContext';
 import { cn } from '@helpers/cn';
 
 export function RocketToggle() {
@@ -562,7 +562,6 @@ export function RocketToggle() {
                         Path End: {Math.round(pathPoints.end.x)}, {Math.round(pathPoints.end.y)}
                     </div>
                     <div>Rotation: {Math.round(rocketRotation)}°</div>
-                    <div>Path: {pathD.substring(0, 50)}...</div>
                 </div>
             )}
         </>

@@ -10,9 +10,9 @@ import {
     Portfolio,
     SoundCloud,
     YouTube,
-} from '@icons/card_button';
+} from '@icons/ProductCardIcons';
 
-import type { IconProps } from '@icons/card_button';
+import type { IconProps } from '@icons/ProductCardIcons';
 
 export interface Socials {
     artstation?: string;

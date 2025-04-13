@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Minus, Plus } from '@icons/card_button';
+import { Minus, Plus } from '@icons/ProductCardIcons';
 
 interface Props {
     isOpen: boolean;

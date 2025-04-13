@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import { ProductFront } from './ProductFront';
-import { ProductBack } from './ProductBack';
-import { ProductCanvas } from './ProductCanvas';
-import { Toggle } from './Toggle';
+import { ProductFront } from '../ProductFront';
+import { ProductBack } from '../ProductBack';
+import { ProductCanvas } from '../ProductCanvas';
+import { Toggle } from './TrackToggle';
 import { cn } from '@helpers/cn';
 
 interface Props {
@@ -16,15 +16,7 @@ interface Props {
     tooltip?: boolean;
 }
 
-export default function ProductCard({
-    index,
-    iconSrc,
-    iconColor,
-    title,
-    subtitle,
-    description,
-    tooltip = false,
-}: Props) {
+export default function FlashCard({ index, iconSrc, iconColor, title, subtitle, description, tooltip = false }: Props) {
     const [isOpen, setOpen] = useState(false);
 
     const openStyle = '';

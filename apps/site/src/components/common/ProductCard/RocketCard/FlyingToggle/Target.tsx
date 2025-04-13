@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Planet, Rocket } from '@icons/card_button';
+import { Planet, Rocket } from '@icons/ProductCardIcons';
 import { forwardRef } from 'react';
 
 interface Props {

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { Rocket } from '@icons/card_button';
+import { Rocket } from '@icons/ProductCardIcons';
 
 interface Props {
     isOpen: boolean;
@@ -50,15 +50,14 @@ export function Handle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef
     const ref = useRef<HTMLButtonElement>(null);
 
     function handleClick() {
-        // if (!isOpen && getNormDistance(ref, targetRef, constraintsRef) < 0.5) {
-        //     console.log('clicked too close to the target');
-        //     return;
-        // }
+        if (!isOpen && getNormDistance(ref, targetRef, constraintsRef) < 0.5) {
+            return;
+        }
 
-        console.log('clicked', isOpen, getNormDistance(ref, targetRef, constraintsRef));
         setClickDistance(!isOpen ? getDistance(ref, targetRef) : 0);
         setClickOpen(!isOpen);
         setIsMoving(true);
+
         setHasMoved(true);
 
         setTimeout(
@@ -80,12 +79,13 @@ export function Handle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef
             custom={clickDistance}
             initial='closed'
             animate={clickOpen ? 'opened' : 'closed'}
-            className='bg-inverse-surface text-inverse-on-surface absolute bottom-2 left-0 z-10 h-12 w-12 rounded-full p-2.5'
+            className='bg-sw-navy dark:bg-sw-flamingo absolute bottom-2 left-0 z-10 h-12 w-12 rounded-full p-2.5'
             aria-label='Detalhes do serviço'
         >
             <Rocket
                 flames={isMoving ? 1 : 0}
                 className='text-sw-secondary dark:text-sw-primary absolute bottom-0 left-0 right-0 top-0 m-auto h-6 w-6'
+                style={{ rotate: '45deg' }}
             />
         </motion.button>
     );

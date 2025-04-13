@@ -1,12 +1,12 @@
 import { useRef } from 'react';
 import { motion } from 'motion/react';
-import { Planet, Rocket } from '@icons/card_button';
+import { Planet, Rocket } from '@icons/ProductCardIcons';
 import { cn } from '@helpers/cn';
 import { useProductsContext } from './ProductsContext';
-import { ProductFront } from './ProductFront';
-import { ProductBack } from './ProductBack';
+import { ProductFront } from '../ProductFront';
+import { ProductBack } from '../ProductBack';
 
-import { Target } from './Toggle/Target';
+import { Target } from './FlyingToggle/Target';
 
 interface Props {
     index: number;
@@ -15,7 +15,7 @@ interface Props {
     description?: React.ReactNode;
 }
 
-export function ProductCardSimple({ index, title, subtitle, description }: Props) {
+export function RocketCard({ index, title, subtitle, description }: Props) {
     const { activeCard, setActiveCard, setRocketPosition, setIsMoving, planetRefs, rocketVisible } =
         useProductsContext();
 
@@ -53,7 +53,7 @@ export function ProductCardSimple({ index, title, subtitle, description }: Props
         <motion.div
             className={cn(
                 'relative flex',
-                'min-h-[16rem]', // Default height for all cards
+                'min-h-72', // Default height for all cards
             )}
             // Use motion animations to adjust card size without affecting the grid
             animate={{

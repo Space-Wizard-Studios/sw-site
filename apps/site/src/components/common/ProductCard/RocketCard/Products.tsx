@@ -1,6 +1,6 @@
-import { ProductCardSimple } from '@common/ProductCard/ProductCardSimple';
-import { ProductsProvider } from '@common/ProductCard/ProductsContext';
-import { RocketToggle } from '@common/ProductCard/RocketToggle';
+import { RocketCard } from '@common/ProductCard/RocketCard';
+import { ProductsProvider } from '@common/ProductCard/RocketCard/ProductsContext';
+import { RocketToggle } from '@common/ProductCard/RocketCard/FlyingToggle/RocketToggle';
 
 interface Props {
     className?: string;
@@ -90,9 +90,12 @@ export function Products({ className }: Props) {
     return (
         <ProductsProvider>
             <div className={className}>
-                <section className='grid grid-cols-1 content-around gap-8 md:grid-cols-2 lg:grid-cols-4'>
+                <section
+                    id='products-container'
+                    className='relative grid grid-cols-1 content-around gap-8 bg-red-500/10 md:grid-cols-2 lg:grid-cols-4'
+                >
                     {productData.map((product) => (
-                        <ProductCardSimple
+                        <RocketCard
                             key={product.index}
                             index={product.index}
                             title={product.title}
