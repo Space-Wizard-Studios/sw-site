@@ -24,7 +24,7 @@ const { meta } = Astro.props as Props;
         <MetaTags {...meta} />
     </head>
 
-    <body class='flex flex-col w-full min-h-dvh'>
+    <body class='flex flex-col w-full min-h-dvh overflow-x-hidden'>
 
         <main class='flex flex-col w-full h-full bg-surface'>
             <slot />

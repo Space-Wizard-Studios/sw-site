@@ -15,6 +15,7 @@ interface ProductsContextType {
     planetRefs: React.RefObject<HTMLDivElement>[];
     rocketVisible: boolean;
     setRocketVisible: (visible: boolean) => void;
+    containerRef: React.RefObject<HTMLDivElement>;
 }
 
 export function ProductsProvider({ children, cardCount = 4 }: { children: ReactNode; cardCount?: number }) {
@@ -23,6 +24,8 @@ export function ProductsProvider({ children, cardCount = 4 }: { children: ReactN
     const [rocketRotation, setRocketRotation] = useState(0);
     const [isMoving, setIsMoving] = useState(false);
     const [rocketVisible, setRocketVisible] = useState(false);
+
+    const containerRef = useRef<HTMLDivElement>(null);
 
     // Create a ref for each card
     const planetRefs = Array.from({ length: cardCount }, () => useRef<HTMLDivElement>(null));
@@ -41,6 +44,7 @@ export function ProductsProvider({ children, cardCount = 4 }: { children: ReactN
                 planetRefs,
                 rocketVisible,
                 setRocketVisible,
+                containerRef,
             }}
         >
             {children}

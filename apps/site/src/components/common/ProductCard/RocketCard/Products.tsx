@@ -1,12 +1,16 @@
+import { useRef } from 'react';
 import { RocketCard } from '@common/ProductCard/RocketCard';
-import { ProductsProvider } from '@common/ProductCard/RocketCard/ProductsContext';
+import { ProductsProvider, useProductsContext } from '@common/ProductCard/RocketCard/ProductsContext';
 import { RocketToggle } from '@common/ProductCard/RocketCard/FlyingToggle/RocketToggle';
+import { cn } from '@helpers/cn';
 
 interface Props {
     className?: string;
 }
 
-export function Products({ className }: Props) {
+export function ProductsContent({ className }: Props) {
+    const { containerRef } = useProductsContext();
+
     const productData = [
         {
             index: 0,
@@ -88,24 +92,34 @@ export function Products({ className }: Props) {
     ];
 
     return (
-        <ProductsProvider>
-            <div className={className}>
-                <section
-                    id='products-container'
-                    className='relative grid grid-cols-1 content-around gap-8 bg-red-500/10 md:grid-cols-2 lg:grid-cols-4'
-                >
-                    {productData.map((product) => (
-                        <RocketCard
-                            key={product.index}
-                            index={product.index}
-                            title={product.title}
-                            subtitle={product.subtitle}
-                            description={product.description}
-                        />
-                    ))}
-                </section>
+        <>
+            <section
+                id='products-container'
+                ref={containerRef}
+                className={cn(
+                    'relative grid grid-cols-1 content-around gap-8 bg-red-500/50 md:grid-cols-2 lg:grid-cols-4',
+                    className,
+                )}
+            >
+                {productData.map((product) => (
+                    <RocketCard
+                        key={product.index}
+                        index={product.index}
+                        title={product.title}
+                        subtitle={product.subtitle}
+                        description={product.description}
+                    />
+                ))}
                 <RocketToggle />
-            </div>
+            </section>
+        </>
+    );
+}
+
+export function Products({ className }: Props) {
+    return (
+        <ProductsProvider>
+            <ProductsContent className={className} />
         </ProductsProvider>
     );
 }
