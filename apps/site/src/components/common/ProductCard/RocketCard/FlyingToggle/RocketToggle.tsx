@@ -13,8 +13,8 @@ export function RocketToggle() {
         activeCard,
         setActiveCard,
         planetRefs,
-        rocketRotation,
-        setRocketRotation,
+        // rocketRotation,
+        // setRocketRotation,
         setRocketVisible,
         containerRef,
     } = useProductsContext();
@@ -41,10 +41,13 @@ export function RocketToggle() {
     const pathControls = useAnimationControls();
     const [pathControlPoint, setPathControlPoint] = useState({ x: 0, y: 0 });
 
+    const [rocketRotation, setRocketRotation] = useState<number>(0);
+
     const [animationInProgress, setAnimationInProgress] = useState(false);
 
     // Debug mode for development
     const DEBUG_MODE = true;
+    const INITIAL_POSITION = { x: 1000, y: -500 };
 
     const getRelativeCoordinates = useCallback(
         (element: HTMLElement) => {
@@ -79,12 +82,6 @@ export function RocketToggle() {
         }
     }, []);
 
-    const calculateAngle = useCallback((startX: number, startY: number, endX: number, endY: number) => {
-        const dx = endX - startX;
-        const dy = endY - startY;
-        return Math.atan2(dy, dx) * (360 / Math.PI);
-    }, []);
-
     const setupPath = useCallback(
         (
             start: { x: number; y: number },
@@ -99,13 +96,14 @@ export function RocketToggle() {
         },
         [],
     );
-    // Generate a curved path between two points with improved trajectory
+
+    // Generate a curved path between two points
     const generatePath = useCallback((start: { x: number; y: number }, end: { x: number; y: number }) => {
         // Calculate distance between points to adjust arc height
         const distance = Math.sqrt(Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2));
 
         // Dynamic arc height based on distance
-        const arcHeight = Math.min(distance * 0.5, 200);
+        const arcHeight = Math.min(distance * 0.5, 300);
 
         // Calculate control points for a nice arc
         const midX = (start.x + end.x) / 2;
@@ -162,6 +160,19 @@ export function RocketToggle() {
         [pathPoints, pathControlPoint],
     );
 
+    const calculateAngle = useCallback((startX: number, startY: number, endX: number, endY: number) => {
+        const dx = endX - startX;
+        const dy = endY - startY;
+        console.log('Calculating angle:', { startX, startY, endX, endY });
+        return Math.atan2(dy, dx) * (180 / Math.PI);
+    }, []);
+
+    const smoothRotation = (currentAngle: number, targetAngle: number) => {
+        const delta = targetAngle - currentAngle;
+        const shortestDelta = ((delta + 180) % 360) - 180;
+        return currentAngle + shortestDelta * 0.1; // Adjust the multiplier for smoothness
+    };
+
     // Function to update rocket position based on active card with directional awareness
     const updateRocketPosition = useCallback(() => {
         const now = Date.now();
@@ -185,20 +196,21 @@ export function RocketToggle() {
             ) {
                 // Only update rotation during normal flight, not during or after landing
                 const angle = calculateAngle(currentPosition.current.x, currentPosition.current.y, targetX, targetY);
-                setRocketRotation(angle);
+                setRocketRotation((prev: number) => smoothRotation(prev, angle));
             }
 
             // Update position
             updateRocketPositionState(targetX, targetY);
         } else if (previousActiveCard.current !== null) {
             // If card was deactivated, move rocket off-screen
-            const targetX = 10000;
-            const targetY = -2000;
+            const targetX = INITIAL_POSITION.x;
+            const targetY = INITIAL_POSITION.y;
 
             // Calculate direction for rotation if moving
             if (isMoving && animationPhase !== 'landing' && animationPhase !== 'landed') {
+                // Only update rotation during normal flight, not during or after landing
                 const angle = calculateAngle(currentPosition.current.x, currentPosition.current.y, targetX, targetY);
-                setRocketRotation(angle);
+                setRocketRotation((prev: number) => smoothRotation(prev, angle));
             }
 
             updateRocketPositionState(targetX, targetY);
@@ -275,7 +287,7 @@ export function RocketToggle() {
                     };
                 } else {
                     // Moving off-screen (exiting)
-                    endPoint = { x: 10000, y: -2000 };
+                    endPoint = { x: INITIAL_POSITION.x, y: INITIAL_POSITION.y };
                     landingPoint = endPoint; // No landing needed for exit
                 }
 
@@ -304,7 +316,6 @@ export function RocketToggle() {
                 if (toCard !== null) {
                     // Phase 4: Landing sequence - vertical descent from hover position
                     setAnimationPhase('landing');
-                    setRocketRotation(0);
 
                     console.log('Animation phase:', animationPhase);
 
@@ -314,14 +325,14 @@ export function RocketToggle() {
                     // Briefly show landing path if desired
                     await pathControls.start({
                         pathLength: [0, 1],
-                        transition: { duration: 1 },
+                        transition: { duration: 0.5 },
                     });
 
                     // Follow the landing path
                     await rocketControls.start({
                         pathOffset: [0, 1],
                         transition: {
-                            duration: 1,
+                            duration: 0.5,
                             ease: 'easeIn',
                         },
                     });
@@ -402,8 +413,8 @@ export function RocketToggle() {
     useEffect(() => {
         console.log('RocketToggle mounted');
         const initialPos = {
-            x: 0,
-            y: 0,
+            x: INITIAL_POSITION.x,
+            y: INITIAL_POSITION.y,
         };
         setInitialPosition(initialPos);
         updateRocketPositionState(initialPos.x, initialPos.y);
@@ -480,17 +491,17 @@ export function RocketToggle() {
         <>
             {/* Path visualization - improved visibility */}
             {pathVisible && (
-                <svg className='pointer-events-none absolute left-0 top-0 z-[9998] h-full w-full'>
+                <svg className='stroke-accent pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full'>
                     <motion.path
                         d={pathD}
                         fill='none'
-                        stroke='rgba(255, 220, 100, 0.8)'
+                        strokeDasharray={1000}
                         initial={{ pathLength: 0, opacity: 0 }}
                         animate={{
                             pathLength: pathVisible ? 1 : 0,
                             opacity: pathVisible ? 1 : 0,
                         }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 1 }}
                     />
                 </svg>
             )}
@@ -498,7 +509,7 @@ export function RocketToggle() {
             {/* Rocket - enhanced visibility and appearance */}
             <motion.div
                 id='sw-rocket'
-                className='pointer-events-none absolute z-[9999] w-auto bg-red-500'
+                className='pointer-events-none absolute z-[9999] w-auto'
                 style={{
                     transform: `translate(-50%, -50%)`,
                     left: `${rocketPosition.x}px`,
@@ -506,6 +517,7 @@ export function RocketToggle() {
                     // opacity: isVisible ? 1 : 0,
                     // visibility: isVisible ? 'visible' : 'hidden',
                 }}
+                // initial={{ left: initialPosition.x, top: initialPosition.y }}
                 animate={rocketControls}
                 onUpdate={(latest) => {
                     if ('pathOffset' in latest) {
@@ -533,7 +545,7 @@ export function RocketToggle() {
                     // Direct y position update during landing phase
                     else if ('y' in latest && animationPhase === 'landing') {
                         const y = latest.y as number;
-                        const x = currentPosition.current.x; // Keep x position
+                        const x = currentPosition.current.x;
 
                         // Update position
                         updateRocketPositionState(x, y);
@@ -565,21 +577,7 @@ export function RocketToggle() {
 
             {/* Debug panel */}
             {DEBUG_MODE && (
-                <div
-                    className='absolute -left-80 z-[9999] rounded-lg bg-black/50 p-4 text-white'
-                    // style={{
-                    //     position: 'absolute',
-                    //     bottom: 10,
-                    //     left: 10,
-                    //     background: 'rgba(0,0,0,0.7)',
-                    //     color: 'white',
-                    //     padding: '10px',
-                    //     borderRadius: '5px',
-                    //     zIndex: 9999,
-                    //     fontSize: '12px',
-                    //     maxWidth: '400px',
-                    // }}
-                >
+                <div className='absolute -left-80 z-[9999] rounded-lg bg-black/50 p-4 text-white'>
                     <div>Animation Phase: {animationPhase}</div>
                     <div>Is Visible: {isVisible ? 'Yes' : 'No'}</div>
                     <div>Path Visible: {pathVisible ? 'Yes' : 'No'}</div>

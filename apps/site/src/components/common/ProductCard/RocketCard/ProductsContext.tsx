@@ -9,7 +9,7 @@ interface ProductsContextType {
     rocketPosition: { x: number; y: number };
     setRocketPosition: (position: { x: number; y: number }) => void;
     rocketRotation: number;
-    setRocketRotation: (rotation: number) => void;
+    setRocketRotation: React.Dispatch<React.SetStateAction<number>>;
     isMoving: boolean;
     setIsMoving: (isMoving: boolean) => void;
     planetRefs: React.RefObject<HTMLDivElement>[];
