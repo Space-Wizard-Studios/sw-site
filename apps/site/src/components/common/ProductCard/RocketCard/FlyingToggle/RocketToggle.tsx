@@ -48,6 +48,9 @@ export function RocketToggle() {
     // Debug mode for development
     const DEBUG_MODE = true;
     const INITIAL_POSITION = { x: 1000, y: -500 };
+    const OVERSHOOT = 1;
+    const ARC_HEIGHT_MIN = 50;
+    const ARC_HEIGHT_MAX = 500;
 
     const getRelativeCoordinates = useCallback(
         (element: HTMLElement) => {
@@ -103,10 +106,16 @@ export function RocketToggle() {
         const distance = Math.sqrt(Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2));
 
         // Dynamic arc height based on distance
-        const arcHeight = Math.min(distance * 0.5, 300);
+        // const arcHeight = Math.min(distance * 0.5, arcHeight);
+        // random arc height between min and max
+        const arcHeight = Math.random() * (ARC_HEIGHT_MAX - ARC_HEIGHT_MIN) + ARC_HEIGHT_MIN;
 
-        // Calculate control points for a nice arc
-        const midX = (start.x + end.x) / 2;
+        // Introduce an overshoot factor for the control point
+        const overshootFactor = OVERSHOOT;
+        const overshootX = (end.x - start.x) * overshootFactor;
+
+        // Calculate control points for an elastic arc
+        const midX = (start.x + end.x) / 2 - overshootX;
         const midY = Math.min(start.y, end.y) - arcHeight; // Arc height - higher for more curve
 
         // Save the control point for later use
@@ -133,45 +142,30 @@ export function RocketToggle() {
             const y = invT * invT * start.y + 2 * invT * t * midY + t * t * end.y;
 
             // Calculate angle tangent to the curve
-            // Derivative of the quadratic bezier
-            const dx = 2 * (invT * (midX - start.x) + t * (end.x - midX));
-            const dy = 2 * (invT * (midY - start.y) + t * (end.y - midY));
-            const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+            const dxPath = 2 * (invT * (midX - start.x) + t * (end.x - midX));
+            const dyPath = 2 * (invT * (midY - start.y) + t * (end.y - midY));
+            let anglePath = Math.atan2(dyPath, dxPath) * (180 / Math.PI);
 
-            // Enhanced landing behavior
-            let finalAngle = angle;
+            // Calculate angle to the target
+            const dxTarget = end.x - x;
+            const dyTarget = end.y - y;
+            let angleTarget = Math.atan2(dyTarget, dxTarget) * (180 / Math.PI);
 
-            // Start vertical transition earlier for smoother landing
-            if (t > 0.6) {
-                // Longer landing phase (40% of animation)
-                const landingProgress = (t - 0.6) / 0.4;
-                // Sharp transition to 90 degrees (vertical)
-                finalAngle = angle * (1 - landingProgress) + 90 * landingProgress;
+            // Normalize angles to the range [-180, 180]
+            anglePath = ((anglePath + 180) % 360) - 180;
+            angleTarget = ((angleTarget + 180) % 360) - 180;
 
-                // Add small horizontal oscillation better landing approach
-                if (t < 0.9) {
-                    const oscillation = Math.sin((t - 0.6) * 10) * 5 * (1 - landingProgress);
-                    finalAngle += oscillation;
-                }
-            }
+            // Weight the target angle more heavily
+            const targetWeight = 0.8; // Adjust this value to prioritize the target more or less
+            const pathWeight = 1 - targetWeight;
 
+            const finalAngle = anglePath * pathWeight + angleTarget * targetWeight;
+
+            console.log('Final angle:', finalAngle, 't:', t, 'landingProgress:', t > 0.6 ? (t - 0.6) / 0.4 : 0);
             return { x, y, angle: finalAngle };
         },
         [pathPoints, pathControlPoint],
     );
-
-    const calculateAngle = useCallback((startX: number, startY: number, endX: number, endY: number) => {
-        const dx = endX - startX;
-        const dy = endY - startY;
-        console.log('Calculating angle:', { startX, startY, endX, endY });
-        return Math.atan2(dy, dx) * (180 / Math.PI);
-    }, []);
-
-    const smoothRotation = (currentAngle: number, targetAngle: number) => {
-        const delta = targetAngle - currentAngle;
-        const shortestDelta = ((delta + 180) % 360) - 180;
-        return currentAngle + shortestDelta * 0.1; // Adjust the multiplier for smoothness
-    };
 
     // Function to update rocket position based on active card with directional awareness
     const updateRocketPosition = useCallback(() => {
@@ -187,40 +181,24 @@ export function RocketToggle() {
             const targetX = relativePos.x;
             const targetY = relativePos.y;
 
-            // Calculate direction for rotation if moving
-            if (
-                isMoving &&
-                animationPhase !== 'landing' &&
-                animationPhase !== 'landed' &&
-                animationPhase !== 'hidden'
-            ) {
-                // Only update rotation during normal flight, not during or after landing
-                const angle = calculateAngle(currentPosition.current.x, currentPosition.current.y, targetX, targetY);
-                setRocketRotation((prev: number) => smoothRotation(prev, angle));
-            }
+            // Update position and rotation using the path
+            const { x, y, angle } = getPointAtPercentage(100); // Assuming 100% progress for simplicity
+            updateRocketPositionState(x, y);
+            setRocketRotation(angle);
 
             // Update position
             updateRocketPositionState(targetX, targetY);
         } else if (previousActiveCard.current !== null) {
             // If card was deactivated, move rocket off-screen
-            const targetX = INITIAL_POSITION.x;
-            const targetY = INITIAL_POSITION.y;
-
-            // Calculate direction for rotation if moving
-            if (isMoving && animationPhase !== 'landing' && animationPhase !== 'landed') {
-                // Only update rotation during normal flight, not during or after landing
-                const angle = calculateAngle(currentPosition.current.x, currentPosition.current.y, targetX, targetY);
-                setRocketRotation((prev: number) => smoothRotation(prev, angle));
-            }
-
-            updateRocketPositionState(targetX, targetY);
+            const { x, y, angle } = getPointAtPercentage(0); // Assuming 0% progress for off-screen
+            updateRocketPositionState(x, y);
+            setRocketRotation(angle);
         }
     }, [
         activeCard,
         planetRefs,
         isMoving,
         animationPhase,
-        calculateAngle,
         updateRocketPositionState,
         setRocketRotation,
         getRelativeCoordinates,
@@ -299,7 +277,7 @@ export function RocketToggle() {
                 // Phase 2: Animate the path drawing
                 await pathControls.start({
                     pathLength: [0, 1],
-                    transition: { duration: 1 },
+                    transition: { duration: 5 },
                 });
 
                 // Phase 3: Fly along the path to hover position
@@ -307,7 +285,7 @@ export function RocketToggle() {
                 await rocketControls.start({
                     pathOffset: [0, 1], // Complete flight to hover position
                     transition: {
-                        duration: 2.0,
+                        duration: 5,
                         ease: 'easeInOut',
                     },
                 });
@@ -577,23 +555,39 @@ export function RocketToggle() {
 
             {/* Debug panel */}
             {DEBUG_MODE && (
-                <div className='absolute -left-80 z-[9999] rounded-lg bg-black/50 p-4 text-white'>
-                    <div>Animation Phase: {animationPhase}</div>
-                    <div>Is Visible: {isVisible ? 'Yes' : 'No'}</div>
-                    <div>Path Visible: {pathVisible ? 'Yes' : 'No'}</div>
-                    <div>Active Card: {activeCard}</div>
-                    <div>Previous Card: {previousActiveCard.current}</div>
-                    <div>
-                        Current Position: {Math.round(rocketPosition.x)}, {Math.round(rocketPosition.y)}
-                    </div>
-                    <div>
-                        Path Start: {Math.round(pathPoints.start.x)}, {Math.round(pathPoints.start.y)}
-                    </div>
-                    <div>
-                        Path End: {Math.round(pathPoints.end.x)}, {Math.round(pathPoints.end.y)}
-                    </div>
-                    <div>Rotation: {Math.round(rocketRotation)}°</div>
-                </div>
+                <svg className='pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full'>
+                    {/* Line from the ship to the target */}
+                    {pathPoints.end && (
+                        <line
+                            x1={rocketPosition.x}
+                            y1={rocketPosition.y}
+                            x2={pathPoints.end.x}
+                            y2={pathPoints.end.y}
+                            stroke='red'
+                            strokeWidth='2'
+                            strokeDasharray='4'
+                        />
+                    )}
+
+                    {/* Line representing the ship's current direction */}
+                    {(() => {
+                        const directionLength = 500; // Length of the direction line
+                        const angleInRadians = (rocketRotation * Math.PI) / 180;
+                        const directionX = rocketPosition.x + directionLength * Math.cos(angleInRadians);
+                        const directionY = rocketPosition.y + directionLength * Math.sin(angleInRadians);
+
+                        return (
+                            <line
+                                x1={rocketPosition.x}
+                                y1={rocketPosition.y}
+                                x2={directionX}
+                                y2={directionY}
+                                stroke='blue'
+                                strokeWidth='2'
+                            />
+                        );
+                    })()}
+                </svg>
             )}
         </>
     );
