@@ -23,21 +23,21 @@ const meta: MetaSEO = {
 
 <Layout {meta}>
     <Hero />
-    <div class='flex flex-col'>
+    <div class='flex flex-col space-y-8'>
         <section class='flex flex-col w-full relative'>
-            <div class='flex flex-col sw-container mx-auto space-y-8 z-20'>
-                <header>
+            <div class='flex flex-col sw-container mx-auto space-y-10 z-20'>
+                <header class='flex flex-col space-y-2'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
                     <h3 class='sw-text-gradient from-primary to-accent'>Um resumo do que desenvolvemos</h3>
                 </header>
                 <Products/>
             </div>
-            <DividerTilt class='absolute bottom-0 w-full -rotate-180 fill-surface-dim' />
+            <DividerTilt class='absolute -bottom-8 w-full -rotate-180 fill-surface-dim' />
         </section>
 
         <section class='w-full bg-surface-dim shadow-md'>
-            <div class='flex flex-col sw-container mx-auto py-8 space-y-8'>
-                <header>
+            <div class='flex flex-col sw-container mx-auto py-8 space-y-10'>
+                <header class='flex flex-col space-y-2'>
                     <h2 class='uppercase text-on-surface'>Sobre nós</h2>
                     <h3 class='sw-text-gradient from-primary to-accent'>Encantamos com tecnologia ❤</h3>
                 </header>

@@ -60,13 +60,7 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
             setRocketVisible(true);
             setRocketPosition(newPos);
             setIsMoving(true);
-
-            // After rocket animation, set this as active card
-            setTimeout(() => {
-                console.log('Setting active card after timeout');
-                setActiveCard(index);
-                setIsMoving(false);
-            }, 500);
+            setActiveCard(index);
         } else {
             console.log('No valid refs', {
                 planetRef: planetRefs[index]?.current ? 'exists' : 'null',
@@ -90,7 +84,7 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
         >
             <div
                 className={cn(
-                    'flex h-full w-full flex-col justify-between overflow-visible rounded-xl p-6',
+                    'relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl p-4',
                     'bg-radial-[at_15%_15%]',
                     'text-on-surface from-surface-container-low to-surface-container',
                     'transition-all duration-300',
@@ -102,14 +96,14 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                 <div className={`flex flex-row justify-center`}>
                     <motion.div
                         style={{
-                            opacity: isActive && rocketVisible ? '0' : '1',
+                            // opacity: isActive && rocketVisible ? '0' : '1',
                             pointerEvents: isActive && rocketVisible ? 'none' : 'auto',
                         }}
                         ref={planetRefs[index]}
                         onClick={handlePlanetClick}
                         className='bg-inverse-surface text-inverse-on-surface z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full p-2'
-                        whileHover={{ scale: rocketVisible ? 1.0 : 1.1 }}
-                        whileTap={{ scale: rocketVisible ? 1.0 : 0.9 }}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 1.1 }}
                     >
                         <Target isActive={isActive} />
                     </motion.div>

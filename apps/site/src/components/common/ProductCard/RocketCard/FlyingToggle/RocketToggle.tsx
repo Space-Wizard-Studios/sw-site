@@ -46,11 +46,18 @@ export function RocketToggle() {
     const [animationInProgress, setAnimationInProgress] = useState(false);
 
     // Debug mode for development
-    const DEBUG_MODE = true;
+    const DEBUG_MODE = false;
+
+    const DRAW_PATH = true;
+    const MOVING_DURATION = 2;
+    const LANDING_DURATION = 0.5;
     const INITIAL_POSITION = { x: 1000, y: -500 };
+    const TARGET_OFFSET = 32;
     const OVERSHOOT = 1;
     const ARC_HEIGHT_MIN = 50;
     const ARC_HEIGHT_MAX = 500;
+
+    const ROCKET_ID = 'sw-rocket';
 
     const getRelativeCoordinates = useCallback(
         (element: HTMLElement) => {
@@ -77,7 +84,7 @@ export function RocketToggle() {
     );
 
     const updateRocketDOM = useCallback((x: number, y: number) => {
-        const element = document.getElementById('sw-rocket');
+        const element = document.getElementById(ROCKET_ID);
         if (element) {
             // Make sure these are container-relative coordinates
             element.style.left = `${x}px`;
@@ -161,7 +168,7 @@ export function RocketToggle() {
 
             const finalAngle = anglePath * pathWeight + angleTarget * targetWeight;
 
-            console.log('Final angle:', finalAngle, 't:', t, 'landingProgress:', t > 0.6 ? (t - 0.6) / 0.4 : 0);
+            // console.log('Final angle:', finalAngle, 't:', t, 'landingProgress:', t > 0.6 ? (t - 0.6) / 0.4 : 0);
             return { x, y, angle: finalAngle };
         },
         [pathPoints, pathControlPoint],
@@ -236,7 +243,7 @@ export function RocketToggle() {
         async (fromCard: number | null, toCard: number | null) => {
             try {
                 // Define the hover height (distance above target for hover)
-                const hoverHeight = 100; // Can be adjusted as needed
+                const hoverHeight = TARGET_OFFSET; // Can be adjusted as needed
 
                 // Phase 1: Prepare and show the rocket
                 setAnimationPhase('path-drawing');
@@ -277,7 +284,7 @@ export function RocketToggle() {
                 // Phase 2: Animate the path drawing
                 await pathControls.start({
                     pathLength: [0, 1],
-                    transition: { duration: 5 },
+                    transition: { duration: MOVING_DURATION },
                 });
 
                 // Phase 3: Fly along the path to hover position
@@ -285,7 +292,7 @@ export function RocketToggle() {
                 await rocketControls.start({
                     pathOffset: [0, 1], // Complete flight to hover position
                     transition: {
-                        duration: 5,
+                        duration: MOVING_DURATION,
                         ease: 'easeInOut',
                     },
                 });
@@ -295,22 +302,20 @@ export function RocketToggle() {
                     // Phase 4: Landing sequence - vertical descent from hover position
                     setAnimationPhase('landing');
 
-                    console.log('Animation phase:', animationPhase);
-
                     // Create a new vertical path for landing
                     setupPath(endPoint, landingPoint, generateVerticalPath);
 
                     // Briefly show landing path if desired
                     await pathControls.start({
                         pathLength: [0, 1],
-                        transition: { duration: 0.5 },
+                        transition: { duration: LANDING_DURATION },
                     });
 
                     // Follow the landing path
                     await rocketControls.start({
                         pathOffset: [0, 1],
                         transition: {
-                            duration: 0.5,
+                            duration: LANDING_DURATION,
                             ease: 'easeIn',
                         },
                     });
@@ -318,8 +323,6 @@ export function RocketToggle() {
 
                 // Phase 5: Complete and hide path
                 setAnimationPhase('landed');
-
-                console.log('Animation phase:', animationPhase);
 
                 setPathVisible(false);
                 pathControls.set({ pathLength: 0 });
@@ -335,16 +338,11 @@ export function RocketToggle() {
                     setIsVisible(false);
                     setRocketVisible(false);
                     setAnimationPhase('hidden');
-
-                    console.log('Animation phase:', animationPhase);
                 }
             } catch (error) {
                 console.error('Animation error:', error);
                 // Reset states in case of error
                 setAnimationPhase('hidden');
-
-                console.log('Animation phase:', animationPhase);
-
                 setIsMoving(false);
                 setPathVisible(false);
             }
@@ -456,6 +454,10 @@ export function RocketToggle() {
         }
     }, [activeCard, animateAlongPath, animationInProgress]);
 
+    useEffect(() => {
+        console.log('Animation phase changed:', animationPhase);
+    }, [animationPhase]);
+
     const handleRocketClick = useCallback(() => {
         if (activeCard !== null) {
             setActiveCard(null);
@@ -468,8 +470,8 @@ export function RocketToggle() {
     return (
         <>
             {/* Path visualization - improved visibility */}
-            {pathVisible && (
-                <svg className='stroke-accent pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full'>
+            {pathVisible && DRAW_PATH && (
+                <svg className='stroke-accent pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full overflow-visible'>
                     <motion.path
                         d={pathD}
                         fill='none'
@@ -486,14 +488,14 @@ export function RocketToggle() {
 
             {/* Rocket - enhanced visibility and appearance */}
             <motion.div
-                id='sw-rocket'
+                id={ROCKET_ID}
                 className='pointer-events-none absolute z-[9999] w-auto'
                 style={{
                     transform: `translate(-50%, -50%)`,
                     left: `${rocketPosition.x}px`,
                     top: `${rocketPosition.y}px`,
-                    // opacity: isVisible ? 1 : 0,
-                    // visibility: isVisible ? 'visible' : 'hidden',
+                    opacity: isVisible ? 1 : 0,
+                    visibility: isVisible ? 'visible' : 'hidden',
                 }}
                 // initial={{ left: initialPosition.x, top: initialPosition.y }}
                 animate={rocketControls}
@@ -555,39 +557,59 @@ export function RocketToggle() {
 
             {/* Debug panel */}
             {DEBUG_MODE && (
-                <svg className='pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full'>
-                    {/* Line from the ship to the target */}
-                    {pathPoints.end && (
-                        <line
-                            x1={rocketPosition.x}
-                            y1={rocketPosition.y}
-                            x2={pathPoints.end.x}
-                            y2={pathPoints.end.y}
-                            stroke='red'
-                            strokeWidth='2'
-                            strokeDasharray='4'
-                        />
-                    )}
-
-                    {/* Line representing the ship's current direction */}
-                    {(() => {
-                        const directionLength = 500; // Length of the direction line
-                        const angleInRadians = (rocketRotation * Math.PI) / 180;
-                        const directionX = rocketPosition.x + directionLength * Math.cos(angleInRadians);
-                        const directionY = rocketPosition.y + directionLength * Math.sin(angleInRadians);
-
-                        return (
+                <>
+                    <div id='debug-panel' className='absolute -left-80 z-[9999] rounded-lg bg-black/50 p-4 text-white'>
+                        <div>DEBUG MODE ACTIVE</div>
+                        <div>Animation Phase: {animationPhase}</div>
+                        <div>Is Visible: {isVisible ? 'Yes' : 'No'}</div>
+                        <div>Path Visible: {pathVisible ? 'Yes' : 'No'}</div>
+                        <div>Active Card: {activeCard}</div>
+                        <div>Previous Card: {previousActiveCard.current}</div>
+                        <div>
+                            Current Position: {Math.round(rocketPosition.x)}, {Math.round(rocketPosition.y)}
+                        </div>
+                        <div>
+                            Path Start: {Math.round(pathPoints.start.x)}, {Math.round(pathPoints.start.y)}
+                        </div>
+                        <div>
+                            Path End: {Math.round(pathPoints.end.x)}, {Math.round(pathPoints.end.y)}
+                        </div>
+                        <div>Rotation: {Math.round(rocketRotation)}°</div>
+                    </div>
+                    <svg className='pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full'>
+                        {/* Line from the ship to the target */}
+                        {pathPoints.end && (
                             <line
                                 x1={rocketPosition.x}
                                 y1={rocketPosition.y}
-                                x2={directionX}
-                                y2={directionY}
-                                stroke='blue'
+                                x2={pathPoints.end.x}
+                                y2={pathPoints.end.y}
+                                stroke='red'
                                 strokeWidth='2'
+                                strokeDasharray='4'
                             />
-                        );
-                    })()}
-                </svg>
+                        )}
+
+                        {/* Line representing the ship's current direction */}
+                        {(() => {
+                            const directionLength = 500; // Length of the direction line
+                            const angleInRadians = (rocketRotation * Math.PI) / 180;
+                            const directionX = rocketPosition.x + directionLength * Math.cos(angleInRadians);
+                            const directionY = rocketPosition.y + directionLength * Math.sin(angleInRadians);
+
+                            return (
+                                <line
+                                    x1={rocketPosition.x}
+                                    y1={rocketPosition.y}
+                                    x2={directionX}
+                                    y2={directionY}
+                                    stroke='blue'
+                                    strokeWidth='2'
+                                />
+                            );
+                        })()}
+                    </svg>
+                </>
             )}
         </>
     );

@@ -14,6 +14,8 @@ const { meta } = Astro.props as Props;
 
 <Layout meta={meta}>
     <Header />
-    <slot />
+    <div class="py-16">
+        <slot />
+    </div>
     <Footer />
 </Layout>

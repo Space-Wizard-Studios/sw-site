@@ -13,9 +13,9 @@ export function ProductBack({ isOpen, description }: Props) {
     return (
         <div
             className={cn(
-                'absolute left-0 top-0 h-full w-full overflow-hidden rounded-2xl text-sm',
-                'bg-radial-[at_15%_15%] shadow-xl',
-                'text-on-surface from-surface-container-low to-surface-container',
+                'absolute left-0 top-0 h-full w-full text-sm',
+                'bg-radial-[at_15%_15%]',
+                'text-on-surface from-surface-container-high to-surface-container-highest',
                 'transition-all duration-300 ease-in-out',
                 isOpen ? 'z-10' : 'z-0',
                 isOpen ? 'opacity-100' : 'opacity-0',
