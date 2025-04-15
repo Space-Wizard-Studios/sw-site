@@ -11,9 +11,9 @@ export interface Props {
 const { className, ...props } = Astro.props as Props;
 ---
 
-<section class={cn('flex flex-col md:flex-row w-full justify-between', className)}>
+<div class={cn('flex flex-col md:flex-row w-full justify-between', className)}>
     <ProductsReact client:only className={cn(className)} {...props} />
-</section>
+</div>
 
 <!-- <ProductCard
             client:visible

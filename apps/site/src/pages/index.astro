@@ -5,11 +5,12 @@ import { config } from '@config.js';
 
 import Hero from '@widgets/Hero.astro';
 
-import Products from '@widgets/Products.astro';
+import Products from '@widgets/ProductsSection/Products.astro';
 import Contact from '@widgets/Contact.astro';
 import About from '@widgets/About.astro';
 import Team from '@widgets/Team.astro';
 import DividerTilt from '@common/dividers/DividerTilt.astro';
+import { SiteIcon } from '@icons/SiteIcon';
 
 const meta: MetaSEO = {
     title: config.title,
@@ -23,9 +24,9 @@ const meta: MetaSEO = {
 
 <Layout {meta}>
     <Hero />
-    <div class='flex flex-col space-y-8'>
+    <div class='flex flex-col space-y-8 py-16'>
         <section class='flex flex-col w-full relative'>
-            <div class='flex flex-col sw-container mx-auto space-y-10 z-20'>
+            <div class='sw-container flex flex-col mx-auto space-y-10 z-20'>
                 <header class='flex flex-col space-y-2'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
                     <h3 class='sw-text-gradient from-primary to-accent'>Um resumo do que desenvolvemos</h3>
@@ -36,25 +37,37 @@ const meta: MetaSEO = {
         </section>
 
         <section class='w-full bg-surface-dim shadow-md'>
-            <div class='flex flex-col sw-container mx-auto py-8 space-y-10'>
-                <header class='flex flex-col space-y-2'>
-                    <h2 class='uppercase text-on-surface'>Sobre nós</h2>
-                    <h3 class='sw-text-gradient from-primary to-accent'>Encantamos com tecnologia ❤</h3>
-                </header>
-                <About />
+            <div class="sw-container flex flex-row mx-auto">
+                <div class=" grid grid-cols-1 md:grid-cols-2 ">
+                    <div class='flex flex-col py-8 space-y-2'>
+                        <header class='flex flex-col space-y-2'>
+                        <h2 class='uppercase text-on-surface'>Sobre nós</h2>
+                        <h3 class='sw-text-gradient from-primary to-accent'>Encantamos com tecnologia ❤</h3>
+                    </header>
+                    <div class='text-on-surface'>
+                        <div class='flex flex-col space-y-2'>
+                            <p>Transformamos ideias em experiências audiovisuais que cativam.</p>
+                            <p>Combinamos tecnologia, criatividade e interatividade para criar conteúdos imersivos que conectam pessoas e marcas de forma autêntica, emocional e inovadora.</p>
+                        </div>
+                    </div>
+                </div>
+                <figure class='flex flex-row justify-end items-center text-on-surface fill-on-surface'>
+                    <SiteIcon className="w-32 h-32"/>
+                </figure>
+            </div>
+        </div>
+        </section>
+
+        <section class='w-full'>
+            <div class='sw-container mx-auto'>
+                <Team />
             </div>
         </section>
 
-        <!-- <section class='w-full'>
-        <div class='sw-container mx-auto'>
-            <Team />
-        </div>
-    </section> -->
-
-        <!-- <section class='w-full'>
-        <div class='sw-container mx-auto'>
-            <Contact />
-        </div>
-    </section> -->
+        <section class='w-full'>
+            <div class='sw-container mx-auto'>
+                <Contact />
+            </div>
+        </section>
     </div>
 </Layout>

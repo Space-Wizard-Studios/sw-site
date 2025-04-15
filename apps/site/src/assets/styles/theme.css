@@ -162,11 +162,11 @@ This palette was studied with the help of tints.dev
     --color-surface-dim: var(--color-sw-purply-950);
     --color-surface: var(--color-sw-purply-900);
     --color-surface-bright: var(--color-sw-purply-800);
-    --color-on-surface: var(--color-sw-purply-50);
-    --color-on-surface-variant: var(--color-sw-purply-500);
+    --color-on-surface: var(--color-sw-neutral-50);
+    --color-on-surface-variant: var(--color-sw-purply-100);
 
-    --color-inverse-surface: var(--color-sw-purply-50);
-    --color-inverse-on-surface: var(--color-sw-purply-900);
+    --color-inverse-surface: var(--color-sw-neutral-50);
+    --color-inverse-on-surface: var(--color-sw-purply-500);
 
     --color-surface-container-lowest: var(--color-sw-purply-950);
     --color-surface-container-low: var(--color-sw-purply-900);
@@ -238,6 +238,14 @@ p {
         &:hover {
             @apply transition-colors duration-500;
         }
+    }
+}
+
+ul  {
+    @apply list-disc mr-4 pl-8;
+    
+    li {
+        @apply text-base font-normal;
     }
 }
 
