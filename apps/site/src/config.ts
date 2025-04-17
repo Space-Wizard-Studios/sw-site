@@ -7,7 +7,7 @@ export const config = {
     description:
         'Da direção à criação, trazemos os seus projetos de apps, jogos e páginas à vida. Produzimos peças audiovisuais, sempre inovando com o melhor da tecnologia e criatividade! 🚀',
 
-    defaultImage: '/images/spacewizard_website.webp',
+    defaultImage: '/images/spacewizard_website.png',
 
     language: 'pt-BR',
     textDirection: 'ltr',

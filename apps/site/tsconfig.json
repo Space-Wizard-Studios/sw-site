@@ -1,27 +1,27 @@
 {
-  "extends": "astro/tsconfigs/base",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "outDir": "dist",
-    "types": ["astro/client"],
-    "plugins": [
-      {
-        "name": "@astrojs/ts-plugin"
-      }
-    ],
-    "paths": {
-      "@styles/*": ["src/assets/styles/*"],
-      "@images/*": ["src/assets/images/*"],
-      "@assets/*": ["src/assets/*"],
-      "@common/*": ["src/components/common/*"],
-      "@widgets/*": ["src/components/widgets/*"],
-      "@icons/*": ["src/components/icons/*"],
-      "@components/*": ["src/components/*"],
-      "@content/*": ["src/content/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "types/*": ["src/types/*"],
-      "@*": ["src/*"]
+    "extends": "astro/tsconfigs/base",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "dist",
+        "types": ["astro/client"],
+        "plugins": [
+            {
+                "name": "@astrojs/ts-plugin"
+            }
+        ],
+        "paths": {
+            "@styles/*": ["src/assets/styles/*"],
+            "@images/*": ["src/assets/images/*"],
+            "@assets/*": ["src/assets/*"],
+            "@common/*": ["src/components/common/*"],
+            "@widgets/*": ["src/components/widgets/*"],
+            "@icons/*": ["src/components/icons/*"],
+            "@components/*": ["src/components/*"],
+            "@content/*": ["src/content/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@hooks/*": ["src/hooks/*"],
+            "types/*": ["src/types/*"],
+            "@*": ["src/*"]
+        }
     }
-  }
 }
