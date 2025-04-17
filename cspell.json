@@ -1,11 +1,8 @@
 {
     "version": "0.2",
     "ignorePaths": [],
-    "dictionaries": [
-        "developer-terms",
-        "people-names",
-        "project-terms",
-    ],
+    "dictionaries": ["developer-terms", "names", "projects"],
+    "caseSensitive": false,
     "dictionaryDefinitions": [
         {
             "name": "developer-terms",
@@ -13,17 +10,27 @@
             "addWords": true
         },
         {
-            "name": "people-names",
-            "path": "./.cspell/people-names.txt",
+            "name": "names",
+            "path": "./.cspell/names.txt",
             "addWords": true
         },
         {
-            "name": "project-terms",
-            "path": "./.cspell/project-terms.txt",
+            "name": "projects",
+            "path": "./.cspell/projects.txt",
             "addWords": true
         }
     ],
     "words": [],
     "ignoreWords": [],
-    "import": []
+    "import": [],
+    "languageSettings": [
+        {
+            "languageId": "markdown",
+            "caseSensitive": false
+        },
+        {
+            "languageId": "javascript",
+            "caseSensitive": false
+        }
+    ]
 }
