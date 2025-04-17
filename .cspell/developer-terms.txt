@@ -1,6 +1,9 @@
+addgroup
+adduser
 devs
 devsafe
 drei
+elif
 enade
 esnext
 evenodd
@@ -11,8 +14,16 @@ gtag
 imdb
 importmap
 LGPD
+libc
+libsql
 metaseo
 minigames
+mongodb
+nextjs
+pgdata
+postgres
+postgresql
+prerender
 pwsh
 slugified
 tbody

@@ -1,29 +1,23 @@
 {
     "scripts": {
+        "check-deps": "pnpm dlx depcheck --ignore-patterns=*.d.ts",
+        "cms:build": "pnpm --filter sw-site-cms build",
+        "cms:deploy": "fly deploy --config apps/cms/fly.toml --dockerfile apps/cms/Dockerfile",
+        "cms:dev": "pnpm --filter sw-site-cms dev",
         "dev": "concurrently \"pnpm --filter sw-site dev\" \"pnpm --filter sw-site-cms dev\"",
-        "dev:site": "pnpm --filter sw-site dev",
-        "build:site": "pnpm --filter sw-site build",
-        "preview:site": "pnpm --filter sw-site preview",
-        "check-deps": "pnpm dlx depcheck --ignore-patterns=*.d.ts"
-    },
-    "devDependencies": {
-        "concurrently": "^9.1.2",
-        "nx": "^20.7.2"
+        "site:dev": "pnpm --filter sw-site dev",
+        "site:build": "pnpm --filter sw-site build",
+        "site:preview": "pnpm --filter sw-site preview"
     },
     "pnpm": {
         "onlyBuiltDependencies": [
             "esbuild",
             "nx",
             "sharp"
-        ],
-        "overrides": {
-            "react": "^19.1.0",
-            "react-dom": "^19.1.0"
-        }
+        ]
     },
-    "dependencies": {
-        "react": "^19.1.0",
-        "react-dom": "^19.1.0",
-        "three-stdlib": "^2.35.15"
+    "devDependencies": {
+        "concurrently": "^9.1.2",
+        "nx": "^20.7.2"
     }
 }

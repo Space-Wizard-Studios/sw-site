@@ -8,5 +8,6 @@ linktree
 partytown
 payloadcms
 soundcloud
+vercel
 Wordpress
 youtube

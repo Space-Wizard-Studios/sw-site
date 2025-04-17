@@ -10,6 +10,8 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 
+import { migrations } from './migrations'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -28,8 +30,10 @@ export default buildConfig({
   },
   db: sqliteAdapter({
     client: {
-      url: process.env.DATABASE_URI || '',
+      url: process.env.DATABASE_URI || 'file:/data/payload.db',
     },
+    migrationDir: './src/migrations',
+    prodMigrations: migrations,
   }),
   sharp,
   plugins: [
