@@ -4,6 +4,8 @@
         "cms:build": "pnpm --filter sw-site-cms build",
         "cms:deploy": "fly deploy --config apps/cms/fly.toml --dockerfile apps/cms/Dockerfile",
         "cms:dev": "pnpm --filter sw-site-cms dev",
+        "cms:start": "pnpm --filter sw-site-cms start",
+        "cms:payload": "pnpm --filter sw-site-cms payload",
         "dev": "concurrently \"pnpm --filter sw-site dev\" \"pnpm --filter sw-site-cms dev\"",
         "site:dev": "pnpm --filter sw-site dev",
         "site:build": "pnpm --filter sw-site build",
