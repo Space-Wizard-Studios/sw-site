@@ -1,14 +1,10 @@
 ---
 import Layout from '@layouts/PageLayout.astro';
+
 import type { MetaSEO } from 'types/metaseo';
 import { config } from '@config.js';
 
-import Hero from '@widgets/Hero.astro';
-
-import Products from '@widgets/ProductsSection/Products.astro';
-import Contact from '@widgets/Contact.astro';
-import About from '@widgets/About.astro';
-import Team from '@widgets/Team.astro';
+import { Hero, Products, About, Team, Contact } from '@widgets/Home/Home.astro';
 import DividerTilt from '@common/dividers/DividerTilt.astro';
 import { SiteIcon } from '@icons/SiteIcon';
 
@@ -24,48 +20,65 @@ const meta: MetaSEO = {
 
 <Layout {meta}>
     <Hero />
-    <div class='flex flex-col space-y-8 py-16'>
-        <section class='flex flex-col w-full relative'>
-            <div class='sw-container flex flex-col mx-auto space-y-10 z-20'>
-                <header class='flex flex-col space-y-2'>
+    <div class='flex flex-col py-8'>
+        <section class='flex flex-col w-full relative py-8'>
+            <div class='sw-container flex flex-col space-y-10 z-20'>
+                <header class='flex flex-col space-y-4'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
-                    <h3 class='sw-text-gradient from-primary to-accent'>Um resumo do que desenvolvemos</h3>
+                    <h3 class='sw-text-gradient from-primary to-accent'>🛠 Desenvolvemos ideias</h3>
                 </header>
-                <Products/>
+                <Products />
             </div>
-            <DividerTilt class='absolute -bottom-8 w-full -rotate-180 fill-surface-dim' />
+            <DividerTilt class='absolute -bottom-2 w-full -rotate-180 fill-surface-dim' />
         </section>
 
-        <section class='w-full bg-surface-dim shadow-md'>
-            <div class="sw-container flex flex-row mx-auto">
-                <div class=" grid grid-cols-1 md:grid-cols-2 ">
-                    <div class='flex flex-col py-8 space-y-2'>
+        <section class='w-full bg-surface-dim py-8'>
+            <div class='sw-container flex flex-row mx-auto space-y-10'>
+                <div class='grid grid-cols-1 md:grid-cols-2'>
+                    <div class='flex flex-col py-8 space-y-4'>
                         <header class='flex flex-col space-y-2'>
-                        <h2 class='uppercase text-on-surface'>Sobre nós</h2>
-                        <h3 class='sw-text-gradient from-primary to-accent'>Encantamos com tecnologia ❤</h3>
-                    </header>
-                    <div class='text-on-surface'>
-                        <div class='flex flex-col space-y-2'>
-                            <p>Transformamos ideias em experiências audiovisuais que cativam.</p>
-                            <p>Combinamos tecnologia, criatividade e interatividade para criar conteúdos imersivos que conectam pessoas e marcas de forma autêntica, emocional e inovadora.</p>
+                            <h2 class='uppercase text-on-surface'>Sobre nós</h2>
+                            <h3 class='sw-text-gradient from-primary to-accent'>
+                                ❤ Encantamos com tecnologia e criatividade
+                            </h3>
+                        </header>
+                        <div class='text-on-surface'>
+                            <div class='flex flex-col space-y-2'>
+                                <p>Transformamos ideias em experiências audiovisuais que cativam.</p>
+                                <p>
+                                    Combinamos tecnologia, criatividade e interatividade para criar conteúdos imersivos
+                                    que conectam pessoas e marcas de forma autêntica, emocional e inovadora.
+                                </p>
+                            </div>
                         </div>
                     </div>
+                    <figure
+                        class='flex flex-row justify-center md:justify-end items-center text-on-surface fill-on-surface'
+                    >
+                        <SiteIcon className='w-32 h-32' />
+                    </figure>
                 </div>
-                <figure class='flex flex-row justify-end items-center text-on-surface fill-on-surface'>
-                    <SiteIcon className="w-32 h-32"/>
-                </figure>
-            </div>
-        </div>
-        </section>
-
-        <section class='w-full'>
-            <div class='sw-container mx-auto'>
-                <Team />
             </div>
         </section>
 
-        <section class='w-full'>
-            <div class='sw-container mx-auto'>
+        <section class='flex flex-col w-full relative bg-surface-dim py-8'>
+            <div class='sw-container flex flex-col space-y-10'>
+                <div class='flex flex-col py-8 space-y-4'>
+                    <header class='flex flex-col space-y-2'>
+                        <h2 class='uppercase text-on-surface'>Quem somos</h2>
+                        <h3 class='sw-text-gradient from-primary to-accent'>🚀 Essa é a nossa tripulação</h3>
+                    </header>
+                    <Team />
+                </div>
+            </div>
+        </section>
+
+        <section class='flex flex-col w-full relative py-8'>
+            <div class='sw-container flex flex-col space-y-10'>
+                <header class='flex flex-col space-y-2'>
+                    <h2 class='uppercase text-on-surface'>Entre em contato</h2>
+                    <h3 class='sw-text-gradient from-primary to-accent'>📞 Queremos ouvir a sua história</h3>
+                </header>
                 <Contact />
             </div>
         </section>

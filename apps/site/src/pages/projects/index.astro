@@ -1,71 +1,38 @@
 ---
-import Layout from '@layouts/PageLayout.astro'
-// import { getSlugFromURL } from '@common/Path'
+import Layout from '@layouts/PageLayout.astro';
+import ProjectsGallery from '@widgets/Portfolio/ProjectsGallery/ProjectsGallery.astro';
+import { getAllProjects, type ProcessedProject } from '@helpers/projectHelpers';
 
-// import { config } from '@config.js';
-// import type { MetaSEO } from 'types/metaseo';
+import { config } from '@config.js';
+import type { MetaSEO } from 'types/metaseo';
 
-// async function getProjects() {
-// 	const all = (await Astro.glob('/src/content/projects/*.md'))
-// 		.filter((page) => !page.frontmatter.draft);
+// Get all projects for debugging
+const projects = await getAllProjects('pt');
+console.log(
+    'Projects:',
+    projects.map((p: ProcessedProject) => p.slug),
+);
 
-// 	return all
-// 		.sort((pageA, pageB) => {
-// 			const dateA = new Date(pageA.frontmatter.date).getTime();
-// 			const dateB = new Date(pageB.frontmatter.date).getTime();
-// 			return dateB - dateA;
-// 		})
-// 		.map(({ file, ...page }) => ({
-// 			slug: getSlugFromURL(file),
-// 			...page,
-// 		}));
-// }
-
-// const projects = await getProjects();
-
-// const meta: MetaSEO = {
-// 	title: 'Projetos - spacewiz.dev',
-// 	description: SITE.description,
-// 	canonical: Astro.url.toString(),
-// 	ogType: 'website',
-// };
+const meta: MetaSEO = {
+    title: config.title,
+    description: config.description,
+    canonical: Astro.url.toString(),
+    og: {
+        type: 'website',
+    },
+};
 ---
 
-<Layout>
-  <!-- <Layout meta={meta}> -->
-  <!-- <h1 class="pt-4 text-4xl font-black uppercase">Projetos</h1>
-	<section class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 content-around">
-		{
-			projects.map((page) => (
-				<div class="flex relative min-h-[16rem]">
-					<div class="grid grid-cols-1 w-full h-full overflow-hidden content-between shadow-md hover:shadow-sw-navy/25 dark:hover:shadow-sw-flamingo-700/10 transition-shadow duration-500 bg-gradient-to-b rounded-2xl from-sw-secondary-200 to-sw-secondary-300 dark:from-sw-primary-600/75 dark:to-sw-primary-600 text-sw-primary dark:text-sw-secondary">
-						<img
-							src={page.frontmatter.heroSrc}
-							title={page.frontmatter.heroTitle}
-							alt={page.frontmatter.heroAltText}
-						/>
-						<div class="p-4">
-							<h2 class="font-bold text-base">
-								<a href={'/projects/' + page.slug}>{page.frontmatter.title}</a>
-							</h2>
-							<div class="flex flex-wrap gap-2 p-2">
-								{page.frontmatter.tags?.map((tag: string) => (
-									<span class="font-light text-xs rounded-xl p-2 text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 border-none">
-										{tag}
-									</span>
-								))}
-							</div>
-							<div class="py-2 text-right">
-								{new Date(page.frontmatter.date ?? '').toLocaleDateString('pt-BR', {
-									timeZone: 'UTC',
-									year: 'numeric',
-									month: 'long',
-								})}
-							</div>
-						</div>
-					</div>
-				</div>
-			))
-		}
-	</section> -->
+<Layout meta={meta}>
+    <section class='flex flex-col w-full relative'>
+        <div class='sw-container flex flex-col space-y-10'>
+            <div class='flex flex-col py-8 space-y-4'>
+                <header class='flex flex-col space-y-2'>
+                    <h2 class='uppercase text-on-surface'>Projetos</h2>
+                    <h3 class='sw-text-gradient from-primary to-accent'>Um gostinho do que fazemos</h3>
+                </header>
+                <ProjectsGallery projects={projects} />
+            </div>
+        </div>
+    </section>
 </Layout>
