@@ -10,6 +10,8 @@ import type { MetaSEO } from 'types/metaseo';
 import { config } from '@config.js';
 
 import '@styles/theme.css';
+import Footer from '@widgets/Footer.astro';
+import Header from '@widgets/Header.astro';
 
 type Props = {
     meta?: MetaSEO;
@@ -24,11 +26,11 @@ const { meta } = Astro.props as Props;
         <MetaTags {...meta} />
     </head>
 
-    <body class='flex flex-col w-full min-h-dvh overflow-x-hidden'>
-
-        <main class='flex flex-col w-full h-full bg-surface'>
+    <body class='flex flex-col w-full overflow-x-hidden bg-surface-bright'>
+        <Header />
+        <main class='flex flex-col w-full min-h-dvh bg-surface-bright'>
             <slot />
         </main>
-
+        <Footer />
     </body>
 </html>

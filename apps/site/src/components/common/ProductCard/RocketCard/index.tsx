@@ -87,8 +87,8 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                     'relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl p-4',
                     'bg-radial-[at_15%_15%]',
                     'text-on-surface from-surface-container-low to-surface-container',
-                    'transition-all duration-300',
-                    isActive ? 'shadow-primary/50 shadow-2xl' : 'hover:shadow-sw-navy/10 shadow-md hover:shadow-lg',
+                    'shadow-2xl transition-all duration-300',
+                    isActive ? 'shadow-primary/15 hover:shadow-primary/20' : 'hover:shadow-primary/10',
                 )}
             >
                 <ProductFront title={title} subtitle={subtitle} />

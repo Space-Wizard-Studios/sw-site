@@ -1,0 +1,82 @@
+---
+import { cn } from '@helpers/cn';
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props as Props;
+---
+
+<div class={cn('flex my-8', className)}>
+    <div class='w-full flex'>
+        <div class='w-full h-auto bg-sw-coal hidden lg:block lg:w-2/5 rounded-l-2xl overflow-hidden'>
+            <img
+                class='w-full h-full contain'
+                src='/images/cosmonaut_suit.png'
+                title='Cosmonaut suit'
+                alt='Russian cosmonaut space suit in museum.'
+            />
+        </div>
+        <div
+            class='flex items-center content-center w-full p-4 lg:p-8 rounded-2xl lg:rounded-l-none shadow-md bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800'
+        >
+            <div class='grid grid-cols-1 gap-4 lg:gap-8'>
+                <div class='p-2 flex flex-wrap gap-4'>
+                    <div class='flex flex-row gap-4 items-center'>
+                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo'>
+                            <!-- TODO -->
+                            <!-- <Icon name='mdi:email' class='text-sw-secondary dark:text-sw-primary' /> -->
+                        </div>
+                        <h4 class='spacewiz__text--accent block md:hidden'>Email</h4>
+                    </div>
+
+                    <div class='flex flex-col justify-center'>
+                        <h4 class='spacewiz__text--accent hidden md:block'>Email</h4>
+                        <p>
+                            Envie um email para o endereço <a href='mailto:contato@spacewiz.dev'>contato@spacewiz.dev</a
+                            >.
+                        </p>
+                    </div>
+                </div>
+
+                <div class='p-2 flex flex-wrap gap-4'>
+                    <div class='flex flex-row gap-4 items-center'>
+                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo'>
+                            <!-- TODO -->
+                            <!-- <Icon name='ph:phone-call-fill' class='text-sw-secondary dark:text-sw-primary' /> -->
+                        </div>
+                        <h4 class='spacewiz__text--accent block md:hidden'>Telefone</h4>
+                    </div>
+
+                    <div class='flex flex-col justify-center'>
+                        <h4 class='spacewiz__text--accent hidden md:block'>Telefone</h4>
+                        <p>
+                            Envie uma mensagem por <a href='https://wa.me/5561993527377'>WhatsApp</a> ou <a
+                                href='https://t.me/dankonobre'>Telegram</a
+                            >.
+                        </p>
+                    </div>
+                </div>
+
+                <div class='p-2 flex flex-wrap gap-4'>
+                    <div class='flex flex-row gap-4 items-center'>
+                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo'>
+                            <!-- TODO -->
+                            <!-- <Icon name='ion:share-social' class='text-sw-secondary dark:text-sw-primary' /> -->
+                        </div>
+                        <h4 class='spacewiz__text--accent block md:hidden'>Redes Sociais</h4>
+                    </div>
+
+                    <div class='flex flex-col justify-center'>
+                        <h4 class='spacewiz__text--accent hidden md:block'>Redes Sociais</h4>
+                        <p>
+                            Faça parte do nosso <a href='https://discord.com/invite/4rAZ8HhuAh'>Discord</a> e nos siga no
+                            <a href='https://www.instagram.com/spacewiz.dev/'>Instagram</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

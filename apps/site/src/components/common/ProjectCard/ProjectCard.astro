@@ -1,0 +1,45 @@
+---
+import { cn } from '@helpers/cn';
+import { getImageByPath } from '@helpers/getImageByPath';
+import type { ProcessedProject } from '@helpers/projectHelpers';
+
+interface Props {
+    project: ProcessedProject;
+}
+
+const { project }: Props = Astro.props;
+
+const image = await getImageByPath(project.data.hero.src, project.data.hero.alt, {
+    width: 800,
+    height: 600,
+});
+---
+
+<article
+    class={cn(
+        'relative flex h-full w-full flex-col overflow-hidden rounded-2xl',
+        'bg-radial-[at_15%_15%]',
+        'text-on-surface from-surface-container-high to-surface-container-highest',
+        'shadow-2xl transition-all duration-300',
+    )}
+>
+    {
+        (
+            <img
+                src={image.src}
+                width={image.attributes.width}
+                height={image.attributes.height}
+                class='w-full h-auto max-h-60 aspect-[3/2] object-cover object-top'
+            />
+        )
+    }
+    <header class='p-4'>
+        <h4 class=''><a>{project.data.title}</a></h4>
+        <h5 class=''>{project.data.subtitle}</h5>
+        <hr class='p-2'>
+        <p class=''>Categoria: {project.data.category}</p>
+        <p class=''>Tecnologias: {project.data.tags.join(', ')}</p>
+        <p class=''>Data: {project.data.date}</p>
+        <p class=''>{project.data.summary}</p>
+    </header>
+</article>

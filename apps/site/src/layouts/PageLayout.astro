@@ -2,8 +2,6 @@
 import Layout from '@layouts/BaseLayout.astro';
 
 import type { MetaSEO } from 'types/metaseo';
-import Footer from '@widgets/Footer.astro';
-import Header from '@widgets/Header.astro';
 
 type Props = {
     meta?: MetaSEO;
@@ -13,7 +11,5 @@ const { meta } = Astro.props as Props;
 ---
 
 <Layout meta={meta}>
-    <Header />
-        <slot />
-    <Footer />
+    <slot />
 </Layout>

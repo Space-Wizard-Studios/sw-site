@@ -1,0 +1,17 @@
+---
+import ProjectCard from '@common/ProjectCard/ProjectCard.astro';
+import type { ProcessedProject } from '@helpers/projectHelpers';
+
+// recebe uma lista de projetos, organiza eles em uma grid e exibe ProjectCards passando as informações de cada um
+
+export interface Props {
+    projects: ProcessedProject[];
+    className?: string;
+}
+
+const { projects, className } = Astro.props as Props;
+---
+
+<div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
+    {projects.map((project: ProcessedProject) => <ProjectCard project={project} />)}
+</div>
