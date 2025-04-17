@@ -1,3 +1,7 @@
+---
+title: Termos de Uso
+---
+
 # Termos de Uso
 
 > O site **spacewiz.dev** é um serviço de propriedade da empresa Space Wizard Studios, que é a controladora dos dados pessoais solicitados e fornecidos, conforme descrito nesta política.
