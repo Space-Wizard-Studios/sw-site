@@ -30,6 +30,7 @@
         "astro-icon": "^1.1.5",
         "astro-seo": "^0.8.4",
         "clsx": "^2.1.1",
+        "marked": "^15.0.8",
         "motion": "^12.6.5",
         "react": "workspace:*",
         "react-dom": "workspace:*",

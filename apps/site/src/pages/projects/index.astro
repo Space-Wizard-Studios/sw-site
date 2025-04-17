@@ -1,17 +1,9 @@
 ---
 import Layout from '@layouts/PageLayout.astro';
-import ProjectsGallery from '@widgets/Portfolio/ProjectsGallery/ProjectsGallery.astro';
-import { getAllProjects, type ProcessedProject } from '@helpers/projectHelpers';
+import { Gallery } from '@widgets/Portfolio/Portfolio.astro';
 
 import { config } from '@config.js';
 import type { MetaSEO } from 'types/metaseo';
-
-// Get all projects for debugging
-const projects = await getAllProjects('pt');
-console.log(
-    'Projects:',
-    projects.map((p: ProcessedProject) => p.slug),
-);
 
 const meta: MetaSEO = {
     title: config.title,
@@ -31,7 +23,7 @@ const meta: MetaSEO = {
                     <h2 class='uppercase text-on-surface'>Projetos</h2>
                     <h3 class='sw-text-gradient from-primary to-accent'>Um gostinho do que fazemos</h3>
                 </header>
-                <ProjectsGallery projects={projects} />
+                <Gallery />
             </div>
         </div>
     </section>

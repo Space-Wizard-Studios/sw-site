@@ -26,9 +26,9 @@ export const projectSchema = z
         date: z.string().optional(),
         hero: z
             .object({
-                src: z.string(),
-                title: z.string(),
-                alt: z.string(),
+                src: z.string().optional(),
+                title: z.string().optional(),
+                alt: z.string().optional(),
             })
             .optional(),
         carousel: z

@@ -1,4 +1,7 @@
 ---
+import { marked } from 'marked';
+import type { AstroRenderer } from 'astro';
+
 import { getAllProjects } from '@helpers/projectHelpers';
 import Layout from '@layouts/PageLayout.astro';
 
@@ -11,11 +14,21 @@ export async function getStaticPaths() {
     }));
 }
 
+
 const { project } = Astro.props;
+
+const content = project.data.content;
+const html =await marked.parse(content);
 ---
 
 <Layout meta={{ title: project.data.title }}>
-    <div class='sw-container py-8'>
+    <div class='sw-container py-8 flex-col'>
         <h1>{project.data.title}</h1>
+        <h5 class=''>{project.data.subtitle}</h5>
+        <p class=''>Categoria: {project.data.category}</p>
+        <p class=''>Tecnologias: {project.data.tags.join(', ')}</p>
+        <p class=''>Data: {project.data.date}</p>
+        <p class=''>Resumo: {project.data.summary}</p>
+        <div class='markdown-content' set:html={html} />
     </div>
 </Layout>
