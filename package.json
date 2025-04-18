@@ -3,6 +3,7 @@
         "check-deps": "pnpm dlx depcheck --ignore-patterns=*.d.ts",
         "cms:build": "pnpm --filter sw-site-cms build",
         "cms:deploy": "fly deploy --config apps/cms/fly.toml --dockerfile apps/cms/Dockerfile",
+        "cms:deploy-no-cache": "fly deploy --config apps/cms/fly.toml --dockerfile apps/cms/Dockerfile --no-cache",
         "cms:dev": "pnpm --filter sw-site-cms dev",
         "cms:start": "pnpm --filter sw-site-cms start",
         "cms:payload": "pnpm --filter sw-site-cms payload",

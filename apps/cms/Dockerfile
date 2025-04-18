@@ -16,8 +16,10 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/cms/package.json ./apps/cms/
 COPY libs ./libs/
 
-# Install dependencies WITHOUT frozen-lockfile flag
-RUN pnpm install --filter=sw-site-cms...
+# Install dependencies - set npm config for Alpine Linux (musl)
+ENV PNPM_HOME=/usr/local/bin
+ENV npm_config_target_libc=musl
+RUN pnpm install --filter=sw-site-cms... --node-linker=hoisted
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -32,6 +34,7 @@ COPY --from=deps /app/apps/cms/node_modules ./apps/cms/node_modules
 COPY . .
 
 # Rebuild any native modules for Alpine specifically targeting musl libc
+ENV npm_config_target_libc=musl
 RUN cd /app && pnpm rebuild
 
 # Build the CMS app
@@ -51,13 +54,12 @@ RUN npm install --no-save @libsql/linux-x64-musl
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
-# Automatically leverage output traces to reduce image size
+# Copy standalone output to /app
 COPY --from=builder --chown=nextjs:nodejs /app/apps/cms/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/apps/cms/.next/static ./.next/static
+
+# Create .next directory at the right location - this is critical
+RUN mkdir -p /app/.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/apps/cms/.next/static/ ./apps/cms/.next/static/
 
 USER nextjs
 EXPOSE 3000
