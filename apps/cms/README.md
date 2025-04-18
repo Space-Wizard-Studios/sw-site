@@ -1,5 +1,7 @@
 # SW-SITE/CMS
 
+## Setup inicial
+
 Crie uma cópia do arquivo `.env.example`, renomeie para `.env` e preencha as variáveis de ambiente necessárias.
 
 ```bash
@@ -11,6 +13,21 @@ Do root do projeto, execute o seguinte comando para instalar as dependências:
 
 ```bash
 pnpm --filter sw-site-cms install
+```
+
+## Rodando o projeto localmente
+
+Para rodar o projeto localmente, utilize o seguinte comando:
+
+```bash
+cd apps/cms
+pnpm --filter sw-site-cms dev
+```
+
+ou, se estiver no root do projeto:
+
+```bash
+pnpm run cms:dev
 ```
 
 ## Fly.io
@@ -28,3 +45,5 @@ Para fazer o download do banco de dados SQLite, utilize o seguinte comando:
 ```bash
 flyctl ssh sftp get /data/sqlite.db ./data/your-database-name.db
 ```
+
+### Deploy inicial

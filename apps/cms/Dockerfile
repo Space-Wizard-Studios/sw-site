@@ -6,6 +6,7 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat python3 make g++ git
 WORKDIR /app
 
+# ! TODO - go back to corepack when it's stable with pnpm >=10
 # Install pnpm directly instead of using corepack
 RUN npm install -g pnpm@10.8.1
 
@@ -25,14 +26,20 @@ RUN pnpm install --filter=sw-site-cms... --node-linker=hoisted
 FROM base AS builder
 WORKDIR /app
 
+# ! TODO - go back to corepack when it's stable with pnpm >=10
 # Install pnpm directly instead of using corepack
 RUN npm install -g pnpm@10.8.1
 
-# Copy dependencies from deps stage
+# Copy dependencies from deps stage to /app
+
+# These are dependencies that are on root and will be symlinked by the CMS node_modules
 COPY --from=deps /app/node_modules ./node_modules
+# These are dependencies that are specific to the CMS app
 COPY --from=deps /app/apps/cms/node_modules ./apps/cms/node_modules
+# Copy the root workspace configuration
 COPY . .
 
+# TODO - review this - it may not be needed, but pnpm must link the native modules correctly
 # Rebuild any native modules for Alpine specifically targeting musl libc
 ENV npm_config_target_libc=musl
 RUN cd /app && pnpm rebuild
@@ -48,16 +55,17 @@ WORKDIR /app
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# TODO - review this - it may not be needed, but pnpm must link the native modules correctly
 RUN apk add --no-cache libc6-compat python3 make g++
 RUN npm install --no-save @libsql/linux-x64-musl
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy standalone output to /app
+# Copy standalone output from builder stage to the production image at /app
 COPY --from=builder --chown=nextjs:nodejs /app/apps/cms/.next/standalone ./
 
-# Create .next directory at the right location - this is critical
+# Copy the static build assets from builder stage to the production image at /app/apps/cms/.next/static
 RUN mkdir -p /app/.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/apps/cms/.next/static/ ./apps/cms/.next/static/
 
