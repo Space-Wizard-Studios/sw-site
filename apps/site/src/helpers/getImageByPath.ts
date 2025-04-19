@@ -2,8 +2,8 @@ import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 // Import all images from different collections
-const projectImages = import.meta.glob('/src/assets/images/projects/**/*', { eager: true });
-const teamImages = import.meta.glob('/src/assets/images/team/**/*', { eager: true });
+const projectImages = import.meta.glob('@images/projects/**/*', { eager: true });
+const teamImages = import.meta.glob('@images/team/**/*', { eager: true });
 
 // Combine all collections
 const allImages = {

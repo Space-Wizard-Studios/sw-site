@@ -20,25 +20,42 @@ const meta: MetaSEO = {
 
 <Layout {meta}>
     <Hero />
-    <div class='flex flex-col py-8'>
-        <section class='flex flex-col w-full relative py-8'>
+    <div class='relative flex flex-col py-12 bg-surface-bright z-10'>
+
+        <section class='flex flex-col w-full sticky top-0 py-24'>
+            <div class='sw-container flex flex-col space-y-10 z-10'>
+                <header class='text-center md:text-right'>
+                    <h2 class='sw-display text-primary pb-2'>
+                        Sua história, nossa magia. 
+                    </h2>
+                    <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>
+                       Trazemos suas ideias de apps, jogos e sites à vida.
+                    </h3>
+                </header>
+            </div>
+        </section>
+
+        <section class='relative flex flex-col w-full py-12 overflow-visible bg-gradient-to-b from-transparent to-surface-bright to-25%'>
             <div class='sw-container flex flex-col space-y-10 z-20'>
                 <header class='flex flex-col space-y-4'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
-                    <h3 class='sw-text-gradient from-primary to-accent'>🛠 Desenvolvemos ideias</h3>
+                    <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>🛠 Desenvolvemos ideias</h3>
                 </header>
                 <Products />
             </div>
-            <DividerTilt class='absolute -bottom-2 w-full -rotate-180 fill-surface-dim' />
+            <!-- <DividerTilt class='absolute -bottom-2 w-full -rotate-180 fill-surface-dim fill-sw-halftone' /> -->
+                <div class='sw-halftone absolute bottom-0 w-full h-24 md:h-56 text-primary bg-surface-dim' 
+                style="clip-path: polygon(0 0, 100% 100%, 0 100%);" />
         </section>
+        
 
-        <section class='w-full bg-surface-dim py-8'>
+        <section class='sw-halftone relative w-full bg-surface-dim py-12 text-primary'>
             <div class='sw-container flex flex-row mx-auto space-y-10'>
                 <div class='grid grid-cols-1 md:grid-cols-2'>
-                    <div class='flex flex-col py-8 space-y-4'>
+                    <div class='flex flex-col space-y-4'>
                         <header class='flex flex-col space-y-2'>
                             <h2 class='uppercase text-on-surface'>Sobre nós</h2>
-                            <h3 class='sw-text-gradient from-primary to-accent'>
+                            <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>
                                 ❤ Encantamos com tecnologia e criatividade
                             </h3>
                         </header>
@@ -59,25 +76,31 @@ const meta: MetaSEO = {
                     </figure>
                 </div>
             </div>
+            
         </section>
 
-        <section class='flex flex-col w-full relative bg-surface-dim py-8'>
+        <section class='sw-halftone relative flex flex-col w-full bg-surface-dim text-primary py-12'>
             <div class='sw-container flex flex-col space-y-10'>
-                <div class='flex flex-col py-8 space-y-4'>
+                <div class='flex flex-col space-y-4'>
                     <header class='flex flex-col space-y-2'>
                         <h2 class='uppercase text-on-surface'>Quem somos</h2>
-                        <h3 class='sw-text-gradient from-primary to-accent'>🚀 Essa é a nossa tripulação</h3>
+                        <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>🚀 Essa é a nossa tripulação</h3>
                     </header>
                     <Team />
                 </div>
             </div>
         </section>
 
-        <section class='flex flex-col w-full relative py-8'>
+        <section class='relative flex flex-col w-full bg-surface-bright'>
+            <div class='sw-halftone relative bottom-0 w-full h-24 md:h-56 bg-surface-dim text-primary z-20' 
+            style="clip-path: polygon(100% 100%, 100% 0, 0 0);" />
+        </div>
+            
+        <section class='relative flex flex-col w-full py-12 z-20 bg-surface-bright'>
             <div class='sw-container flex flex-col space-y-10'>
                 <header class='flex flex-col space-y-2'>
                     <h2 class='uppercase text-on-surface'>Entre em contato</h2>
-                    <h3 class='sw-text-gradient from-primary to-accent'>📞 Queremos ouvir a sua história</h3>
+                    <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>📞 Queremos ouvir a sua história</h3>
                 </header>
                 <Contact />
             </div>

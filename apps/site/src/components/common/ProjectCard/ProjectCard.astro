@@ -37,7 +37,7 @@ const image = await getImageByPath(project.data.hero.src, project.data.hero.alt,
     <header class='p-4'>
         <h4 class=''><a href={'/projects/' + project.slug}>{project.data.title}</a></h4>
         <h5 class=''>{project.data.subtitle}</h5>
-        <hr class='p-2' />
+        <hr class='p-2 border-sw-neutral-500/50' />
         <p class=''>Categoria: {project.data.category}</p>
         <p class=''>Tecnologias: {project.data.tags.join(', ')}</p>
         <p class=''>Data: {project.data.date}</p>

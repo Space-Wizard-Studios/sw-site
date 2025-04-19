@@ -4,15 +4,19 @@ import { SiteLogo } from '@icons/SiteLogo';
 ---
 
 <header
-    class='flex flex-col sticky w-full top-0 py-4 z-50 items-center justify-center bg-surface-bright/90 backdrop-blur-md text-brand shadow-lg'
+    class='sw-animation sw-root-scroll sw-size-down h-24 min-h-10 transition-all flex flex-col sticky w-full top-0 py-4 z-50 items-center justify-center bg-surface-bright/90 backdrop-blur-md text-brand shadow-lg'
+    style='--height-down-to: 2.5rem; --width-down-to: 100%    '
 >
     <nav class='sw-container flex flex-row justify-between items-center'>
-        <h1 class="flex w-full">
-            <a class='w-48 hover:scale-105 transition-all text-primary' href='/' >
+        <h1 class="flex flex-row w-full "
+        >
+        <a class='sw-animation sw-root-scroll sw-size-down w-48 hover:scale-105 transition-all text-primary' href='/' 
+        style="--width-down-to: 8rem;"
+        >
                 <span class='sr-only'>Space Wizard Studios</span>
                 <SiteLogo client:idle />
             </a>
         </h1>
-        <ButtonToggleTheme client:idle />
+        <ButtonToggleTheme  className='sw-animation sw-root-scroll sw-scale-down' client:idle />
     </nav>
 </header>

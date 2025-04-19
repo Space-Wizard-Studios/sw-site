@@ -19,12 +19,13 @@ export function MemberInfo({ name, roles, skills, isOpen }: Props) {
 
             <div className='flex flex-wrap content-start justify-center gap-3'>
                 {skills.map(({ name, tooltip }, i) => (
-                    // TODO
-                    // <Tooltip key={i} content={tooltip}>
-                    <span className='text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 rounded-xl border-none p-2 text-xs font-light'>
+                    <span
+                        key={i}
+                        content={tooltip}
+                        className='text-sw-primary dark:text-sw-secondary bg-sw-secondary-900 dark:bg-sw-primary-900 rounded-xl border-none p-2 text-xs font-light'
+                    >
                         {name}
                     </span>
-                    // </Tooltip>
                 ))}
             </div>
         </>

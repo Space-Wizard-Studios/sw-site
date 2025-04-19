@@ -1,13 +1,22 @@
 ---
 import TeamCard from '@common/TeamCard';
+
 import { cn } from '@helpers/cn';
-import { Portfolio } from '@icons/ProductCardIcons';
 
 export interface Props {
     className?: string;
 }
 
 const { className } = Astro.props as Props;
+
+import alexImage from '@images/team/alexandre_profile.png';
+import daniloImage from '@images/team/danilo_profile.png';
+import gustavoImage from '@images/team/gustavo_profile.png';
+import rhayaneImage from '@images/team/rhayane_profile.png';
+import ruanImage from '@images/team/ruan_profile.jpg';
+import williamImage from '@images/team/william_profile.png';
+// import barbaraImage from '';
+
 ---
 
 <div class={cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-justify my-16', className)}>
@@ -34,7 +43,7 @@ const { className } = Astro.props as Props;
             linkedin: 'https://www.linkedin.com/in/alexandre-barbosa-083b83b4/',
             youtube: 'https://www.youtube.com/channel/UCYSb-3wJyK-L0E9YyHeqkiQ/',
         }}
-        photoSrc='/images/team/alex_profile.png'
+        photoSrc={alexImage.src}
     />
     <TeamCard
         client:visible
@@ -61,7 +70,7 @@ const { className } = Astro.props as Props;
         links={{
             linkedin: 'https://www.linkedin.com/in/danilo-nobre/',
         }}
-        photoSrc='/images/team/danilo_profile.png'
+        photoSrc={daniloImage.src}
     />
 
     <TeamCard
@@ -82,7 +91,7 @@ const { className } = Astro.props as Props;
             linkedin: 'https://www.linkedin.com/in/gustav-arantes/',
             portfolio: 'https://gustavarantes.myportfolio.com/',
         }}
-        photoSrc='/images/team/gustavo_profile.png'
+        photoSrc={gustavoImage.src}
     />
 
     <TeamCard
@@ -102,7 +111,7 @@ const { className } = Astro.props as Props;
         links={{
             linkedin: 'https://www.linkedin.com/in/rhayane-miranda/',
         }}
-        photoSrc='/images/team/rhayane_profile.png'
+        photoSrc={rhayaneImage.src}
     />
 
     <TeamCard
@@ -127,7 +136,7 @@ const { className } = Astro.props as Props;
             github: 'https://github.com/wbmagalhaes/',
             linkedin: 'https://www.linkedin.com/in/william-bernardes-magalhaes/',
         }}
-        photoSrc='/images/team/william_profile.png'
+        photoSrc={williamImage.src}
     />
 
     <TeamCard
@@ -144,7 +153,7 @@ const { className } = Astro.props as Props;
             linkedin: 'https://br.linkedin.com/in/barbara-faraco',
             portfolio: 'https://www.behance.net/barbarafaraco',
         }}
-        photoSrc='https://mir-s3-cdn-cf.behance.net/user/115/e9f7859574753.609ac6db7b553.jpg'
+        photoSrc=''
     />
 
     <TeamCard
@@ -165,6 +174,6 @@ const { className } = Astro.props as Props;
             github: 'https://github.com/ruanblotta',
             linkedin: 'https://www.linkedin.com/in/ruanblotta/',
         }}
-        photoSrc='/images/team/ruan_profile.jpg'
+        photoSrc={ruanImage.src}
     />
 </div>

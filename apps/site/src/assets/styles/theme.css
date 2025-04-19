@@ -313,7 +313,7 @@ html {
     }
 }
 
-.subtitle {
+.sw-subtitle {
     @apply font-mono;
 }
 
@@ -321,24 +321,86 @@ html {
     @apply mx-auto flex w-full max-w-7xl px-4;
 }
 
-.display {
-    @apply text-9xl font-black;
+.sw-display {
+    @apply text-5xl font-black md:text-6xl;
 }
 
-.sw-text-gradient {
-    @apply rounded-4xl bg-gradient-to-b bg-clip-text font-black text-transparent;
-    background-size: 100% 200%;
-    background-position-y: 100%;
-    animation: sw-pulse 2s ease-in-out infinite;
+.sw-halftone {
+    --stop1: 0.1rem; /* tamanho da bolinha */
+    --stop2: 0.1rem; /* tamanho da bolinha */
+    --blur: 0rem; /* intensidade do blur */
+    z-index: 0;
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        background-image: radial-gradient(circle at center, currentColor var(--stop1), transparent var(--stop2));
+        background-size: 2.5rem 2.5rem; /* espaçamento entre as bolinhas */
+        background-position: 2.5rem 2.5rem; /* centraliza o padrão */
+        background-repeat: round;
+        filter: blur(var(--blur));
+        opacity: 0.1;
+    }
 }
 
-@keyframes sw-pulse {
-    0%,
-    100% {
-        background-position-y: 0%;
+.sw-animation {
+    &.sw-scale-down {
+        --scale-down-from: 1, 1;
+        --scale-down-to: 0.75, 0.75;
+        animation: sw-scale-down both;
     }
 
+    &.sw-size-down {
+        --width-down-to: auto;
+        --height-down-to: auto;
+        interpolate-size: allow-keywords;
+        animation: sw-size-down both;
+    }
+
+    &.sw-root-scroll {
+        --root-scroll-entry: 10%;
+        --root-scroll-exit: 20%;
+        animation-timeline: scroll(root);
+        animation-range: entry var(--root-scroll-entry) exit var(--root-scroll-exit);
+    }
+
+    &.sw-pulse {
+        &.sw-to-b {
+            --bg-y-from: 0%;
+            --bg-y-to: 50%;
+
+            @apply bg-gradient-to-b bg-clip-text font-black text-transparent;
+            background-size: 100% 200%;
+            background-position-y: 100%;
+            animation: sw-pulse-to-b 2s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes sw-scale-down {
+    from {
+        transform: scale(var(--scale-down-from));
+    }
+    to {
+        transform: scale(var(--scale-down-to));
+    }
+}
+
+@keyframes sw-size-down {
+    to {
+        height: var(--height-down-to);
+        width: var(--width-down-to);
+    }
+}
+
+@keyframes sw-pulse-to-b {
+    0%,
+    100% {
+        background-position-y: var(--bg-y-from);
+    }
     50% {
-        background-position-y: 50%;
+        background-position-y: var(--bg-y-to);
     }
 }

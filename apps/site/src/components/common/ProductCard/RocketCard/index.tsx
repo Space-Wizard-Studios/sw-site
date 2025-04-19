@@ -77,7 +77,7 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
             )}
             // Use motion animations to adjust card size without affecting the grid
             animate={{
-                scale: isActive ? 1.1 : 1,
+                scale: isActive ? 1.05 : 1,
                 zIndex: isActive ? 10 : 0,
             }}
             transition={{ duration: 0.3 }}
@@ -86,8 +86,8 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                 className={cn(
                     'relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl p-4',
                     'bg-radial-[at_15%_15%]',
-                    'text-on-surface from-surface-container-low to-surface-container',
-                    'shadow-2xl transition-all duration-300',
+                    'text-on-surface from-surface-container-low/60 to-surface-container/60 backdrop-blur-md',
+                    'shadow-lg transition-all duration-300',
                     isActive ? 'shadow-primary/15 hover:shadow-primary/20' : 'hover:shadow-primary/10',
                 )}
             >

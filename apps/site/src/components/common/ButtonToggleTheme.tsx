@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Sun, Moon, Cloud, Stars } from '@icons/SkyIcons';
+import { cn } from '@helpers/cn';
 
-export interface ButtonToggleThemeProps {}
+export interface ButtonToggleThemeProps {
+    className?: string;
+}
 
 // Add this function outside your components
 function getInitialTheme() {
@@ -33,17 +36,17 @@ if (typeof window !== 'undefined') {
     }
 }
 
-export default function ButtonToggleTheme(props: ButtonToggleThemeProps) {
+export default function ButtonToggleTheme({ className = '', ...props }: ButtonToggleThemeProps) {
     const [showButton, setShowButton] = useState(false);
 
     useEffect(() => {
         setShowButton(true);
     }, []);
 
-    return showButton && <Button {...props} />;
+    return showButton && <Button className={className} {...props} />;
 }
 
-function Button(props: ButtonToggleThemeProps) {
+function Button({ className = '', ...props }: ButtonToggleThemeProps) {
     const [theme, setTheme] = useState(getInitialTheme());
 
     const setMode = (theme: string) => {
@@ -62,7 +65,7 @@ function Button(props: ButtonToggleThemeProps) {
     return (
         <motion.button
             type='button'
-            className='relative items-center overflow-hidden rounded-lg p-3'
+            className={cn('relative items-center overflow-hidden rounded-lg p-3', className)}
             aria-label='Alternar tema (claro/escuro)'
             onClick={() => toggleTheme()}
             animate={{

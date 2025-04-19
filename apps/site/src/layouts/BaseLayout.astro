@@ -26,11 +26,13 @@ const { meta } = Astro.props as Props;
         <MetaTags {...meta} />
     </head>
 
-    <body class='flex flex-col w-full overflow-x-hidden bg-surface-bright'>
+    <body class='relative flex flex-col w-full overflow-x-hidden'>
         <Header />
-        <main class='flex flex-col w-full min-h-dvh bg-surface-bright'>
+        <main class='flex flex-col w-full min-h-dvh'>
             <slot />
         </main>
-        <Footer />
+        <div id='aaaaa' class='absolute w-full h-96  bottom-0 bg-surface-bright'></div>
+
+            <Footer />
     </body>
 </html>
