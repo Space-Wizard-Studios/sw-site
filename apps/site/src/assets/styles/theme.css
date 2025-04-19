@@ -121,13 +121,13 @@ This palette was studied with the help of tints.dev
     --color-on-surface: var(--color-sw-navy-800);
     --color-on-surface-variant: var(--color-sw-navy-900);
 
-    --color-inverse-surface: var(--color-sw-navy-950);
-    --color-inverse-on-surface: var(--color-sw-navy-200);
+    --color-inverse-surface: var(--color-sw-navy-800);
+    --color-inverse-on-surface: var(--color-sw-neutral-200);
 
     --color-surface-container-lowest: var(--color-sw-neutral-500);
     --color-surface-container-low: var(--color-sw-neutral-400);
-    --color-surface-container: var(--color-sw-neutral-200);
-    --color-surface-container-high: var(--color-sw-neutral-100);
+    --color-surface-container: var(--color-sw-neutral-300);
+    --color-surface-container-high: var(--color-sw-neutral-200);
     --color-surface-container-highest: var(--color-sw-neutral-50);
 
     --color-primary: var(--color-sw-navy);
@@ -136,7 +136,7 @@ This palette was studied with the help of tints.dev
     --color-on-primary-container: var(--color-sw-navy-900);
 
     --color-inverse-primary: var(--color-sw-navy-50);
-    --color-inverse-on-primary: var(--color-sw-navy-400);
+    --color-inverse-on-primary: var(--color-sw-navy);
 
     --color-secondary: var(--color-sw-azure-400);
     --color-on-secondary: var(--color-sw-azure-950);
@@ -144,15 +144,15 @@ This palette was studied with the help of tints.dev
     --color-on-secondary-container: var(--color-sw-azure-900);
 
     --color-inverse-secondary: var(--color-sw-azure-950);
-    --color-inverse-on-secondary: var(--color-sw-azure-200);
+    --color-inverse-on-secondary: var(--color-sw-azure-400);
 
     --color-accent: var(--color-sw-curious-400);
-    --color-on-accent: var(--color-sw-curious-800);
+    --color-on-accent: var(--color-sw-curious-950);
     --color-accent-container: var(--color-sw-curious-200);
     --color-on-accent-container: var(--color-sw-curious-900);
 
     --color-inverse-accent: var(--color-sw-curious-950);
-    --color-inverse-on-accent: var(--color-sw-curious-200);
+    --color-inverse-on-accent: var(--color-sw-curious-400);
 }
 
 .dark {
@@ -166,7 +166,7 @@ This palette was studied with the help of tints.dev
     --color-on-surface-variant: var(--color-sw-purply-100);
 
     --color-inverse-surface: var(--color-sw-neutral-50);
-    --color-inverse-on-surface: var(--color-sw-purply-500);
+    --color-inverse-on-surface: var(--color-sw-purply-900);
 
     --color-surface-container-lowest: var(--color-sw-purply-950);
     --color-surface-container-low: var(--color-sw-purply-900);
@@ -174,13 +174,13 @@ This palette was studied with the help of tints.dev
     --color-surface-container-high: var(--color-sw-purply-700);
     --color-surface-container-highest: var(--color-sw-purply-600);
 
-    --color-primary: var(--color-sw-flamingo-200);
+    --color-primary: var(--color-sw-flamingo);
     --color-on-primary: var(--color-sw-flamingo-950);
     --color-primary-container: var(--color-sw-flamingo-100);
     --color-on-primary-container: var(--color-sw-flamingo-900);
 
     --color-inverse-primary: var(--color-sw-flamingo-950);
-    --color-inverse-on-primary: var(--color-sw-flamingo-200);
+    --color-inverse-on-primary: var(--color-sw-flamingo);
 
     --color-secondary: var(--color-sw-plum-300);
     --color-on-secondary: var(--color-sw-plum-950);
@@ -190,7 +190,7 @@ This palette was studied with the help of tints.dev
     --color-inverse-secondary: var(--color-sw-plum-950);
     --color-inverse-on-secondary: var(--color-sw-plum-200);
 
-    --color-accent: var(--color-sw-pinkish-300);
+    --color-accent: var(--color-sw-pinkish-200);
     --color-on-accent: var(--color-sw-pinkish-950);
     --color-accent-container: var(--color-sw-pinkish-200);
     --color-on-accent-container: var(--color-sw-pinkish-900);
@@ -224,10 +224,16 @@ h6 {
 }
 
 a {
-    @apply text-primary cursor-pointer font-bold underline transition-colors duration-500;
+    @apply text-primary cursor-pointer font-bold underline transition-colors duration-300;
 
     &:hover {
-        @apply text-accent transition-colors duration-500;
+        @apply text-sw-navy-800;
+    }
+}
+
+.dark a{
+    &:hover {
+        @apply text-sw-flamingo-200;
     }
 }
 
@@ -325,6 +331,14 @@ html {
     @apply text-5xl font-black md:text-6xl;
 }
 
+.sw-reflected-gradient {
+    @apply bg-gradient-to-bl from-sw-navy-400 via-sw-navy-200 to-sw-navy-400;
+}
+
+.dark .sw-reflected-gradient {
+    @apply bg-gradient-to-bl from-sw-plum-800 via-sw-plum-400 to-sw-plum-800;
+}
+
 .sw-halftone {
     --stop1: 0.1rem; /* tamanho da bolinha */
     --stop2: 0.1rem; /* tamanho da bolinha */
@@ -359,11 +373,9 @@ html {
         animation: sw-size-down both;
     }
 
-    &.sw-root-scroll {
-        --root-scroll-entry: 10%;
-        --root-scroll-exit: 20%;
-        animation-timeline: scroll(root);
-        animation-range: entry var(--root-scroll-entry) exit var(--root-scroll-exit);
+    &.sw-opacity-down {
+        --opacity-down-to: 0;
+        animation: sw-opacity-down both;
     }
 
     &.sw-pulse {
@@ -376,6 +388,13 @@ html {
             background-position-y: 100%;
             animation: sw-pulse-to-b 2s ease-in-out infinite;
         }
+    }
+
+    &.sw-root-scroll {
+        --root-scroll-entry: 10%;
+        --root-scroll-exit: 20%;
+        animation-timeline: scroll(root);
+        animation-range: entry var(--root-scroll-entry) exit var(--root-scroll-exit);
     }
 }
 
@@ -394,6 +413,13 @@ html {
         width: var(--width-down-to);
     }
 }
+
+@keyframes sw-opacity-down {
+    to {
+        opacity: var(--opacity-down-to);
+    }
+}
+
 
 @keyframes sw-pulse-to-b {
     0%,

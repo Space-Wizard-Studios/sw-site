@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function FlashCard({ index, iconSrc, iconColor, title, subtitle, description, tooltip = false }: Props) {
-    const [isOpen, setOpen] = useState(false);
+    const [isActive, setOpen] = useState(false);
 
     const openStyle = '';
     const closedStyle = '';
@@ -29,16 +29,16 @@ export default function FlashCard({ index, iconSrc, iconColor, title, subtitle, 
                     'grid h-full w-full grid-cols-1 content-between overflow-visible rounded-2xl p-4',
                     'bg-radial-[at_15%_15%] shadow-xl',
                     'text-on-surface from-surface-container-low to-surface-container',
-                    isOpen ? openStyle : closedStyle,
+                    isActive ? openStyle : closedStyle,
                 )}
             >
                 <ProductFront title={title} subtitle={subtitle} />
-                <ProductBack isOpen={isOpen} description={description} />
-                <Toggle index={index} tooltip={tooltip} isOpen={isOpen} setOpen={setOpen} />
+                <ProductBack isActive={isActive} description={description} />
+                <Toggle index={index} tooltip={tooltip} isActive={isActive} setOpen={setOpen} />
             </div>
             {/* 
             <div className='absolute left-0 right-0 top-0 z-10 mx-auto -mt-8 h-16 w-16 md:left-auto md:-mr-12 md:-mt-4 md:h-24 md:w-24'>
-                <ProductCanvas isOpen={isOpen} modelPath={iconSrc} modelColor={iconColor} />
+                <ProductCanvas isActive={isActive} modelPath={iconSrc} modelColor={iconColor} />
             </div> */}
         </div>
     );

@@ -8,7 +8,7 @@ import * as THREE from 'three';
 extend({ Group: THREE.Group });
 
 interface IconProps {
-    isOpen: boolean;
+    isActive: boolean;
     modelPath: string;
     modelColor: number;
     isInView: boolean;
@@ -22,7 +22,7 @@ type GLTFResult = GLTF & {
     materials: {};
 };
 
-export default function Icon({ isOpen, modelPath, modelColor, isInView, ...props }: IconProps) {
+export default function Icon({ isActive, modelPath, modelColor, isInView, ...props }: IconProps) {
     const ref = useRef<THREE.Group>(null);
     const { nodes, materials } = useGLTF(modelPath) as any as GLTFResult;
 
@@ -53,7 +53,7 @@ export default function Icon({ isOpen, modelPath, modelColor, isInView, ...props
         //     geometry={nodes.icon.geometry}
         //     material={nodes.icon.material}
         //     initial='hidden'
-        //     animate={isOpen ? 'open' : isInView ? 'inView' : 'hidden'}
+        //     animate={isActive ? 'open' : isInView ? 'inView' : 'hidden'}
         //     variants={variants}
         //     transition={{
         //       scale: {

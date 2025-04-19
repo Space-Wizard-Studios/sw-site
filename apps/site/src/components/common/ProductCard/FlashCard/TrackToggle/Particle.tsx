@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 interface Props {
     seed: number;
-    isOpen: boolean;
+    isActive: boolean;
 }
 
 const nParticles = 12;
@@ -17,7 +17,7 @@ function mulberry32(a: number) {
     };
 }
 
-export function Particle({ seed, isOpen }: Props) {
+export function Particle({ seed, isActive }: Props) {
     const shockWave = {
         hidden: { opacity: 1, scale: 1 },
         shown: {
@@ -87,7 +87,7 @@ export function Particle({ seed, isOpen }: Props) {
         <motion.div
             variants={shockWave}
             initial='hidden'
-            animate={isOpen ? 'shown' : 'hidden'}
+            animate={isActive ? 'shown' : 'hidden'}
             className='absolute bottom-0 right-0 m-2 h-12 w-12'
         >
             {angles.map((angle, i) => (

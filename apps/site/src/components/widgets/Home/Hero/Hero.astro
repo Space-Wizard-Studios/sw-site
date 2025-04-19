@@ -9,9 +9,17 @@ export interface Props {
 }
 
 const { className } = Astro.props as Props;
+// bellow you'll see a hacky way of hiding the hero
+// it happens after scrolling 50% of the page 
+// so it doesn't mess with the footer clip path to transparent
+// please don't look at this too much
 ---
-
-<div class={cn('flex flex-col relative w-full h-screen overflow-hidden', className)}>
+<div 
+class={cn(
+'sw-animation sw-root-scroll sw-opacity-down',
+'flex flex-col relative w-full h-screen overflow-hidden', className)}
+style='--root-scroll-entry: 50%; --root-scroll-exit: 50%;'
+>
     <picture>
         <source media='(max-width: 767px)' srcset={heroImageMobile.src} />
         <source media='(min-width: 768px)' srcset={heroImageDesktop.src} />

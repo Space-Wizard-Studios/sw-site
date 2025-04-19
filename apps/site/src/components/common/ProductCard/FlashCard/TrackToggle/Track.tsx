@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ChevronRight } from '@icons/ProductCardIcons';
 
 interface Props {
-    isOpen: boolean;
+    isActive: boolean;
     constraintsRef: React.Ref<HTMLDivElement>;
 }
 
@@ -46,9 +46,9 @@ const item = {
     },
 };
 
-export function Track({ isOpen, constraintsRef }: Props) {
+export function Track({ isActive, constraintsRef }: Props) {
     return (
-        <motion.div animate={{ opacity: isOpen ? 0 : 1 }} ref={constraintsRef}>
+        <motion.div animate={{ opacity: isActive ? 0 : 1 }} ref={constraintsRef}>
             <div className='bg-sw-secondary-900 dark:bg-sw-primary-900 absolute bottom-3 left-6 right-6 mx-auto my-3 h-4 rounded-full'>
                 <div className='relative h-full w-full'>
                     <motion.div

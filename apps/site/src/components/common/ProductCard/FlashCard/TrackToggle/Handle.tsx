@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Rocket } from '@icons/ProductCardIcons';
 
 interface Props {
-    isOpen: boolean;
+    isActive: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     setHasMoved: React.Dispatch<React.SetStateAction<boolean>>;
     targetRef: React.RefObject<HTMLElement>;
@@ -42,7 +42,7 @@ const variants = {
     }),
 };
 
-export function Handle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef }: Props) {
+export function Handle({ isActive, setOpen, setHasMoved, targetRef, constraintsRef }: Props) {
     const [clickDistance, setClickDistance] = useState(0);
     const [clickOpen, setClickOpen] = useState(false);
     const [isMoving, setIsMoving] = useState(false);
@@ -50,22 +50,22 @@ export function Handle({ isOpen, setOpen, setHasMoved, targetRef, constraintsRef
     const ref = useRef<HTMLButtonElement>(null);
 
     function handleClick() {
-        if (!isOpen && getNormDistance(ref, targetRef, constraintsRef) < 0.5) {
+        if (!isActive && getNormDistance(ref, targetRef, constraintsRef) < 0.5) {
             return;
         }
 
-        setClickDistance(!isOpen ? getDistance(ref, targetRef) : 0);
-        setClickOpen(!isOpen);
+        setClickDistance(!isActive ? getDistance(ref, targetRef) : 0);
+        setClickOpen(!isActive);
         setIsMoving(true);
 
         setHasMoved(true);
 
         setTimeout(
             () => {
-                setOpen(!isOpen);
+                setOpen(!isActive);
                 setIsMoving(false);
             },
-            isOpen ? closeDuration * 100 : openDuration * 1000 - 100,
+            isActive ? closeDuration * 100 : openDuration * 1000 - 100,
         );
     }
 

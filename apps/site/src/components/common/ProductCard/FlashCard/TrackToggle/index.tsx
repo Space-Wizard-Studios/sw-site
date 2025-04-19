@@ -9,11 +9,11 @@ import { SpeechBubble } from '@common/SpeechBubble';
 interface Props {
     index: number;
     tooltip: boolean;
-    isOpen: boolean;
+    isActive: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Toggle({ index, tooltip, isOpen, setOpen }: Props) {
+export function Toggle({ index, tooltip, isActive, setOpen }: Props) {
     const [hasMoved, setHasMoved] = useState(false);
 
     const constraintsRef = useRef<HTMLDivElement>(null);
@@ -21,11 +21,11 @@ export function Toggle({ index, tooltip, isOpen, setOpen }: Props) {
 
     return (
         <div className='relative h-16 w-full grow'>
-            <Track isOpen={isOpen} constraintsRef={constraintsRef} />
-            <Target isOpen={isOpen} targetRef={targetRef} />
-            <Particle seed={index} isOpen={isOpen} />
+            <Track isActive={isActive} constraintsRef={constraintsRef} />
+            <Target isActive={isActive} targetRef={targetRef} />
+            <Particle seed={index} isActive={isActive} />
             <Handle
-                isOpen={isOpen}
+                isActive={isActive}
                 setOpen={setOpen}
                 setHasMoved={setHasMoved}
                 targetRef={targetRef}

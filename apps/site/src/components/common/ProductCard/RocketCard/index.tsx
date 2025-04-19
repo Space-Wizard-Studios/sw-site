@@ -87,12 +87,12 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                     'relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl p-4',
                     'bg-radial-[at_15%_15%]',
                     'text-on-surface from-surface-container-low/60 to-surface-container/60 backdrop-blur-md',
-                    'shadow-lg transition-all duration-300',
-                    isActive ? 'shadow-primary/15 hover:shadow-primary/20' : 'hover:shadow-primary/10',
+                    'transition-shadow duration-300',
+                    isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
                 )}
             >
                 <ProductFront title={title} subtitle={subtitle} />
-                <ProductBack isOpen={isActive} description={description} />
+                <ProductBack isActive={isActive} description={description} />
                 <div className={`flex flex-row justify-center`}>
                     <motion.div
                         style={{

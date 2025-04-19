@@ -6,12 +6,12 @@ import { useInView } from 'motion/react';
 import Icon from '@common/3d-models/IconModel.dev';
 
 interface Props {
-    isOpen: boolean;
+    isActive: boolean;
     modelPath: string;
     modelColor: number;
 }
 
-export function ProductCanvas({ isOpen, modelPath, modelColor }: Props) {
+export function ProductCanvas({ isActive, modelPath, modelColor }: Props) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -24,7 +24,7 @@ export function ProductCanvas({ isOpen, modelPath, modelColor }: Props) {
                 <Icon
                     modelPath={modelPath}
                     modelColor={modelColor}
-                    isOpen={isOpen}
+                    isActive={isActive}
                     isInView={isInView}
                     position={[0, 0, 0]}
                     rotation={[0, 0.12, -0.12]}

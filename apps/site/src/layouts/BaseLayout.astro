@@ -5,6 +5,7 @@
 // import '@styles/text.scss';
 
 import MetaTags from '@common/MetaTags.astro';
+import { getInitialTheme, applyTheme } from '@helpers/getInitialTheme';
 
 import type { MetaSEO } from 'types/metaseo';
 import { config } from '@config.js';
@@ -23,16 +24,27 @@ const { meta } = Astro.props as Props;
 <!doctype html>
 <html lang='pt' class='motion-safe:scroll-smooth'>
     <head>
+        <script
+        is:inline 
+        define:vars={{ getInitialThemeFn: getInitialTheme.toString(), applyThemeFn: applyTheme.toString() }}
+        >
+            (function() {
+                // Define functions in client scope
+                // Get and apply theme before any rendering
+                const getInitialTheme = eval(`(${getInitialThemeFn})`);
+                const applyTheme = eval(`(${applyThemeFn})`);
+                const theme = getInitialTheme();
+                applyTheme(theme);
+            })();
+        </script>
         <MetaTags {...meta} />
     </head>
 
-    <body class='relative flex flex-col w-full overflow-x-hidden'>
+    <body class='relative flex flex-col w-full overflow-x-hidden bg-surface-bright'>
         <Header />
         <main class='flex flex-col w-full min-h-dvh'>
             <slot />
         </main>
-        <div id='aaaaa' class='absolute w-full h-96  bottom-0 bg-surface-bright'></div>
-
-            <Footer />
+        <Footer />
     </body>
 </html>

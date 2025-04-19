@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 interface Props {
     name: string;
     photoSrc: string;
-    isOpen: boolean;
+    isActive: boolean;
 }
 
 const variants = {
@@ -15,12 +15,12 @@ const variants = {
     },
 };
 
-export function MemberPicture({ name, photoSrc, isOpen }: Props) {
+export function MemberPicture({ name, photoSrc, isActive }: Props) {
     return (
         <motion.div
             variants={variants}
             initial='closed'
-            animate={isOpen ? 'opened' : 'closed'}
+            animate={isActive ? 'opened' : 'closed'}
             className='absolute flex h-24 w-full content-center items-center justify-center'
         >
             <motion.div
@@ -33,7 +33,7 @@ export function MemberPicture({ name, photoSrc, isOpen }: Props) {
                         ease: 'linear',
                     },
                 }}
-                className='from-sw-navy-800 via-sw-navy-400 to-sw-navy-800 dark:from-sw-flamingo-800 dark:via-sw-flamingo-400 dark:to-sw-flamingo-800 absolute -mt-8 h-[6.5rem] w-[6.5rem] rounded-full bg-gradient-to-bl'
+                className='sw-reflected-gradient absolute -mt-8 h-[6.5rem] w-[6.5rem] rounded-full'
             >
                 <div className='w-full'></div>
             </motion.div>

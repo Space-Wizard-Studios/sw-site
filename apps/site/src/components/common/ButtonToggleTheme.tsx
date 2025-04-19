@@ -1,58 +1,29 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Sun, Moon, Cloud, Stars } from '@icons/SkyIcons';
+
 import { cn } from '@helpers/cn';
+import { getInitialTheme, applyTheme } from '@helpers/getInitialTheme';
 
 export interface ButtonToggleThemeProps {
     className?: string;
 }
 
-// Add this function outside your components
-function getInitialTheme() {
-    // Check if we're in the browser
-    if (typeof window !== 'undefined') {
-        // First check localStorage
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            return savedTheme;
-        }
-
-        // If no saved preference, check system preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return prefersDark ? 'dark' : 'light';
-    }
-
-    // Default to light if not in browser
-    return 'light';
-}
-
-// Initialize theme before React hydrates
-if (typeof window !== 'undefined') {
-    const initialTheme = getInitialTheme();
-    if (initialTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-}
-
 export default function ButtonToggleTheme({ className = '', ...props }: ButtonToggleThemeProps) {
-    const [showButton, setShowButton] = useState(false);
+    // Use a placeholder initial state that will be updated after mount
+    const [isMounted, setIsMounted] = useState(false);
+    const [theme, setTheme] = useState('light'); // Always start with light for SSR
 
+    // Apply the theme after component mounts
     useEffect(() => {
-        setShowButton(true);
+        const initialTheme = getInitialTheme();
+        setTheme(initialTheme);
+        setIsMounted(true);
+        applyTheme(initialTheme);
     }, []);
 
-    return showButton && <Button className={className} {...props} />;
-}
-
-function Button({ className = '', ...props }: ButtonToggleThemeProps) {
-    const [theme, setTheme] = useState(getInitialTheme());
-
     const setMode = (theme: string) => {
-        if (theme === 'dark') document.documentElement.classList.add('dark');
-        else document.documentElement.classList.remove('dark');
-
+        applyTheme(theme);
         window.localStorage.setItem('theme', theme);
         setTheme(theme);
     };
@@ -62,6 +33,22 @@ function Button({ className = '', ...props }: ButtonToggleThemeProps) {
         else setMode('dark');
     };
 
+    // Render a simplified version during SSR and first render
+    if (!isMounted) {
+        return (
+            <button
+                type='button'
+                className={cn('relative items-center overflow-hidden rounded-lg p-3', className)}
+                aria-label='Alternar tema (claro/escuro)'
+            >
+                <div className='h-5 w-5'>
+                    <Sun fillColor='#F0F6FF' />
+                </div>
+            </button>
+        );
+    }
+
+    // Full interactive version after hydration
     return (
         <motion.button
             type='button'

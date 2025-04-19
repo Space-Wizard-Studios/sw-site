@@ -33,7 +33,7 @@ export function ProductsContent({ className }: Props) {
         },
         {
             index: 1,
-            title: 'Sistemas Web acessíveis e responsivos',
+            title: 'Sistemas Web',
             subtitle: 'Sites, páginas e plataformas que engajam de verdade.',
             description: (
                 <>
