@@ -1,0 +1,35 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+import { cn } from '@helpers/cn';
+
+export interface Props {
+    mobileImagePath: ImageMetadata;
+    desktopImagePath: ImageMetadata;
+    className?: string;
+    imgClassName?: string;
+}
+
+const { mobileImagePath, desktopImagePath, className, imgClassName } = Astro.props as Props;
+
+const mobileImage = await getImage({ src: mobileImagePath, format: 'webp', quality: 100 });
+const desktopImage = await getImage({ src: desktopImagePath, format: 'webp', quality: 100 });
+
+---
+<div class={cn(
+        'flex flex-col relative w-full h-screen overflow-hidden pointer-events-none', 
+        className )}>
+    <picture>
+        <source media='(max-width: 767px)' srcset={mobileImage?.src} />
+        <source media='(min-width: 768px)' srcset={desktopImage?.src} />
+        <img
+            src={desktopImage?.src}
+            width={desktopImage?.attributes.width}
+            height={desktopImage?.attributes.height}
+            alt='Banner da nossa mascote no espaço.'
+            class={cn('relative w-screen h-screen object-cover', imgClassName)}
+            loading='eager'
+        />
+    </picture>
+</div>
