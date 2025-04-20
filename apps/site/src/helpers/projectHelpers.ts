@@ -1,8 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import type { z } from 'astro:content';
 
 import { slugify } from '@helpers/slugify';
-import { projectSchema } from '@schemas/projectSchema';
 
 // Define the proper type for a project using the Zod schema
 export type Project = CollectionEntry<'projects'>;

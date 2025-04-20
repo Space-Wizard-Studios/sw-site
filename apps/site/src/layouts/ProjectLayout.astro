@@ -1,11 +1,11 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
 
-import ProjectHero from '@widgets/projects/ProjectHero.astro';
-import ProjectCarousel from '@widgets/projects/ProjectCarousel.astro';
-import ProjectPartners from '@widgets/projects/ProjectPartners.astro';
-import type { ImageProps } from '@widgets/projects/ProjectCarousel.astro';
-import type { PartnersProps } from '@widgets/projects/ProjectPartners.astro';
+// import ProjectHero from '@widgets/projects/ProjectHero.astro';
+// import ProjectCarousel from '@widgets/projects/ProjectCarousel.astro';
+// import ProjectPartners from '@widgets/projects/ProjectPartners.astro';
+// import type { ImageProps } from '@widgets/projects/ProjectCarousel.astro';
+// import type { PartnersProps } from '@widgets/projects/ProjectPartners.astro';
 
 import DividerArrowDown from '@common/dividers/DividerArrowDown.astro';
 
@@ -16,22 +16,23 @@ type Props = {
 	heroSrc?: string;
 	heroTitle?: string;
 	heroAltText?: string;
-	carousel?: ImageProps[];
-	partners?: PartnersProps[];
+	// carousel?: ImageProps[];
+	// partners?: PartnersProps[];
 };
 
-const { meta, heroSrc, heroTitle, heroAltText, carousel, partners } = Astro.props as Props;
+// const { meta, heroSrc, heroTitle, heroAltText, carousel, partners } = Astro.props as Props;
+const { meta } = Astro.props as Props;
 ---
 
 <Layout meta={meta}>
 	<div class="min-h-screen spacewiz__container">
 		<div class="pb-8 min-h-screen bg-sw-secondary-200 dark:bg-sw-primary-700">
-			{heroSrc && <ProjectHero heroSrc={heroSrc} heroTitle={heroTitle} heroAltText={heroAltText} />}
+			<!-- {heroSrc && <ProjectHero heroSrc={heroSrc} heroTitle={heroTitle} heroAltText={heroAltText} />} -->
 			<article class="px-8">
 				<slot/>
 			</article>
-			{!!carousel?.length && <ProjectCarousel images={carousel} class="px-8" />}
-			{!!partners?.length && <ProjectPartners partners={partners} class="px-8" />}
+			<!-- {!!carousel?.length && <ProjectCarousel images={carousel} class="px-8" />} -->
+			<!-- {!!partners?.length && <ProjectPartners partners={partners} class="px-8" />} -->
 		</div>
 	</div>
 	<DividerArrowDown class="w-full fill-sw-secondary-200 dark:fill-sw-primary-700 bg-sw-coal-500" />

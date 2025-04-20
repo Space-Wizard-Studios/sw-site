@@ -536,7 +536,7 @@ export function RocketToggle() {
             >
                 <div
                     className={cn(
-                        'bg-inverse-surface text-inverse-on-surface border-sw-primary flex h-14 w-14 cursor-pointer items-center justify-center rounded-full p-6',
+                        'bg-inverse-surface text-inverse-on-surface border-sw-primary flex h-12 w-12 cursor-pointer items-center justify-center rounded-full p-4',
                     )}
                     style={{
                         transition: 'transform 0.15s ease-out',
@@ -544,13 +544,13 @@ export function RocketToggle() {
                     }}
                 >
                     <motion.div
-                        className='flex h-12 w-12 items-center justify-center'
+                        className='flex h-10 w-10 items-center justify-center'
                         transition={{
                             repeat: isMoving ? Infinity : 0,
                             duration: 0.5,
                         }}
                     >
-                        <Rocket flames={isMoving ? 1 : 0} className='text-sw-primary h-8 w-8' />
+                        <Rocket flames={isMoving ? 1 : 0} className='text-sw-primary h-6 w-6' />
                     </motion.div>
                 </div>
             </motion.div>

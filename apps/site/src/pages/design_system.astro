@@ -1,9 +1,11 @@
 ---
 import Layout from '@layouts/PageLayout.astro';
+import { cn } from '@helpers/cn';
 
 // Define the color components
-const ColorBox = ({ bg, text }) => {
-    return `<div class='flex flex-row w-full p-4 ${bg} ${text} rounded-lg justify-between items-center'>
+const ColorBox = ({ bg, text, className }) => {
+    const style = cn('flex flex-row w-full p-4, rounded-lg justify-between items-center', bg, text, className);
+    return `<div class='${style}'>
     <p>${bg}</p>
     <p>${text}</p>
   </div>`;
@@ -11,15 +13,15 @@ const ColorBox = ({ bg, text }) => {
 
 // Define specific color components
 const PrimaryBox = ({ className = '' }) => {
-    return ColorBox({ bg: 'bg-primary', text: 'text-on-primary' });
+    return ColorBox({ bg: 'bg-primary', text: 'text-on-primary', className: className });
 };
 
 const SecondaryBox = ({ className = '' }) => {
-    return ColorBox({ bg: 'bg-secondary', text: 'text-on-secondary' });
+    return ColorBox({ bg: 'bg-secondary', text: 'text-on-secondary', className: className });
 };
 
 const AccentBox = ({ className = '' }) => {
-    return ColorBox({ bg: 'bg-accent', text: 'text-on-accent' });
+    return ColorBox({ bg: 'bg-accent', text: 'text-on-accent', className: className });
 };
 ---
 

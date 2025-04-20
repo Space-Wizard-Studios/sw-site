@@ -13,8 +13,8 @@ const {
         nofollow: false,
     },
     og = {
-        image: config.defaultImage,
         title: title,
+        image: config.defaultImage,
         type: 'website',
     },
 } = Astro.props as MetaSEO;
@@ -26,18 +26,18 @@ const {
 <link rel='sitemap' href='/sitemap-index.xml' />
 
 <SEO
-    canonical={''}
+    canonical={title}
     title={''}
-    description={''}
-    noindex={false}
-    nofollow={false}
+    description={description}
+    noindex={robots.noindex}
+    nofollow={robots.nofollow}
     languageAlternates={[]}
     openGraph={{
         basic: {
-            title: 'title',
-            type: 'type',
-            image: 'image',
-            url: canonical,
+            title: og.title ?? '',
+            image: og.image ?? '',
+            type: og.type ?? '',
+            url: canonical ?? '',
         },
         optional: {
             description: 'description',

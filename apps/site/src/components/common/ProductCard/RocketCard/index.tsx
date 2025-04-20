@@ -101,7 +101,7 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                         }}
                         ref={planetRefs[index]}
                         onClick={handlePlanetClick}
-                        className='bg-inverse-surface text-inverse-on-surface z-50 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full p-2'
+                        className='bg-inverse-surface text-inverse-on-surface z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full p-2'
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 1.1 }}
                     >
