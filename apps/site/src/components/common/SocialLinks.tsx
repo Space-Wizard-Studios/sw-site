@@ -10,9 +10,9 @@ import {
     Portfolio,
     SoundCloud,
     YouTube,
-} from '@icons/ProductCardIcons';
+} from '@icons/Icons';
 
-import type { IconProps } from '@icons/ProductCardIcons';
+import type { IconProps } from '@icons/Icons';
 
 export type SocialLinkItem = {
     name: string;

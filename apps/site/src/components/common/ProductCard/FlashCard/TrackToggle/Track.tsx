@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ChevronRight } from '@icons/ProductCardIcons';
+import { ChevronRight } from '@icons/Icons';
 
 interface Props {
     isActive: boolean;

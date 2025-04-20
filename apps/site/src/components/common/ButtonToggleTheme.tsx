@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { Sun, Moon, Cloud, Stars } from '@icons/SkyIcons';
+import { Sun, Moon, Cloud, Stars } from '@icons/ThemeIcons';
 
 import { cn } from '@helpers/cn';
 import { getInitialTheme, applyTheme } from '@helpers/getInitialTheme';

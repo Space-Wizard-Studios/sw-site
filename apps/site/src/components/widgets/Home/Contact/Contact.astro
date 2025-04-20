@@ -10,21 +10,25 @@ const { className } = Astro.props as Props;
 
 <div class={cn('flex my-8', className)}>
     <div class='w-full flex'>
-        <div class='w-full h-auto bg-sw-coal hidden lg:block lg:w-2/5 rounded-l-2xl overflow-hidden'>
-            <img
-                class='w-full h-full contain'
-                src='/images/cosmonaut_suit.png'
-                title='Cosmonaut suit'
-                alt='Russian cosmonaut space suit in museum.'
-            />
-        </div>
         <div
-            class='flex items-center content-center w-full p-4 lg:p-8 rounded-2xl lg:rounded-l-none shadow-md bg-gradient-to-b from-sw-secondary-300 to-sw-secondary-600 dark:from-sw-primary-600 dark:to-sw-primary-800'
+            class={cn('flex h-full w-full flex-row overflow-hidden rounded-2xl',
+        'bg-radial-[at_15%_15%]',
+        'from-surface-container-low/60 to-surface-container/60',
+        'text-on-surface backdrop-blur-md',
+        'transition-shadow duration-300',
+        'hover:shadow-primary/10 shadow-xl')}
         >
+
+        <img
+        class='w-1/3 h-full contain'
+        src='/images/cosmonaut_suit.png'
+        title='Cosmonaut suit'
+        alt='Russian cosmonaut space suit in museum.'
+    />
             <div class='grid grid-cols-1 gap-4 lg:gap-8'>
                 <div class='p-2 flex flex-wrap gap-4'>
                     <div class='flex flex-row gap-4 items-center'>
-                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo'>
+                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy'>
                             <!-- TODO -->
                             <!-- <Icon name='mdi:email' class='text-sw-secondary dark:text-sw-primary' /> -->
                         </div>

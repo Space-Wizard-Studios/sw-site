@@ -1,7 +1,7 @@
 ---
 import heroImageMobile from '/public/images/hero_sm.png';
 import heroImageDesktop from '/public/images/hero_md.png';
-import DividerWave from '@common/dividers/DividerWave.astro';
+import DividerWave from '@common/DividerWave.astro';
 import { cn } from '@helpers/cn';
 
 export interface Props {
@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const { className } = Astro.props as Props;
-// bellow you'll see a hacky way of hiding the hero
+// bellow you'll see a hacky way of hiding the fixed hero
 // it happens after scrolling 50% of the page 
 // so it doesn't mess with the footer clip path to transparent
 // please don't look at this too much

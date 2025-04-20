@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Minus, Plus } from '@icons/ProductCardIcons';
+import { Minus, Plus } from '@icons/Icons';
 
 interface Props {
     isActive: boolean;

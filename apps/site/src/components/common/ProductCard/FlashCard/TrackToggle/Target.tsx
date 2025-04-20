@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Planet } from '@icons/ProductCardIcons';
+import { Planet } from '@icons/Icons';
 
 interface Props {
     isActive: boolean;

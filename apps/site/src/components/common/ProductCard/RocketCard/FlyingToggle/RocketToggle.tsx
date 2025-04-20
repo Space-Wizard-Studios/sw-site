@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useAnimationControls } from 'motion/react';
-import { Rocket } from '@icons/ProductCardIcons';
+import { Rocket } from '@icons/Icons';
 import { useProductsContext } from '../ProductsContext';
 import { cn } from '@helpers/cn';
 

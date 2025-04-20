@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion } from 'motion/react';
-import { Planet, Rocket } from '@icons/ProductCardIcons';
+import { Planet, Rocket } from '@icons/Icons';
 import { cn } from '@helpers/cn';
 import { useProductsContext } from './ProductsContext';
 import { ProductFront } from '../ProductFront';
