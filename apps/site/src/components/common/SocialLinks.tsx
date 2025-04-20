@@ -14,23 +14,18 @@ import {
 
 import type { IconProps } from '@icons/ProductCardIcons';
 
-export interface Socials {
-    artstation?: string;
-    github?: string;
-    instagram?: string;
-    imdb?: string;
-    linkedin?: string;
-    linktree?: string;
-    portfolio?: string;
-    soundcloud?: string;
-    youtube?: string;
-}
+export type SocialLinkItem = {
+    name: string;
+    url: string;
+};
+export type Socials = SocialLinkItem[];
 
 type Social = {
     name: string;
     icon: (props: IconProps) => JSX.Element;
 };
 
+// Keep the socials object for icon lookup
 export const socials: Record<string, Social> = {
     artstation: {
         name: 'Artstation',

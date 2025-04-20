@@ -1,7 +1,7 @@
 ---
 import TeamCard from '@common/TeamCard';
-
 import { cn } from '@helpers/cn';
+import { getAllTeamMembers, type ProcessedTeamMember } from '@helpers/teamHelpers';
 
 export interface Props {
     className?: string;
@@ -9,171 +9,19 @@ export interface Props {
 
 const { className } = Astro.props as Props;
 
-import alexImage from '@images/team/alexandre_profile.png';
-import daniloImage from '@images/team/danilo_profile.png';
-import gustavoImage from '@images/team/gustavo_profile.png';
-import rhayaneImage from '@images/team/rhayane_profile.png';
-import ruanImage from '@images/team/ruan_profile.jpg';
-import williamImage from '@images/team/william_profile.png';
-// import barbaraImage from '';
+const teamMembers: ProcessedTeamMember[] = await getAllTeamMembers();
 
 ---
 
-<div class={cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 text-justify my-16', className)}>
-    <TeamCard
-        client:visible
-        name='Alexandre Barbosa'
-        roles={['Generalista de Áudio']}
-        skills={[
-            {
-                name: 'Composição',
-                tooltip: 'Composição Musical',
-            },
-            {
-                name: 'Prod. Musical',
-                tooltip: 'Produção Musical',
-            },
-            {
-                name: 'SFX',
-                tooltip: 'Sound Effects',
-            },
-        ]}
-        links={{
-            imdb: 'https://www.imdb.com/name/nm11223910/',
-            linkedin: 'https://www.linkedin.com/in/alexandre-barbosa-083b83b4/',
-            youtube: 'https://www.youtube.com/channel/UCYSb-3wJyK-L0E9YyHeqkiQ/',
-        }}
-        photoSrc={alexImage.src}
-    />
-    <TeamCard
-        client:visible
-        name='Danilo Nobre'
-        roles={['Generalista 3D']}
-        skills={[
-            {
-                name: 'Modelagem 3D',
-                tooltip: 'Modelagem 3D',
-            },
-            {
-                name: 'Texturização',
-                tooltip: 'Texturização',
-            },
-            {
-                name: 'Rigging',
-                tooltip: 'Rigging',
-            },
-            {
-                name: 'Animação',
-                tooltip: 'Animação',
-            },
-        ]}
-        links={{
-            linkedin: 'https://www.linkedin.com/in/danilo-nobre/',
-        }}
-        photoSrc={daniloImage.src}
-    />
-
-    <TeamCard
-        client:visible
-        name='Gustavo Arantes'
-        roles={['Generalista 2D']}
-        skills={[
-            {
-                name: 'Concept Art',
-                tooltip: 'Concept Art',
-            },
-            {
-                name: 'Ilustração',
-                tooltip: 'Ilustração',
-            },
-        ]}
-        links={{
-            linkedin: 'https://www.linkedin.com/in/gustav-arantes/',
-            portfolio: 'https://gustavarantes.myportfolio.com/',
-        }}
-        photoSrc={gustavoImage.src}
-    />
-
-    <TeamCard
-        client:visible
-        name='Rhayane Miranda'
-        roles={['Social Media']}
-        skills={[
-            {
-                name: 'Conteudista',
-                tooltip: 'Criação de conteúdo para redes sociais',
-            },
-            {
-                name: 'Analytics',
-                tooltip: 'Analytics',
-            },
-        ]}
-        links={{
-            linkedin: 'https://www.linkedin.com/in/rhayane-miranda/',
-        }}
-        photoSrc={rhayaneImage.src}
-    />
-
-    <TeamCard
-        client:visible
-        name='William Magalhães'
-        roles={['Programador Full Stack']}
-        skills={[
-            {
-                name: 'Backend',
-                tooltip: 'Backend',
-            },
-            {
-                name: 'Frontend',
-                tooltip: 'Frontend',
-            },
-            {
-                name: 'Tech Artist',
-                tooltip: 'Tech Artist',
-            },
-        ]}
-        links={{
-            github: 'https://github.com/wbmagalhaes/',
-            linkedin: 'https://www.linkedin.com/in/william-bernardes-magalhaes/',
-        }}
-        photoSrc={williamImage.src}
-    />
-
-    <TeamCard
-        client:visible
-        name='Bárbara Faraco'
-        roles={['User Interface Designer']}
-        skills={[
-            {
-                name: 'UX/UI',
-                tooltip: 'UX/UI',
-            },
-        ]}
-        links={{
-            linkedin: 'https://br.linkedin.com/in/barbara-faraco',
-            portfolio: 'https://www.behance.net/barbarafaraco',
-        }}
-        photoSrc=''
-    />
-
-    <TeamCard
-        client:visible
-        name='Ruan Blotta'
-        roles={['Desenvolvedor Web']}
-        skills={[
-            {
-                name: 'Front End',
-                tooltip: 'Front End',
-            },
-            {
-                name: 'QA',
-                tooltip: 'QA',
-            },
-        ]}
-        links={{
-            github: 'https://github.com/ruanblotta',
-            linkedin: 'https://www.linkedin.com/in/ruanblotta/',
-        }}
-        photoSrc={ruanImage.src}
-    />
+<div class={cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-24 text-justify my-16', className)}>
+    {teamMembers.map((member) => (
+        <TeamCard
+            client:visible
+            name={member.data.name}
+            roles={member.data.roles || []}
+            skills={member.data.skills || []}
+            links={member.data.links || []}
+            photoSrc={member.data.photo?.src || '/images/placeholder.png'}
+        />
+    ))}
 </div>

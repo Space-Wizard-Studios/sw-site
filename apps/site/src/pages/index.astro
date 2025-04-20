@@ -4,8 +4,7 @@ import Layout from '@layouts/PageLayout.astro';
 import type { MetaSEO } from 'types/metaseo';
 import { config } from '@config.js';
 
-import { Hero, Products, About, Team, Contact } from '@widgets/Home/Home.astro';
-import DividerTilt from '@common/dividers/DividerTilt.astro';
+import { Hero, Products, Team, Contact } from '@widgets/Home/Home.astro';
 import { SiteIcon } from '@icons/SiteIcon';
 
 const meta: MetaSEO = {
@@ -39,13 +38,12 @@ const meta: MetaSEO = {
             <div class='sw-container flex flex-col space-y-10 z-20'>
                 <header class='flex flex-col space-y-4'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
-                    <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>🛠 Desenvolvemos ideias</h3>
+                    <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>Desenvolvemos ideias</h3>
                 </header>
                 <Products />
             </div>
-            <!-- <DividerTilt class='absolute -bottom-2 w-full -rotate-180 fill-surface-dim fill-sw-halftone' /> -->
-                <div class='sw-halftone absolute bottom-0 w-full h-24 md:h-56 text-primary bg-surface-dim' 
-                style="clip-path: polygon(0 0, 100% 100%, 0 100%);" />
+            <div class='sw-halftone absolute bottom-0 w-full h-24 md:h-56 text-primary bg-surface-dim' 
+            style="clip-path: polygon(0 0, 100% 100%, 0 100%);" />
         </section>
         
 
@@ -84,7 +82,7 @@ const meta: MetaSEO = {
                 <div class='flex flex-col space-y-4'>
                     <header class='flex flex-col space-y-2'>
                         <h2 class='uppercase text-on-surface'>Quem somos</h2>
-                        <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>🚀 Essa é a nossa tripulação</h3>
+                        <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>Essa é a nossa tripulação</h3>
                     </header>
                     <Team />
                 </div>
@@ -93,16 +91,19 @@ const meta: MetaSEO = {
 
         <section class='relative flex flex-col w-full bg-surface-bright'>
             <div class='sw-halftone relative bottom-0 w-full h-24 md:h-56 bg-surface-dim text-primary z-20' 
-            style="clip-path: polygon(100% 100%, 100% 0, 0 0);" />
-        </div>
+                style="clip-path: polygon(100% 100%, 100% 0, 0 0);">
+            </div>
+        </section>
             
         <section class='relative flex flex-col w-full pb-12 z-20 bg-surface-bright'>
             <div class='sw-container flex flex-col space-y-10'>
-                <header class='flex flex-col space-y-2'>
-                    <h2 class='uppercase text-on-surface'>Entre em contato</h2>
-                    <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>📞 Queremos ouvir a sua história</h3>
-                </header>
-                <Contact />
+                <div class='flex flex-col space-y-4'>
+                    <header class='flex flex-col space-y-2'>
+                        <h2 class='uppercase text-on-surface'>Entre em contato</h2>
+                        <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>Queremos ouvir a sua história</h3>
+                    </header>
+                    <Contact />
+                </div>
             </div>
         </section>
     </div>

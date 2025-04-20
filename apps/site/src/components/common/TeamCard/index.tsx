@@ -37,18 +37,21 @@ export default function TeamCard({ photoSrc, name, roles, skills, links }: Props
             initial='closed'
             animate={isActive ? 'opened' : 'closed'}
             className={cn(
-                'relative grid h-full w-full grid-cols-1 justify-between gap-2 overflow-visible rounded-2xl px-4 pb-4 pt-24',
+                'flex h-full w-full flex-col overflow-visible rounded-2xl p-4',
                 'bg-radial-[at_15%_15%]',
-                'text-on-surface from-surface-container-low/60 to-surface-container/60 backdrop-blur-md',
+                isActive
+                    ? 'from-surface-container-high to-surface-container-highest'
+                    : 'from-surface-container-low/60 to-surface-container/60',
+                'text-on-surface backdrop-blur-md',
                 'transition-shadow duration-300',
                 isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
             )}
         >
-            <MemberPicture name={name} photoSrc={photoSrc} isActive={isActive} />
-            <MemberInfo name={name} roles={roles} skills={skills} isActive={isActive} />
-            <MemberSocials links={links} isActive={isActive} toggleOpen={toggleOpen} />
+            <div className='relative -mt-12 flex h-full w-full flex-col gap-4'>
+                <MemberPicture name={name} photoSrc={photoSrc} isActive={isActive} />
+                <MemberInfo name={name} roles={roles} skills={skills} isActive={isActive} />
+                <MemberSocials links={links} isActive={isActive} toggleOpen={toggleOpen} />
+            </div>
         </motion.div>
     );
 }
-
-// from-secondary-300 to-secondary-600 text-secondary-500 relative grid grid-cols-1 gap-2 overflow-visible rounded-2xl bg-gradient-to-b px-4 pb-4 pt-24 transition-shadow duration-300

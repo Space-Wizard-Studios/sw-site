@@ -9,9 +9,8 @@ interface Props {
 }
 
 export function MemberSocials({ links, isActive, toggleOpen }: Props) {
-    const links_dict = Object.entries(links);
-    const n_links = links_dict.length;
-
+    const validLinks = links.filter((link) => link && link.name && socials[link.name.toLowerCase()]);
+    const n_links = validLinks.length;
     const variants = {
         hidden: {
             opacity: 0,
@@ -47,25 +46,28 @@ export function MemberSocials({ links, isActive, toggleOpen }: Props) {
                     className='bg-surface-container-lowest flex flex-wrap items-center justify-center gap-2 rounded-full p-2'
                 >
                     <Toggle isActive={isActive} onClick={toggleOpen} />
-
                     <AnimatePresence>
                         {isActive &&
-                            links_dict.map(([key, value], index) => {
+                            validLinks.map((link, index) => {
+                                const socialKey = link.name.toLowerCase();
+                                const socialInfo = socials[socialKey];
+                                const IconComponent = socialInfo.icon;
+
                                 return (
                                     <motion.a
-                                        key={key}
+                                        key={link.name}
+                                        href={link.url}
                                         target='_blank'
-                                        href={value}
+                                        rel='noopener noreferrer'
+                                        title={socialInfo.name}
                                         variants={variants}
                                         custom={index}
                                         initial='hidden'
                                         animate='show'
                                         exit='hide'
-                                        className='bg-surface-container-low text-inverse-on-surface z-0 flex h-12 w-12 flex-row items-center justify-center rounded-full border-none p-2'
+                                        className='bg-surface-container-low text-inverse-on-surface z-0 flex h-10 w-10 flex-row items-center justify-center rounded-full border-none p-2'
                                     >
-                                        {socials[key].icon({
-                                            className: 'm-auto w-8 h-8',
-                                        })}
+                                        <IconComponent className='m-auto h-6 w-6' />
                                     </motion.a>
                                 );
                             })}
