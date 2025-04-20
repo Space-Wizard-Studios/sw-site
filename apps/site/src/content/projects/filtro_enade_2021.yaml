@@ -1,18 +1,24 @@
 title: 'Filtro Enade 2021'
+draft: false
 subtitle: 'Filtro para Instagram'
 summary: 'Um filtro do Instagram gamificado em que o jogador deve piscar para pular os obstáculos e alcançar o seu diploma ao final da aventura!'
-category: 'AR'
+categories:
+    - ''
 tags:
     - 'Augmented Reality'
     - 'Instagram'
     - 'Filter'
+frameworks:
+    - ''
 date: '2022-02'
 hero:
     src: '/src/assets/images/projects/filtro_enade_2021/filtro_enade_2021_hero.png'
     title: 'Banner do projeto Enade#2021'
     altText: 'Banner do projeto Enade#2021'
-carousel: []
-partners: []
+# carousel:
+#     -
+# partners:
+#     -
 content: |
     # Filtro #Enade2021
 

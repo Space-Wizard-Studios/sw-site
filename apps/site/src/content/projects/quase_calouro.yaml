@@ -1,17 +1,23 @@
 title: '@quasecalouro'
+draft: false
 subtitle: 'Landing page baseada em Wordpress'
 summary: 'Na plataforma, os estudantes puderam acompanhar a conteúdos exclusivos na plataforma (material didático, video-aulas e etc).'
-category: 'Web'
+categories:
+    - ''
 tags:
     - 'Landing page'
     - 'Wordpress'
+frameworks:
+    - ''
 date: '2020-12'
 hero:
     src: '/src/assets/images/projects/quasecalouro/quasecalouro_hero.png'
     title: 'Banner do projeto @quasecalouro'
     altText: 'Banner do projeto @quasecalouro'
-carousel: []
-partners: []
+# carousel:
+#     -
+# partners:
+#     -
 content: |
     # @quasecalouro
 

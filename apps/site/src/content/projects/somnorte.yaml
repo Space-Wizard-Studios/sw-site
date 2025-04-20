@@ -1,14 +1,20 @@
 title: 'Somnorte'
+draft: false
 subtitle: ''
 summary: ''
-category: ''
+categories:
+    - ''
 tags:
+    - ''
+frameworks:
     - ''
 date: 'YYYY-MM'
 hero:
     src: '/src/assets/images/projects/filtro_enade_2021/filtro_enade_2021_hero.png'
     title: ''
     altText: ''
-carousel: []
-partners: []
+# carousel:
+#     -
+# partners:
+#     -
 content: |

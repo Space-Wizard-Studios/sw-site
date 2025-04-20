@@ -7,12 +7,13 @@ export const projectSchema = z
         draft: z.boolean().optional(),
         subtitle: z.string().optional(),
         summary: z.string().optional(),
-        category: z.string().optional(),
+        categories: z.array(z.string()).optional(),
         tags: z.array(z.string()).optional(),
+        frameworks: z.array(z.string()).optional(),
         date: z.string().optional(),
         hero: z
             .object({
-                src: z.string().optional(),
+                src: z.string(),
                 title: z.string().optional(),
                 alt: z.string().optional(),
             })
@@ -21,8 +22,8 @@ export const projectSchema = z
             .array(
                 z.object({
                     src: z.string(),
-                    title: z.string(),
-                    alt: z.string(),
+                    title: z.string().optional(),
+                    alt: z.string().optional(),
                 }),
             )
             .optional(),
@@ -33,8 +34,8 @@ export const projectSchema = z
                 title: z.string(),
                 description: z.string().optional(),
                 robots: z.object({
-                    noindex: z.boolean(),
-                    nofollow: z.boolean(),
+                    noindex: z.boolean().optional(),
+                    nofollow: z.boolean().optional(),
                 }),
                 og: z.object({
                     title: z.string().optional(),

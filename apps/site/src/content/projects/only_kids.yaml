@@ -1,17 +1,23 @@
 title: 'Loja Virtual Only Kids'
+draft: false
 subtitle: 'Loja Virtual Integrada às lojas Facebook e Instagram'
 summary: 'Ambiente em Wordpress com integração e automação às lojas do Facebook, Instagram e sistema Bling ERP.'
-category: 'Web'
+categories:
+    - ''
 tags:
     - 'WooCommerce'
     - 'Wordpress'
+frameworks:
+    - ''
 date: '2021-03'
 hero:
     src: '/src/assets/images/projects/only_kids/only_kids_hero.png'
     title: 'Banner do projeto Loja Virtual Only Kids'
     altText: 'Banner do projeto Loja Virtual Only Kids'
-carousel: []
-partners: []
+# carousel:
+#     -
+# partners:
+#     -
 content: |
     # Loja Virtual Only Kids
 

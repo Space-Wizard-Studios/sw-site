@@ -1,17 +1,23 @@
 title: 'Mathematical!'
+draft: false
 subtitle: 'Jogo educativo para mobile'
 summary: "Um shoot'em up gratuito em que o jogador deve completar desafios matemáticos para avançar pelos níveis enquanto destrói os inimigos de cada fase!"
-category: 'Game'
+categories:
+    - ''
 tags:
     - 'Mobile Game'
     - 'Unity 3D'
+frameworks:
+    - ''
 date: '2016-10'
 hero:
     src: '/src/assets/images/projects/mathematical/mathematical_hero.png'
     title: 'Banner do projeto Mathematical!'
     altText: 'Banner do projeto Mathematical!'
-carousel: []
-partners: []
+# carousel:
+#     -
+# partners:
+#     -
 content: |
     # Mathematical!
 

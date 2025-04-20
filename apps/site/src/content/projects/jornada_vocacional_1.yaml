@@ -1,15 +1,21 @@
 title: 'Jornada Vocacional 1'
+draft: false
 subtitle: 'Experiência Interativa (Web)'
 summary: 'A Jornada Vocacional UNICEPLAC foi uma experiência voltada à estudantes do Ensino Médio, que interagiram com o conteúdo do Centro Universitário.'
-category: 'Web'
+categories:
+    - ''
 tags: []
+frameworks:
+    - ''
 date: '2020-10'
 hero:
     src: '/src/assets/images/projects/jornada_1/jornada_1_hero.png'
     title: 'Banner do projeto Jornada Vocacional 1'
     altText: ''
-carousel: []
-partners: []
+# carousel:
+#     -
+# partners:
+#     -
 content: |
     # Jornada Vocacional (1º Edição)
 
