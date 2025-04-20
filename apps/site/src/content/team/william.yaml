@@ -1,0 +1,17 @@
+name: William Magalhães
+draft: false
+roles:
+    - Programador Full Stack
+skills:
+    - name: Backend
+      tooltip: Backend
+    - name: Frontend
+      tooltip: Frontend
+    - name: Tech Artist
+      tooltip: Tech Artist
+links:
+    - name: github
+      url: https://github.com/wbmagalhaes/
+    - name: linkedin
+      url: https://www.linkedin.com/in/william-bernardes-magalhaes/
+photoSrc: /images/team/william.png

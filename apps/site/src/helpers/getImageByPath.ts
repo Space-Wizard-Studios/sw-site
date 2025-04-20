@@ -55,11 +55,26 @@ export async function getImageByPath(
     // Merge provided options with defaults
     const optionsConfig = { ...DEFAULT_IMAGE_OPTIONS, ...options };
 
-    const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-    const imageModule = allImages[normalizedPath];
+    // Determine the correct key for the allImages map based on the input path format
+    let lookupKey: string;
+    if (path.startsWith('/src/assets/images/')) {
+        // Path already matches the expected glob key format
+        lookupKey = path;
+    } else if (path.startsWith('/images/')) {
+        // Path starts with /images/, prepend /src/assets to match the glob key format
+        lookupKey = `/src/assets${path}`;
+    } else {
+        // Handle other potential formats or log a warning
+        // Assuming it might be relative to '/src/assets/images/' if no known prefix is found
+        lookupKey = `/src/assets/images/${path.replace(/^\//, '')}`; // Remove leading slash if present before prepending
+        console.warn(`Image path "${path}" has an unexpected format. Assuming it's relative to /src/assets/images/ and resolved to "${lookupKey}".`);
+    }
+
+    const imageModule = allImages[lookupKey];
 
     if (!imageModule) {
-        console.warn(`Image not found: ${normalizedPath}`);
+        console.warn(`Image module not found for path: "${path}" (resolved to key: "${lookupKey}")`);
+        console.log('Available image keys:', Object.keys(allImages).join('\n'));
         return null;
     }
 

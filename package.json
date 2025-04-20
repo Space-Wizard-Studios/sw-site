@@ -21,6 +21,9 @@
     },
     "devDependencies": {
         "concurrently": "^9.1.2",
-        "nx": "^20.7.2"
+        "nx": "^20.7.2",
+        "zod": "^3.24.3"
+    },
+    "dependencies": {
     }
 }

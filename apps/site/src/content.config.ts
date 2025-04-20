@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
 
-import { projectSchema } from '@schemas/projectSchema';
-import { policySchema } from '@schemas/policySchema';
+import { projectSchema } from '@shared';
+import { policySchema } from '@shared';
+import { teamSchema } from '@shared';
 
 const projectsCollection = defineCollection({
     type: 'data',
@@ -12,7 +13,12 @@ const policyCollection = defineCollection({
     schema: policySchema,
 });
 
+const teamCollection = defineCollection({
+    schema: teamSchema,
+});
+
 export const collections = {
     projects: projectsCollection,
     policies: policyCollection,
+    team: teamCollection,
 };

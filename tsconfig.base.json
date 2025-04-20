@@ -11,6 +11,10 @@
         "allowSyntheticDefaultImports": true,
         "verbatimModuleSyntax": true,
         "declaration": true,
-        "lib": ["ES2023", "ESNext", "DOM", "WebWorker"]
+        "lib": ["ES2023", "ESNext", "DOM", "WebWorker"],
+        "paths": {
+            "@shared/schemas/*": ["libs/shared/schemas/*"],
+            "@shared/*": ["libs/shared/*"]
+        }
     }
 }

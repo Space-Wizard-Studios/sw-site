@@ -1,18 +1,4 @@
-import { z } from 'astro:content';
-
-// title:
-// subtitle:
-// description:
-// category:
-// tags: []
-// date: ''
-// hero:
-//     src: ''
-//     title: ''
-//     alt: ''
-// carousel: []
-// partners: []
-// content: ''
+import { z } from "zod";
 
 // Define schema for a single language version
 export const projectSchema = z

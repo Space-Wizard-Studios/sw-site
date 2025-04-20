@@ -1,5 +1,5 @@
 {
-    "extends": "astro/tsconfigs/base",
+    "extends": ["astro/tsconfigs/base"],
     "compilerOptions": {
         "baseUrl": ".",
         "outDir": "dist",
@@ -10,6 +10,10 @@
             }
         ],
         "paths": {
+            "@shared/schemas/*": ["../../libs/shared/schemas/*"],
+            "@shared/*": ["../../libs/shared/*"],
+            "@shared": ["../../libs/shared/index.ts"],
+
             "@styles/*": ["src/assets/styles/*"],
             "@images/*": ["src/assets/images/*"],
             "@assets/*": ["src/assets/*"],
@@ -21,7 +25,7 @@
             "@layouts/*": ["src/layouts/*"],
             "@hooks/*": ["src/hooks/*"],
             "types/*": ["src/types/*"],
-            "@*": ["src/*"]
+            "@*": ["src/*"],
         }
     }
 }

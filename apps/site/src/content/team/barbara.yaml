@@ -1,0 +1,16 @@
+name: Bárbara Faraco
+draft: false
+roles:
+    - User Interface Designer
+skills:
+    - name: UX/UI
+      tooltip: UX/UI
+    - name: Design Gráfico
+      tooltip: Design Gráfico
+links:
+    - name: behance
+      url: https://www.behance.net/barbarafaraco
+    - name: linkedin
+      url: https://br.linkedin.com/in/barbara-faraco
+photoSrc: /images/team/barbara.png
+
