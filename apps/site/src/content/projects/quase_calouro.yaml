@@ -1,14 +1,16 @@
 title: '@quasecalouro'
 draft: false
 subtitle: 'Landing page baseada em Wordpress'
-summary: 'Na plataforma, os estudantes puderam acompanhar a conteúdos exclusivos na plataforma (material didático, video-aulas e etc).'
+summary: 'Landing page para capturar leads e oferecer conteúdos exclusivos, como material didático, videoaulas e simulados, com foco em estudantes.'
 categories:
-    - ''
+    - 'Educação'
+    - 'Landing Page'
 tags:
-    - 'Landing page'
     - 'Wordpress'
+    - 'LGPD'
 frameworks:
-    - ''
+    - 'Wordpress'
+    - 'Elementor'
 date: '2020-12'
 hero:
     src: '/src/assets/images/projects/quasecalouro/quasecalouro_hero.png'
@@ -19,20 +21,14 @@ hero:
 # partners:
 #     -
 content: |
-    # @quasecalouro
+    A landing page **@quasecalouro** foi desenvolvida para capturar leads e oferecer uma plataforma rica em conteúdos exclusivos voltados para estudantes. O projeto foi criado com foco em usabilidade, design responsivo e conformidade com as melhores práticas de proteção de dados (LGPD).
 
-    > Landing Page baseada em Wordpress
+    Principais características:
 
-    ## Sobre o Projeto
+    - **Cadastro em Newsletter**: Ferramenta para captar leads e manter os usuários informados.
+    - **Boas práticas LGPD**: Garantia de conformidade com a legislação de proteção de dados.
+    - **Animações em CSS**: Elementos visuais dinâmicos para melhorar a experiência do usuário.
+    - **Design Responsivo**: Compatibilidade com dispositivos móveis e desktops.
+    - **Simulado de Prova (ENADE)**: Funcionalidade interativa para engajar os estudantes.
 
-    Com o objetivo de capturar leads para o cliente, na plataforma os estudantes puderam acompanhar a conteúdos exclusivos na plataforma (material didático, video-aulas e etc).
-
-    - Cadastro em Newsletter
-    - Boas práticas LGPD
-    - Animações em CSS
-    - Design responsivo
-    - Simulado de prova (ENADE)
-
-    ## Tecnologias
-
-    Desenvolvido em **Wordpress** e **Elementor**.
+    O projeto foi desenvolvido utilizando **Wordpress** e **Elementor**, garantindo uma solução flexível e fácil de gerenciar para o cliente.

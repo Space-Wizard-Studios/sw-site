@@ -1,14 +1,16 @@
-title: 'Loja Virtual Only Kids'
+title: 'Only Kids'
 draft: false
-subtitle: 'Loja Virtual Integrada às lojas Facebook e Instagram'
-summary: 'Ambiente em Wordpress com integração e automação às lojas do Facebook, Instagram e sistema Bling ERP.'
+subtitle: 'Loja Virtual Integrada'
+summary: 'Loja virtual desenvolvida em Wordpress com integração ao Facebook, Instagram e sistema Bling ERP, oferecendo automação e experiência otimizada.'
 categories:
-    - ''
+    - 'E-commerce'
+    - 'Integração'
 tags:
     - 'WooCommerce'
     - 'Wordpress'
 frameworks:
-    - ''
+    - 'Wordpress'
+    - 'Elementor'
 date: '2021-03'
 hero:
     src: '/src/assets/images/projects/only_kids/only_kids_hero.png'
@@ -19,21 +21,15 @@ hero:
 # partners:
 #     -
 content: |
-    # Loja Virtual Only Kids
+    A **Loja Virtual Only Kids** foi desenvolvida para oferecer uma experiência de compra fluida e integrada, conectando o e-commerce às plataformas do Facebook, Instagram e ao sistema Bling ERP. O projeto foi criado com foco em automação, usabilidade e design alinhado à identidade da marca.
 
-    > Loja Virtual Integrada às lojas Facebook e Instagram
+    Principais características:
 
-    ## Sobre o Projeto
+    - **Experiência de Usuário (UI/UX)**: Navegação intuitiva e design responsivo para dispositivos móveis e desktops.
+    - **SEO e Captura de Leads**: Otimização para motores de busca e integração com plataformas de análise de dados.
+    - **Resgate de Carrinhos Abandonados**: Funcionalidade para recuperar vendas perdidas.
+    - **Criação de Ofertas e E-mails em Massa**: Ferramentas para campanhas promocionais.
+    - **Pagamento Facilitado**: Suporte a PIX e cartões de crédito.
+    - **Design Personalizado**: Desenvolvido com o Elementor, garantindo flexibilidade e alinhamento com a identidade visual da marca.
 
-    Ambiente em Wordpress com integração e automação às lojas do Facebook, Instagram e sistema Bling ERP.
-
-    - Experiência (UI/UX) fluída;
-    - SEO, captura de Leads e integração à plataformas de Analytics;
-    - Resgate de carrinhos abandonados;
-    - Criação de ofertas e emails em massa;
-    - Pagamento facilitado (PIX e Cartões);
-    - Design elaborado de acordo com a marca da empresa, usando recursos do Elementor.
-
-    ## Tecnologias
-
-    Desenvolvido em **Wordpress** e **Elementor**.
+    O projeto foi construído utilizando **Wordpress** e **Elementor**, garantindo uma solução robusta e fácil de gerenciar para a equipe da Only Kids.

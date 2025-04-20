@@ -1,14 +1,15 @@
 title: 'Mathematical!'
 draft: false
 subtitle: 'Jogo educativo para mobile'
-summary: "Um shoot'em up gratuito em que o jogador deve completar desafios matemáticos para avançar pelos níveis enquanto destrói os inimigos de cada fase!"
+summary: "Um jogo educativo estilo shoot'em up onde o jogador resolve desafios matemáticos para avançar pelos níveis enquanto enfrenta inimigos e desbloqueia melhorias."
 categories:
-    - ''
+    - 'Educação'
+    - 'Jogos'
 tags:
     - 'Mobile Game'
     - 'Unity 3D'
 frameworks:
-    - ''
+    - 'Unity Engine'
 date: '2016-10'
 hero:
     src: '/src/assets/images/projects/mathematical/mathematical_hero.png'
@@ -19,25 +20,23 @@ hero:
 # partners:
 #     -
 content: |
-    # Mathematical!
+    **Mathematical!** é um jogo educativo gratuito que combina ação e aprendizado. No estilo **shoot'em up**, o jogador deve resolver desafios matemáticos para avançar pelos níveis enquanto enfrenta inimigos e desbloqueia melhorias.
 
-    > Jogo educativo para mobile
+    O jogo foi projetado para tornar o aprendizado de matemática divertido e envolvente, com mecânicas que incentivam o raciocínio rápido e a estratégia.
 
-    ## Sobre o Projeto
+    Principais características:
 
-    Um “shoot'em up” gratuito em que o jogador deve completar desafios matemáticos para avançar pelos níveis enquanto destrói os inimigos de cada fase! O jogo inclui várias naves e partículas, permitindo a combinações e melhorias!
+    - **Desafio Progressivo**: Os níveis se tornam progressivamente mais complexos, mantendo o jogador engajado.
+    - **Naves e Efeitos Cosméticos**: Desbloqueie novas naves e personalizações visuais.
+    - **Multilíngua**: Disponível em Espanhol, Inglês, Francês e Português.
+    - **Controles Intuitivos**: Suporte a controles por toque e acelerômetro.
+    - **Plataformas**: Lançado inicialmente para Android e iOS.
 
-    ## Tecnologias
+    Desenvolvido utilizando a poderosa **Unity Engine**, o jogo combina gráficos vibrantes, jogabilidade fluida e uma experiência educativa única.
 
-    Desenvolvido em **Unity Engine**.
+    ### Trailer
 
-    -   Desafio ilimitado: os níveis ficam progressivamente mais complexos;
-    -   Naves e efeitos cosméticos desbloqueáveis;
-    -   Multilíngua: Espanhol, Inglês, Francês e Português;
-    -   Controles: Touch e Acelerômetro;
-    -   Inicialmente lançado para Android e iOS.
-
-    ## Trailer
+    Confira o trailer oficial de **Mathematical!**:
 
     <iframe
         width="100%"

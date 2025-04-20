@@ -1,12 +1,20 @@
-title: 'Jornada Vocacional 3 - Expedição'
+title: 'Jornada Vocacional 3 - @suamulti'
 draft: false
-subtitle: 'Experiência Interativa (Web)'
+subtitle: 'Experiência Interativa Web'
 summary: 'A terceira edição da Jornada Vocacional UNICEPLAC trouxe uma nova experiência, mais leve, rápida e com mais recursos interativos para os usuários!'
 categories:
-    - ''
-tags: []
+    - 'Interatividade'
+    - 'Educação'
+tags:
+    - 'Experiência Interativa'
+    - 'Ensino Médio'
 frameworks:
-    - ''
+    - 'JavaScript'
+    - 'JQuery'
+    - 'AJAX'
+    - 'CakePHP'
+    - 'MySQL'
+    - 'Bootstrap'
 date: '2021-10'
 hero:
     src: '/src/assets/images/projects/jornada_3/jornada_3_hero.png'
@@ -17,21 +25,11 @@ hero:
 # partners:
 #     -
 content: |
-    # Jornada Vocacional - Expedição UNICEPLAC (3ª Edição)
-
-    > Experiência Interativa (Web)
-
-    ## Sobre o Projeto
-
-    A terceira edição da Jornada Vocacional UNICEPLAC trouxe uma nova experiência, mais leve, rápida e com mais recursos interativos para os usuários!
+    A terceira edição da **Jornada Vocacional UNICEPLAC** trouxe uma nova experiência, mais leve, rápida e com mais recursos interativos para os usuários!
 
     - Criação de Avatar;
     - Mapa interativo com pontos de interesse;
     - Diversas melhorias na navegação e responsividade;
     - Composições musicais exclusivas.
 
-    ## Tecnologias
-
-    - Bootstrap, mobile friendly.
-    - Interações em JavaScript, JQuery e AJAX;
-    - Estrutura baseada em CakePHP e MySQL.
+    O projeto foi desenvolvido utilizando **Bootstrap** para garantir compatibilidade com dispositivos móveis, além de **JavaScript**, **JQuery** e **AJAX** para interações dinâmicas. A estrutura foi baseada em **CakePHP** e **MySQL**, garantindo robustez e escalabilidade.

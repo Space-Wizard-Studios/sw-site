@@ -1,12 +1,19 @@
-title: 'Jornada Vocacional 2 - A Batalha'
+title: 'Jornada Vocacional 2 - @suamulti'
 draft: false
-subtitle: 'Experiência Interativa (Web)'
+subtitle: 'Experiência Interativa Web'
 summary: 'Na segunda edição da Jornada Vocacional Uniceplac, houveram diversas melhorias na interface e navegação, além de novos desafios, minigames e conteúdos.'
 categories:
-    - ''
-tags: []
+    - 'Interatividade'
+    - 'Educação'
+tags:
+    - 'Experiência Interativa'
+    - 'Ensino Médio'
 frameworks:
-    - ''
+    - 'JavaScript'
+    - 'JQuery'
+    - 'AJAX'
+    - 'CakePHP'
+    - 'MySQL'
 date: '2021-05'
 hero:
     src: '/src/assets/images/projects/jornada_2/jornada_2_hero.png'
@@ -17,15 +24,10 @@ hero:
 # partners:
 #     -
 content: |
-    # Jornada Vocacional - A Batalha (2º Edição)
+    A segunda edição da **Jornada Vocacional Uniceplac** trouxe diversas melhorias para aprimorar a experiência dos estudantes do Ensino Médio. Entre as novidades, destacam-se:
 
-    > Experiência Interativa (Web)
+    - Melhorias significativas na interface e navegação;
+    - Novos desafios e minigames interativos;
+    - Conteúdos educativos adicionais para explorar vocações.
 
-    ## Sobre o Projeto
-
-    Na segunda edição da Jornada Vocacional Uniceplac, houveram diversas melhorias na interface e navegação, além de novos desafios, minigames e conteúdos. 
-
-    ## Tecnologias
-
-    - Interações em JavaScript, JQuery e AJAX;
-    - Estrutura baseada em CakePHP e MySQL.
+    O projeto foi desenvolvido utilizando **JavaScript**, **JQuery** e **AJAX** para interações dinâmicas, com uma estrutura robusta baseada em **CakePHP** e **MySQL**.
