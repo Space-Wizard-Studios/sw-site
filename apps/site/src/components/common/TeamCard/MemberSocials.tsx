@@ -1,39 +1,31 @@
 import { motion, LayoutGroup, AnimatePresence } from 'motion/react';
-import { socials, type Socials } from '@common/SocialLinks';
+
+import { Socials, type SocialLinkItem } from '@common/SocialLinks';
+import type { ProcessedTeamMember } from '@helpers/collections/teamHelpers';
 import { Toggle } from './Toggle';
 
 interface Props {
-    links: Socials;
+    teamMember: ProcessedTeamMember;
     isActive: boolean;
     toggleOpen: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export function MemberSocials({ links, isActive, toggleOpen }: Props) {
-    const validLinks = links.filter((link) => link && link.name && socials[link.name.toLowerCase()]);
-    const n_links = validLinks.length;
+export function MemberSocials({ teamMember, isActive, toggleOpen }: Props) {
+    const { socials } = teamMember.data;
+    const n_socials = (socials || []).length;
     const variants = {
-        hidden: {
-            opacity: 0,
-            scale: 0,
-            translateX: '-100%',
-        },
+        hidden: { opacity: 0, scale: 0, translateX: '-100%' },
         show: (index: number) => ({
             opacity: 1,
             scale: 1,
             translateX: '0%',
-            transition: {
-                delay: 0.15 * (index + 1),
-                duration: 0.25,
-            },
+            transition: { delay: 0.15 * (index + 1), duration: 0.25 },
         }),
         hide: (index: number) => ({
             opacity: 0,
             scale: 0,
             translateX: '-50%',
-            transition: {
-                delay: 0.075 * (n_links - index),
-                duration: 0.12,
-            },
+            transition: { delay: 0.075 * (n_socials - index), duration: 0.12 },
         }),
     };
 
@@ -48,23 +40,29 @@ export function MemberSocials({ links, isActive, toggleOpen }: Props) {
                     <Toggle isActive={isActive} onClick={toggleOpen} />
                     <AnimatePresence>
                         {isActive &&
-                            validLinks.map((link, index) => {
-                                const socialKey = link.name.toLowerCase();
-                                const socialInfo = socials[socialKey];
-                                const IconComponent = socialInfo.icon;
+                            (socials || []).map((social, index) => {
+                                const socialKey = social.type.toLowerCase();
+                                const IconComponent = Socials[socialKey];
+
+                                if (!IconComponent) {
+                                    console.warn(`[MemberSocials] Icon not found for social type: ${social.type}`);
+                                    return null;
+                                }
 
                                 return (
                                     <motion.a
-                                        key={link.name}
-                                        href={link.url}
+                                        key={social.type}
+                                        href={social.url}
                                         target='_blank'
                                         rel='noopener noreferrer'
-                                        title={socialInfo.name}
+                                        title={social.title}
                                         variants={variants}
                                         custom={index}
                                         initial='hidden'
                                         animate='show'
                                         exit='hide'
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 1.1 }}
                                         className='bg-surface-container-low text-inverse-on-surface z-0 flex h-10 w-10 flex-row items-center justify-center rounded-full border-none p-2'
                                     >
                                         <IconComponent className='m-auto h-6 w-6' />

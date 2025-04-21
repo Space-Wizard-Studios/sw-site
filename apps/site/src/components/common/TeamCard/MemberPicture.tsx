@@ -1,21 +1,21 @@
 import { motion } from 'motion/react';
 
+import type { ProcessedTeamMember } from '@helpers/collections/teamHelpers';
+
 interface Props {
-    name: string;
-    photoSrc: string;
+    teamMember: ProcessedTeamMember;
     isActive: boolean;
 }
 
 const variants = {
-    closed: {
-        scale: 1,
-    },
-    opened: {
-        scale: 1.2,
-    },
+    closed: { scale: 1 },
+    opened: { scale: 1.2 },
 };
 
-export function MemberPicture({ name, photoSrc, isActive }: Props) {
+export function MemberPicture({ teamMember, isActive }: Props) {
+    const { name, photo } = teamMember.data;
+    const photoSrc = photo?.src || '/images/placeholder.png';
+
     return (
         <motion.div
             variants={variants}
@@ -26,12 +26,7 @@ export function MemberPicture({ name, photoSrc, isActive }: Props) {
             <motion.div
                 animate={{
                     rotate: '360deg',
-                    transition: {
-                        repeat: Infinity,
-                        repeatType: 'loop',
-                        duration: 3.5,
-                        ease: 'linear',
-                    },
+                    transition: { repeat: Infinity, repeatType: 'loop', duration: 3.5, ease: 'linear' },
                 }}
                 className='sw-reflected-gradient h-26 w-26 rounded-full'
             >

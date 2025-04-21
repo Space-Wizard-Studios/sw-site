@@ -1,11 +1,15 @@
-type RGB = `rgb(${number}, ${number}, ${number})`;
-type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
-type HEX = `#${string}`;
-type Color = RGB | RGBA | HEX | 'currentColor';
+import type { IconProps } from 'types/iconProps';
 
-export interface IconProps {
-    color?: Color;
-    [x: string]: any;
+export function Menu({ color = 'currentColor', ...props }: IconProps) {
+    return (
+        <svg {...props} xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24'>
+            <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
+                <path d='M5 12H19'></path>
+                <path d='M5 5L19 5'></path>
+                <path d='M5 19L19 19'></path>
+            </g>
+        </svg>
+    );
 }
 
 export function Plus({ color = 'currentColor', ...props }: IconProps) {

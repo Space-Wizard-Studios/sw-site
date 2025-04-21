@@ -1,7 +1,10 @@
 import { type JSX } from 'react';
+import type { IconProps } from 'types/iconProps';
+import type { CollectionEntry } from 'astro:content';
 
 import {
     ArtStation,
+    Behance,
     GitHub,
     Instagram,
     IMDb,
@@ -10,75 +13,23 @@ import {
     Portfolio,
     SoundCloud,
     YouTube,
-} from '@icons/Icons';
-
-import type { IconProps } from '@icons/Icons';
+} from '@icons/Socials';
 
 export type SocialLinkItem = {
-    name: string;
+    type: CollectionEntry<'socials'>['id'];
+    title: string;
     url: string;
 };
-export type Socials = SocialLinkItem[];
 
-type Social = {
-    name: string;
-    icon: (props: IconProps) => JSX.Element;
-};
-
-// Keep the socials object for icon lookup
-export const socials: Record<string, Social> = {
-    artstation: {
-        name: 'Artstation',
-        icon: (props: IconProps): JSX.Element => {
-            return <ArtStation {...props} />;
-        },
-    },
-    github: {
-        name: 'GitHub',
-        icon: (props: IconProps): JSX.Element => {
-            return <GitHub {...props} />;
-        },
-    },
-    instagram: {
-        name: 'Instagram',
-        icon: (props: IconProps): JSX.Element => {
-            return <Instagram {...props} />;
-        },
-    },
-    imdb: {
-        name: 'IMDb',
-        icon: (props: IconProps): JSX.Element => {
-            return <IMDb {...props} />;
-        },
-    },
-    linkedin: {
-        name: 'LinkedIn',
-        icon: (props: IconProps): JSX.Element => {
-            return <LinkedIn {...props} />;
-        },
-    },
-    linktree: {
-        name: 'LinkTree',
-        icon: (props: IconProps): JSX.Element => {
-            return <LinkTree {...props} />;
-        },
-    },
-    portfolio: {
-        name: 'Portfólio',
-        icon: (props: IconProps): JSX.Element => {
-            return <Portfolio {...props} />;
-        },
-    },
-    soundcloud: {
-        name: 'SoundCloud',
-        icon: (props: IconProps): JSX.Element => {
-            return <SoundCloud {...props} />;
-        },
-    },
-    youtube: {
-        name: 'YouTube',
-        icon: (props: IconProps): JSX.Element => {
-            return <YouTube {...props} />;
-        },
-    },
+export const Socials: Record<string, (props: IconProps) => JSX.Element> = {
+    artstation: ArtStation,
+    behance: Behance,
+    github: GitHub,
+    instagram: Instagram,
+    imdb: IMDb,
+    linkedin: LinkedIn,
+    linktree: LinkTree,
+    portfolio: Portfolio,
+    soundcloud: SoundCloud,
+    youtube: YouTube,
 };

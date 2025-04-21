@@ -1,30 +1,24 @@
+// filepath: apps/site/src/components/common/TeamCard/index.tsx
 import { useState } from 'react';
 import { motion } from 'motion/react';
 
-import type { Socials } from '@common/SocialLinks';
 import { MemberPicture } from './MemberPicture';
 import { MemberSocials } from './MemberSocials';
 import { MemberInfo } from './MemberInfo';
 import { cn } from '@helpers/cn';
 
+import type { ProcessedTeamMember } from '@helpers/collections/teamHelpers';
+
 export interface Props {
-    photoSrc: string;
-    name: string;
-    roles: string[];
-    skills: { name: string; tooltip: string }[];
-    links: Socials;
+    teamMember: ProcessedTeamMember;
 }
 
 const variants = {
-    closed: {
-        y: 0,
-    },
-    opened: {
-        y: -8,
-    },
+    closed: { y: 0 },
+    opened: { y: -8 },
 };
 
-export default function TeamCard({ photoSrc, name, roles, skills, links }: Props) {
+export default function TeamCard({ teamMember }: Props) {
     const [isActive, setOpen] = useState(false);
 
     function toggleOpen() {
@@ -48,9 +42,9 @@ export default function TeamCard({ photoSrc, name, roles, skills, links }: Props
             )}
         >
             <div className='relative -mt-12 flex h-full w-full flex-col gap-4'>
-                <MemberPicture name={name} photoSrc={photoSrc} isActive={isActive} />
-                <MemberInfo name={name} roles={roles} skills={skills} isActive={isActive} />
-                <MemberSocials links={links} isActive={isActive} toggleOpen={toggleOpen} />
+                <MemberPicture teamMember={teamMember} isActive={isActive}/>
+                <MemberInfo teamMember={teamMember} isActive={isActive} />
+                <MemberSocials teamMember={teamMember} isActive={isActive} toggleOpen={toggleOpen} />
             </div>
         </motion.div>
     );
