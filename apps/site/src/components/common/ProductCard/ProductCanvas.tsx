@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import { useInView } from 'motion/react';
 
-import Icon from '@common/3d-models/IconModel.dev';
+import Icon from '@common/3DModels/IconModel.dev';
 
 interface Props {
     isActive: boolean;

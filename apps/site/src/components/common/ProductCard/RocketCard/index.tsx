@@ -1,12 +1,9 @@
-import { useRef } from 'react';
 import { motion } from 'motion/react';
-import { Planet, Rocket } from '@icons/Icons';
+import { Planet, Rocket } from '@icons/UI';
 import { cn } from '@helpers/cn';
 import { useProductsContext } from './ProductsContext';
 import { ProductFront } from '../ProductFront';
 import { ProductBack } from '../ProductBack';
-
-import { Target } from './FlyingToggle/Target';
 
 interface Props {
     index: number;
@@ -73,9 +70,8 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
         <motion.div
             className={cn(
                 'relative flex',
-                'min-h-72', // Default height for all cards
+                'min-h-72',
             )}
-            // Use motion animations to adjust card size without affecting the grid
             animate={{
                 scale: isActive ? 1.05 : 1,
                 zIndex: isActive ? 10 : 0,
@@ -94,19 +90,26 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                 <ProductFront title={title} subtitle={subtitle} />
                 <ProductBack isActive={isActive} description={description} />
                 <div className={`flex flex-row justify-center`}>
-                    <motion.div
-                        style={{
-                            // opacity: isActive && rocketVisible ? '0' : '1',
-                            pointerEvents: isActive && rocketVisible ? 'none' : 'auto',
-                        }}
-                        ref={planetRefs[index]}
-                        onClick={handlePlanetClick}
-                        className='bg-inverse-surface text-inverse-on-surface z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full p-2'
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 1.1 }}
-                    >
-                        <Target isActive={isActive} />
-                    </motion.div>
+                    <div className='bg-surface-container-lowest flex flex-wrap items-center justify-center gap-2 rounded-full p-2'>
+                        <motion.div
+                            style={{
+                                // opacity: isActive && rocketVisible ? '0' : '1',
+                                pointerEvents: isActive && rocketVisible ? 'none' : 'auto',
+                            }}
+                            ref={planetRefs[index]}
+                            onClick={handlePlanetClick}
+                            className={cn(
+                                'z-0 flex h-10 w-10 cursor-pointer flex-row items-center justify-center rounded-full border-none p-2',
+                                isActive
+                                    ? 'bg-inverse-surface text-inverse-on-surface'
+                                    : 'bg-surface-container-low text-on-container',
+                            )}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 1.1 }}
+                        >
+                            <div className='h-6 w-6'>{isActive && !rocketVisible ? <Rocket flames={0} /> : <Planet />}</div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </motion.div>

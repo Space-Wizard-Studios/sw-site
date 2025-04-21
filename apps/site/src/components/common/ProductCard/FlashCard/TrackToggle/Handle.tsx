@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { Rocket } from '@icons/Icons';
+import { Rocket } from '@icons/UI';
 
 interface Props {
     isActive: boolean;

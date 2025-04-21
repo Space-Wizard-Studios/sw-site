@@ -26,7 +26,7 @@ export default function FlashCard({ index, iconSrc, iconColor, title, subtitle, 
         <div className='relative flex min-h-[16rem]'>
             <div
                 className={cn(
-                    'grid h-full w-full grid-cols-1 content-between overflow-visible rounded-2xl p-4',
+                    'grid auto-rows-fr grid-cols-1 h-full w-full content-between overflow-visible rounded-2xl p-4',
                     'bg-radial-[at_15%_15%] shadow-xl',
                     'text-on-surface from-surface-container-low to-surface-container',
                     isActive ? openStyle : closedStyle,

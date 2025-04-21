@@ -97,7 +97,7 @@ export function ProductsContent({ className }: Props) {
                 id='products-container'
                 ref={containerRef}
                 className={cn(
-                    'relative grid grid-cols-1 content-around gap-8 md:grid-cols-2 lg:grid-cols-4',
+                    'relative grid auto-rows-fr grid-cols-1 content-around gap-8 md:grid-cols-2 lg:grid-cols-4',
                     className,
                 )}
             >
