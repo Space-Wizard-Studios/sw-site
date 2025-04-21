@@ -7,9 +7,9 @@ skills:
       tooltip: Concept Art
     - name: Ilustração
       tooltip: Ilustração
-links:
-    - name: linkedin
+socials:
+    - type: linkedin
       url: https://www.linkedin.com/in/gustav-arantes/
-    - name: portfolio
+    - type: portfolio
       url: https://gustavarantes.myportfolio.com/
 photoSrc: /images/team/gustavo.png

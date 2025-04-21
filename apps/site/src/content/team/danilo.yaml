@@ -11,7 +11,7 @@ skills:
       tooltip: Rigging
     - name: Animação
       tooltip: Animação
-links:
-    - name: linkedin
+socials:
+    - type: linkedin
       url: https://www.linkedin.com/in/danilo-nobre/
 photoSrc: /images/team/danilo.png

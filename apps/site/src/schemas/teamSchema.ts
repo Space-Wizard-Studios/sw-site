@@ -1,3 +1,4 @@
+import { reference } from "astro:content";
 import { z } from "zod";
 
 // Define schema for a single language version
@@ -13,14 +14,19 @@ export const teamSchema = z.object({
             }),
         )
         .optional(),
-    links: z
-    .array(
-        z.object({
-            name: z.string(),
+    socials: z.array(
+        z.lazy(() => z.object({
+            type: reference('socials'),
             url: z.string().url(),
-            icon: z.string().optional(),
-        })
+        }))
     )
     .optional(),
     photoSrc: z.string().optional(),
 });
+
+export type TeamMember = z.infer<typeof teamSchema>;
+
+// Infer the type of a single social link item *after* collection processing
+// Access the 'socials' array type from the resolved CollectionEntry data,
+// then get the element type using [number]
+export type TeamMemberSocial = CollectionEntry<'team'>['data']['socials'][number];

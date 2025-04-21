@@ -10,22 +10,26 @@
             }
         ],
         "paths": {
-            "@shared/schemas/*": ["../../libs/shared/schemas/*"],
-            "@shared/*": ["../../libs/shared/*"],
-            "@shared": ["../../libs/shared/index.ts"],
+            "@shared/schemas/*":    ["../../libs/shared/schemas/*"],
+            "@shared/*":            ["../../libs/shared/*"],
+            "@shared":              ["../../libs/shared/index.ts"],
 
-            "@styles/*": ["src/assets/styles/*"],
-            "@images/*": ["src/assets/images/*"],
-            "@assets/*": ["src/assets/*"],
-            "@common/*": ["src/components/common/*"],
-            "@widgets/*": ["src/components/widgets/*"],
-            "@icons/*": ["src/components/icons/*"],
-            "@components/*": ["src/components/*"],
-            "@content/*": ["src/content/*"],
-            "@layouts/*": ["src/layouts/*"],
-            "@hooks/*": ["src/hooks/*"],
-            "types/*": ["src/types/*"],
-            "@*": ["src/*"],
+            "@styles/*":            ["src/assets/styles/*"],
+            "@images/*":            ["src/assets/images/*"],
+            "@assets/*":            ["src/assets/*"],
+            
+            "@common/*":            ["src/components/common/*"],
+            "@widgets/*":           ["src/components/widgets/*"],
+            "@icons/*":             ["src/components/icons/*"],
+            "@components/*":        ["src/components/*"],
+
+            "@content/*":           ["src/content/*"],
+            "@hooks/*":             ["src/hooks/*"],
+            "@layouts/*":           ["src/layouts/*"],
+            "@schemas/*":           ["src/schemas/*"],
+
+            "types/*":              ["src/types/*"],
+            "@*":                   ["src/*"],
         }
     }
 }

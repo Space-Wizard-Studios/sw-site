@@ -7,7 +7,7 @@ skills:
       tooltip: Criação de conteúdo para redes sociais
     - name: Analytics
       tooltip: Analytics
-links:
-    - name: linkedin
+socials:
+    - type: linkedin
       url: https://www.linkedin.com/in/rhayane-miranda/
 photoSrc: /images/team/rhayane.png

@@ -17,7 +17,7 @@ frameworks:
     - 'Decap CMS'
 date: '2023-01'
 hero:
-    src: '/src/assets/images/projects/firasoft_site/firasoft_hero.png'
+    src: ''
     title: 'Banner do site Firasoft'
     altText: 'Banner do site corporativo da Firasoft'
 # carousel:

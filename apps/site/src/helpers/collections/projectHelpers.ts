@@ -11,19 +11,18 @@ export type ProcessedProject = Project & {
 
 export async function getAllProjects(locale: string = '') {
     const allProjects = await getCollection('projects');
-    // console.log('All Projects:', allProjects);
-
-    // if (allProjects.length > 0) {
-    //     console.log('Raw project data:', JSON.stringify(allProjects[0].data, null, 2));
-    // }
 
     return allProjects
-        .map((project: Project) => ({
+        .map((project) => ({
             ...project,
             slug: slugify(project.data.title),
         }))
-        .filter((project: Project) => !project.data.draft)
-        .sort((projectA: Project, projectB: Project) => {
+        .filter((project) => !project.data.draft)
+        .sort((projectA, projectB) => {
+            // Ordenação por slug
+            // return projectA.slug.localeCompare(projectB.slug);
+
+            // Ordenação por data
             const dateA = new Date(projectA.data.date).getTime();
             const dateB = new Date(projectB.data.date).getTime();
             return dateB - dateA;

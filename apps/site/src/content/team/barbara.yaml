@@ -7,10 +7,10 @@ skills:
       tooltip: UX/UI
     - name: Design Gráfico
       tooltip: Design Gráfico
-links:
-    - name: behance
+socials:
+    - type: behance
       url: https://www.behance.net/barbarafaraco
-    - name: linkedin
+    - type: linkedin
       url: https://br.linkedin.com/in/barbara-faraco
-photoSrc: /images/team/barbara.png
+photoSrc: /images/team/barbara.jpg
 
