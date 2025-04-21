@@ -54,13 +54,13 @@ export function RocketToggle() {
     const DEBUG_MODE = false;
 
     const DRAW_PATH = true;
-    const MOVING_DURATION = 1.5;
+    const MOVING_DURATION = 2;
     const PATH_TRANSITION = 1;
     const LANDING_DURATION = 1;
     const TARGET_OFFSET = 32;
-    const OVERSHOOT = .9;
-    const ARC_HEIGHT_MIN = 32;
-    const ARC_HEIGHT_MAX = 320;
+    const OVERSHOOT = .75;
+    const ARC_HEIGHT_MIN = 100;
+    const ARC_HEIGHT_MAX = 600;
 
     const ROCKET_ID = 'sw-rocket';
 

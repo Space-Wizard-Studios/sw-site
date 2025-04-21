@@ -4,7 +4,7 @@ import { marked } from 'marked';
 import Layout from '@layouts/PageLayout.astro';
 import {Hero} from '@widgets/Project/Project.astro';
 
-import { getAllProjects } from '@helpers/projectHelpers';
+import { getAllProjects } from '@helpers/collections/projectHelpers';
 import {getImageMetadataByPath} from '@helpers/getImageMetadataByPath';
 
 export async function getStaticPaths() {
@@ -31,13 +31,20 @@ const heroImageMetadata = getImageMetadataByPath(project.data.hero.src);
             desktopImagePath={heroImageMetadata}
         />
     )}
-    <div class='sw-container py-8 flex-col'>
-        <h1>{project.data.title}</h1>
-        <h5 class=''>{project.data.subtitle}</h5>
-        <p class=''>Categorias: {project.data.categories.join(', ')}</p>
-        <p class=''>Tecnologias: {project.data.tags.join(', ')}</p>
-        <p class=''>Data: {project.data.date}</p>
-        <p class=''>Resumo: {project.data.summary}</p>
-        <div class='markdown-content' set:html={html} />
+    <div class='relative flex flex-col bg-surface-dim z-10  overflow-x-hidden'>
+
+        <section class='flex flex-col w-full md:sticky top-0 py-24'>
+            <div class='sw-container flex flex-col space-y-10 z-10 text-on-surface'>
+            <h1>{project.data.title}</h1>
+            <h5 class=''>{project.data.subtitle}</h5>
+            <p class=''>Categorias: {project.data.categories.join(', ')}</p>
+            <p class=''>Tecnologias: {project.data.tags.join(', ')}</p>
+            <p class=''>Data: {project.data.date}</p>
+            <p class=''>Resumo: {project.data.summary}</p>
+        </div>
+        </section>
+
+        <section class='relative flex flex-col w-full pb-12 z-20 bg-surface-bright'></section>
+
     </div>
 </Layout>

@@ -13,7 +13,7 @@ frameworks:
     - 'Figma'
 date: '2023-06'
 hero:
-    src: '/src/assets/images/projects/fixe_eventos_site/fixe_eventos_hero.png'
+    src: '/src/assets/images/projects/fixe_eventos/fixe_eventos_hero_desktop.png'
     title: 'Banner do site Fixe Eventos'
     altText: 'Banner do site corporativo da Fixe Eventos'
 # carousel:

@@ -1,20 +1,32 @@
-title: 'Tavern Tale'
+title: 'Tavern Tale Studio'
 draft: false
-subtitle: ''
-summary: ''
+subtitle: 'Site Corporativo'
+summary: 'Site corporativo para o estúdio de jogos Tavern Tale, desenvolvido em Wordpress com Elementor, focado em apresentar os projetos e a identidade do estúdio.'
 categories:
-    - ''
+    - 'Web'
 tags:
-    - ''
+    - 'Site Corporativo'
+    - 'Wordpress'
 frameworks:
-    - ''
+    - 'Wordpress'
+    - 'Elementor'
 date: '2023-09'
 hero:
-    src: ''
-    title: ''
-    altText: ''
+    src: '/src/assets/images/projects/tavern_tale/tavern_tale_hero.png'
+    title: 'Banner do site Tavern Tale Studio'
+    altText: 'Banner do site corporativo do Tavern Tale Studio'
 # carousel:
 #     -
-# partners:
-#     -
+partners:
+    - 'Tavern Tale Studio'
 content: |
+    O site corporativo do **Tavern Tale Studio** foi desenvolvido para apresentar o portfólio e a identidade visual do estúdio de jogos. Construído inteiramente em **Wordpress** e utilizando o **Elementor** para personalização visual, o site oferece uma plataforma robusta e fácil de gerenciar.
+
+    Principais características:
+
+    - **Design Personalizado**: Interface visual alinhada com a marca e o universo dos jogos do estúdio.
+    - **Portfólio de Jogos**: Seção dedicada para apresentar os projetos desenvolvidos pelo Tavern Tale Studio.
+    - **Gerenciamento de Conteúdo**: Facilidade para a equipe do estúdio atualizar informações, notícias e projetos através do painel do Wordpress.
+    - **Responsividade**: Experiência de usuário otimizada para visualização em desktops e dispositivos móveis.
+
+    Este projeto foi desenvolvido pela **Space Wizard Studios** para fortalecer a presença online do Tavern Tale Studio.
