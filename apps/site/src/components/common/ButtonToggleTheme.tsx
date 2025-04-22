@@ -37,6 +37,7 @@ export default function ButtonToggleTheme({ className = '', ...props }: ButtonTo
     if (!isMounted) {
         return (
             <button
+                {...props}
                 type='button'
                 className={cn('relative items-center overflow-hidden rounded-lg p-3', className)}
                 aria-label='Alternar tema (claro/escuro)'
