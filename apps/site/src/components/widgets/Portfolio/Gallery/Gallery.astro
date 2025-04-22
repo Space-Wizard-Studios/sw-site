@@ -1,14 +1,22 @@
 ---
 import ProjectCard from '@common/ProjectCard/ProjectCard.astro';
 import { getAllProjects, type ProcessedProject } from '@helpers/collections/projectHelpers';
-import { cn } from '@helpers/cn';
+import { cn } from '@helpers/cn'; // Corrected import path
 
-const projects = await getAllProjects('pt');
+const projects = await getAllProjects();
 
-console.log(
-    'Projects:',
-    projects.map((p: ProcessedProject) => p.slug),
-);
+if (projects.length > 0) {
+    console.log(
+        'DEBUG: First project category structure:',
+        JSON.stringify(projects[0].data.category, null, 2)
+    );
+    if (projects[0].data.category?.platforms && projects[0].data.category.platforms.length > 0) {
+        console.log(
+            'DEBUG: First platform object:',
+            JSON.stringify(projects[0].data.category.platforms[0], null, 2)
+        );
+    }
+}
 
 export interface Props {
     className?: string;

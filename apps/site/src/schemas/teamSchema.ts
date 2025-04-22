@@ -1,4 +1,4 @@
-import { reference } from "astro:content";
+import { reference, type CollectionEntry } from "astro:content";
 import { z } from "zod";
 
 // Define schema for a single language version

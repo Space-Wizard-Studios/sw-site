@@ -237,13 +237,13 @@ a {
     }
 }
 
-ul {
+/* ul {
     @apply mr-4 list-disc pl-8;
 
     li {
         @apply text-base font-normal;
     }
-}
+} */
 
 table {
     @apply bg-surface-container overflow-hidden rounded-2xl;

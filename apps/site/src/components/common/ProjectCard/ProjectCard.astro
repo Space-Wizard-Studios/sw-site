@@ -1,7 +1,10 @@
 ---
+// filepath: d:\projetos\sw\sw-site\apps\site\src\components\common\ProjectCard\ProjectCard.astro
+import Badge from 'src/components/common/Badges/Badge.astro';
+import { getImageByPath } from 'src/helpers/getImageByPath';
+import type { ProcessedProject } from 'src/helpers/collections/projectHelpers';
 import { cn } from '@helpers/cn';
-import { getImageByPath } from '@helpers/getImageByPath';
-import type { ProcessedProject } from '@helpers/collections/projectHelpers';
+import { getEntry, type CollectionEntry } from 'astro:content'; // Import getEntry
 
 interface Props {
     project: ProcessedProject;
@@ -9,7 +12,30 @@ interface Props {
 
 const { project }: Props = Astro.props;
 
-const image = await getImageByPath(project.data.hero.src, {width: 800, height: 600});
+const image = project.data.hero?.src
+    ? await getImageByPath(project.data.hero.src, { width: 800, height: 600 })
+    : null;
+
+// Fetch the actual data for each category reference
+const platformRefs = project.data.category?.platforms ?? [];
+const frameworkRefs = project.data.category?.frameworks ?? [];
+const tagRefs = project.data.category?.tags ?? [];
+
+// Use Promise.all to fetch entries concurrently
+const platforms = await Promise.all(
+    platformRefs.map(ref => getEntry(ref.collection, ref.id))
+);
+const frameworks = await Promise.all(
+    frameworkRefs.map(ref => getEntry(ref.collection, ref.id))
+);
+const tags = await Promise.all(
+    tagRefs.map(ref => getEntry(ref.collection, ref.id))
+);
+
+// Filter out any null results (if an entry wasn't found)
+const validPlatforms = platforms.filter(p => p !== null) as CollectionEntry<'platforms'>[];
+const validFrameworks = frameworks.filter(f => f !== null) as CollectionEntry<'frameworks'>[];
+const validTags = tags.filter(t => t !== null) as CollectionEntry<'tags'>[];
 
 ---
 
@@ -18,24 +44,71 @@ const image = await getImageByPath(project.data.hero.src, {width: 800, height: 6
         'relative flex h-full w-full flex-col overflow-hidden rounded-2xl',
         'bg-radial-[at_15%_15%]',
         'text-on-surface from-surface-container-low/60 to-surface-container/60 backdrop-blur-md',
-        'shadow-2xl transition-all duration-300',
+        'shadow-xl transition-shadow duration-300 hover:shadow-primary/10',
     )}
 >
     {
-        image?.src && <img
-                src={image?.src}
-                width={image?.attributes.width}
-                height={image?.attributes.height}
-                class='w-full h-auto max-h-60 aspect-[3/2] object-cover object-top'
-            />
+        image?.src && (
+            <a href={'/projects/' + project.slug} class='block'>
+                <img
+                    src={image.src}
+                    width={image.attributes.width}
+                    height={image.attributes.height}
+                    alt={project.data.hero?.altText ?? `Hero image for ${project.data.title}`}
+                    class='aspect-[3/2] h-auto max-h-60 w-full object-cover object-top'
+                />
+            </a>
+        )
     }
-    <header class='p-4'>
-        <h4 class=''><a href={'/projects/' + project.slug}>{project.data.title}</a></h4>
-        <h5 class=''>{project.data.subtitle}</h5>
-        <hr class='p-2 border-sw-neutral-500/50' />
-        <p class=''>Categorias: {project.data.categories?.join(', ') ?? 'N/A'}</p>
-        <p class=''>Tags: {project.data.tags?.join(', ') ?? 'N/A'}</p>
-        <p class=''>Frameworks: {project.data.frameworks?.join(', ') ?? 'N/A'}</p>
-        <p class=''>Data: {project.data.date}</p>
-    </header>
+    <div class="flex flex-col flex-grow p-4">
+        <header class='mb-2'>
+            <h4 class=''>
+                <a href={'/projects/' + project.slug} class="hover:underline">{project.data.title}</a>
+            </h4>
+            {project.data.subtitle && <p class="text-sm text-on-surface-variant">{project.data.subtitle}</p>}
+        </header>
+
+        {(validPlatforms.length > 0 || validFrameworks.length > 0 || validTags.length > 0) && (
+            <div class='mt-auto flex flex-col gap-1 pt-2'>
+                <ul class='list-none'>
+                    { validPlatforms.length > 0 && 
+                    <li>
+                        Plataformas:
+                        <ul class='flex flex-wrap list-none'>
+                            {validPlatforms.map((platformEntry) => (
+                                <li>
+                                    <Badge category={platformEntry.data} />
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                    }
+                    { validFrameworks.length > 0 &&
+                    <li>
+                        Frameworks:
+                        <ul class='flex flex-wrap list-none'>
+                            {validFrameworks.map((frameworkEntry) => (
+                                <li>
+                                    <Badge category={frameworkEntry.data} />
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                    }
+                    { validTags.length > 0 &&
+                    <li>
+                        Tags:
+                        <ul class='flex flex-wrap list-none'>
+                            {validTags.map((tagEntry) => (
+                                <li>
+                                    <Badge category={tagEntry.data} />
+                                </li>
+                            ))}
+                        </ul>
+                    </li>
+                    }
+                </ul>
+            </div>
+        )}
+    </div>
 </article>

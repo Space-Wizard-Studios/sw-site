@@ -1,19 +1,15 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 
 import { projectSchema } from '@schemas/projectSchema';
 import { policySchema } from '@schemas/policySchema';
 import { teamSchema } from '@schemas/teamSchema';
-import { socialSchema } from '@schemas/socialSchema'; // Import the social schema
-import { categorySchema, tagSchema, frameworkSchema } from '@schemas/categorizationSchema';
+import { socialSchema } from '@schemas/common/socialSchema'; // Import the social schema
+import { platformSchema, tagSchema, frameworkSchema } from '@schemas/categorySchema';
+import { productSchema } from '@schemas/productSchema';
 
-const projectsCollection = defineCollection({
+const productsCollection = defineCollection({
     type: 'data',
-    schema: projectSchema,
-});
-
-const policyCollection = defineCollection({
-    type: 'content',
-    schema: policySchema,
+    schema: productSchema,
 });
 
 const teamCollection = defineCollection({
@@ -21,9 +17,26 @@ const teamCollection = defineCollection({
     schema: teamSchema,
 });
 
-const categoriesCollection = defineCollection({
+const socialsCollection = defineCollection({
     type: 'data',
-    schema: categorySchema,
+    schema: socialSchema,
+});
+
+const policyCollection = defineCollection({
+    type: 'content',
+    schema: policySchema,
+});
+
+const projectsCollection = defineCollection({
+    type: 'data',
+    schema: projectSchema,
+});
+
+// Collections used for categories
+
+const platformsCollection = defineCollection({
+    type: 'data',
+    schema: platformSchema,
 });
 
 const tagsCollection = defineCollection({
@@ -36,17 +49,18 @@ const frameworksCollection = defineCollection({
     schema: frameworkSchema,
 });
 
-const socialsCollection = defineCollection({
-    type: 'data',
-    schema: socialSchema,
-});
-
 export const collections = {
-    projects: projectsCollection,
-    policies: policyCollection,
+    products: productsCollection,
+
     team: teamCollection,
     socials: socialsCollection,
-    categories: categoriesCollection,
+
+    policies: policyCollection,
+
+    projects: projectsCollection,
+
+    // Categories
+    platforms: platformsCollection,
     tags: tagsCollection,
     frameworks: frameworksCollection,
 };
