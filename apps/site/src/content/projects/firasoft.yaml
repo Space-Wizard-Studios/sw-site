@@ -2,38 +2,38 @@ title: 'Firasoft'
 draft: false
 subtitle: 'Site Corporativo para Empresa de Jogos'
 summary: 'Site corporativo da Firasoft com suporte a multilinguagem, customização via CMS e modularidade para páginas de projetos, permitindo total controle ao cliente.'
-categories:
-    - 'Web'
-tags:
-    - 'Site Corporativo'
-    - 'Multilinguagem'
-    - 'CMS'
-frameworks:
-    - 'Figma'
-    - 'Astro'
-    - 'React'
-    - 'Tailwind CSS'
-    - 'StaticCMS'
-    - 'Decap CMS'
+category:
+    products:
+        - systems
+    platforms:
+        - web
+    # tags: # Comentado conforme solicitado
+    #   - 'Site Corporativo'
+    #   - 'Multilinguagem'
+    #   - 'CMS'
+    frameworks:
+        - figma
+        - astro
+        - react
 date: '2023-01'
 hero:
-    src: '/src/assets/images/projects/firasoft/firasoft_hero_desktop.png'
-    title: 'Banner do site Firasoft'
-    altText: 'Banner do site corporativo da Firasoft'
+  src: '/src/assets/images/projects/firasoft/firasoft_hero_desktop.png'
+  title: 'Banner do site Firasoft'
+  altText: 'Banner do site corporativo da Firasoft'
 # carousel:
 #     -
-partners:
-    - 'Firasoft'
+# partners:
+#   - 'Firasoft'
 content: |
-    O site corporativo da Firasoft foi desenvolvido para destacar a presença digital da empresa de jogos, oferecendo uma plataforma moderna, funcional e totalmente personalizável.
+  O site corporativo da Firasoft foi desenvolvido para destacar a presença digital da empresa de jogos, oferecendo uma plataforma moderna, funcional e totalmente personalizável.
 
-    Inicialmente lançado em 2023, o site foi construído utilizando **Astro**, **React** e **Tailwind CSS**, com integração ao **StaticCMS** para gerenciamento de conteúdo. Em 2025, foi realizada uma migração para o **Decap CMS**, trazendo ainda mais flexibilidade e recursos avançados.
+  Inicialmente lançado em 2023, o site foi construído utilizando **Astro**, **React** e **Tailwind CSS**, com integração ao **StaticCMS** para gerenciamento de conteúdo. Em 2025, foi realizada uma migração para o **Decap CMS**, trazendo ainda mais flexibilidade e recursos avançados.
 
-    Principais características do projeto:
-    
-    - **Suporte a Multilinguagem**: Permite que o site seja acessado em diferentes idiomas, ampliando o alcance global da Firasoft.
-    - **Customização Completa via CMS**: O cliente pode gerenciar e personalizar todo o conteúdo do site, incluindo textos, imagens e configurações de layout.
-    - **Modularidade nas Páginas de Projetos**: Cada projeto pode ser configurado de forma única, com informações detalhadas, imagens, vídeos, trailers e outros recursos multimídia.
-    - **Design Responsivo**: Garantia de uma experiência consistente e otimizada em dispositivos móveis e desktops.
+  Principais características do projeto:
 
-    Este projeto reflete o compromisso da Space Wizard Studios em entregar soluções digitais inovadoras e sob medida para as necessidades de seus clientes.
+  - **Suporte a Multilinguagem**: Permite que o site seja acessado em diferentes idiomas, ampliando o alcance global da Firasoft.
+  - **Customização Completa via CMS**: O cliente pode gerenciar e personalizar todo o conteúdo do site, incluindo textos, imagens e configurações de layout.
+  - **Modularidade nas Páginas de Projetos**: Cada projeto pode ser configurado de forma única, com informações detalhadas, imagens, vídeos, trailers e outros recursos multimídia.
+  - **Design Responsivo**: Garantia de uma experiência consistente e otimizada em dispositivos móveis e desktops.
+
+  Este projeto reflete o compromisso da Space Wizard Studios em entregar soluções digitais inovadoras e sob medida para as necessidades de seus clientes.

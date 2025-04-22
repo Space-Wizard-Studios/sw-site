@@ -2,15 +2,17 @@ title: 'Quase Calouro - @multi'
 draft: false
 subtitle: 'Landing page baseada em Wordpress'
 summary: 'Landing page para capturar leads e oferecer conteúdos exclusivos, como material didático, videoaulas e simulados, com foco em estudantes.'
-categories:
-    - 'Educação'
-    - 'Landing Page'
-tags:
-    - 'Wordpress'
-    - 'LGPD'
-frameworks:
-    - 'Wordpress'
-    - 'Elementor'
+category:
+    products:
+        - systems
+    platforms:
+        - web
+    # tags:
+    #   - 'Wordpress'
+    #   - 'LGPD'
+    # frameworks:
+        # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
+        # - elementor # Sugestão: Criar frameworks/elementor.yaml
 date: '2020-12'
 hero:
     src: '/src/assets/images/projects/quasecalouro/quasecalouro_hero.png'

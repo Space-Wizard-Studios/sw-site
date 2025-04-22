@@ -2,15 +2,18 @@ title: 'Fixe Eventos'
 draft: false
 subtitle: 'Site Corporativo para Empresa de Eventos'
 summary: 'Site corporativo da Fixe Eventos, desenvolvido em Wordpress com design fornecido pela empresa e ajustes para acessibilidade e responsividade.'
-categories:
-    - 'Web'
-tags:
-    - 'Site Corporativo'
-    - 'Design Responsivo'
-    - 'CMS'
-frameworks:
-    - 'Wordpress'
-    - 'Figma'
+category:
+    products:
+        - systems
+    platforms:
+        - web
+    # tags:
+    #   - 'Site Corporativo'
+    #   - 'Design Responsivo'
+    #   - 'CMS'
+    frameworks:
+        - figma
+        # - wordpress
 date: '2023-06'
 hero:
     src: '/src/assets/images/projects/fixe_eventos/fixe_eventos_hero_desktop.png'
@@ -18,8 +21,8 @@ hero:
     altText: 'Banner do site corporativo da Fixe Eventos'
 # carousel:
 #     -
-partners:
-    - 'Fixe Eventos'
+# partners:
+# - 'Fixe Eventos'
 content: |
     O site corporativo da Fixe Eventos foi desenvolvido para destacar os serviços e a identidade visual da empresa no mercado de eventos. O projeto foi inteiramente construído em **Wordpress**, utilizando o design fornecido pela própria empresa como base.
 

@@ -2,15 +2,19 @@ title: 'Only Kids'
 draft: false
 subtitle: 'Loja Virtual Integrada'
 summary: 'Loja virtual desenvolvida em Wordpress com integração ao Facebook, Instagram e sistema Bling ERP, oferecendo automação e experiência otimizada.'
-categories:
-    - 'E-commerce'
-    - 'Integração'
-tags:
-    - 'WooCommerce'
-    - 'Wordpress'
-frameworks:
-    - 'Wordpress'
-    - 'Elementor'
+category:
+    products:
+        - systems
+    platforms:
+        - web
+    # tags:
+    #   - 'WooCommerce'
+    #   - 'Wordpress'
+    # frameworks:
+        # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
+        # - elementor # Sugestão: Criar frameworks/elementor.yaml
+        # - woocommerce # Sugestão: Criar frameworks/woocommerce.yaml
+        # - bling # Sugestão: Criar frameworks/bling.yaml
 date: '2021-03'
 hero:
     src: '/src/assets/images/projects/only_kids/only_kids_hero.png'

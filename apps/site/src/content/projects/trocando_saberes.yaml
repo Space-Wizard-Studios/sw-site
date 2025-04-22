@@ -2,18 +2,19 @@ title: 'Trocando Saberes'
 draft: false
 subtitle: 'Plataforma de Compartilhamento de Conhecimento e Projetos'
 summary: 'Site acessível para a plataforma Trocando Saberes, desenvolvido em Wordpress, focado no compartilhamento de conhecimento, projetos e notícias, com suporte a diversas mídias.'
-categories:
-    - 'Web'
-    - 'Educação'
-    - 'Comunidade'
-tags:
-    - 'Plataforma Online'
-    - 'Conhecimento'
-    - 'Aprendizado Colaborativo'
-    - 'Acessibilidade'
-    - 'Wordpress'
-frameworks:
-    - 'Wordpress'
+category:
+    products:
+        - systems
+    platforms:
+        - web
+    # tags:
+    #   - 'Plataforma Online'
+    #   - 'Conhecimento'
+    #   - 'Aprendizado Colaborativo'
+    #   - 'Acessibilidade'
+    #   - 'Wordpress'
+    # frameworks:
+        # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
 date: '2023-07'
 hero:
     src: '/src/assets/images/projects/trocando_saberes/trocando_saberes_hero_desktop.png'

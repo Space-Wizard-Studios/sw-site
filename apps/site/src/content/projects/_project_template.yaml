@@ -1,9 +1,9 @@
 title: Project
 draft: true
-subtitle:
-summary:
-categories:
-    -
+subtitle: A short subtitle of the project.
+summary: A short summary of the project.
+platforms:
+    - 
 tags:
     -
 frameworks:

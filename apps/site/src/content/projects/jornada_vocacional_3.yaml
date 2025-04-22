@@ -2,19 +2,21 @@ title: 'Jornada Vocacional 3 - @suamulti'
 draft: false
 subtitle: 'Experiência Interativa Web'
 summary: 'A terceira edição da Jornada Vocacional UNICEPLAC trouxe uma nova experiência, mais leve, rápida e com mais recursos interativos para os usuários!'
-categories:
-    - 'Interatividade'
-    - 'Educação'
-tags:
-    - 'Experiência Interativa'
-    - 'Ensino Médio'
-frameworks:
-    - 'JavaScript'
-    - 'JQuery'
-    - 'AJAX'
-    - 'CakePHP'
-    - 'MySQL'
-    - 'Bootstrap'
+category:
+    products:
+        - interactivity
+    platforms:
+        - web
+    # tags:
+    #   - 'Experiência Interativa'
+    #   - 'Ensino Médio'
+    frameworks:
+        - javascript # Referência ao frameworks/javascript.yaml
+        # - jquery # Sugestão: Criar frameworks/jquery.yaml
+        # - ajax # Sugestão: Criar frameworks/ajax.yaml
+        # - cakephp # Sugestão: Criar frameworks/cakephp.yaml
+        # - mysql # Sugestão: Criar frameworks/mysql.yaml
+        # - bootstrap # Sugestão: Criar frameworks/bootstrap.yaml
 date: '2021-10'
 hero:
     src: '/src/assets/images/projects/jornada_3/jornada_3_hero.png'

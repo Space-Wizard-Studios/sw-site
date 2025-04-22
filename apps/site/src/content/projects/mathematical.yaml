@@ -2,14 +2,16 @@ title: 'Mathematical!'
 draft: false
 subtitle: 'Jogo educativo para mobile'
 summary: "Um jogo educativo estilo shoot'em up onde o jogador resolve desafios matemáticos para avançar pelos níveis enquanto enfrenta inimigos e desbloqueia melhorias."
-categories:
-    - 'Educação'
-    - 'Jogos'
-tags:
-    - 'Mobile Game'
-    - 'Unity 3D'
-frameworks:
-    - 'Unity Engine'
+category:
+    products:
+        - games
+    platforms:
+        - mobile
+    # tags:
+    #   - 'Mobile Game'
+    #   - 'Unity 3D'
+    frameworks:
+        - unity # Referência ao frameworks/unity.yaml
 date: '2016-10'
 hero:
     src: '/src/assets/images/projects/mathematical/mathematical_hero.png'

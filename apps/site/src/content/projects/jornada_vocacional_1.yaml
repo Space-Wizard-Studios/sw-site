@@ -2,18 +2,20 @@ title: 'Jornada Vocacional 1 - @suamulti'
 draft: false
 subtitle: 'Experiência Interativa Web'
 summary: 'A Jornada Vocacional UNICEPLAC foi uma experiência interativa voltada para estudantes do Ensino Médio, explorando áreas de ensino e possíveis vocações.'
-categories:
-    - 'Interatividade'
-    - 'Educação'
-tags:
-    - 'Experiência Interativa'
-    - 'Ensino Médio'
-frameworks:
-    - 'JavaScript'
-    - 'JQuery'
-    - 'AJAX'
-    - 'CakePHP'
-    - 'MySQL'
+category:
+    products:
+        - interactivity
+    platforms:
+        - web # Referência ao platforms/web.yaml
+    # tags:
+    #   - 'Experiência Interativa'
+    #   - 'Ensino Médio'
+    frameworks:
+        - javascript # Referência ao frameworks/javascript.yaml
+        # - jquery # Sugestão: Criar frameworks/jquery.yaml
+        # - ajax # Sugestão: Criar frameworks/ajax.yaml
+        # - cakephp # Sugestão: Criar frameworks/cakephp.yaml
+        # - mysql # Sugestão: Criar frameworks/mysql.yaml
 date: '2020-10'
 hero:
     src: '/src/assets/images/projects/jornada_1/jornada_1_hero.png'
@@ -21,8 +23,8 @@ hero:
     altText: 'Banner do projeto Jornada Vocacional 1'
 # carousel:
 #     -
-partners:
-    - 'UNICEPLAC'
+# partners:
+#     - 'UNICEPLAC'
 content: |
     A **Jornada Vocacional UNICEPLAC** foi criada para oferecer uma experiência interativa e imersiva a estudantes do Ensino Médio, especialmente em tempos de pandemia. O objetivo era apresentar diversas áreas de ensino e possíveis vocações, conectando os estudantes ao universo acadêmico de forma inovadora e envolvente.
 

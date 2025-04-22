@@ -2,18 +2,20 @@ title: 'Jornada Vocacional 2 - @suamulti'
 draft: false
 subtitle: 'Experiência Interativa Web'
 summary: 'Na segunda edição da Jornada Vocacional Uniceplac, houveram diversas melhorias na interface e navegação, além de novos desafios, minigames e conteúdos.'
-categories:
-    - 'Interatividade'
-    - 'Educação'
-tags:
-    - 'Experiência Interativa'
-    - 'Ensino Médio'
-frameworks:
-    - 'JavaScript'
-    - 'JQuery'
-    - 'AJAX'
-    - 'CakePHP'
-    - 'MySQL'
+category:
+    products:
+        - interactivity
+    platforms:
+        - web
+    # tags:
+    #   - 'Experiência Interativa'
+    #   - 'Ensino Médio'
+    frameworks:
+        - javascript # Referência ao frameworks/javascript.yaml
+        # - jquery # Sugestão: Criar frameworks/jquery.yaml
+        # - ajax # Sugestão: Criar frameworks/ajax.yaml
+        # - cakephp # Sugestão: Criar frameworks/cakephp.yaml
+        # - mysql # Sugestão: Criar frameworks/mysql.yaml
 date: '2021-05'
 hero:
     src: '/src/assets/images/projects/jornada_2/jornada_2_hero.png'

@@ -2,16 +2,17 @@ title: 'Filtro Enade 2021 - @suamulti'
 draft: false
 subtitle: 'Filtro para Instagram'
 summary: 'Um filtro do Instagram gamificado onde o jogador deve piscar para pular obstáculos e alcançar o diploma ao final da aventura, promovendo o Enade 2021.'
-categories:
-    - 'Realidade Aumentada'
-    - 'Gamificação'
-tags:
-    - 'Instagram'
-    - 'Filter'
-frameworks:
-    - 'Meta Spark'
-    - 'JavaScript'
-    - 'TypeScript'
+category:
+    products:
+        - interactivity
+    platforms:
+        - ar
+    # tags:
+    #   - filter
+    frameworks:
+        - meta
+        - javascript
+        - typescript
 date: '2022-02'
 hero:
     src: '/src/assets/images/projects/filtro_enade_2021/filtro_enade_2021_hero.png'
@@ -19,8 +20,8 @@ hero:
     altText: 'Banner do projeto Enade#2021'
 # carousel:
 #     -
-partners:
-    - Agência MULTI
+# partners:
+#   - agencia-multi # Exemplo de slug, ajuste se necessário
 content: |
     O **Filtro Enade 2021** foi desenvolvido para engajar estudantes de forma interativa e divertida, promovendo o evento **Enade 2021**. O filtro utiliza a tecnologia de **Realidade Aumentada** para criar uma experiência gamificada, onde o jogador deve **piscar para pular obstáculos** e alcançar o diploma ao final da aventura.
 
