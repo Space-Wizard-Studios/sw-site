@@ -10,7 +10,8 @@
         "dev": "concurrently \"pnpm --filter sw-site dev\" \"pnpm --filter sw-site-cms dev\"",
         "site:dev": "pnpm --filter sw-site dev",
         "site:build": "pnpm --filter sw-site build",
-        "site:preview": "pnpm --filter sw-site preview"
+        "site:preview": "pnpm --filter sw-site preview",
+        "site:astro": "pnpm --filter sw-site astro"
     },
     "pnpm": {
         "onlyBuiltDependencies": [

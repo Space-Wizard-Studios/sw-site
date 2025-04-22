@@ -8,6 +8,7 @@ danilo
 Decap
 Elementor
 Faraco
+figma
 github
 gustavo
 instagram
