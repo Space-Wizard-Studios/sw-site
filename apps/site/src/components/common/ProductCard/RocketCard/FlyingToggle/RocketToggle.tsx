@@ -324,7 +324,7 @@ export function RocketToggle() {
                 // Create and show the path to the hover position
                 setupPath(startPoint, endPoint, generatePath);
 
-                console.log('Path created', { pathD, pathPoints });
+                // console.log('Path created', { pathD, pathPoints });
 
                 // Phase 3: Fly along the path to hover position
                 setAnimationPhase('flying');
@@ -446,7 +446,7 @@ export function RocketToggle() {
         // Only set initial state once mounted and dynamic position is available
         if (isMounted || dynamicInitialPosition.x === 0) return;
 
-        console.log('RocketToggle mounted, setting initial state');
+        // console.log('RocketToggle mounted, setting initial state');
         updateRocketPositionState(dynamicInitialPosition.x, dynamicInitialPosition.y);
         updateRocketDOM(dynamicInitialPosition.x, dynamicInitialPosition.y); // Also update DOM initially
         setIsMounted(true);

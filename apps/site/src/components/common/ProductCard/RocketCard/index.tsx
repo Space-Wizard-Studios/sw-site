@@ -26,21 +26,21 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
     const isActive = activeCard === index;
 
     const handlePlanetClick = () => {
-        console.log('Planet clicked', { index, rocketVisible, activeCard });
+        // console.log('Planet clicked', { index, rocketVisible, activeCard });
 
         // Only allow clicks when the rocket is not visible (animation complete or not started)
         if (rocketVisible) {
-            console.log('Rocket is currently visible. Ignoring click.');
+            // console.log('Rocket is currently visible. Ignoring click.');
             return;
         }
 
         if (activeCard === index) {
-            console.log('Deactivating active card');
+            // console.log('Deactivating active card');
             // If clicking the already active card, deactivate it and make rocket exit
             setIsMoving(true);
             setActiveCard(null);
         } else if (planetRefs[index].current && containerRef.current) {
-            console.log('Activating new card:', index);
+            // console.log('Activating new card:', index);
 
             // Get coordinates
             const planetRect = planetRefs[index].current.getBoundingClientRect();
@@ -51,7 +51,7 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                 y: planetRect.top - containerRect.top + planetRect.height / 2,
             };
 
-            console.log('Setting position', newPos);
+            // console.log('Setting position', newPos);
 
             // Important: Make rocket visible first
             setRocketVisible(true);
