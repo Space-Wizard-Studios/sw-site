@@ -1,35 +1,70 @@
 {
-    "extends": ["astro/tsconfigs/base"],
+    "extends": [
+        "astro/tsconfigs/base"
+    ],
     "compilerOptions": {
         "baseUrl": ".",
         "outDir": "dist",
-        "types": ["astro/client"],
+        "types": [
+            "astro/client"
+        ],
         "plugins": [
             {
                 "name": "@astrojs/ts-plugin"
             }
         ],
         "paths": {
-            "@shared/schemas/*":    ["../../libs/shared/schemas/*"],
-            "@shared/*":            ["../../libs/shared/*"],
-            "@shared":              ["../../libs/shared/index.ts"],
-
-            "@styles/*":            ["src/assets/styles/*"],
-            "@images/*":            ["src/assets/images/*"],
-            "@assets/*":            ["src/assets/*"],
-            
-            "@common/*":            ["src/components/common/*"],
-            "@widgets/*":           ["src/components/widgets/*"],
-            "@icons/*":             ["src/components/icons/*"],
-            "@components/*":        ["src/components/*"],
-
-            "@content/*":           ["src/content/*"],
-            "@hooks/*":             ["src/hooks/*"],
-            "@layouts/*":           ["src/layouts/*"],
-            "@schemas/*":           ["src/schemas/*"],
-
-            "types/*":              ["src/types/*"],
-            "@*":                   ["src/*"],
+            "@shared/schemas/*": [
+                "../../libs/shared/schemas/*"
+            ],
+            "@shared/*": [
+                "../../libs/shared/*"
+            ],
+            "@shared": [
+                "../../libs/shared/index.ts"
+            ],
+            "@styles/*": [
+                "src/assets/styles/*"
+            ],
+            "@images/*": [
+                "src/assets/images/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@common/*": [
+                "src/components/common/*"
+            ],
+            "@widgets/*": [
+                "src/components/widgets/*"
+            ],
+            "@icons/*": [
+                "src/components/icons/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@content/*": [
+                "src/content/*"
+            ],
+            "@hooks/*": [
+                "src/hooks/*"
+            ],
+            "@layouts/*": [
+                "src/layouts/*"
+            ],
+            "@schemas/*": [
+                "src/schemas/*"
+            ],
+            "types/*": [
+                "src/types/*"
+            ],
+            "@*": [
+                "src/*"
+            ],
         }
-    }
+    },
+    "exclude": [
+        "node_modules",
+    ]
 }

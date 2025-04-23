@@ -16,5 +16,8 @@
             "@shared/schemas/*": ["libs/shared/schemas/*"],
             "@shared/*": ["libs/shared/*"]
         }
-    }
+    },
+    "exclude": [
+        "node_modules",
+    ],
 }
