@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import type { Project } from '@schemas/projectSchema';
 
-import { slugify } from '@helpers/slugify';
+import { slugify } from '@lib/slugify';
 
 export type ProcessedProject = Project & {
     slug: string;
@@ -14,7 +14,7 @@ export async function getAllProjects(locale: string = ''): Promise<ProcessedProj
 
     const processedProjects = nonDraftProjects.map((project) => {
         const processed: ProcessedProject = {
-            ...project,
+            ...project.data,
             slug: slugify(project.data.title),
         };
         return processed;
@@ -25,8 +25,8 @@ export async function getAllProjects(locale: string = ''): Promise<ProcessedProj
         // return projectA.slug.localeCompare(projectB.slug);
 
         // Ordenação por data
-        const dateA = new Date(projectA.data.date).getTime();
-        const dateB = new Date(projectB.data.date).getTime();
+        const dateA = new Date(projectA.date).getTime();
+        const dateB = new Date(projectB.date).getTime();
         return dateB - dateA;
     });
 

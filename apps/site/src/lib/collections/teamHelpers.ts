@@ -6,7 +6,7 @@ import type { SocialLinkItem } from '@components/common/SocialLinks';
 import type { TeamMember } from '@schemas/teamSchema';
 
 import { resolveSocialLinks } from './socialHelpers';
-import { getImageMetadataByPath } from '@helpers/getImageMetadataByPath';
+import { getImageMetadataByPath } from '@lib/getImageMetadataByPath';
 
 
 type ProcessedTeamMemberData = Omit<TeamMember, 'photoSrc' | 'socials'> & {

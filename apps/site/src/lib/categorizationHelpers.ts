@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-import { slugify } from '@helpers/slugify';
+import { slugify } from '@lib/slugify';
 
 export type Category = CollectionEntry<'categories'>;
 export type Tag = CollectionEntry<'tags'>;

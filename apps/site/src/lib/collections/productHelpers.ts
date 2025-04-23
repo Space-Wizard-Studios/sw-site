@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 
 import type { Product } from '@schemas/productSchema';
 
-import { slugify } from '@helpers/slugify';
+import { slugify } from '@lib/slugify';
 
 export type ProcessedProduct = Product & {
     slug: string;
@@ -16,7 +16,7 @@ export async function getAllProducts(): Promise<ProcessedProduct[]> {
 
     const processedProducts = nonDraftProducts.map((product) => {
         const processed: ProcessedProduct = {
-            ...product,
+            ...product.data,
             slug: slugify(product.data.title),
         };
         return processed;
