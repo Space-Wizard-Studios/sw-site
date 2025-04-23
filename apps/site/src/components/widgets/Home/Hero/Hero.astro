@@ -9,12 +9,34 @@ export interface Props {
 }
 
 const { className } = Astro.props as Props;
+
+//                             (   )
+//                            (    )
+//                             (    )
+//                            (    )
+//                              )  )
+//                             (  (                  /\
+//                              (_)                 /  \  /\
+//                      ________[_]________      /\/    \/  \
+//             /\      /\        ______    \    /   /\/\  /\/\
+//            /  \    //_\       \    /\    \  /\/\/    \/    \    /\
+//     /\    / /\/\  //___\       \__/  \    \/                \  /  \
+//    /  \  /\/    \//_____\       \ |[]|     \                 \/   /\
+//   /\/\/\/       //_______\       \|__|      \                / /\/  \
+//  /      \      /XXXXXXXXXX\                  \              /
+//          \    /_I________I_\__________________\
+//           \     I I   I  I_____[]_|_[]______I
+//                 I I   I  I_____[]_|_[]______I
+//                 I I   I  I                  I
+//              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//           KEEP YOUR HACKS SAFE UNDER THE HACK HOUSE
+//              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // bellow you'll see a hacky way of hiding the fixed hero
-// it happens after scrolling 50% of the page 
+// it happens after scrolling 50% of the page
 // so it doesn't mess with the footer clip path to transparent
 // please don't look at this too much
 ---
-<div 
+<div
 class={cn(
 'sw-animation sw-root-scroll sw-opacity-down',
 'flex flex-col relative w-full h-screen overflow-hidden', className)}
