@@ -12,4 +12,5 @@ socials:
       url: https://www.linkedin.com/in/ruanblotta/
     - type: github
       url: https://github.com/ruanblotta
-photoSrc: /images/team/ruan.jpg
+image:
+    src: /images/team/ruan.jpg

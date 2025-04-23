@@ -16,4 +16,5 @@ socials:
       url: https://www.linkedin.com/in/alexandre-barbosa-083b83b4/
     - type: youtube
       url: https://www.youtube.com/channel/UCYSb-3wJyK-L0E9YyHeqkiQ/
-photoSrc: /images/team/alexandre.png
+image:
+    src: /images/team/alexandre.png

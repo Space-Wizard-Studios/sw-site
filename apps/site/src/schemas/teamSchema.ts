@@ -21,7 +21,10 @@ export const teamSchema = z.object({
         }))
     )
     .optional(),
-    photoSrc: z.string().optional(),
+    image: z.object({
+        src: z.string(),
+        alt: z.string().optional(),
+    }).optional(),
 });
 
 export type TeamMember = z.infer<typeof teamSchema>;

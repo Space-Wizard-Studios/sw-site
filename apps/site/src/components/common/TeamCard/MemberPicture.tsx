@@ -13,8 +13,8 @@ const variants = {
 };
 
 export function MemberPicture({ teamMember, isActive }: Props) {
-    const { name, photo } = teamMember.data;
-    const photoSrc = photo?.src || '/images/placeholder.png';
+    const { name, image } = teamMember.data;
+    const photoSrc = image?.src || '/images/placeholder.png';
 
     return (
         <motion.div

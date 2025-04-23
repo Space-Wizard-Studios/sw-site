@@ -10,4 +10,5 @@ skills:
 socials:
     - type: linkedin
       url: https://www.linkedin.com/in/rhayane-miranda/
-photoSrc: /images/team/rhayane.png
+image:
+    src: /images/team/rhayane.png

@@ -14,4 +14,5 @@ skills:
 socials:
     - type: linkedin
       url: https://www.linkedin.com/in/danilo-nobre/
-photoSrc: /images/team/danilo.png
+image:
+    src: /images/team/danilo.png

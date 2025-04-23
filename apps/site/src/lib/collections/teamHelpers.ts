@@ -8,10 +8,11 @@ import type { TeamMember } from '@schemas/teamSchema';
 import { resolveSocialLinks } from './socialHelpers';
 import { getImageMetadataByPath } from '@lib/getImageMetadataByPath';
 
-
-type ProcessedTeamMemberData = Omit<TeamMember, 'photoSrc' | 'socials'> & {
-    photo?: ImageMetadata | undefined; // Replaces photoSrc
-    socials: SocialLinkItem[]; // Replaces socials
+type ProcessedTeamMemberData = Omit<TeamMember, 'socials' | 'image'> & {
+    socials: SocialLinkItem[];
+    image?: Omit<NonNullable<TeamMember['image']>, 'src'> & {
+        src?: string | undefined;
+    };
 };
 
 export type ProcessedTeamMember = Omit<CollectionEntry<'team'>, 'data'> & {
@@ -23,39 +24,66 @@ export async function getAllTeamMembers(): Promise<ProcessedTeamMember[]> {
         return data.draft !== true;
     });
 
-    const processedMembers = await Promise.all(
-        members.map(async (member) => {
-            console.log(`[teamHelpers] Processing member: ${member.data.name}`);
+    const nonDraftMembers = members.filter((member) => !member.data.draft);
 
-            let photoData: ImageMetadata | undefined = undefined;
-            if (member.data.photoSrc) {
-                photoData = getImageMetadataByPath(member.data.photoSrc) ?? undefined;
+    const processedMembers = await Promise.all(
+        nonDraftMembers.map(async (member) => {
+            let processedImage: ProcessedTeamMemberData['image'] = undefined;
+            let imageSrcString: string | undefined = undefined;
+
+            // needs to process the image
+            if (member.data.image?.src) {
+                const photoMetadata = getImageMetadataByPath(member.data.image.src) ?? undefined;
+                imageSrcString = photoMetadata?.src ?? undefined;
+                processedImage = {
+                    ...member.data.image,
+                    src: imageSrcString,
+                };
+            } else if (member.data.image) {
+                processedImage = {
+                    ...member.data.image, // spread other properties of the hero (alt, title)
+                    src: undefined,
+                };
             }
 
+            // process socials
             const rawSocials = member.data.socials;
             const resolvedSocials = await resolveSocialLinks(rawSocials);
-            // console.log(`[teamHelpers] Resolved socials for ${member.data.name}:`, JSON.stringify(resolvedSocials));
 
-            // Filter skills (ensure the type remains compatible with TeamMember['skills'])
+            // filter skills
             const validSkills = (member.data.skills ?? []).filter(
                 (skill) => typeof skill?.name === 'string' && skill.name.trim() !== '',
             );
 
-            // Construct the processed data object, ensuring it matches ProcessedTeamMemberData
+            const { image, socials, skills, ...originalData } = member.data;
+
+            // builds the processed data object
             const memberData: ProcessedTeamMemberData = {
-                ...member.data,
-                photo: photoData,
-                socials: resolvedSocials,
-                skills: validSkills,
+                ...originalData, // original data
+                image: processedImage, // assign the processed image object
+                socials: resolvedSocials, // assign processed socials
+                skills: validSkills, // assign filtered skills
             };
 
-            return {
+            // build the processed team member
+            const processedMember: ProcessedTeamMember = {
                 ...member,
                 data: memberData,
-            } as ProcessedTeamMember;
+            };
+
+            return processedMember;
         }),
     );
 
-    console.log(`[teamHelpers] Finished processing ${processedMembers.length} members.`);
+    processedMembers.sort((memberA, memberB) => {
+        const nameA = memberA.data.name.toLowerCase();
+        const nameB = memberB.data.name.toLowerCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    });
+
+    // console.log('[teamHelpers] processed team members:', processedMembers);
+
     return processedMembers;
 }

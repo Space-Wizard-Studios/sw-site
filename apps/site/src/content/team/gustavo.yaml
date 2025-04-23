@@ -12,4 +12,5 @@ socials:
       url: https://www.linkedin.com/in/gustav-arantes/
     - type: portfolio
       url: https://gustavarantes.myportfolio.com/
-photoSrc: /images/team/gustavo.png
+image:
+    src: /images/team/gustavo.png

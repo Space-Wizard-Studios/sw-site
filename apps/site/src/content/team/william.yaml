@@ -14,4 +14,5 @@ socials:
       url: https://github.com/wbmagalhaes/
     - type: linkedin
       url: https://www.linkedin.com/in/william-bernardes-magalhaes/
-photoSrc: /images/team/william.png
+image:
+    src: /images/team/william.png

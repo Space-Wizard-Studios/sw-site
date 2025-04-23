@@ -12,5 +12,5 @@ socials:
       url: https://www.behance.net/barbarafaraco
     - type: linkedin
       url: https://br.linkedin.com/in/barbara-faraco
-photoSrc: /images/team/barbara.jpg
-
+image:
+    src: /images/team/barbara.jpg
