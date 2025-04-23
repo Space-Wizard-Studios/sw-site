@@ -14,10 +14,10 @@ category:
         # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
         # - elementor # Sugestão: Criar frameworks/elementor.yaml
 date: '2023-09'
-hero:
-    src: '/src/assets/images/projects/tavern_tale/tavern_tale_hero.png'
-    title: 'Banner do site Tavern Tale Studio'
-    altText: 'Banner do site corporativo do Tavern Tale Studio'
+# hero:
+#     src: '/src/assets/images/projects/tavern_tale/tavern_tale_hero.png'
+#     title: 'Banner do site Tavern Tale Studio'
+#     altText: 'Banner do site corporativo do Tavern Tale Studio'
 # carousel:
 #     -
 partners:

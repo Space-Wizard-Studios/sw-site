@@ -9,12 +9,12 @@ const projects = await getAllProjects();
 if (projects.length > 0) {
     console.log(
         'DEBUG: First project category structure:',
-        JSON.stringify(projects[0].category, null, 2)
+        JSON.stringify(projects[0].data.category, null, 2)
     );
-    if (projects[0].category?.platforms && projects[0].category.platforms.length > 0) {
+    if (projects[0].data.category?.platforms && projects[0].data.category.platforms.length > 0) {
         console.log(
             'DEBUG: First platform object:',
-            JSON.stringify(projects[0].category.platforms[0], null, 2)
+            JSON.stringify(projects[0].data.category.platforms[0], null, 2)
         );
     }
 }

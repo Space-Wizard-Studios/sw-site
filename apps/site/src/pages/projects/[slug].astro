@@ -11,20 +11,20 @@ export async function getStaticPaths() {
     const processedProjects = await getAllProjects();
 
     return processedProjects.map((project) => ({
-        params: { slug: project.slug },
+        params: { slug: project.data.slug },
         props: { project },
     }));
 }
 
 const { project } = Astro.props;
 
-const content = project.content;
+const content = project.data.content;
 const html =await marked.parse(content);
 
-const heroImageMetadata = getImageMetadataByPath(project.hero.src);
+const heroImageMetadata = getImageMetadataByPath(project.data.hero.src);
 ---
 
-<Layout meta={{ title: project.title }}>
+<Layout meta={{ title: project.data.title }}>
     {heroImageMetadata && (
         <Hero
             mobileImagePath={heroImageMetadata}
@@ -35,8 +35,8 @@ const heroImageMetadata = getImageMetadataByPath(project.hero.src);
 
         <section class='flex flex-col w-full md:sticky top-0 py-24'>
             <div class='sw-container flex flex-col space-y-10 z-10 text-on-surface'>
-            <h1>{project.title}</h1>
-            <h5 class=''>{project.subtitle}</h5>
+            <h1>{project.data.title}</h1>
+            <h5 class=''>{project.data.subtitle}</h5>
         </div>
         </section>
 
