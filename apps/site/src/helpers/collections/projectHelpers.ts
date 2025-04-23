@@ -7,22 +7,28 @@ export type ProcessedProject = Project & {
     slug: string;
 };
 
-export async function getAllProjects(locale: string = '') {
+export async function getAllProjects(locale: string = ''): Promise<ProcessedProject[]> {
     const allProjects = await getCollection('projects');
 
-    return allProjects
-        .map((project) => ({
+    const nonDraftProjects = allProjects.filter((project) => !project.data.draft);
+
+    const processedProjects = nonDraftProjects.map((project) => {
+        const processed: ProcessedProject = {
             ...project,
             slug: slugify(project.data.title),
-        }))
-        .filter((project) => !project.data.draft)
-        .sort((projectA, projectB) => {
-            // Ordenação por slug
-            // return projectA.slug.localeCompare(projectB.slug);
+        };
+        return processed;
+    });
 
-            // Ordenação por data
-            const dateA = new Date(projectA.data.date).getTime();
-            const dateB = new Date(projectB.data.date).getTime();
-            return dateB - dateA;
-        }) as ProcessedProject[];
+    processedProjects.sort((projectA, projectB) => {
+        // Ordenação por slug
+        // return projectA.slug.localeCompare(projectB.slug);
+
+        // Ordenação por data
+        const dateA = new Date(projectA.data.date).getTime();
+        const dateB = new Date(projectB.data.date).getTime();
+        return dateB - dateA;
+    });
+
+    return processedProjects as ProcessedProject[];
 }

@@ -17,12 +17,11 @@ async function getSocialsMap(): Promise<Map<string, CollectionEntry<'socials'>['
     return socialsMapCache;
 }
 
-/**
- * Resolves an array of raw social links (with resolved reference objects)
- * into an array of SocialLinkItems including the title from the referenced entry.
- * @param rawSocials - Array of TeamMemberSocial objects from a collection entry.
- * @returns A promise that resolves to an array of processed SocialLinkItems.
- */
+export async function getAllSocials(): Promise<CollectionEntry<'socials'>[]> {
+    const allSocialsEntries = await getCollection('socials');
+    return allSocialsEntries.filter((entry) => !entry.data.draft);
+}
+
 export async function resolveSocialLinks(rawSocials: TeamMemberSocial[] | undefined | null): Promise<SocialLinkItem[]> {
     if (!rawSocials || rawSocials.length === 0) {
         return [];
