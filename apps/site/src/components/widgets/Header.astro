@@ -13,7 +13,6 @@ const { className } = Astro.props as Props;
 
 <header
     class={cn('sticky top-0 z-50',
-        'sw-animation sw-root-scroll sw-size-down', 
         'h-24 min-h-10 transition-all flex flex-col w-full py-4 items-center justify-center',
         'bg-surface-bright/85 backdrop-blur-md text-brand shadow-lg',
         className,
@@ -24,7 +23,6 @@ const { className } = Astro.props as Props;
         <h1 class="flex flex-row w-full "
         >
         <a class={cn(
-            'sw-animation sw-root-scroll sw-size-down',
         'w-48 hover:scale-105 transition-all text-primary')} 
         href='/' 
         style="--width-down-to: 8rem;"
@@ -33,6 +31,6 @@ const { className } = Astro.props as Props;
                 <SiteLogo client:idle />
             </a>
         </h1>
-        <ButtonToggleTheme  className='sw-animation sw-root-scroll sw-scale-down' client:visible />
+        <ButtonToggleTheme client:visible />
     </nav>
 </header>
