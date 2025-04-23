@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Sun, Moon, Cloud, Stars } from '@icons/Theme';
 
-import { cn } from '@helpers/cn';
-import { getInitialTheme, applyTheme } from '@helpers/getInitialTheme';
+import { cn } from '@lib/utils';
+import { getInitialTheme, applyTheme } from '@lib/getInitialTheme';
 
 export interface ButtonToggleThemeProps {
     className?: string;

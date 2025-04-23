@@ -4,7 +4,7 @@ import { useState } from 'react';
 // import { ProductBack } from '../ProductCard/ProductBack';
 // import { ProductCanvas } from '../ProductCard/ProductCanvas';
 import { Toggle } from './TrackToggle';
-import { cn } from '@helpers/cn';
+import { cn } from '@lib/utils';
 
 interface Props {
     index: number;

@@ -1,4 +1,4 @@
-import { cn } from '@helpers/cn';
+import { cn } from '@lib/utils';
 import { motion } from 'motion/react';
 
 interface Props {

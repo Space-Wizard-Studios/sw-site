@@ -1,7 +1,7 @@
 import { motion, LayoutGroup, AnimatePresence } from 'motion/react';
 
 import { Socials, type SocialLinkItem } from '@common/SocialLinks';
-import type { ProcessedTeamMember } from '@helpers/collections/teamHelpers';
+import type { ProcessedTeamMember } from '@lib/collections/teamHelpers';
 import { Toggle } from './Toggle';
 
 interface Props {

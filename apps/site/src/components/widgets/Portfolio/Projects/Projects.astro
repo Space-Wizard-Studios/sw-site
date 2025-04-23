@@ -1,0 +1,32 @@
+---
+import { ProjectGallery } from '@common/ProjectsGallery';
+import ProjectCard from '@common/ProjectsGallery/ProjectCard/ProjectCard.astro';
+import { getAllProjects, type ProcessedProject } from '@lib/collections/projectHelpers';
+import { cn } from '@lib/utils';
+
+const projects = await getAllProjects();
+
+if (projects.length > 0) {
+    console.log(
+        'DEBUG: First project category structure:',
+        JSON.stringify(projects[0].category, null, 2)
+    );
+    if (projects[0].category?.platforms && projects[0].category.platforms.length > 0) {
+        console.log(
+            'DEBUG: First platform object:',
+            JSON.stringify(projects[0].category.platforms[0], null, 2)
+        );
+    }
+}
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props as Props;
+---
+
+<section class={cn('w-full', className)}>
+    <!-- {projects.map((project: ProcessedProject) => <ProjectCard project={project} />)} -->
+     <ProjectGallery client:only projects={projects}/>
+</section>

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, useAnimationControls } from 'motion/react';
 import { Rocket } from '@icons/UI';
 import { useProductsContext } from '@common/ProductGallery/ProductsContext';
-import { cn } from '@helpers/cn';
+import { cn } from '@lib/utils';
 
 import type { Variants } from 'motion/react';
 

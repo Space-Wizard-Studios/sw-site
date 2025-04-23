@@ -5,9 +5,9 @@ import { motion } from 'motion/react';
 import { MemberPicture } from './MemberPicture';
 import { MemberSocials } from './MemberSocials';
 import { MemberInfo } from './MemberInfo';
-import { cn } from '@helpers/cn';
+import { cn } from '@lib/utils';
 
-import type { ProcessedTeamMember } from '@helpers/collections/teamHelpers';
+import type { ProcessedTeamMember } from '@lib/collections/teamHelpers';
 
 export interface Props {
     teamMember: ProcessedTeamMember;

@@ -1,9 +1,9 @@
 ---
 // filepath: d:\projetos\sw\sw-site\apps\site\src\components\common\ProjectCard\ProjectCard.astro
 import Badge from 'src/components/common/Badges/Badge.astro';
-import { getImageByPath } from 'src/helpers/getImageByPath';
-import type { ProcessedProject } from 'src/helpers/collections/projectHelpers';
-import { cn } from '@helpers/cn';
+import { getImageByPath } from '@lib/getImageByPath';
+import type { ProcessedProject } from '@lib/collections/projectHelpers';
+import { cn } from '@lib/utils';
 import { getEntry, type CollectionEntry } from 'astro:content'; // Import getEntry
 
 interface Props {
@@ -12,14 +12,14 @@ interface Props {
 
 const { project }: Props = Astro.props;
 
-const image = project.data.hero?.src
-    ? await getImageByPath(project.data.hero.src, { width: 800, height: 600 })
+const image = project.hero?.src
+    ? await getImageByPath(project.hero.src, { width: 800, height: 600 })
     : null;
 
 // Fetch the actual data for each category reference
-const platformRefs = project.data.category?.platforms ?? [];
-const frameworkRefs = project.data.category?.frameworks ?? [];
-const tagRefs = project.data.category?.tags ?? [];
+const platformRefs = project.category?.platforms ?? [];
+const frameworkRefs = project.category?.frameworks ?? [];
+const tagRefs = project.category?.tags ?? [];
 
 // Use Promise.all to fetch entries concurrently
 const platforms = await Promise.all(
@@ -54,7 +54,7 @@ const validTags = tags.filter(t => t !== null) as CollectionEntry<'tags'>[];
                     src={image.src}
                     width={image.attributes.width}
                     height={image.attributes.height}
-                    alt={project.data.hero?.altText ?? `Hero image for ${project.data.title}`}
+                    alt={project.hero?.alt ?? `Hero image for ${project.title}`}
                     class='aspect-[3/2] h-auto max-h-60 w-full object-cover object-top'
                 />
             </a>
@@ -63,9 +63,9 @@ const validTags = tags.filter(t => t !== null) as CollectionEntry<'tags'>[];
     <div class="flex flex-col flex-grow p-4">
         <header class='mb-2'>
             <h4 class=''>
-                <a href={'/projects/' + project.slug} class="hover:underline">{project.data.title}</a>
+                <a href={'/projects/' + project.slug} class="hover:underline">{project.title}</a>
             </h4>
-            {project.data.subtitle && <p class="text-sm text-on-surface-variant">{project.data.subtitle}</p>}
+            {project.subtitle && <p class="text-sm text-on-surface-variant">{project.subtitle}</p>}
         </header>
 
         {(validPlatforms.length > 0 || validFrameworks.length > 0 || validTags.length > 0) && (

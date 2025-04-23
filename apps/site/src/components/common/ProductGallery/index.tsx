@@ -5,9 +5,9 @@ import { ProductsProvider, useProductsContext } from './ProductsContext';
 import { ProductCard } from './ProductCard';
 import { ProductToggle } from './ProductToggle';
 
-import type { ProcessedProduct } from '@helpers/productHelpers';
+import type { ProcessedProduct } from '@lib/collections/productHelpers';
 
-import { cn } from '@helpers/cn';
+import { cn } from '@lib/utils';
 
 interface ProductGalleryProps {
     className?: string;
@@ -28,9 +28,9 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
         >
             {products.map((product, index) => (
                 <ProductCard
-                    key={product.slug}
+                    key={index}
                     index={index}
-                    product={product.data}
+                    product={product}
                 />
             ))}
             <ProductToggle />

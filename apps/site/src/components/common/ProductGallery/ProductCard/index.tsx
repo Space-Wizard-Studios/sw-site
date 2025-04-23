@@ -1,11 +1,11 @@
 import { motion } from 'motion/react';
 import { Planet, Rocket } from '@icons/UI';
-import { cn } from '@helpers/cn';
+import { cn } from '@lib/utils';
 import { useProductsContext } from '@common/ProductGallery/ProductsContext';
 import { ProductFront } from './ProductFront';
 import { ProductBack } from './ProductBack';
 
-import type { ProcessedProduct } from '@helpers/productHelpers';
+import type { ProcessedProduct } from '@lib/collections/productHelpers';
 
 interface Props {
     index: number;

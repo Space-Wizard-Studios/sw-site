@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 
-import type { ProcessedTeamMember } from '@helpers/collections/teamHelpers';
+import type { ProcessedTeamMember } from '@lib/collections/teamHelpers';
 
 interface Props {
     teamMember: ProcessedTeamMember;
