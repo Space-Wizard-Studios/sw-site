@@ -35,26 +35,14 @@
             "@common/*": [
                 "src/components/common/*"
             ],
-            "@widgets/*": [
-                "src/components/widgets/*"
-            ],
             "@icons/*": [
                 "src/components/icons/*"
             ],
+            "@widgets/*": [
+                "src/components/widgets/*"
+            ],
             "@components/*": [
                 "src/components/*"
-            ],
-            "@content/*": [
-                "src/content/*"
-            ],
-            "@hooks/*": [
-                "src/hooks/*"
-            ],
-            "@layouts/*": [
-                "src/layouts/*"
-            ],
-            "@schemas/*": [
-                "src/schemas/*"
             ],
             "types/*": [
                 "src/types/*"
