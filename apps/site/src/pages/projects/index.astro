@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/PageLayout.astro';
-import { Gallery } from '@widgets/Portfolio/Portfolio.astro';
+import { Gallery as ProjectsGallery } from '@widgets/Portfolio/Portfolio.astro';
 
 import { config } from '@config.js';
 import type { MetaSEO } from 'types/metaSEO';
@@ -23,7 +23,7 @@ const meta: MetaSEO = {
                     <h2 class='uppercase text-on-surface'>Projetos</h2>
                     <h3 class='sw-animation sw-pulse sw-to-b from-primary to-accent'>Um gostinho do que fazemos</h3>
                 </header>
-                <Gallery />
+                <ProjectsGallery />
             </div>
         </div>
     </section>

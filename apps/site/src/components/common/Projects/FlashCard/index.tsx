@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { ProductFront } from '../ProductFront';
-import { ProductBack } from '../ProductBack';
-import { ProductCanvas } from '../ProductCanvas';
+// import { ProductFront } from '../ProductCard/ProductFront';
+// import { ProductBack } from '../ProductCard/ProductBack';
+// import { ProductCanvas } from '../ProductCard/ProductCanvas';
 import { Toggle } from './TrackToggle';
 import { cn } from '@helpers/cn';
 
@@ -32,8 +32,8 @@ export default function FlashCard({ index, iconSrc, iconColor, title, subtitle, 
                     isActive ? openStyle : closedStyle,
                 )}
             >
-                <ProductFront title={title} subtitle={subtitle} />
-                <ProductBack isActive={isActive} description={description} />
+                {/* <ProductFront title={title} subtitle={subtitle} /> */}
+                {/* <ProductBack isActive={isActive} description={description} /> */}
                 <Toggle index={index} tooltip={tooltip} isActive={isActive} setOpen={setOpen} />
             </div>
             {/* 

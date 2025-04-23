@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useRef, type ReactNode } from 'react';
 
-// Create the context with a default value
 const ProductsContext = createContext<ProductsContextType | undefined>(undefined);
 
 interface ProductsContextType {
@@ -27,7 +26,6 @@ export function ProductsProvider({ children, cardCount = 4 }: { children: ReactN
 
     const containerRef = useRef<HTMLDivElement>(null);
 
-    // Create a ref for each card
     const planetRefs = Array.from({ length: cardCount }, () => useRef<HTMLDivElement>(null));
 
     return (

@@ -1,14 +1,19 @@
 ---
-import { Products as ProductsReact } from '@common/ProductCard/RocketCard/Products';
+import { ProductGallery } from '@common/ProductGallery';
 import { cn } from '@helpers/cn';
+
+import { getAllProducts, type ProcessedProduct } from '@helpers/collections/productHelpers';
 
 export interface Props {
     className?: string;
 }
 
 const { className } = Astro.props as Props;
+
+const products: ProcessedProduct[] = await getAllProducts();
+
 ---
 
 <div class={cn('flex flex-col md:flex-row w-full justify-between', className)}>
-    <ProductsReact client:only />
+    <ProductGallery client:only products={products} />
 </div>

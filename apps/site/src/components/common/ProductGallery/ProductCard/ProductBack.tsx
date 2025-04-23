@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 interface Props {
     isActive: boolean;
-    description?: React.ReactNode;
+    description?: string;
 }
 
 export function ProductBack({ isActive, description }: Props) {

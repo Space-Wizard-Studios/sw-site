@@ -1,7 +1,7 @@
 ---
-import ProjectCard from '@common/ProjectCard/ProjectCard.astro';
+import ProjectCard from '@common/Projects/ProjectCard.astro';
 import { getAllProjects, type ProcessedProject } from '@helpers/collections/projectHelpers';
-import { cn } from '@helpers/cn'; // Corrected import path
+import { cn } from '@helpers/cn';
 
 const projects = await getAllProjects();
 

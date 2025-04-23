@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { AnimatePresence, motion, useAnimationControls } from 'motion/react';
+import { motion, useAnimationControls } from 'motion/react';
 import { Rocket } from '@icons/UI';
-import { useProductsContext } from '../ProductsContext';
+import { useProductsContext } from '@common/ProductGallery/ProductsContext';
 import { cn } from '@helpers/cn';
 
 import type { Variants } from 'motion/react';
 
-export function RocketToggle() {
+export function ProductToggle() {
     const {
         rocketPosition,
         setRocketPosition,

@@ -1,18 +1,20 @@
 import { motion } from 'motion/react';
 import { Planet, Rocket } from '@icons/UI';
 import { cn } from '@helpers/cn';
-import { useProductsContext } from './ProductsContext';
-import { ProductFront } from '../ProductFront';
-import { ProductBack } from '../ProductBack';
+import { useProductsContext } from '@common/ProductGallery/ProductsContext';
+import { ProductFront } from './ProductFront';
+import { ProductBack } from './ProductBack';
+
+import type { ProcessedProduct } from '@helpers/productHelpers';
 
 interface Props {
     index: number;
-    title?: React.ReactNode;
-    subtitle?: React.ReactNode;
-    description?: React.ReactNode;
+    product: ProcessedProduct;
 }
 
-export function RocketCard({ index, title, subtitle, description }: Props) {
+export function ProductCard({ index, product }: Props) {
+    const { title, summary = '', description = '' } = product;
+
     const {
         activeCard,
         setActiveCard,
@@ -23,6 +25,7 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
         setRocketVisible,
         containerRef,
     } = useProductsContext();
+    
     const isActive = activeCard === index;
 
     const handlePlanetClick = () => {
@@ -87,7 +90,7 @@ export function RocketCard({ index, title, subtitle, description }: Props) {
                     isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
                 )}
             >
-                <ProductFront title={title} subtitle={subtitle} />
+                <ProductFront title={title} summary={summary} />
                 <ProductBack isActive={isActive} description={description} />
                 <div className={`flex flex-row justify-center`}>
                     <div className='bg-surface-container-lowest flex flex-wrap items-center justify-center gap-2 rounded-full p-2'>
