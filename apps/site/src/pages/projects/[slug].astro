@@ -4,8 +4,8 @@ import { marked } from 'marked';
 import Layout from '@layouts/PageLayout.astro';
 import {Hero} from '@widgets/Project/Project.astro';
 
-import { getAllProjects } from '@helpers/collections/projectHelpers';
-import {getImageMetadataByPath} from '@helpers/getImageMetadataByPath';
+import { getAllProjects } from '@lib/collections/projectHelpers';
+import {getImageMetadataByPath} from '@lib/getImageMetadataByPath';
 
 export async function getStaticPaths() {
     const processedProjects = await getAllProjects();
@@ -18,13 +18,13 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 
-const content = project.data.content;
+const content = project.content;
 const html =await marked.parse(content);
 
-const heroImageMetadata = getImageMetadataByPath(project.data.hero.src);
+const heroImageMetadata = getImageMetadataByPath(project.hero.src);
 ---
 
-<Layout meta={{ title: project.data.title }}>
+<Layout meta={{ title: project.title }}>
     {heroImageMetadata && (
         <Hero
             mobileImagePath={heroImageMetadata}
@@ -35,8 +35,8 @@ const heroImageMetadata = getImageMetadataByPath(project.data.hero.src);
 
         <section class='flex flex-col w-full md:sticky top-0 py-24'>
             <div class='sw-container flex flex-col space-y-10 z-10 text-on-surface'>
-            <h1>{project.data.title}</h1>
-            <h5 class=''>{project.data.subtitle}</h5>
+            <h1>{project.title}</h1>
+            <h5 class=''>{project.subtitle}</h5>
         </div>
         </section>
 
