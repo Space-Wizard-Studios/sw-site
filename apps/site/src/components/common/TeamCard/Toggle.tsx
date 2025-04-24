@@ -11,7 +11,7 @@ export function Toggle({ isActive, onClick }: Props) {
         <motion.button
             layout
             onClick={(e) => onClick(e)}
-            className='bg-surface-container-low text-on-container z-10 h-10 w-10 rounded-full border-none p-2 cursor-pointer'
+            className='bg-surface-container-low text-on-container z-10 h-10 w-10 cursor-pointer rounded-full border-none p-2'
             aria-label='Redes sociais'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 1.1 }}

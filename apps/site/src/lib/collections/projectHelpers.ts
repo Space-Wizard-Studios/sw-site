@@ -1,14 +1,27 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import type { ImageMetadata } from 'astro';
 import type { Project } from '@schemas/projectSchema';
 
 import { slugify } from '@lib/slugify';
 import { getImageMetadataByPath } from '@lib/getImageMetadataByPath';
 
-type ProcessedProjectData = Omit<Project, 'hero'> & {
+import {
+    resolveProjectCategories,
+    type ResolvedProduct,
+    type ResolvedPlatform,
+    type ResolvedFramework,
+    type ResolvedTag,
+} from '../resolveProjectCategories';
+
+type ProcessedProjectData = Omit<Project, 'hero' | 'category'> & {
     slug: string;
     hero?: Omit<NonNullable<Project['hero']>, 'src'> & {
         src?: string | undefined;
+    };
+    category?: {
+        products: ResolvedProduct[];
+        platforms: ResolvedPlatform[];
+        frameworks: ResolvedFramework[];
+        tags: ResolvedTag[];
     };
 };
 
@@ -26,7 +39,7 @@ export async function getAllProjects(locale: string = ''): Promise<ProcessedProj
             let processedHero: ProcessedProjectData['hero'] = undefined;
             let heroImageSrc: string | undefined = undefined;
 
-            // needs to process the image
+            // Process the hero image
             if (project.data.hero?.src) {
                 const heroImageMetadata = getImageMetadataByPath(project.data.hero.src);
                 heroImageSrc = heroImageMetadata?.src ?? undefined;
@@ -36,16 +49,22 @@ export async function getAllProjects(locale: string = ''): Promise<ProcessedProj
                 };
             } else if (project.data.hero) {
                 processedHero = {
-                    ...project.data.hero, // spread other properties of the hero (alt, title)
+                    ...project.data.hero,
                     src: undefined,
                 };
             }
 
+            const resolvedCategories = await resolveProjectCategories(project.data.category);
+
+            // Extract properties from project data
+            const { hero, category, ...otherData } = project.data;
+
             // builds the processed data object
             const processedData: ProcessedProjectData = {
-                ...project.data, // original data
-                data: slugify(project.data.title), // add the custom slug
-                hero: processedHero, // assign the processed hero object
+                ...otherData,
+                slug: slugify(project.data.title),
+                hero: processedHero,
+                category: resolvedCategories, // Use the resolved categories
             };
 
             // build the processed project
@@ -59,12 +78,10 @@ export async function getAllProjects(locale: string = ''): Promise<ProcessedProj
     );
 
     processedProjects.sort((projectA, projectB) => {
-        const dateA = new Date(projectA.data?.date ?? 0).getTime();
-        const dateB = new Date(projectB.data?.date ?? 0).getTime();
+        const dateA = projectA.data.date ? new Date(projectA.data.date).getTime() : 0;
+        const dateB = projectB.data.date ? new Date(projectB.data.date).getTime() : 0;
         return dateB - dateA;
     });
-
-    // console.log('[getAllProjects] processed projects:', processedProjects);
 
     return processedProjects;
 }

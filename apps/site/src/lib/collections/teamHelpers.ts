@@ -2,14 +2,13 @@ import { getCollection } from 'astro:content';
 
 import type { ImageMetadata } from 'astro';
 import type { CollectionEntry } from 'astro:content';
-import type { SocialLinkItem } from '@components/common/SocialLinks';
 import type { TeamMember } from '@schemas/teamSchema';
 
-import { resolveSocialLinks } from './socialHelpers';
+import { resolveTeamSocials, type ResolvedSocial } from '@lib/resolveTeamSocials';
 import { getImageMetadataByPath } from '@lib/getImageMetadataByPath';
 
 type ProcessedTeamMemberData = Omit<TeamMember, 'socials' | 'image'> & {
-    socials: SocialLinkItem[];
+    socials: ResolvedSocial[];
     image?: Omit<NonNullable<TeamMember['image']>, 'src'> & {
         src?: string | undefined;
     };
@@ -48,7 +47,7 @@ export async function getAllTeamMembers(): Promise<ProcessedTeamMember[]> {
 
             // process socials
             const rawSocials = member.data.socials;
-            const resolvedSocials = await resolveSocialLinks(rawSocials);
+            const resolvedSocials = await resolveTeamSocials(rawSocials);
 
             // filter skills
             const validSkills = (member.data.skills ?? []).filter(

@@ -1,8 +1,10 @@
 import { motion, LayoutGroup, AnimatePresence } from 'motion/react';
 
-import { Socials, type SocialLinkItem } from '@common/SocialLinks';
-import type { ProcessedTeamMember } from '@lib/collections/teamHelpers';
+import { SocialIcons } from '@common/Icons';
 import { Toggle } from './Toggle';
+
+import type { ProcessedTeamMember } from '@lib/collections/teamHelpers';
+import type { ResolvedSocial } from '@lib/resolveTeamSocials';
 
 interface Props {
     teamMember: ProcessedTeamMember;
@@ -11,7 +13,7 @@ interface Props {
 }
 
 export function MemberSocials({ teamMember, isActive, toggleOpen }: Props) {
-    const { socials } = teamMember.data;
+    const socials: ResolvedSocial[] = teamMember.data.socials || [];
     const n_socials = (socials || []).length;
     const variants = {
         hidden: { opacity: 0, scale: 0, translateX: '-100%' },
@@ -40,18 +42,18 @@ export function MemberSocials({ teamMember, isActive, toggleOpen }: Props) {
                     <Toggle isActive={isActive} onClick={toggleOpen} />
                     <AnimatePresence>
                         {isActive &&
-                            (socials || []).map((social, index) => {
-                                const socialKey = social.type.toLowerCase();
-                                const IconComponent = Socials[socialKey];
+                            socials.map((social, index) => {
+                                const socialKey = social.id.toLowerCase();
+                                const IconComponent = SocialIcons[socialKey];
 
                                 if (!IconComponent) {
-                                    console.warn(`[MemberSocials] Icon not found for social type: ${social.type}`);
+                                    console.warn(`[MemberSocials] IconComponent not found for social id: ${social.id}`);
                                     return null;
                                 }
 
                                 return (
                                     <motion.a
-                                        key={social.type}
+                                        key={social.id}
                                         href={social.url}
                                         target='_blank'
                                         rel='noopener noreferrer'

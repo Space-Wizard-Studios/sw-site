@@ -12,7 +12,7 @@ const { className } = Astro.props as Props;
 const teamMembers: ProcessedTeamMember[] = await getAllTeamMembers();
 ---
 
-<div class={cn('grid auto-rows-fr grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-24 text-justify my-16', className)}>
+<div class={cn('grid auto-rows-fr grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-24 text-justify my-16', className)}>
     {teamMembers.map((member) => (
         <TeamCard
             client:visible

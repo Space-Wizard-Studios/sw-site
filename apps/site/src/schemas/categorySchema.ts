@@ -30,5 +30,4 @@ export type Framework = z.infer<typeof frameworkSchema>;
 export type Tag = z.infer<typeof tagSchema>;
 export type Badge = z.infer<typeof badgeSchema>;
 
-// Category is a union of Platforms, Frameworks, and Tags
 export type Category = Platform | Framework | Tag;

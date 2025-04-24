@@ -36,8 +36,10 @@ export const projectSchema = z
 export type Project = z.infer<typeof projectSchema>;
 
 // Infer the type of items after collection processing
+export type ProjectCategory = CollectionEntry<'projects'>['data']['category'];
 export type ProjectService = CollectionEntry<'projects'>['data']['category']['products'][number];
 export type ProjectPlatform = CollectionEntry<'projects'>['data']['category']['platforms'][number];
 export type ProjectTag = CollectionEntry<'projects'>['data']['category']['tags'][number];
 export type ProjectFramework = CollectionEntry<'projects'>['data']['category']['frameworks'][number];
+
 export type ProjectPartner = CollectionEntry<'projects'>['data']['partners'][number];

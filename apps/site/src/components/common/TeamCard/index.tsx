@@ -36,13 +36,13 @@ export default function TeamCard({ teamMember }: Props) {
                 isActive
                     ? 'from-surface-container-high to-surface-container-highest'
                     : 'from-surface-container-low/60 to-surface-container/60',
-                'text-on-surface backdrop-blur-md',
+                'text-on-surface border-surface/60 border-2 backdrop-blur-md',
                 'transition-shadow duration-300',
                 isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
             )}
         >
             <div className='relative -mt-12 flex h-full w-full flex-col gap-4'>
-                <MemberPicture teamMember={teamMember} isActive={isActive}/>
+                <MemberPicture teamMember={teamMember} isActive={isActive} />
                 <MemberInfo teamMember={teamMember} isActive={isActive} />
                 <MemberSocials teamMember={teamMember} isActive={isActive} toggleOpen={toggleOpen} />
             </div>

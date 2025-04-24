@@ -1,4 +1,4 @@
-import { ProjectCard } from './ProjectCard';
+import { ProjectCard } from '@common/ProjectCard';
 import { cn } from '@lib/utils';
 
 import type { ProcessedProject } from '@lib/collections/projectHelpers';
