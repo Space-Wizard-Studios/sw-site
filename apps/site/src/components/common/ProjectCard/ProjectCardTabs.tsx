@@ -1,9 +1,9 @@
 import type React from 'react';
 import { motion } from 'motion/react';
-import { cn, getContrastColor } from '@lib/utils';
 
-import { FileText, Tag, MapPin, Settings } from 'lucide-react';
-import { Badge } from '@components/ui/badge';
+import { cn, getContrastColor, darkenColor } from '@lib/utils';
+
+import { FileText, Tag } from 'lucide-react';
 import { IconBadge } from './IconBadge';
 import { getIconComponent } from '@lib/getIconComponent';
 
@@ -66,7 +66,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
             {/* Tab Content */}
             <div className='flex-grow overflow-y-auto'>
                 {activeTab === 'overview' && (
-                    <div className='flex flex-col gap-4 p-4'>
+                    <div className='flex flex-col gap-4 p-2'>
                         {summary && (
                             <div>
                                 <h5>Resumo</h5>
@@ -95,7 +95,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                 )}
 
                 {activeTab === 'details' && hasCategories && (
-                    <div className='flex flex-col gap-4 p-4'>
+                    <div className='flex flex-col gap-4 p-2'>
                         {platforms.length > 0 && (
                             <div className='flex flex-col gap-2'>
                                 <h5>Plataformas</h5>
@@ -123,38 +123,44 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                                     {frameworks.map((framework) => {
                                         const Icon = getIconComponent('framework', framework.id);
                                         const badgeBgColor = framework.badge?.background;
-                                        const badgeBorderColor = framework.badge?.border;
+                                        const badgeHoverBorderColor = badgeBgColor
+                                            ? darkenColor(badgeBgColor, 80)
+                                            : undefined;
 
-                                        console.log('Badge border', badgeBorderColor);
                                         const badgeStyle = badgeBgColor
                                             ? ({
                                                   '--badge-hover-bg': badgeBgColor,
-                                                  '--badge-hover-border': badgeBorderColor ?? badgeBgColor,
+                                                  '--badge-hover-border': badgeHoverBorderColor ?? badgeBgColor,
                                               } as React.CSSProperties)
                                             : undefined;
 
-                                        // Determine contrast color for hover state
                                         const hoverTextColorClass = badgeBgColor
                                             ? getContrastColor(badgeBgColor) === 'black'
                                                 ? 'hover:text-black'
                                                 : 'hover:text-white'
-                                            : 'hover:text-black'; // Default hover text if no bg color
+                                            : 'hover:text-black';
 
                                         return (
-                                            <IconBadge
-                                                key={framework.id}
-                                                icon={Icon ? <Icon className='h-4 w-4' /> : null}
-                                                link={framework.link}
-                                                label={framework.title || framework.id}
-                                                showLabel={true}
-                                                variant='default'
-                                                style={badgeStyle}
-                                                className={cn(
-                                                    'transition-colors duration-200',
-                                                    badgeBgColor &&
-                                                        `hover:border-[var(--badge-hover-border)]/40 hover:bg-[var(--badge-hover-bg)] ${hoverTextColorClass}`,
-                                                )}
-                                            />
+                                            <a
+                                                href={framework.link}
+                                                className='no-underline'
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                            >
+                                                <IconBadge
+                                                    key={framework.id}
+                                                    icon={Icon ? <Icon className='h-4 w-4' /> : null}
+                                                    label={framework.title || framework.id}
+                                                    showLabel={true}
+                                                    variant='default'
+                                                    style={badgeStyle}
+                                                    className={cn(
+                                                        'transition-colors duration-200',
+                                                        badgeBgColor &&
+                                                            `hover:border-[var(--badge-hover-border)]/40 hover:bg-[var(--badge-hover-bg)] ${hoverTextColorClass}`,
+                                                    )}
+                                                />
+                                            </a>
                                         );
                                     })}
                                 </div>

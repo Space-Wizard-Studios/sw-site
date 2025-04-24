@@ -5,13 +5,22 @@ import { ChevronUp, ChevronDown } from 'lucide-react';
 interface ProjectCardContentProps {
     title: string;
     subtitle?: string;
-    isExpanded: boolean;
+    isActive: boolean;
     handleToggle: (e: React.MouseEvent) => void;
 }
 
-export function ProjectCardContent({ title, subtitle, isExpanded, handleToggle }: ProjectCardContentProps) {
+export function ProjectCardContent({ title, subtitle, isActive, handleToggle }: ProjectCardContentProps) {
     return (
-        <div className='bg-surface text-on-surface relative flex h-full flex-row items-center p-4'>
+        <div
+            className={cn(
+                'relative flex h-full flex-row items-center p-4',
+                'bg-radial-[at_15%_15%]',
+                isActive
+                    ? 'from-surface-container-high to-surface-container-highest'
+                    : 'from-surface-container-low/60 to-surface-container/60',
+                'bg-surface text-on-surface',
+            )}
+        >
             <div className='flex w-full flex-row items-center justify-between gap-2'>
                 <div className='flex flex-col'>
                     <h4 className='font-bold leading-tight'>{title}</h4>
@@ -22,14 +31,23 @@ export function ProjectCardContent({ title, subtitle, isExpanded, handleToggle }
                         onClick={handleToggle}
                         className={cn(
                             'bg-surface-container text-on-container flex h-10 w-10 cursor-pointer flex-row items-center justify-center rounded-full border-none p-2',
-                            isExpanded ? '' : '',
+                            isActive ? '' : '',
                         )}
-                        aria-label={isExpanded ? 'Hide details' : 'Show details'}
+                        aria-label={isActive ? 'Hide details' : 'Show details'}
                     >
-                        {isExpanded ? <ChevronDown className='h-4 w-4' /> : <ChevronUp className='h-4 w-4' />}
+                        {isActive ? <ChevronDown className='h-4 w-4' /> : <ChevronUp className='h-4 w-4' />}
                     </button>
                 </div>
             </div>
         </div>
     );
 }
+
+// 'group relative flex h-full min-h-96 w-full flex-col justify-between overflow-hidden rounded-2xl',
+// 'bg-radial-[at_15%_15%]',
+// isActive
+//     ? 'from-surface-container-high to-surface-container-highest'
+//     : 'from-surface-container-low/60 to-surface-container/60',
+// 'text-on-surface border-surface/60 border-2 backdrop-blur-md',
+// 'transition-shadow duration-300',
+// isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',

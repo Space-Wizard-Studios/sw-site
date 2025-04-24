@@ -40,7 +40,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
     return (
         <motion.div
             className={cn(
-                'group relative flex h-full min-h-96 w-full flex-col justify-between overflow-hidden rounded-2xl',
+                'group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl',
                 'bg-radial-[at_15%_15%]',
                 isActive
                     ? 'from-surface-container-high to-surface-container-highest'
@@ -52,7 +52,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
             )}
             layout
         >
-            <div className='flex h-full w-full flex-col'>
+            <div className='flex h-full min-h-96 w-full flex-col'>
                 <div className='min-h-3/4 relative h-full w-full'>
                     {imageUrl ? (
                         <img
@@ -61,7 +61,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                             className='h-full w-full object-cover transition-all duration-500 ease-out'
                             style={{
                                 transform: isActive ? 'scale(1.2)' : 'scale(1)',
-                                opacity: isActive ? .5 : 1,
+                                opacity: isActive ? 0.5 : 1,
                             }}
                             loading='lazy'
                         />
@@ -82,12 +82,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                     </AnimatePresence>
                 </div>
 
-                <ProjectCardContent
-                    title={title}
-                    subtitle={subtitle}
-                    isExpanded={isActive}
-                    handleToggle={handleToggle}
-                />
+                <ProjectCardContent title={title} subtitle={subtitle} isActive={isActive} handleToggle={handleToggle} />
             </div>
         </motion.div>
     );

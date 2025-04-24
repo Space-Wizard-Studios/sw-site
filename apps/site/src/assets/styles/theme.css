@@ -1,5 +1,7 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* 
 This palette was studied with the help of tints.dev
@@ -200,204 +202,196 @@ This palette was studied with the help of tints.dev
     --color-inverse-on-accent: var(--color-sw-pinkish-200);
 }
 
-h1 {
-    @apply text-3xl font-black;
-}
-
-h2 {
-    @apply text-2xl font-extrabold;
-}
-
-h3 {
-    @apply text-xl font-bold;
-}
-
-h4 {
-    @apply text-lg font-semibold;
-}
-
-h5 {
-    @apply text-base font-semibold;
-}
-
-h6 {
-    @apply text-base font-semibold;
-}
-
-/* a {
-    @apply text-primary cursor-pointer font-bold underline transition-colors duration-300;
-
-    &:hover {
-        @apply text-sw-navy-800;
-    }
-} */
-
-.dark a{
-    &:hover {
-        @apply text-sw-flamingo-200;
-    }
-}
-
-/* ul {
-    @apply mr-4 list-disc pl-8;
-
-    li {
-        @apply text-base font-normal;
-    }
-} */
-
-table {
-    @apply bg-surface-container overflow-hidden rounded-2xl;
-
-    tbody {
-        tr {
-            @apply border-surface-dim border-t;
-        }
+@layer components {
+    h1 {
+        @apply text-3xl font-black;
     }
 
-    tr {
-        &:nth-child(even) {
-            @apply bg-surface-container-high;
-        }
+    h2 {
+        @apply text-2xl font-extrabold;
+    }
 
-        @apply bg-surface-container transition-all;
+    h3 {
+        @apply text-xl font-bold;
+    }
+
+    h4 {
+        @apply text-lg font-semibold;
+    }
+
+    h5 {
+        @apply text-base font-semibold;
+    }
+
+    h6 {
+        @apply text-base font-semibold;
+    }
+
+    a {
+        @apply text-on-surface cursor-pointer font-bold transition-colors duration-300;
 
         &:hover {
-            @apply bg-surface-container-highest transition-all;
+            @apply text-sw-navy-800 dark:text-primary underline;
         }
     }
 
-    th {
-        @apply p-4;
+    ul {
+        @apply mr-4 list-disc pl-8;
+
+        li {
+            @apply text-base font-normal;
+        }
     }
 
-    td {
-        @apply p-4;
-    }
-}
+    table {
+        @apply bg-surface-container overflow-hidden rounded-2xl;
 
-html {
-    ::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
-    }
+        tbody {
+            tr {
+                @apply border-surface-dim border-t;
+            }
+        }
 
-    ::-webkit-scrollbar-button {
-        width: 0;
-        height: 0;
-    }
+        tr {
+            &:nth-child(even) {
+                @apply bg-surface-container-high;
+            }
 
-    ::-webkit-scrollbar-thumb {
-        background: #e1e1e1;
-        border: 0 none #fff;
-        border-radius: 50px;
-    }
+            @apply bg-surface-container transition-all;
 
-    ::-webkit-scrollbar-thumb:hover {
-        background: #fff;
-    }
+            &:hover {
+                @apply bg-surface-container-highest transition-all;
+            }
+        }
 
-    ::-webkit-scrollbar-thumb:active {
-        background: #000;
-    }
+        th {
+            @apply p-4;
+        }
 
-    ::-webkit-scrollbar-track {
-        background: #666;
-        border: 0 none #fff;
-        border-radius: 50px;
+        td {
+            @apply p-4;
+        }
     }
 
-    ::-webkit-scrollbar-track:hover {
-        background: #666;
+    html {
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+
+        ::-webkit-scrollbar-button {
+            width: 0;
+            height: 0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e1e1e1;
+            border: 0 none #fff;
+            border-radius: 50px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #fff;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #666;
+            border: 0 none #fff;
+            border-radius: 50px;
+        }
+
+        ::-webkit-scrollbar-track:hover {
+            background: #666;
+        }
+
+        ::-webkit-scrollbar-track:active {
+            background: #333;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
     }
 
-    ::-webkit-scrollbar-track:active {
-        background: #333;
+    .sw-subtitle {
+        @apply font-mono;
     }
 
-    ::-webkit-scrollbar-corner {
-        background: transparent;
+    .sw-container {
+        @apply mx-auto flex w-full max-w-7xl px-4;
     }
-}
 
-.sw-subtitle {
-    @apply font-mono;
-}
-
-.sw-container {
-    @apply mx-auto flex w-full max-w-7xl px-4;
-}
-
-.sw-display {
-    @apply text-5xl font-black md:text-6xl;
-}
-
-.sw-reflected-gradient {
-    @apply bg-gradient-to-bl from-sw-navy-400 via-sw-navy-200 to-sw-navy-400;
-}
-
-.dark .sw-reflected-gradient {
-    @apply bg-gradient-to-bl from-sw-plum-800 via-sw-plum-400 to-sw-plum-800;
-}
-
-.sw-halftone {
-    --stop1: 0.1rem; /* tamanho da bolinha */
-    --stop2: 0.1rem; /* tamanho da bolinha */
-    --blur: 0rem; /* intensidade do blur */
-    z-index: 0;
-
-    &::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        inset: 0;
-        background-image: radial-gradient(circle at center, currentColor var(--stop1), transparent var(--stop2));
-        background-size: 2.5rem 2.5rem; /* espaçamento entre as bolinhas */
-        background-position: 2.5rem 2.5rem; /* centraliza o padrão */
-        background-repeat: round;
-        filter: blur(var(--blur));
-        opacity: 0.1;
+    .sw-display {
+        @apply text-5xl font-black md:text-6xl;
     }
-}
 
-@keyframes sw-scale-down {
-    from {
-        transform: scale(var(--scale-down-from));
+    .sw-reflected-gradient {
+        @apply from-sw-navy-400 via-sw-navy-200 to-sw-navy-400 dark:from-sw-plum-800 dark:via-sw-plum-400 dark:to-sw-plum-800 bg-gradient-to-bl;
     }
-    to {
-        transform: scale(var(--scale-down-to));
+
+    .sw-halftone {
+        --stop1: 0.1rem; /* tamanho da bolinha */
+        --stop2: 0.1rem; /* tamanho da bolinha */
+        --blur: 0rem; /* intensidade do blur */
+        z-index: 0;
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background-image: radial-gradient(circle at center, currentColor var(--stop1), transparent var(--stop2));
+            background-size: 2.5rem 2.5rem; /* espaçamento entre as bolinhas */
+            background-position: 2.5rem 2.5rem; /* centraliza o padrão */
+            background-repeat: round;
+            filter: blur(var(--blur));
+            opacity: 0.1;
+        }
     }
-}
 
-@keyframes sw-size-down {
-    to {
-        height: var(--height-down-to);
-        width: var(--width-down-to);
+    @keyframes sw-scale-down {
+        from {
+            transform: scale(var(--scale-down-from));
+        }
+        to {
+            transform: scale(var(--scale-down-to));
+        }
     }
-}
 
-@keyframes sw-opacity-down {
-    to {
-        opacity: var(--opacity-down-to);
+    @keyframes sw-size-down {
+        to {
+            height: var(--height-down-to);
+            width: var(--width-down-to);
+        }
     }
-}
 
-.sw-pulse {
-    --bg-y-from: 0%;
-    --bg-y-to: 50%;
-
-    @apply bg-gradient-to-b bg-clip-text font-black text-transparent;
-    background-size: 100% 200%;
-    background-position-y: 100%;
-    animation: sw-pulse 2s ease-in-out infinite;
-}
-
-@keyframes sw-pulse {
-    0%,
-    100% {
-        background-position-y: var(--bg-y-from);
+    @keyframes sw-opacity-down {
+        to {
+            opacity: var(--opacity-down-to);
+        }
     }
-    50% {
-        background-position-y: var(--bg-y-to);
+
+    .sw-pulse {
+        --bg-y-from: 0%;
+        --bg-y-to: 50%;
+
+        @apply bg-gradient-to-b bg-clip-text font-black text-transparent;
+        background-size: 100% 200%;
+        background-position-y: 100%;
+        animation: sw-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes sw-pulse {
+        0%,
+        100% {
+            background-position-y: var(--bg-y-from);
+        }
+        50% {
+            background-position-y: var(--bg-y-to);
+        }
     }
 }

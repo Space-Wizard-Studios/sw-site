@@ -33,7 +33,7 @@ export function MemberSocials({ teamMember, isActive, toggleOpen }: Props) {
 
     return (
         <LayoutGroup>
-            <div className='mb-auto flex w-full justify-center'>
+            <div className='flex w-full justify-center'>
                 <motion.div
                     layout
                     style={{ borderRadius: '99999px' }}
@@ -65,7 +65,7 @@ export function MemberSocials({ teamMember, isActive, toggleOpen }: Props) {
                                         exit='hide'
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 1.1 }}
-                                        className='bg-surface-container-low text-inverse-on-surface z-0 flex h-10 w-10 flex-row items-center justify-center rounded-full border-none p-2'
+                                        className='bg-surface-container-low z-0 flex h-10 w-10 flex-row items-center justify-center rounded-full border-none p-2'
                                     >
                                         <IconComponent className='m-auto h-6 w-6' />
                                     </motion.a>

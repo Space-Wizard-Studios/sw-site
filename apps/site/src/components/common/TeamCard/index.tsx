@@ -41,9 +41,11 @@ export default function TeamCard({ teamMember }: Props) {
                 isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
             )}
         >
-            <div className='relative -mt-12 flex h-full w-full flex-col gap-4'>
-                <MemberPicture teamMember={teamMember} isActive={isActive} />
-                <MemberInfo teamMember={teamMember} isActive={isActive} />
+            <div className='flex h-full w-full flex-col gap-4'>
+                <div className='relative -mt-12 flex h-full w-full flex-col gap-4'>
+                    <MemberPicture teamMember={teamMember} isActive={isActive} />
+                    <MemberInfo teamMember={teamMember} isActive={isActive} />
+                </div>
                 <MemberSocials teamMember={teamMember} isActive={isActive} toggleOpen={toggleOpen} />
             </div>
         </motion.div>
