@@ -7,9 +7,10 @@ category:
         - interactivity
     platforms:
         - web
-    # tags:
-    #   - 'Experiência Interativa'
-    #   - 'Ensino Médio'
+    tags:
+        - educação
+        - evento_híbrido
+        - vocacional
     frameworks:
         - javascript # Referência ao frameworks/javascript.yaml
         # - jquery # Sugestão: Criar frameworks/jquery.yaml

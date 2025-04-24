@@ -7,10 +7,13 @@ category:
         - systems
     platforms:
         - web
-    # tags: # Comentado conforme solicitado
-    #   - 'Site Corporativo'
-    #   - 'Multilinguagem'
-    #   - 'CMS'
+    tags:
+        - cms
+        - portfólio
+        - corporativo
+        - multilinguagem
+        - modular
+        - personalização
     frameworks:
         - figma
         - astro

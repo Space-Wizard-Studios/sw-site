@@ -7,8 +7,10 @@ category:
         - interactivity
     platforms:
         - ar
-    # tags:
-    #   - filter
+    tags:
+        - educação
+        - filtros
+        - redes_sociais
     frameworks:
         - meta
         - javascript

@@ -7,9 +7,11 @@ category:
         - games
     platforms:
         - mobile
-    # tags:
-    #   - 'Mobile Game'
-    #   - 'Unity 3D'
+    tags:
+        - educação
+        - multilinguagem
+        - desafios
+        - arcade
     frameworks:
         - unity # Referência ao frameworks/unity.yaml
 date: '2016-10'

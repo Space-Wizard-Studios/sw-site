@@ -7,9 +7,9 @@ category:
         - interactivity
     platforms:
         - web # Referência ao platforms/web.yaml
-    # tags:
-    #   - 'Experiência Interativa'
-    #   - 'Ensino Médio'
+    tags:
+        - educação
+        - evento híbrido
     frameworks:
         - javascript # Referência ao frameworks/javascript.yaml
         # - jquery # Sugestão: Criar frameworks/jquery.yaml

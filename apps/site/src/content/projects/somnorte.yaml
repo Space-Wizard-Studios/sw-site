@@ -7,10 +7,10 @@ category:
         - systems
     platforms:
         - web
-    # tags:
-    #   - 'Site Corporativo'
-    #   - 'Multilinguagem'
-    #   - 'CMS'
+    tags:
+        - cms
+        - multilinguagem
+        - corporativo
     frameworks:
         - astro # Referência ao frameworks/astro.yaml
         # - staticcms # Sugestão: Criar frameworks/staticcms.yaml

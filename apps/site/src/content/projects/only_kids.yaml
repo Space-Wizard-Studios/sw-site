@@ -7,9 +7,10 @@ category:
         - systems
     platforms:
         - web
-    # tags:
-    #   - 'WooCommerce'
-    #   - 'Wordpress'
+tags:
+    - ecommerce
+    - moda_infantil
+    - automação
     # frameworks:
         # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
         # - elementor # Sugestão: Criar frameworks/elementor.yaml

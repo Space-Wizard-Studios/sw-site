@@ -7,10 +7,11 @@ category:
         - systems
     platforms:
         - web
-    # tags:
-    #   - 'Site Corporativo'
-    #   - 'Design Responsivo'
-    #   - 'CMS'
+    tags:
+        - cms
+        - portfólio
+        - corporativo
+        - modular
     frameworks:
         - figma
         # - wordpress

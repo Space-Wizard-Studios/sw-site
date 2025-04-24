@@ -1,4 +1,4 @@
-title: 'Quase Calouro - @multi'
+title: 'Quase Calouro - @suamulti'
 draft: false
 subtitle: 'Landing page baseada em Wordpress'
 summary: 'Landing page para capturar leads e oferecer conteúdos exclusivos, como material didático, videoaulas e simulados, com foco em estudantes.'
@@ -7,9 +7,10 @@ category:
         - systems
     platforms:
         - web
-    # tags:
-    #   - 'Wordpress'
-    #   - 'LGPD'
+    tags:
+        - educação
+        - leads
+        - vocacional
     # frameworks:
         # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
         # - elementor # Sugestão: Criar frameworks/elementor.yaml

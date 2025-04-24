@@ -9,8 +9,13 @@ category:
         - web
         - mobile
     tags:
-        - management
-    #   - construcao-civil
+        - gestão
+        - obras
+        - engenharia
+        - fornecedores
+        - comunicação
+        - cronograma
+        - relatórios
     frameworks:
         - flutter
         - firebase

@@ -7,12 +7,16 @@ category:
         - systems
     platforms:
         - web
-    # tags:
-    #   - 'Site Corporativo'
-    #   - 'Wordpress'
-    # frameworks:
-        # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
-        # - elementor # Sugestão: Criar frameworks/elementor.yaml
+tags:
+    - cms
+    - portfólio
+    - corporativo
+    - multilinguagem
+    - modular
+    - personalização
+# frameworks:
+    # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
+    # - elementor # Sugestão: Criar frameworks/elementor.yaml
 date: '2023-09'
 # hero:
 #     src: '/src/assets/images/projects/tavern_tale/tavern_tale_hero.png'

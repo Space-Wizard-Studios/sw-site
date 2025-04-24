@@ -7,12 +7,14 @@ category:
         - systems
     platforms:
         - web
-    # tags:
-    #   - 'Plataforma Online'
-    #   - 'Conhecimento'
-    #   - 'Aprendizado Colaborativo'
-    #   - 'Acessibilidade'
-    #   - 'Wordpress'
+tags:
+    - gestão
+    - educação
+    - acessibilidade
+    - colaborativo
+    - projetos
+    - notícias
+    - comunidade
     # frameworks:
         # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
 date: '2023-07'
