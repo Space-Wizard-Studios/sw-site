@@ -69,7 +69,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                     <div className='flex flex-col gap-4 p-4'>
                         {summary && (
                             <div>
-                                <h5>Summary</h5>
+                                <h5>Resumo</h5>
                                 <p>{summary}</p>
                             </div>
                         )}
@@ -144,6 +144,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                                             <IconBadge
                                                 key={framework.id}
                                                 icon={Icon ? <Icon className='h-4 w-4' /> : null}
+                                                link={framework.link}
                                                 label={framework.title || framework.id}
                                                 showLabel={true}
                                                 variant='default'

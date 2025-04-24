@@ -17,6 +17,8 @@ export const platformSchema = z.object({
 export const frameworkSchema = z.object({
     title: z.string(),
     draft: z.boolean().optional(),
+    link: z.string().optional(),
+    description: z.string().optional(),
     badge: badgeSchema,
 });
 
