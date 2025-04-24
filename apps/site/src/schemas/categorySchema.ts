@@ -2,7 +2,6 @@ import { z } from 'zod';
 
 const badgeSchema = z
     .object({
-        border: z.string().optional(),
         background: z.string().optional(),
     })
     .optional();

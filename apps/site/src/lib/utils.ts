@@ -54,3 +54,32 @@ export function getContrastColor(hexColor: string): 'black' | 'white' {
     // Threshold can be adjusted, 0.5 is common but WCAG suggests ~0.179 for contrast ratio calculations
     return luminance > 0.2 ? 'black' : 'white';
 }
+
+export function darkenColor(hexColor: string, amount: number = 20): string {
+    if (!hexColor) return '#000000'; // Cor padrão / fallback
+
+    let color = hexColor.startsWith('#') ? hexColor.substring(1) : hexColor;
+    // Expande cores hex de 3 caracteres para 6 caracteres
+    if (color.length === 3) {
+        color = color[0] + color[0] + color[1] + color[1] + color[2] + color[2];
+    }
+
+    if (color.length !== 6) {
+        console.warn(`Formato de cor hexadecimal inválido: ${hexColor}`);
+        return '#000000'; // Retorna uma cor padrão para formatos inválidos
+    }
+
+    const num = parseInt(color, 16);
+    let r = (num >> 16) - amount;
+    let g = ((num >> 8) & 0x00ff) - amount;
+    let b = (num & 0x0000ff) - amount;
+
+    // Garante que os valores não sejam menores que 0
+    r = Math.max(0, r);
+    g = Math.max(0, g);
+    b = Math.max(0, b);
+
+    // Converte de volta para string hexadecimal
+    const newColor = `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+    return newColor;
+}
