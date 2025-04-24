@@ -224,13 +224,13 @@ h6 {
     @apply text-base font-semibold;
 }
 
-a {
+/* a {
     @apply text-primary cursor-pointer font-bold underline transition-colors duration-300;
 
     &:hover {
         @apply text-sw-navy-800;
     }
-}
+} */
 
 .dark a{
     &:hover {
