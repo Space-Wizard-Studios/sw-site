@@ -1,6 +1,6 @@
 import { ProjectCard } from '@common/ProjectCard';
 import { cn } from '@lib/utils';
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Check, X } from 'lucide-react';
 
 // Importar componentes necessários do shadcn/ui
@@ -144,12 +144,12 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
     }, []);
 
     // Mapeamento de estados para facilitar o acesso
-    const selections: Record<CategoryKey, string[]> = useMemo(() => ({
+    const selections: Record<CategoryKey, string[]> = {
         products: selectedProducts,
         platforms: selectedPlatforms,
         frameworks: selectedFrameworks,
         tags: selectedTags,
-    }), [selectedProducts, selectedPlatforms, selectedFrameworks, selectedTags]);
+    };
 
     const setters: Record<CategoryKey, React.Dispatch<React.SetStateAction<string[]>>> = {
         products: setSelectedProducts,
@@ -159,28 +159,20 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
     };
 
     // Extrair todas as categorias únicas
-    const productCategories = useMemo(() => extractUniqueCategories<ResolvedProduct>(projects, 'products'), [projects]);
-    const platformCategories = useMemo(
-        () => extractUniqueCategories<ResolvedPlatform>(projects, 'platforms'),
-        [projects],
-    );
-    const frameworkCategories = useMemo(
-        () => extractUniqueCategories<ResolvedFramework>(projects, 'frameworks'),
-        [projects],
-    );
-    const tagCategories = useMemo(() => extractUniqueCategories<ResolvedTag>(projects, 'tags'), [projects]);
+    const productCategories = extractUniqueCategories<ResolvedProduct>(projects, 'products');
+    const platformCategories = extractUniqueCategories<ResolvedPlatform>(projects, 'platforms');
+    const frameworkCategories = extractUniqueCategories<ResolvedFramework>(projects, 'frameworks');
+    const tagCategories = extractUniqueCategories<ResolvedTag>(projects, 'tags');
 
-    const allCategoriesMap: Record<CategoryKey, ResolvedCategoryItem[]> = useMemo(() => ({
+    const allCategoriesMap: Record<CategoryKey, ResolvedCategoryItem[]> = {
         products: productCategories,
         platforms: platformCategories,
         frameworks: frameworkCategories,
         tags: tagCategories,
-    }), [productCategories, platformCategories, frameworkCategories, tagCategories]);
+    };
 
     // Lógica de Filtragem Principal (ESTRITA - INTERSEÇÃO)
-    const filteredProjects = useMemo(() => {
-        return projects.filter((project) => projectMatchesSelections(project, selections));
-    }, [projects, selections]);
+    const filteredProjects = projects.filter((project) => projectMatchesSelections(project, selections));
 
     // Lógica para Calcular Opções Disponíveis (Desabilitar Inválidas - ESTRITA)
     const calculateAvailableOptions = (targetKey: CategoryKey): Set<string> => {
@@ -210,22 +202,14 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
         return availableIds;
     };
 
-    // Memoiza o cálculo das opções disponíveis para cada categoria
-    const availableOptions = useMemo(
-        () => ({
-            products: calculateAvailableOptions('products'),
-            platforms: calculateAvailableOptions('platforms'),
-            frameworks: calculateAvailableOptions('frameworks'),
-            tags: calculateAvailableOptions('tags'),
-        }),
-        [projects, selections, allCategoriesMap],
-    );
+    const availableOptions = {
+        products: calculateAvailableOptions('products'),
+        platforms: calculateAvailableOptions('platforms'),
+        frameworks: calculateAvailableOptions('frameworks'),
+        tags: calculateAvailableOptions('tags'),
+    };
 
-    // Calcula as contagens DINÂMICAS baseadas nas seleções atuais
-    const dynamicCategoryCounts = useMemo(
-        () => calculateDynamicCategoryCounts(projects, selections, allCategoriesMap),
-        [projects, selections, allCategoriesMap]
-    );
+    const dynamicCategoryCounts = calculateDynamicCategoryCounts(projects, selections, allCategoriesMap);
 
     // Handler genérico para mudança nos checkboxes
     const handleCheckboxChange = (key: CategoryKey, itemId: string) => {
@@ -305,7 +289,7 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
                             <Button
                                 variant='ghost'
                                 size='icon'
-                                className='text-muted-foreground hover:text-destructive size-5 rounded-sm'
+                                className='text-on-surface hover:text-destructive size-5 rounded-sm'
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     handleClearSelection(key);
@@ -358,9 +342,9 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
     };
 
     return (
-        <div className={cn('flex flex-col gap-8', className)}>
+        <div className={cn('flex flex-col gap-4', className)}>
             {/* Seção de Filtros Dropdown */}
-            <div className='mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4'>
+            <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4'>
                 {renderFilterDropdown('products', 'Filtrar por Serviço')}
                 {renderFilterDropdown('platforms', 'Filtrar por Plataforma')}
                 {renderFilterDropdown('frameworks', 'Filtrar por Framework')}
