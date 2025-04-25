@@ -235,6 +235,10 @@ This palette was studied with the help of tints.dev
         }
     }
 
+    button {
+        @apply cursor-pointer;
+    }
+
     ul {
         @apply mr-4 list-disc pl-8;
 
