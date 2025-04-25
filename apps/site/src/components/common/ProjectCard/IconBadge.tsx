@@ -23,7 +23,7 @@ export function IconBadge({
             <Badge
                 variant={variant}
                 className={cn(
-                    'border-on-surface/40 bg-surface-container text-on-surface flex items-center gap-1 border-2',
+                    'border-on-surface/40 bg-surface-container text-on-surface flex items-center gap-1 border-1',
                     className,
                 )}
                 style={style}

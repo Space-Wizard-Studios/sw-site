@@ -85,7 +85,7 @@ export function ProductCard({ index, product }: Props) {
                 className={cn(
                     'relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl p-4',
                     'bg-radial-[at_15%_15%]',
-                    'text-on-surface border-2 border-surface/60 from-surface-container-low/60 to-surface-container/60 backdrop-blur-md',
+                    'text-on-surface border-1 border-surface/60 from-surface-container-low/60 to-surface-container/60 backdrop-blur-md',
                     'transition-shadow duration-300',
                     isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
                 )}

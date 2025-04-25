@@ -36,7 +36,7 @@ export default function TeamCard({ teamMember }: Props) {
                 isActive
                     ? 'from-surface-container-high to-surface-container-highest'
                     : 'from-surface-container-low/60 to-surface-container/60',
-                'text-on-surface border-surface/60 border-2 backdrop-blur-md',
+                'text-on-surface border-surface/60 border-1 backdrop-blur-md',
                 'transition-shadow duration-300',
                 isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
             )}
