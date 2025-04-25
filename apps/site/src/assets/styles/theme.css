@@ -61,7 +61,7 @@ This palette was studied with the help of tints.dev
     --color-sw-plum-900: #311128;
     --color-sw-plum-950: #1e0a18;
 
-    /* ACCENT */
+    /* TERTIARY */
     --color-sw-curious: #2e96ca;
     --color-sw-curious-50: #e2f1f8;
     --color-sw-curious-100: #cde7f4;
@@ -102,18 +102,18 @@ This palette was studied with the help of tints.dev
     --color-sw-neutral-900: #2e2e2e;
     --color-sw-neutral-950: #171717;
 
-    --color-sw-purply: #6d4aa6;
-    --color-sw-purply-50: #d4cbd7;
-    --color-sw-purply-100: #cabdd1;
-    --color-sw-purply-200: #b8a3c7;
-    --color-sw-purply-300: #a285bc;
-    --color-sw-purply-400: #8865b4;
-    --color-sw-purply-500: #6d4aa6;
-    --color-sw-purply-600: #563b91;
-    --color-sw-purply-700: #3f2c77;
-    --color-sw-purply-800: #2a1f5b;
-    --color-sw-purply-900: #18133e;
-    --color-sw-purply-950: #100e32;
+    --color-sw-purply: #49385f;
+    --color-sw-purply-50: #ede9f2;
+    --color-sw-purply-100: #dad2e5;
+    --color-sw-purply-200: #b5a5ca;
+    --color-sw-purply-300: #9078b0;
+    --color-sw-purply-400: #6c538d;
+    --color-sw-purply-500: #49385f;
+    --color-sw-purply-600: #3b2d4d;
+    --color-sw-purply-700: #2c223a;
+    --color-sw-purply-800: #1e1726;
+    --color-sw-purply-900: #110d16;
+    --color-sw-purply-950: #0a080d;
 
     /* DESIGN TOKENS */
     --color-brand: var(--color-sw-navy-800);
@@ -139,7 +139,7 @@ This palette was studied with the help of tints.dev
     --color-on-primary-container: var(--color-sw-navy-900);
 
     --color-inverse-primary: var(--color-sw-navy-50);
-    --color-inverse-on-primary: var(--color-sw-navy);
+    --color-inverse-on-primary: var(--color-sw-navy-950);
 
     --color-secondary: var(--color-sw-azure-400);
     --color-on-secondary: var(--color-sw-azure-950);
@@ -149,13 +149,13 @@ This palette was studied with the help of tints.dev
     --color-inverse-secondary: var(--color-sw-azure-950);
     --color-inverse-on-secondary: var(--color-sw-azure-400);
 
-    --color-accent: var(--color-sw-curious-400);
-    --color-on-accent: var(--color-sw-curious-950);
-    --color-accent-container: var(--color-sw-curious-200);
-    --color-on-accent-container: var(--color-sw-curious-900);
+    --color-tertiary: var(--color-sw-curious-400);
+    --color-on-tertiary: var(--color-sw-curious-950);
+    --color-tertiary-container: var(--color-sw-curious-200);
+    --color-on-tertiary-container: var(--color-sw-curious-900);
 
-    --color-inverse-accent: var(--color-sw-curious-950);
-    --color-inverse-on-accent: var(--color-sw-curious-400);
+    --color-inverse-tertiary: var(--color-sw-curious-950);
+    --color-inverse-on-tertiary: var(--color-sw-curious-400);
 }
 
 .dark {
@@ -183,7 +183,7 @@ This palette was studied with the help of tints.dev
     --color-on-primary-container: var(--color-sw-flamingo-900);
 
     --color-inverse-primary: var(--color-sw-flamingo-950);
-    --color-inverse-on-primary: var(--color-sw-flamingo);
+    --color-inverse-on-primary: var(--color-sw-flamingo-950);
 
     --color-secondary: var(--color-sw-plum-300);
     --color-on-secondary: var(--color-sw-plum-950);
@@ -193,13 +193,13 @@ This palette was studied with the help of tints.dev
     --color-inverse-secondary: var(--color-sw-plum-950);
     --color-inverse-on-secondary: var(--color-sw-plum-200);
 
-    --color-accent: var(--color-sw-pinkish-200);
-    --color-on-accent: var(--color-sw-pinkish-950);
-    --color-accent-container: var(--color-sw-pinkish-200);
-    --color-on-accent-container: var(--color-sw-pinkish-900);
+    --color-tertiary: var(--color-sw-pinkish-200);
+    --color-on-tertiary: var(--color-sw-pinkish-950);
+    --color-tertiary-container: var(--color-sw-pinkish-200);
+    --color-on-tertiary-container: var(--color-sw-pinkish-950);
 
-    --color-inverse-accent: var(--color-sw-pinkish-950);
-    --color-inverse-on-accent: var(--color-sw-pinkish-200);
+    --color-inverse-tertiary: var(--color-sw-pinkish-950);
+    --color-inverse-on-tertiary: var(--color-sw-pinkish-200);
 }
 
 @layer components {
@@ -228,10 +228,15 @@ This palette was studied with the help of tints.dev
     }
 
     a {
-        @apply text-on-surface cursor-pointer font-bold transition-colors duration-300;
+        @apply text-on-surface relative cursor-pointer font-bold transition duration-300;
 
-        &:hover {
-            @apply text-sw-navy-800 dark:text-primary underline;
+        &::after {
+            @apply bg-on-surface dark:bg-on-surface absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-300;
+            content: '';
+        }
+
+        &:hover::after {
+            @apply w-full;
         }
     }
 
@@ -248,23 +253,17 @@ This palette was studied with the help of tints.dev
     }
 
     table {
-        @apply bg-surface-container overflow-hidden rounded-2xl;
-
-        tbody {
-            tr {
-                @apply border-surface-dim border-t;
-            }
-        }
+        @apply bg-surface-container hover:shadow-primary/10 overflow-hidden rounded-lg shadow-xl transition-all;
 
         tr {
+            @apply bg-surface-container;
+
             &:nth-child(even) {
                 @apply bg-surface-container-high;
             }
 
-            @apply bg-surface-container transition-all;
-
             &:hover {
-                @apply bg-surface-container-highest transition-all;
+                @apply bg-surface-container-highest;
             }
         }
 
@@ -274,6 +273,13 @@ This palette was studied with the help of tints.dev
 
         td {
             @apply p-4;
+        }
+
+        
+        tbody {
+            tr {
+                @apply border-surface-dim border-t;
+            }
         }
     }
 
