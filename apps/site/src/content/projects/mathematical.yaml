@@ -5,6 +5,7 @@ summary: "Um jogo educativo estilo shoot'em up onde o jogador resolve desafios m
 category:
     products:
         - jogos_e_gamificação
+        - música
     platforms:
         - mobile
     tags:
