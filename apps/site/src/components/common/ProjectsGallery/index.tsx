@@ -301,10 +301,9 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
                                     className=''
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        handleClearSelection(key);
                                         setDropdownOpenStates((prev) => ({ ...prev, [key]: false }));
                                     }}
-                                    aria-label='Limpar seleção'
+                                    aria-label='Fechar dropdown'
                                 >
                                     <X className='size-4' />
                                 </Button>
