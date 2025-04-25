@@ -25,6 +25,7 @@ partytown
 payloadcms
 rhayane
 ruan
+shadcn
 somnorte
 soundcloud
 vercel
