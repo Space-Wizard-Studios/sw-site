@@ -1,0 +1,216 @@
+---
+import Layout from '@layouts/PageLayout.astro';
+import { PrimaryBox, SecondaryBox, TertiaryBox } from '@components/tests/ColorBoxes';
+import ShadcnComponentsPreview from '@components/tests/ShadcnComponentsPreview.tsx';
+---
+
+<Layout>
+    <div class='flex flex-col px-4 py-10 space-y-4'>
+        <header class='flex flex-col space-y-2'>
+            <h2 class='uppercase text-on-surface'>Design System</h2>
+            <h3 class='sw-pulse from-primary to-tertiary'>Pré visualização do sistema bonito :)</h3>
+        </header>
+
+        <!-- Typography -->
+        <div class='flex flex-col space-y-4'>
+            <div class='flex flex-col w-full p-4 gap-4 bg-surface-dim text-on-surface rounded-lg justify-between'>
+                <header class='flex flex-col space-y-2'>
+                    <h4 class='text-on-surface'>Tipografia</h4>
+                </header>
+                <table class='w-full text-left'>
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Sample</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><h1>H1</h1></td>
+                            <td><h1>The quick brown fox jumps over the lazy dog.</h1></td>
+                        </tr>
+                        <tr>
+                            <td><h2>H2</h2></td>
+                            <td><h2>The quick brown fox jumps over the lazy dog.</h2></td>
+                        </tr>
+                        <tr>
+                            <td><h3>H3</h3></td>
+                            <td><h3>The quick brown fox jumps over the lazy dog.</h3></td>
+                        </tr>
+                        <tr>
+                            <td><h4>H4</h4></td>
+                            <td><h4>The quick brown fox jumps over the lazy dog.</h4></td>
+                        </tr>
+                        <tr>
+                            <td><h5>H5</h5></td>
+                            <td><h5>The quick brown fox jumps over the lazy dog.</h5></td>
+                        </tr>
+                        <tr>
+                            <td><h6>H6</h6></td>
+                            <td><h6>The quick brown fox jumps over the lazy dog.</h6></td>
+                        </tr>
+                        <tr>
+                            <td><p>Paragraph</p></td>
+                            <td><p>The quick brown fox jumps over the lazy dog.</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Link</p></td>
+                            <td><a>The quick brown fox jumps over the lazy dog.</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- shadcn/ui -->
+        <div class='flex flex-col space-y-4'>
+            <div class='flex flex-col w-full p-4 gap-4 bg-surface-dim text-on-surface rounded-lg justify-between'>
+                <header class='flex flex-col space-y-2'>
+                    <h4 class='text-on-surface'>shadcn/ui</h4>
+                </header>
+                <ShadcnComponentsPreview client:load />
+            </div>
+        </div>
+
+        <!-- Colors -->
+        <div class='flex flex-col space-y-4'>
+            <div class='flex flex-col w-full p-4 gap-4 bg-surface text-on-surface rounded-lg justify-between'>
+                <header class='flex flex-col space-y-2'>
+                    <h4 class='text-on-surface'>Cores</h4>
+                </header>
+                
+                <div class='flex flex-col w-full p-4 gap-4 bg-surface-dim text-on-surface rounded-lg justify-between'>
+                    <p>bg-surface-dim</p>
+                    <p>text-on-surface</p>
+                    <div class='flex flex-row w-full gap-4'>
+                        <div class='flex-1'>
+                            <PrimaryBox client:load />
+                        </div>
+                        <div class='flex-1'>
+                            <TertiaryBox client:load />
+                        </div>
+                        <div class='flex-1'>
+                            <SecondaryBox client:load />
+                        </div>
+                    </div>
+                </div>
+
+                <div class='flex flex-col w-full p-4 gap-4 bg-surface-bright text-on-surface rounded-lg justify-between'>
+                    <p>bg-surface-bright</p>
+                    <p>text-on-surface</p>
+                    <div class='flex flex-row w-full gap-4'>
+                        <div class='flex-1'>
+                            <PrimaryBox client:load />
+                        </div>
+                        <div class='flex-1'>
+                            <TertiaryBox client:load />
+                        </div>
+                        <div class='flex-1'>
+                            <SecondaryBox client:load />
+                        </div>
+                    </div>
+                </div>
+
+                <div class='flex flex-col w-full p-4 gap-4 bg-surface text-on-surface rounded-lg justify-between'>
+                    <p>bg-surface</p>
+                    <p>text-on-surface</p>
+
+                    <div class='flex flex-row w-full gap-4'>
+                        <div class='flex-1'>
+                            <PrimaryBox client:load />
+                        </div>
+                        <div class='flex-1'>
+                            <TertiaryBox client:load />
+                        </div>
+                        <div class='flex-1'>
+                            <SecondaryBox client:load />
+                        </div>
+                    </div>
+
+                    <div class='flex flex-col w-full gap-4'>
+                        <div class='flex flex-row w-full gap-4 bg-surface-container-lowest justify-between text-on-surface p-4 rounded-lg'>
+                            <p>bg-surface-container-lowest</p>
+                            <p>text-on-surface</p>
+                        </div>
+                        <div class='flex flex-row w-full gap-4 bg-surface-container-low justify-between text-on-surface p-4 rounded-lg'>
+                            <p>bg-surface-container-low</p>
+                            <p>text-on-surface</p>
+                        </div>
+                        <div class='flex flex-row w-full gap-4 bg-surface-container justify-between text-on-surface p-4 rounded-lg'>
+                            <p>bg-surface-container</p>
+                            <p>text-on-surface</p>
+                        </div>
+                        <div
+                            class='flex flex-row w-full gap-4 bg-surface-container-high justify-between text-on-surface p-4 rounded-lg'
+                        >
+                            <p>bg-surface-container-high</p>
+                            <p>text-on-surface</p>
+                        </div>
+                        <div
+                            class='flex flex-row w-full gap-4 bg-surface-container-highest justify-between text-on-surface p-4 rounded-lg'
+                        >
+                            <p>bg-surface-container-highest</p>
+                            <p>text-on-surface</p>
+                        </div>
+                    </div>
+
+                    <div class='flex flex-col w-full gap-4 bg-primary-container text-on-primary-container p-4 rounded-lg'>
+                        <div class='flex flex-col w-full gap-4'>
+                            <p>bg-primary-container</p>
+                            <p>text-on-primary-container</p>
+                            <div class='flex flex-row w-full gap-4'>
+                                <div class='flex-1'>
+                                    <PrimaryBox client:load />
+                                </div>
+                                <div class='flex-1'>
+                                    <TertiaryBox client:load />
+                                </div>
+                                <div class='flex-1'>
+                                    <SecondaryBox client:load />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class='flex flex-col w-full gap-4 bg-secondary-container text-on-secondary-container p-4 rounded-lg'
+                    >
+                        <div class='flex flex-col w-full gap-4'>
+                            <p>bg-secondary-container</p>
+                            <p>text-on-secondary-container</p>
+                            <div class='flex flex-row w-full gap-4'>
+                                <div class='flex-1'>
+                                    <PrimaryBox client:load />
+                                </div>
+                                <div class='flex-1'>
+                                    <TertiaryBox client:load />
+                                </div>
+                                <div class='flex-1'>
+                                    <SecondaryBox client:load />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='flex flex-col w-full gap-4 bg-tertiary-container text-on-tertiary-container p-4 rounded-lg'>
+                        <div class='flex flex-col w-full gap-4'>
+                            <p>bg-tertiary-container</p>
+                            <p>text-on-tertiary-container</p>
+                            <div class='flex flex-row w-full gap-4'>
+                                <div class='flex-1'>
+                                    <PrimaryBox client:load />
+                                </div>
+                                <div class='flex-1'>
+                                    <TertiaryBox client:load />
+                                </div>
+                                <div class='flex-1'>
+                                    <SecondaryBox client:load />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
