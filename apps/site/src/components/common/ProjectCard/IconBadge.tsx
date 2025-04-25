@@ -6,7 +6,7 @@ export interface IconBadgeProps {
     label: string;
     icon?: React.ReactNode;
     showLabel?: boolean;
-    variant?: 'default' | 'secondary' | 'outline' | 'destructive';
+    variant?: 'default' | 'secondary' | 'outline' | 'ghost';
     className?: string;
     style?: React.CSSProperties;
 }

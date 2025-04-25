@@ -271,27 +271,45 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
-                    className='w-56'
                     onMouseEnter={() => handleMouseEnter(key)}
                     onMouseLeave={() => handleMouseLeave(key)}
                     onCloseAutoFocus={(e) => e.preventDefault()}
                 >
-                    <div className='flex items-center justify-between p-2'>
-                        <DropdownMenuLabel className='p-0'>{placeholder.replace('Filtrar por ', '')}</DropdownMenuLabel>
-                        {selected.length > 0 && (
-                            <Button
-                                variant='primary'
-                                size='sm'
-                                className=''
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleClearSelection(key);
-                                }}
-                                aria-label='Limpar seleção'
-                            >
-                                <X className='size-2' />
-                            </Button>
-                        )}
+                    <div className='flex flex-col gap-2 p-2'>
+                        <div className='flex flex-row items-center justify-between'>
+                            <DropdownMenuLabel className='w-full p-0'>
+                                {placeholder.replace('Filtrar por ', '')}
+                            </DropdownMenuLabel>
+                            <div className='flex flex-grow items-center gap-2'>
+                                <Button
+                                    variant='outline'
+                                    size='sm'
+                                    className=''
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleClearSelection(key);
+                                    }}
+                                    aria-label='Limpar seleção'
+                                    disabled={selected.length === 0}
+                                >
+                                    Limpar
+                                </Button>
+
+                                <Button
+                                    variant='outline'
+                                    size='sm'
+                                    className=''
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleClearSelection(key);
+                                        setDropdownOpenStates((prev) => ({ ...prev, [key]: false }));
+                                    }}
+                                    aria-label='Limpar seleção'
+                                >
+                                    <X className='size-4' />
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                     <DropdownMenuSeparator />
                     {categories.map((item) => {
@@ -311,8 +329,11 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
                             >
                                 <div className='flex flex-grow items-center gap-2'>
                                     {showBadge ? (
-                                        <Badge variant={isDisabled && !isSelected ? 'outline' : 'outline'}>
-                                            {count}
+                                        <Badge
+                                            variant={isDisabled && !isSelected ? 'outline' : 'outline'}
+                                            className='border-on-surface h-6 w-6'
+                                        >
+                                            {count.toString().padStart(2, '0')} {/* Format count here */}
                                         </Badge>
                                     ) : (
                                         <span className='inline-block h-5 shrink-0 basis-5'></span>

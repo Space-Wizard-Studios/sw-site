@@ -229,9 +229,15 @@ This palette was studied with the help of tints.dev
 
     a {
         @apply text-on-surface relative cursor-pointer font-bold transition duration-300;
+        
+        &:hover:has(img)::after,
+        &:hover:has(svg)::after,
+        &:hover:has(button)::after {
+            @apply w-0;
+        }
 
         &::after {
-            @apply bg-on-surface dark:bg-on-surface absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-300;
+            @apply bg-on-surface dark:bg-on-surface absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
             content: '';
         }
 

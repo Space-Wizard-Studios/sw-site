@@ -29,7 +29,7 @@ function SelectTrigger({
             data-slot='select-trigger'
             data-size={size}
             className={cn(
-                "border-input data-[placeholder]:text-on-surface [&_svg:not([class*='text-'])]:text-on-surface focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-surface-dim/20 dark:aria-invalid:ring-surface-dim/40 aria-invalid:border-surface-dim dark:bg-surface/30 dark:hover:bg-surface/50 shadow-xs flex w-fit items-center justify-between gap-2 whitespace-nowrap rounded-md border bg-transparent px-3 py-2 text-sm outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+                "border-input data-[placeholder]:text-on-surface [&_svg:not([class*='text-'])]:text-on-surface focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-surface-dim/20 dark:aria-invalid:ring-surface-dim/40 aria-invalid:border-surface-dim shadow-xs flex w-fit items-center justify-between gap-2 whitespace-nowrap rounded-md border bg-transparent px-3 py-2 text-sm outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
                 className,
             )}
             {...props}
@@ -111,7 +111,7 @@ function SelectSeparator({ className, ...props }: React.ComponentProps<typeof Se
     return (
         <SelectPrimitive.Separator
             data-slot='select-separator'
-            className={cn('bg-border pointer-events-none -mx-1 my-1 h-px', className)}
+            className={cn('bg-on-surface border pointer-events-none -mx-1 my-1 h-px', className)}
             {...props}
         />
     );

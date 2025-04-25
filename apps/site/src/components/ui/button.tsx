@@ -15,11 +15,11 @@ const buttonVariants = cva(
                     'border-on-primary/40 bg-primary text-on-primary shadow hover:bg-primary-container hover:text-inverse-on-primary',
                 secondary:
                     'border-on-secondary/40 bg-secondary text-on-secondary shadow hover:bg-secondary-container hover:text-on-secondary',
-                outline: 'border-on-tertiary/40 bg-transparent shadow hover:bg-tertiary hover:text-on-tertiary',
+                outline: 'border-on-tertiary/40 bg-tertiary/10 shadow hover:bg-tertiary hover:text-on-tertiary',
                 ghost: 'border-transparent hover:bg-tertiary hover:text-on-tertiary',
             },
             size: {
-                sm: 'h-8 rounded-md px-3 text-xs',
+                sm: 'h-6 rounded-md px-2 text-xs',
                 default: 'h-9 px-4 py-2',
                 lg: 'h-10 rounded-md px-8',
                 icon: 'h-9 w-9',
