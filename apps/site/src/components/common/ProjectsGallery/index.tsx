@@ -16,11 +16,11 @@ import {
 } from '@components/ui/dropdown-menu';
 
 import type { ProcessedProject } from '@lib/collections/projectHelpers';
-import type { ResolvedProduct, ResolvedPlatform, ResolvedFramework, ResolvedTag } from '@lib/resolveProjectCategories';
+import type { ResolvedProduct, ResolvedPlatform, ResolvedFramework } from '@lib/resolveProjectCategories';
 
 // Tipos auxiliares
-type CategoryKey = 'products' | 'platforms' | 'frameworks' | 'tags';
-type ResolvedCategoryItem = ResolvedProduct | ResolvedPlatform | ResolvedFramework | ResolvedTag;
+type CategoryKey = 'products' | 'platforms' | 'frameworks';
+type ResolvedCategoryItem = ResolvedProduct | ResolvedPlatform | ResolvedFramework;
 
 interface ProjectGalleryProps {
     className?: string;
@@ -81,7 +81,6 @@ const calculateDynamicCategoryCounts = (
         products: new Map(),
         platforms: new Map(),
         frameworks: new Map(),
-        tags: new Map(),
     };
 
     (Object.keys(allCategoriesMap) as CategoryKey[]).forEach((targetKey) => {
@@ -116,14 +115,12 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
     const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
     const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
     const [selectedFrameworks, setSelectedFrameworks] = useState<string[]>([]);
-    const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
     // Estado para controlar a abertura dos dropdowns
     const [dropdownOpenStates, setDropdownOpenStates] = useState<Record<CategoryKey, boolean>>({
         products: false,
         platforms: false,
         frameworks: false,
-        tags: false,
     });
 
     // Ref para armazenar timers de fechamento
@@ -131,7 +128,6 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
         products: null,
         platforms: null,
         frameworks: null,
-        tags: null,
     });
 
     // Limpar timers ao desmontar o componente
@@ -148,27 +144,23 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
         products: selectedProducts,
         platforms: selectedPlatforms,
         frameworks: selectedFrameworks,
-        tags: selectedTags,
     };
 
     const setters: Record<CategoryKey, React.Dispatch<React.SetStateAction<string[]>>> = {
         products: setSelectedProducts,
         platforms: setSelectedPlatforms,
         frameworks: setSelectedFrameworks,
-        tags: setSelectedTags,
     };
 
     // Extrair todas as categorias únicas
     const productCategories = extractUniqueCategories<ResolvedProduct>(projects, 'products');
     const platformCategories = extractUniqueCategories<ResolvedPlatform>(projects, 'platforms');
     const frameworkCategories = extractUniqueCategories<ResolvedFramework>(projects, 'frameworks');
-    const tagCategories = extractUniqueCategories<ResolvedTag>(projects, 'tags');
 
     const allCategoriesMap: Record<CategoryKey, ResolvedCategoryItem[]> = {
         products: productCategories,
         platforms: platformCategories,
         frameworks: frameworkCategories,
-        tags: tagCategories,
     };
 
     // Lógica de Filtragem Principal (ESTRITA - INTERSEÇÃO)
@@ -192,7 +184,9 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
             potentialSelections[targetKey] = simulatedTargetSelection;
 
             // Verifica se existe pelo menos um projeto que satisfaça esta seleção potencial ESTRITA
-            const hasMatchingProject = projects.some((project) => projectMatchesSelections(project, potentialSelections));
+            const hasMatchingProject = projects.some((project) =>
+                projectMatchesSelections(project, potentialSelections),
+            );
 
             if (hasMatchingProject) {
                 availableIds.add(optionId);
@@ -206,7 +200,6 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
         products: calculateAvailableOptions('products'),
         platforms: calculateAvailableOptions('platforms'),
         frameworks: calculateAvailableOptions('frameworks'),
-        tags: calculateAvailableOptions('tags'),
     };
 
     const dynamicCategoryCounts = calculateDynamicCategoryCounts(projects, selections, allCategoriesMap);
@@ -283,20 +276,20 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
                     onMouseLeave={() => handleMouseLeave(key)}
                     onCloseAutoFocus={(e) => e.preventDefault()}
                 >
-                    <div className='flex items-center justify-between px-2 py-1.5'>
+                    <div className='flex items-center justify-between p-2'>
                         <DropdownMenuLabel className='p-0'>{placeholder.replace('Filtrar por ', '')}</DropdownMenuLabel>
                         {selected.length > 0 && (
                             <Button
-                                variant='ghost'
-                                size='icon'
-                                className='text-on-surface hover:text-destructive size-5 rounded-sm'
+                                variant='primary'
+                                size='sm'
+                                className=''
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     handleClearSelection(key);
                                 }}
-                                aria-label="Limpar seleção"
+                                aria-label='Limpar seleção'
                             >
-                                <X className='size-4' />
+                                <X className='size-2' />
                             </Button>
                         )}
                     </div>
@@ -315,20 +308,14 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
                                     event.preventDefault();
                                     handleCheckboxChange(key, item.id);
                                 }}
-                                className={cn(
-                                    'flex cursor-pointer items-center justify-between gap-2',
-                                )}
                             >
                                 <div className='flex flex-grow items-center gap-2'>
                                     {showBadge ? (
-                                        <Badge
-                                            variant={isDisabled && !isSelected ? 'outline' : 'secondary'}
-                                            className='h-5 shrink-0 basis-5 justify-center px-1 text-xs'
-                                        >
+                                        <Badge variant={isDisabled && !isSelected ? 'outline' : 'outline'}>
                                             {count}
                                         </Badge>
                                     ) : (
-                                        <span className='inline-block h-5 basis-5 shrink-0'></span>
+                                        <span className='inline-block h-5 shrink-0 basis-5'></span>
                                     )}
                                     <span className='flex-grow truncate'>{item.title || item.id}</span>
                                 </div>
@@ -344,15 +331,14 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
     return (
         <div className={cn('flex flex-col gap-4', className)}>
             {/* Seção de Filtros Dropdown */}
-            <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4'>
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
                 {renderFilterDropdown('products', 'Filtrar por Serviço')}
                 {renderFilterDropdown('platforms', 'Filtrar por Plataforma')}
                 {renderFilterDropdown('frameworks', 'Filtrar por Framework')}
-                {renderFilterDropdown('tags', 'Filtrar por Tag')}
             </div>
 
             {/* Galeria de Projetos Filtrada */}
-            <div className={cn('grid auto-rows-fr grid-cols-1 gap-8 md:grid-cols-3')}>
+            <div className={cn('grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-3')}>
                 {filteredProjects.length > 0 ? (
                     filteredProjects.map((project) => (
                         <ProjectCard key={project.id || project.data.slug} project={project} />

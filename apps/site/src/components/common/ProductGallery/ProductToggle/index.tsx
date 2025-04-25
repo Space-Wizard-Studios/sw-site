@@ -564,7 +564,7 @@ export function ProductToggle() {
         <>
             {/* Main Path */}
             {DRAW_PATH && (
-                <svg className='stroke-accent pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full overflow-visible'>
+                <svg className='stroke-tertiary pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full overflow-visible'>
                     <motion.path
                         d={pathD}
                         fill='none'
@@ -578,7 +578,7 @@ export function ProductToggle() {
 
             {/* Landing Path */}
             {DRAW_PATH && (
-                <svg className='stroke-accent pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full overflow-visible'>
+                <svg className='stroke-tertiary pointer-events-none absolute left-0 top-0 z-[9999] h-full w-full overflow-visible'>
                     <motion.path
                         d={landingPathD}
                         fill='none'
