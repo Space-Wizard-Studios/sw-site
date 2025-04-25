@@ -3,14 +3,14 @@ import { motion } from 'motion/react';
 
 import { cn, getContrastColor, darkenColor } from '@lib/utils';
 
-import { FileText, Tag } from 'lucide-react';
+import { FileText, Layers, Tag } from 'lucide-react';
 import { IconBadge } from './IconBadge';
 import { getIconComponent } from '@lib/getIconComponent';
 
 import type { ProcessedProject } from '@lib/collections/projectHelpers';
 import type { ResolvedProduct, ResolvedPlatform, ResolvedFramework, ResolvedTag } from '@lib/resolveProjectCategories';
 
-type TabType = 'overview' | 'details';
+type TabType = 'overview' | 'tech' | 'details';
 
 interface ProjectCardTabsProps {
     projectData: ProcessedProject['data'];
@@ -25,7 +25,15 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
     const frameworks: ResolvedFramework[] = category?.frameworks ?? [];
     const tags: ResolvedTag[] = category?.tags ?? [];
 
-    const hasCategories = products.length > 0 || platforms.length > 0 || frameworks.length > 0 || tags.length > 0;
+    const projectDate = new Date(projectData.date);
+    const formattedDate = projectDate.toLocaleDateString('pt-BR', {
+        year: '2-digit',
+        month: '2-digit',
+    });
+
+    const hasProducts = products.length > 0;
+    const hasTech = platforms.length > 0 || frameworks.length > 0;
+    const hasTags = tags.length > 0;
 
     return (
         <motion.div
@@ -36,7 +44,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
             className='bg-surface-container-low/60 text-on-surface absolute inset-0 flex h-full w-full flex-col p-2 backdrop-blur-lg'
         >
             <div className='border-on-surface/20 flex border-b'>
-                {(summary || products.length > 0) && (
+                {(summary || hasProducts) && (
                     <button
                         onClick={handleTabChange('overview')}
                         className={cn(
@@ -49,7 +57,20 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                     </button>
                 )}
 
-                {hasCategories && (
+                {hasTech && (
+                    <button
+                        onClick={handleTabChange('tech')}
+                        className={cn(
+                            'hover:bg-surface-container-lowest/50 flex cursor-pointer items-center rounded-t-xl border-b-2 px-3 py-2 transition-colors',
+                            activeTab === 'tech' ? 'border-on-surface' : 'border-transparent',
+                        )}
+                    >
+                        <Layers className='mr-1 h-3 w-3' />
+                        Tech
+                    </button>
+                )}
+
+                {hasTags && (
                     <button
                         onClick={handleTabChange('details')}
                         className={cn(
@@ -68,12 +89,17 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                 {activeTab === 'overview' && (
                     <div className='flex flex-col gap-4 p-2'>
                         {summary && (
-                            <div>
-                                <h5>Resumo</h5>
+                            <div className='flex flex-col gap-2'>
+                                <div className='flex flex-row gap-2 justify-between items-center'>
+                                    <h5>Resumo</h5>
+                                    <div className='text-on-surface/50 flex items-center gap-2'>
+                                        <span>{formattedDate}</span>
+                                    </div>
+                                </div>
                                 <p>{summary}</p>
                             </div>
                         )}
-                        {products.length > 0 && (
+                        {hasProducts && (
                             <div className='flex flex-row gap-4'>
                                 <div className='flex flex-wrap'>
                                     {products.map((product) => {
@@ -94,7 +120,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                     </div>
                 )}
 
-                {activeTab === 'details' && hasCategories && (
+                {activeTab === 'tech' && hasTech && (
                     <div className='flex flex-col gap-4 p-2'>
                         {platforms.length > 0 && (
                             <div className='flex flex-col gap-2'>
@@ -166,23 +192,25 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                                 </div>
                             </div>
                         )}
+                    </div>
+                )}
 
-                        {tags.length > 0 && (
-                            <div className='flex flex-col gap-2'>
-                                <h5>Tags</h5>
-                                <div className='flex flex-wrap gap-2'>
-                                    {tags.map((tag) => (
-                                        <IconBadge
-                                            key={tag.id}
-                                            icon={''}
-                                            label={tag.title || tag.id}
-                                            showLabel={true}
-                                            variant='default'
-                                        ></IconBadge>
-                                    ))}
-                                </div>
+                {activeTab === 'details' && hasTags && (
+                    <div className='flex flex-col gap-4 p-2'>
+                        <div className='flex flex-col gap-2'>
+                            <h5>Tags</h5>
+                            <div className='flex flex-wrap gap-2'>
+                                {tags.map((tag) => (
+                                    <IconBadge
+                                        key={tag.id}
+                                        icon={''}
+                                        label={tag.title || tag.id}
+                                        showLabel={true}
+                                        variant='default'
+                                    ></IconBadge>
+                                ))}
                             </div>
-                        )}
+                        </div>
                     </div>
                 )}
             </div>

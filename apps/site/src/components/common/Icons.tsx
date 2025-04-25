@@ -24,10 +24,10 @@ import * as Frameworks from '@components/icons/Frameworks';
 
 export const ProductIcons: Record<string, (props: IconProps) => JSX.Element> = {
     default: Products.Default,
-    interactivity: Products.Interactivity,
-    games: Products.Games,
-    music: Products.Music,
-    systems: Products.Systems,
+    interatividade: Products.Interactivity,
+    jogos_e_gamificação: Products.Games,
+    música: Products.Music,
+    sistemas_web_e_apps: Products.Systems,
 };
 
 // AR, Desktop, Mobile, VR, Web
@@ -46,19 +46,29 @@ export const PlatformIcons: Record<string, (props: IconProps) => JSX.Element> = 
 
 export const FrameworkIcons: Record<string, (props: IconProps) => JSX.Element> = {
     default: Frameworks.Default,
+    ajax: Frameworks.Ajax,
     astro: Frameworks.Astro,
     blender: Frameworks.Blender,
+    bling: Frameworks.Bling,
     bootstrap: Frameworks.Bootstrap,
-    cake: Frameworks.CakePHP,
+    cakephp: Frameworks.CakePHP, // Corrected key from 'cake'
+    decap_cms: Frameworks.DecapCMS, // Added
+    elementor: Frameworks.Elementor, // Added
     figma: Frameworks.Figma,
     firebase: Frameworks.Firebase,
     flutter: Frameworks.Flutter,
     godot: Frameworks.Godot,
     javascript: Frameworks.JavaScript,
+    jquery: Frameworks.JQuery, // Added
     meta: Frameworks.Meta,
+    mysql: Frameworks.MySQL, // Added
     next_js: Frameworks.NextJS,
     react: Frameworks.React,
+    static_cms: Frameworks.StaticCMS, // Added
+    tailwind: Frameworks.Tailwind, // Added
     three_js: Frameworks.ThreeJS,
     typescript: Frameworks.TypeScript,
     unity: Frameworks.Unity,
+    woocommerce: Frameworks.WooCommerce,
+    wordpress: Frameworks.WordPress,
 };

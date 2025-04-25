@@ -69,7 +69,6 @@ async function getTagsMap(): Promise<Map<string, CollectionEntry<'tags'>['data']
     return tagsMapCache;
 }
 
-
 export async function resolveProjectCategories(category: ProjectCategory | undefined): Promise<ResolvedCategories> {
     if (!category) {
         return { products: [], platforms: [], frameworks: [], tags: [] };
@@ -132,6 +131,18 @@ export async function resolveProjectCategories(category: ProjectCategory | undef
               }),
           )
         : [];
+
+    // Sort arrays alphabetically by title
+    const sortAlphabetically = (a: { title?: string; id: string }, b: { title?: string; id: string }) => {
+        const titleA = a.title || a.id;
+        const titleB = b.title || b.id;
+        return titleA.localeCompare(titleB);
+    };
+
+    resolvedProducts.sort(sortAlphabetically);
+    resolvedPlatforms.sort(sortAlphabetically);
+    resolvedFrameworks.sort(sortAlphabetically);
+    resolvedTags.sort(sortAlphabetically);
 
     return {
         products: resolvedProducts,

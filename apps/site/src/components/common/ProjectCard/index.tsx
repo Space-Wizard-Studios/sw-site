@@ -13,7 +13,7 @@ interface ProjectCardProps {
     className?: string;
 }
 
-type TabType = 'overview' | 'details';
+type TabType = 'overview' | 'tech' | 'details';
 
 export function ProjectCard({ project, className }: ProjectCardProps) {
     const { data } = project;
