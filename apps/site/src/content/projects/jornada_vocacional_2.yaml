@@ -4,7 +4,8 @@ subtitle: 'Experiência Interativa Web'
 summary: 'Na segunda edição da Jornada Vocacional Uniceplac, houveram diversas melhorias na interface e navegação, além de novos desafios, minigames e conteúdos.'
 category:
     products:
-        - interactivity
+        - interatividade
+        - jogos_e_gamificação
     platforms:
         - web
     tags:
@@ -12,11 +13,11 @@ category:
         - evento_híbrido
         - vocacional
     frameworks:
-        - javascript # Referência ao frameworks/javascript.yaml
-        # - jquery # Sugestão: Criar frameworks/jquery.yaml
-        # - ajax # Sugestão: Criar frameworks/ajax.yaml
-        # - cakephp # Sugestão: Criar frameworks/cakephp.yaml
-        # - mysql # Sugestão: Criar frameworks/mysql.yaml
+        - javascript
+        - jquery
+        - ajax
+        - cakephp
+        - mysql
 date: '2021-05'
 hero:
     src: '/src/assets/images/projects/jornada_2/jornada_2_hero.png'

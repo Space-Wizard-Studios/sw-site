@@ -4,7 +4,7 @@ subtitle: 'Jogo educativo para mobile'
 summary: "Um jogo educativo estilo shoot'em up onde o jogador resolve desafios matemáticos para avançar pelos níveis enquanto enfrenta inimigos e desbloqueia melhorias."
 category:
     products:
-        - games
+        - jogos_e_gamificação
     platforms:
         - mobile
     tags:
@@ -13,7 +13,7 @@ category:
         - desafios
         - arcade
     frameworks:
-        - unity # Referência ao frameworks/unity.yaml
+        - unity
 date: '2016-10'
 hero:
     src: '/src/assets/images/projects/mathematical/mathematical_hero.png'

@@ -4,18 +4,19 @@ subtitle: 'Experiência Interativa Web'
 summary: 'A Jornada Vocacional UNICEPLAC foi uma experiência interativa voltada para estudantes do Ensino Médio, explorando áreas de ensino e possíveis vocações.'
 category:
     products:
-        - interactivity
+        - interatividade
+        - jogos_e_gamificação
     platforms:
-        - web # Referência ao platforms/web.yaml
+        - web
     tags:
         - educação
         - evento híbrido
     frameworks:
-        - javascript # Referência ao frameworks/javascript.yaml
-        # - jquery # Sugestão: Criar frameworks/jquery.yaml
-        # - ajax # Sugestão: Criar frameworks/ajax.yaml
-        # - cakephp # Sugestão: Criar frameworks/cakephp.yaml
-        # - mysql # Sugestão: Criar frameworks/mysql.yaml
+        - javascript
+        - jquery
+        - ajax
+        - cakephp
+        - mysql
 date: '2020-10'
 hero:
     src: '/src/assets/images/projects/jornada_1/jornada_1_hero.png'

@@ -4,18 +4,18 @@ subtitle: 'Loja Virtual Integrada'
 summary: 'Loja virtual desenvolvida em Wordpress com integração ao Facebook, Instagram e sistema Bling ERP, oferecendo automação e experiência otimizada.'
 category:
     products:
-        - systems
+        - sistemas_web_e_apps
     platforms:
         - web
-tags:
-    - ecommerce
-    - moda_infantil
-    - automação
-    # frameworks:
-        # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
-        # - elementor # Sugestão: Criar frameworks/elementor.yaml
-        # - woocommerce # Sugestão: Criar frameworks/woocommerce.yaml
-        # - bling # Sugestão: Criar frameworks/bling.yaml
+    tags:
+        - ecommerce
+        - moda_infantil
+        - automação
+    frameworks:
+            - wordpress
+            - elementor
+            - woocommerce
+            - bling
 date: '2021-03'
 hero:
     src: '/src/assets/images/projects/only_kids/only_kids_hero.png'

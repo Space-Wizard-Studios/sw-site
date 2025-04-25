@@ -4,7 +4,8 @@ subtitle: 'Filtro para Instagram'
 summary: 'Um filtro do Instagram gamificado onde o jogador deve piscar para pular obstáculos e alcançar o diploma ao final da aventura, promovendo o Enade 2021.'
 category:
     products:
-        - interactivity
+        - interatividade
+        - jogos_e_gamificação
     platforms:
         - ar
     tags:
@@ -14,7 +15,6 @@ category:
     frameworks:
         - meta
         - javascript
-        - typescript
 date: '2022-02'
 hero:
     src: '/src/assets/images/projects/filtro_enade_2021/filtro_enade_2021_hero.png'
@@ -29,7 +29,7 @@ content: |
 
     Durante o jogo, os usuários enfrentam **desafios progressivos**, com obstáculos que aumentam de dificuldade, incentivando a repetição e o compartilhamento da experiência nas redes sociais.
 
-    Desenvolvido no **Meta Spark** (antigo SparkAR), utilizando **JavaScript** e **TypeScript** para criar interações dinâmicas e responsivas.
+    Desenvolvido no **Meta Spark** (antigo SparkAR), utilizando **JavaScript** para criar interações dinâmicas e responsivas.
 
     - **Realidade Aumentada**: Criação de um ambiente imersivo e interativo.
     - **Detecção de Piscar**: Uso de algoritmos para capturar movimentos faciais e traduzir em ações no jogo.

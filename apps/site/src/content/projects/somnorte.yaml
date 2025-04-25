@@ -4,7 +4,7 @@ subtitle: 'Site Corporativo Multilíngue'
 summary: 'Site corporativo multilíngue para a Somnorte, desenvolvido com Astro e gerenciado via StaticCMS, oferecendo uma plataforma moderna e acessível globalmente.'
 category:
     products:
-        - systems
+        - sistemas_web_e_apps
     platforms:
         - web
     tags:
@@ -12,8 +12,8 @@ category:
         - multilinguagem
         - corporativo
     frameworks:
-        - astro # Referência ao frameworks/astro.yaml
-        # - staticcms # Sugestão: Criar frameworks/staticcms.yaml
+        - astro
+        - static_cms
 date: '2023-03'
 hero:
     src: '/src/assets/images/projects/somnorte/somnorte_hero_desktop.png'

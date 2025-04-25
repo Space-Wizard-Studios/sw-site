@@ -4,16 +4,16 @@ subtitle: 'Landing page baseada em Wordpress'
 summary: 'Landing page para capturar leads e oferecer conteúdos exclusivos, como material didático, videoaulas e simulados, com foco em estudantes.'
 category:
     products:
-        - systems
+        - sistemas_web_e_apps
     platforms:
         - web
     tags:
         - educação
         - leads
         - vocacional
-    # frameworks:
-        # - wordpress # Sugestão: Criar frameworks/wordpress.yaml
-        # - elementor # Sugestão: Criar frameworks/elementor.yaml
+    frameworks:
+        - wordpress
+        - elementor
 date: '2020-12'
 hero:
     src: '/src/assets/images/projects/quasecalouro/quasecalouro_hero.png'

@@ -4,7 +4,7 @@ subtitle: 'Site Corporativo para Empresa de Jogos'
 summary: 'Site corporativo da Firasoft com suporte a multilinguagem, customização via CMS e modularidade para páginas de projetos, permitindo total controle ao cliente.'
 category:
     products:
-        - systems
+        - sistemas_web_e_apps
     platforms:
         - web
     tags:
@@ -13,11 +13,14 @@ category:
         - corporativo
         - multilinguagem
         - modular
-        - personalização
+        - personalizável
     frameworks:
         - figma
         - astro
         - react
+        - tailwind
+        - static_cms
+        - decap_cms
 date: '2023-01'
 hero:
   src: '/src/assets/images/projects/firasoft/firasoft_hero_desktop.png'
