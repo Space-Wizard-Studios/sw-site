@@ -38,6 +38,9 @@
             "@icons/*": [
                 "src/components/icons/*"
             ],
+            "@ui/*": [
+                "src/components/ui/*"
+            ],
             "@widgets/*": [
                 "src/components/widgets/*"
             ],

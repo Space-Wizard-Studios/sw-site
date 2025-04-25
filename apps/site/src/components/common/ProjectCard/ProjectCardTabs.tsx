@@ -101,7 +101,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                         )}
                         {hasProducts && (
                             <div className='flex flex-row gap-4'>
-                                <div className='flex flex-wrap'>
+                                <div className='flex flex-wrap gap-2'>
                                     {products.map((product) => {
                                         const Icon = getIconComponent('product', product.id);
                                         return (
