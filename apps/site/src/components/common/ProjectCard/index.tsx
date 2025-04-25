@@ -21,12 +21,12 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
 
     const imageUrl = hero?.src ?? '';
 
-    const [isActive, setIsExpanded] = useState(false);
+    const [isActive, setIsActive] = useState(false);
     const [activeTab, setActiveTab] = useState<TabType>('overview');
 
     const handleToggle = (e: React.MouseEvent) => {
         e.stopPropagation();
-        setIsExpanded(!isActive);
+        setIsActive(!isActive);
         if (!isActive) {
             setActiveTab('overview');
         }
@@ -39,13 +39,17 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
 
     return (
         <motion.div
+            animate={{
+                scale: isActive ? 1.025 : 1,
+                zIndex: isActive ? 10 : 0,
+            }}
             className={cn(
                 'group relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl',
                 'bg-radial-[at_15%_15%]',
                 isActive
                     ? 'from-surface-container-high to-surface-container-highest'
-                    : 'from-surface-container-low/60 to-surface-container/60',
-                'text-on-surface border-surface/60 border-1 backdrop-blur-md',
+                    : 'from-surface-container-low/40 to-surface-container/40',
+                'text-on-surface border-surface/40 border-1 backdrop-blur-xl',
                 'transition-shadow duration-300',
                 isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
                 className,
