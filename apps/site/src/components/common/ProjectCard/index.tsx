@@ -11,11 +11,12 @@ import type { ProcessedProject } from '@lib/collections/projectHelpers';
 interface ProjectCardProps {
     project: ProcessedProject;
     className?: string;
+    href: string;
 }
 
 type TabType = 'overview' | 'tech' | 'details';
 
-export function ProjectCard({ project, className }: ProjectCardProps) {
+export function ProjectCard({ project, className, href }: ProjectCardProps) {
     const { data } = project;
     const { title, subtitle, hero } = data;
 
@@ -58,22 +59,24 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
         >
             <div className='flex h-full min-h-96 w-full flex-col'>
                 <div className='min-h-3/4 relative h-full w-full'>
-                    {imageUrl ? (
-                        <img
-                            src={imageUrl}
-                            alt={hero?.alt ?? title ?? 'Project image'}
-                            className='h-full w-full object-cover transition-all duration-500 ease-out'
-                            style={{
-                                transform: isActive ? 'scale(1.2)' : 'scale(1)',
-                                opacity: isActive ? 0.5 : 1,
-                            }}
-                            loading='lazy'
-                        />
-                    ) : (
-                        <div className='bg-surface-container-lowest flex h-full w-full items-center justify-center'>
-                            <span className='text-on-surface/50'>Sem Imagem</span>
-                        </div>
-                    )}
+                    <a href={href} rel='noopener noreferrer' className='h-full w-full'>
+                        {imageUrl ? (
+                            <img
+                                src={imageUrl}
+                                alt={hero?.alt ?? title ?? 'Project image'}
+                                className='h-full w-full object-cover transition-all duration-500 ease-out'
+                                style={{
+                                    transform: isActive ? 'scale(1.2)' : 'scale(1)',
+                                    opacity: isActive ? 0.5 : 1,
+                                }}
+                                loading='lazy'
+                            />
+                        ) : (
+                            <div className='bg-surface-container-lowest flex h-full w-full items-center justify-center'>
+                                <span className='text-on-surface/50'>Sem Imagem</span>
+                            </div>
+                        )}
+                    </a>
 
                     <AnimatePresence>
                         {isActive && (
@@ -85,8 +88,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
                         )}
                     </AnimatePresence>
                 </div>
-
-                <ProjectCardContent title={title} subtitle={subtitle} isActive={isActive} handleToggle={handleToggle} />
+                <ProjectCardContent href={href} title={title} subtitle={subtitle} isActive={isActive} handleToggle={handleToggle} />
             </div>
         </motion.div>
     );

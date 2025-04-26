@@ -7,9 +7,10 @@ interface ProjectCardContentProps {
     subtitle?: string;
     isActive: boolean;
     handleToggle: (e: React.MouseEvent) => void;
+    href?: string;
 }
 
-export function ProjectCardContent({ title, subtitle, isActive, handleToggle }: ProjectCardContentProps) {
+export function ProjectCardContent({ title, subtitle, isActive, handleToggle, href }: ProjectCardContentProps) {
     return (
         <div
             className={cn(
@@ -22,8 +23,10 @@ export function ProjectCardContent({ title, subtitle, isActive, handleToggle }: 
             )}
         >
             <div className='flex w-full flex-row items-center justify-between gap-2'>
-                <div className='flex flex-col'>
-                    <h4 className='font-bold leading-tight'>{title}</h4>
+                <div className='flex flex-col gap-2 w-full'>
+                    <a href={href} className='w-fit' onClick={(e) => e.stopPropagation()}>
+                        <h4 className='font-bold leading-tight'>{title}</h4>
+                    </a>
                     {subtitle && <p className='text-on-surface/80 text-sm'>{subtitle}</p>}
                 </div>
                 <div className='flex flex-col items-center justify-center'>

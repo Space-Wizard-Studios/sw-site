@@ -360,9 +360,12 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
             {/* Galeria de Projetos Filtrada */}
             <div className={cn('grid auto-rows-fr grid-cols-1 gap-6 md:grid-cols-3')}>
                 {filteredProjects.length > 0 ? (
-                    filteredProjects.map((project) => (
-                        <ProjectCard key={project.id || project.data.slug} project={project} />
-                    ))
+                    filteredProjects.map((project) => {
+                        const projectUrl = `/projects/${project.data.slug}`;
+                        return (
+                            <ProjectCard key={project.id || project.data.slug} project={project} href={projectUrl} />
+                        );
+                    })
                 ) : (
                     <p className='text-on-surface/70 col-span-full text-center'>
                         Nenhum projeto encontrado para os filtros selecionados.
