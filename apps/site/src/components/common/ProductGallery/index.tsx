@@ -52,14 +52,17 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
 
     const handleSetActiveCard = (index: number, targetRef: RefObject<HTMLDivElement>) => {
         const isDeactivating = activeIndex === index;
+        const isDeactivated = !rocketState.isActive;
 
         const containerRect = containerRef.current.getBoundingClientRect();
 
         const currentRect = rocketRef.current.getBoundingClientRect();
-        const currentPos = {
-            x: currentRect.x - containerRect.x + currentRect.width / 2,
-            y: currentRect.y - containerRect.y + currentRect.height / 2,
-        };
+        const currentPos = isDeactivated
+            ? { x: 0, y: -200 }
+            : {
+                  x: currentRect.x - containerRect.x + currentRect.width / 2,
+                  y: currentRect.y - containerRect.y + currentRect.height / 2,
+              };
 
         const targetRect = targetRef.current.getBoundingClientRect();
         const targetPos = isDeactivating
