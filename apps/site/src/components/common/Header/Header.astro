@@ -11,7 +11,6 @@ export interface Props {
 }
 
 const { className } = Astro.props as Props;
-const { pathname } = Astro.url;
 ---
 
 <header
@@ -35,7 +34,7 @@ const { pathname } = Astro.url;
         <nav class='flex flex-row justify-between items-center'>
             <div class='flex justify-center gap-4'>
                 <ul class='flex flex-row gap-8 pl-0 items-center'>
-                    <a href={'/projects'}>Portfólio</a>
+                    <a href={'/projects'}>Projetos</a>
                 </ul>
 
                 <ButtonToggleTheme client:visible />
