@@ -115,6 +115,9 @@ This palette was studied with the help of tints.dev
     --color-sw-purply-900: #110d16;
     --color-sw-purply-950: #0a080d;
 
+    /* ANIMATIONS AND OTHER COLORS */
+    --color-sw-gold: #f7ad02;
+
     /* DESIGN TOKENS */
     --color-brand: var(--color-sw-navy-800);
 

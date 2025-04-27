@@ -8,7 +8,7 @@ interface Props {
 	seed: number;
 	start: boolean;
 	count: number;
-	magicColorClass?: string;
+	sparkleColorClass?: string;
 }
 
 function mulberry32(a: number) {
@@ -28,7 +28,7 @@ type ParticleProps = {
 	duration: number;
 	delay: number;
 	rotation: number;
-	magicColorClass?: string;
+	sparkleColorClass?: string;
 };
 
 type Position = {
@@ -36,7 +36,7 @@ type Position = {
 	y: number;
 };
 
-function Particle({ prng, start, containerRef, scale, duration, delay, rotation, magicColorClass }: ParticleProps) {
+function Particle({ prng, start, containerRef, scale, duration, delay, rotation, sparkleColorClass }: ParticleProps) {
 	const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
 	const controls = useAnimationControls();
 
@@ -71,7 +71,7 @@ function Particle({ prng, start, containerRef, scale, duration, delay, rotation,
 				delay: delay,
 			}}
 			variants={particleVariants}
-			className={cn('absolute rounded-full w-4 h-4 pointer-events-none origin-center', magicColorClass)}
+			className={cn('absolute rounded-full w-4 h-4 pointer-events-none origin-center', sparkleColorClass)}
 			style={{
 				rotate: `${rotation}rad`,
 				translateX: `${position.x}px`,
@@ -83,7 +83,7 @@ function Particle({ prng, start, containerRef, scale, duration, delay, rotation,
 	);
 }
 
-export default function MagicSparkles({ seed, start, count }: Props) {
+export default function MagicSparkles({ seed, start, count, sparkleColorClass }: Props) {
 	const prng = mulberry32(seed);
 	const ref = useRef<HTMLDivElement>(null);
 
@@ -97,7 +97,7 @@ export default function MagicSparkles({ seed, start, count }: Props) {
 		}));
 
 	return (
-		<div ref={ref} className="absolute inset-0 -z-10">
+		<div ref={ref} className={cn("absolute inset-0 -z-10", sparkleColorClass)}>
 			{particles.map((particle, i) => (
 				<Particle key={i} containerRef={ref} prng={prng} start={start} {...particle} />
 			))}

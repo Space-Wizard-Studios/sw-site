@@ -8,7 +8,7 @@ interface Props {
     start: boolean;
     count: number;
     radius: number;
-    magicColorClass?: string;
+    sparkleColorClass?: string;
 }
 
 function mulberry32(a: number) {
@@ -37,7 +37,7 @@ function shuffle(prng: () => number, array: any[]) {
     return array;
 }
 
-export default function MagicExplosion({ seed, start, count, radius, magicColorClass }: Props) {
+export default function MagicExplosion({ seed, start, count, radius, sparkleColorClass }: Props) {
     const prng = mulberry32(seed);
     const deltaAngle = (2 * Math.PI) / count;
 
@@ -65,7 +65,7 @@ export default function MagicExplosion({ seed, start, count, radius, magicColorC
                         delay: particle.delay,
                     }}
                     variants={particleVariants}
-                    className={cn('pointer-events-none absolute -z-10 h-8 w-8 rounded-full', magicColorClass)}
+                    className={cn('pointer-events-none absolute -z-10 h-8 w-8 rounded-full', sparkleColorClass)}
                     style={{ rotate: `${particle.rotation}rad` }}
                 >
                     <Star />
