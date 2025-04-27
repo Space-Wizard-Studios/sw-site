@@ -1,42 +1,35 @@
 ---
-// import '@styles/style.scss';
-// import '@styles/focus.scss';
-// import '@styles/scrollbar.scss';
-// import '@styles/text.scss';
-
 import MetaTags from '@common/MetaTags.astro';
 import { getInitialTheme, applyTheme } from '@lib/getInitialTheme';
 
-import type { MetaSEO } from 'types/metaSEO';
-// TODO - DEFAULT SEO CONFIG
-// import { config } from '@config.js';
+import type { metaSEO } from '@schemas/common/seoSchema';
 
 import '@styles/theme.css';
 import Footer from '@common/Footer/Footer.astro';
 import Header from '@common/Header/Header.astro';
 
 type Props = {
-    meta?: MetaSEO;
+    seo?: metaSEO;
 };
 
-const { meta } = Astro.props as Props;
+const { seo } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang='pt' class='motion-safe:scroll-smooth'>
     <head>
         <script
-        is:inline 
-        define:vars={{ getInitialThemeFn: getInitialTheme.toString(), applyThemeFn: applyTheme.toString() }}
+            is:inline
+            define:vars={{ getInitialThemeFn: getInitialTheme.toString(), applyThemeFn: applyTheme.toString() }}
         >
-            (function() {
+            (function () {
                 const getInitialTheme = eval(`(${getInitialThemeFn})`);
                 const applyTheme = eval(`(${applyThemeFn})`);
                 const theme = getInitialTheme();
                 applyTheme(theme);
             })();
         </script>
-        <MetaTags {...meta} />
+        <MetaTags seo={seo} />
     </head>
 
     <body class='relative flex flex-col w-full overflow-x-hidden bg-surface-bright'>

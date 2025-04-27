@@ -2,20 +2,28 @@
 import Layout from '@layouts/PageLayout.astro';
 import { Projects } from '@widgets/Portfolio/Portfolio.astro';
 
-import { config } from '@config.js';
-import type { MetaSEO } from 'types/metaSEO';
+import type { metaSEO } from '@schemas/common/seoSchema';
 
-const meta: MetaSEO = {
-    title: config.title,
-    description: config.description,
-    // canonical: Astro.url.toString(),
+const constructedSeo: metaSEO = {
+    title: 'Projetos',
+    description: 'Um gostinho do que fazemos',
+    canonical: Astro.url.toString(),
+    robots: {
+        noindex: null,
+        nofollow: null,
+    },
     og: {
+        title: 'Projetos',
+        description: 'Um gostinho do que fazemos',
         type: 'website',
+        image: null,
     },
 };
+
+
 ---
 
-<Layout meta={meta}>
+<Layout seo={constructedSeo}>
     <section class='flex flex-col w-full relative'>
         <div class='sw-container flex flex-col space-y-10'>
             <div class='flex flex-col py-8 space-y-4'>

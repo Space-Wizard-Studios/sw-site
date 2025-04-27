@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 
-import { config } from './src/config.js';
+import { config } from './src/config/defaultSEO.js';
 
 export default defineConfig({
     site: config.origin,

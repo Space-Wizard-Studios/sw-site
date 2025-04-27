@@ -1,10 +1,9 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
-import { config } from '@config.js';
 import Error404 from '@widgets/Error404.astro';
-const title = `Error 404 — ${config.name}`;
+const title = `404`;
 ---
 
-<Layout meta={{ title }}>
+<Layout seo={{ title }}>
 	<Error404 />
 </Layout>

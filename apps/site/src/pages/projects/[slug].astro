@@ -9,6 +9,8 @@ import { getIconComponent } from '@lib/getIconComponent';
 import { IconBadge } from '@common/ProjectsGallery/ProjectCard/IconBadge';
 import { cn, darkenColor, getContrastColor } from '@lib/utils';
 
+import type { metaSEO } from '@schemas/common/seoSchema';
+
 export async function getStaticPaths() {
     const processedProjects = await getAllProjects();
 
@@ -33,9 +35,27 @@ const html = marked.parse(content);
 const hero = project.data.hero || null;
 const heroImageSrc = hero.src;
 
+const constructedSeo: metaSEO = {
+    title: project.data.title || null,
+    description: project.data.summary || null,
+    canonical: project.data.seo?.canonical || Astro.url.toString(),
+    robots: {
+        noindex: project.data.seo?.robots?.noindex || null,
+        nofollow: project.data.seo?.robots?.nofollow || null,
+    },
+    og: {
+        title: project.data.seo?.og?.title || project.data.title || null,
+        description: project.data.seo?.og?.description || project.data.summary || null,
+        type: project.data.seo?.og?.type || 'article',
+        image: project.data.seo?.og?.image || heroImageSrc || null,
+    },
+};
+
+const seo = project.data.seo || null;
+
 ---
 
-<Layout meta={{ title: project.data.title, description: project.data.subtitle }}>
+<Layout seo={{ ...constructedSeo, ...seo }}>
 
     <section class='relative flex flex-col h-full w-full items-center'>
         <div class="">
