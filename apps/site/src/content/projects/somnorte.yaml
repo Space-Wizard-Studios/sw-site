@@ -23,7 +23,7 @@ hero:
 #     -
 # partners:
 #     - 'Somnorte'
-content: |
+description: |
     O site corporativo da **Somnorte** foi desenvolvido para estabelecer uma presença digital robusta e acessível globalmente. Construído com **Astro**, o site oferece performance otimizada e uma experiência de usuário fluida.
 
     A integração com **StaticCMS** permite que a equipe da Somnorte gerencie o conteúdo de forma autônoma e eficiente, garantindo que o site esteja sempre atualizado.

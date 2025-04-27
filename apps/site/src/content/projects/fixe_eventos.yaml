@@ -24,7 +24,7 @@ hero:
 #     -
 # partners:
 # - 'Fixe Eventos'
-content: |
+description: |
     O site corporativo da Fixe Eventos foi desenvolvido para destacar os serviços e a identidade visual da empresa no mercado de eventos. O projeto foi inteiramente construído em **Wordpress**, utilizando o design fornecido pela própria empresa como base.
 
     Durante o desenvolvimento, utilizamos o **Figma** para realizar pequenos ajustes no design, garantindo **acessibilidade**, **responsividade** e uma experiência de usuário otimizada.

@@ -27,7 +27,7 @@ hero:
 #     -
 partners:
     - 'Trocando Saberes'
-content: |
+description: |
     O site **Trocando Saberes** foi desenvolvido em **Wordpress** como uma plataforma digital acessível, projetada para facilitar a troca de conhecimento, experiências e projetos entre seus usuários. O objetivo é criar uma comunidade engajada no aprendizado colaborativo.
 
     Principais características:

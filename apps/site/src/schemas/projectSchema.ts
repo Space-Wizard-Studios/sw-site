@@ -23,12 +23,12 @@ export const projectSchema = z
         carousel: carouselSchema.optional(),
         partners: z.array(reference('partners')).optional(),
         summary: z.string().optional(),
-        content: z.string().optional(),
+        description: z.string().optional(),
         seo: seoSchema.optional(),
     })
     .transform((data) => {
-        if (!data.summary && data.content) {
-            data.summary = data.content.slice(0, 200) + (data.content.length > 200 ? '...' : '');
+        if (!data.summary && data.description) {
+            data.summary = data.description.slice(0, 200) + (data.description.length > 200 ? '...' : '');
         }
         return data;
     });

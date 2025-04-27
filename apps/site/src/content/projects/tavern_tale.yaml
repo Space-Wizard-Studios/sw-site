@@ -26,7 +26,7 @@ date: '2023-09'
 #     -
 partners:
     - 'Tavern Tale Studio'
-content: |
+description: |
     O site corporativo do **Tavern Tale Studio** foi desenvolvido para apresentar o portfólio e a identidade visual do estúdio de jogos. Construído inteiramente em **Wordpress** e utilizando o **Elementor** para personalizável visual, o site oferece uma plataforma robusta e fácil de gerenciar.
 
     Principais características:

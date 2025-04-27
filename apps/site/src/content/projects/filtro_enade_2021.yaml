@@ -20,11 +20,7 @@ hero:
     src: '/src/assets/images/projects/filtro_enade_2021/filtro_enade_2021_hero.png'
     title: 'Banner do projeto Enade#2021'
     altText: 'Banner do projeto Enade#2021'
-# carousel:
-#     -
-# partners:
-#   - agencia-multi # Exemplo de slug, ajuste se necessário
-content: |
+description: |
     O **Filtro Enade 2021** foi desenvolvido para engajar estudantes de forma interativa e divertida, promovendo o evento **Enade 2021**. O filtro utiliza a tecnologia de **Realidade Aumentada** para criar uma experiência gamificada, onde o jogador deve **piscar para pular obstáculos** e alcançar o diploma ao final da aventura.
 
     Durante o jogo, os usuários enfrentam **desafios progressivos**, com obstáculos que aumentam de dificuldade, incentivando a repetição e o compartilhamento da experiência nas redes sociais.
