@@ -1,7 +1,7 @@
 ---
 import ButtonToggleMenu from '@common/ButtonToggleMenu';
 import ButtonToggleTheme from '@common/ButtonToggleTheme';
-import { SiteLogo } from '@icons/Brand';
+import { Logo } from '@icons/Brand';
 
 import { cn } from '@lib/utils';
 import Link from './Link.astro';
@@ -27,7 +27,7 @@ const { pathname } = Astro.url;
             <h1 class='flex flex-row w-full'>
                 <a class={cn('w-48 hover:scale-105 transition-all text-primary')} href='/'>
                     <span class='sr-only'>Space Wizard Studios</span>
-                    <SiteLogo client:visible />
+                    <Logo client:visible />
                 </a>
             </h1>
         </nav>

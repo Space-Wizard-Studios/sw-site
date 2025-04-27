@@ -1,6 +1,6 @@
 import type { IconProps } from 'types/iconProps';
 
-export function SiteStar({ color = 'currentColor', ...props }: IconProps) {
+export function Star({ color = 'currentColor', ...props }: IconProps) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024'>
             <path
@@ -11,7 +11,7 @@ export function SiteStar({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function SiteLogo({ color = 'currentColor', ...props }: IconProps) {
+export function Logo({ color = 'currentColor', ...props }: IconProps) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 200'>
             <g fill='currentColor'>
