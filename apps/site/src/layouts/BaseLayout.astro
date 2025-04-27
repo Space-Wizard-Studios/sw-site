@@ -30,8 +30,6 @@ const { meta } = Astro.props as Props;
         define:vars={{ getInitialThemeFn: getInitialTheme.toString(), applyThemeFn: applyTheme.toString() }}
         >
             (function() {
-                // Define functions in client scope
-                // Get and apply theme before any rendering
                 const getInitialTheme = eval(`(${getInitialThemeFn})`);
                 const applyTheme = eval(`(${applyThemeFn})`);
                 const theme = getInitialTheme();
