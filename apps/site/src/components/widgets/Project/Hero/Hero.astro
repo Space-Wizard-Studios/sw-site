@@ -1,27 +1,133 @@
 ---
-import { cn } from '@lib/utils';
+import { getIconComponent } from '@lib/getIconComponent';
+import { IconBadge } from '@common/ProjectsGallery/ProjectCard/IconBadge';
+import { cn, darkenColor, getContrastColor } from '@lib/utils';
+
+import type { ProcessedProject } from '@lib/collections/projectHelpers';
 
 export interface Props {
-    mobileImagePath: string;
-    desktopImagePath: string;
+    project: ProcessedProject;
     className?: string;
-    imgClassName?: string;
-    altText?: string;
 }
 
-const { mobileImagePath, desktopImagePath, className, imgClassName, altText = 'Imagem do projeto' } = Astro.props as Props;
+const {
+    project,
+    className,
+} = Astro.props as Props;
+
+const hero = project.data.hero || null;
+const heroImageSrc = hero?.src || null;
+
+const date = project.data.date || null;
+
+const products = project.data.category.products || [];
+const platforms = project.data.category.platforms || [];
+const frameworks = project.data.category.frameworks || [];
+const tags = project.data.category.tags || [];
 ---
-<div class={cn(
-        'flex flex-col relative w-full h-screen overflow-hidden pointer-events-none', 
-        className )}>
-    <picture>
-        <source media='(max-width: 767px)' srcset={mobileImagePath} />
-        <source media='(min-width: 768px)' srcset={desktopImagePath} />
-        <img
-            src={desktopImagePath}
-            alt={altText}
-            loading='eager'
-            class={cn('relative w-screen h-screen object-cover', imgClassName)}
-        />
-    </picture>
-</div>
+
+<section class='relative flex flex-col h-full w-full items-center'>
+    <div class={cn('flex flex-col relative h-[70vh] md:h-[80vh] overflow-hidden pointer-events-none', className)}>
+        <img src={heroImageSrc} alt={hero?.alt ?? ''} loading='eager' class={cn('relative w-screen h-screen object-cover')} />
+    </div>
+
+    <div class='absolute top-0 w-full h-full bg-surface/80 backdrop-blur-lg'></div>
+    <header class='w-full h-full absolute top-0 z-10 space-y-4 flex flex-col items-center justify-center'>
+        <div class='sw-container gap-4 flex flex-col text-on-surface justify-center'>
+            {project.data.title && <h2 class='sw-display text-on-surface'>{project.data.title}</h2>}
+            {project.data.subtitle && <h3 class='text-on-surface'>{project.data.subtitle}</h3>}
+        </div>
+
+        <div class='sw-container flex flex-col space-y-4 z-20'>
+            <div class='flex flex-wrap gap-2'>
+                {
+                    products.map((product) => {
+                        const Icon = getIconComponent('product', product.id);
+                        return (
+                            <IconBadge
+                                label={product.title || product.id}
+                                showLabel={true}
+                                variant='default'
+                                client:idle
+                            >
+                                <Fragment slot='icon'>{Icon ? <Icon class='w-4 h-4' /> : null}</Fragment>
+                            </IconBadge>
+                        );
+                    })
+                }
+            </div>
+
+            <div class='flex flex-wrap gap-2'>
+                {
+                    platforms.map((platform) => {
+                        const Icon = getIconComponent('platform', platform.id);
+                        return (
+                            <IconBadge
+                                label={platform.title || platform.id}
+                                showLabel={true}
+                                variant='default'
+                                client:idle
+                            >
+                                <Fragment slot='icon'>{Icon ? <Icon class='w-4 h-4' /> : null}</Fragment>
+                            </IconBadge>
+                        );
+                    })
+                }
+            </div>
+
+            <div class='flex flex-wrap gap-2'>
+                {
+                    frameworks.map((framework) => {
+                        const Icon = getIconComponent('framework', framework.id);
+                        const badgeBgColor = framework.badge?.background;
+                        const badgeHoverBorderColor = badgeBgColor ? darkenColor(badgeBgColor, 80) : undefined;
+
+                        const badgeStyle = badgeBgColor
+                            ? ({
+                                  '--badge-hover-bg': badgeBgColor,
+                                  '--badge-hover-border': badgeHoverBorderColor ?? badgeBgColor,
+                              } as React.CSSProperties)
+                            : undefined;
+
+                        const hoverTextColorClass = badgeBgColor
+                            ? getContrastColor(badgeBgColor) === 'black'
+                                ? 'hover:text-black'
+                                : 'hover:text-white'
+                            : 'hover:text-black';
+
+                        return (
+                            <a href={framework.link} class='no-underline' target='_blank' rel='noopener noreferrer'>
+                                <IconBadge
+                                    label={framework.title || framework.id}
+                                    showLabel={true}
+                                    variant='default'
+                                    style={badgeStyle}
+                                    className={cn(
+                                        'transition-colors duration-200',
+                                        badgeBgColor &&
+                                            `hover:border-[var(--badge-hover-border)]/40 hover:bg-[var(--badge-hover-bg)] ${hoverTextColorClass}`,
+                                    )}
+                                >
+                                    <Fragment slot='icon'>{Icon ? <Icon class='w-4 h-4' /> : null}</Fragment>
+                                </IconBadge>
+                            </a>
+                        );
+                    })
+                }
+            </div>
+
+            <div class='flex flex-wrap gap-2'>
+                {
+                    tags.map((tag) => {
+                        return <IconBadge label={tag.title || tag.id} showLabel={true} variant='default' client:idle />;
+                    })
+                }
+            </div>
+        </div>
+    </header>
+    <div
+        class='sw-halftone absolute bottom-0 w-full h-12 md:h-24 bg-surface-dim text-primary z-20'
+        style='clip-path: polygon(100% 100%, 0 100% , 0 0);'
+    >
+    </div>
+</section>

@@ -11,7 +11,7 @@ export interface Props {
 const { className } = Astro.props as Props;
 
 ---
-<div class={cn('flex flex-col relative w-full h-screen overflow-hidden', className)}>
+<div class={cn('flex flex-col relative w-full h-[70vh] md:h-[80vh] overflow-hidden', className)}>
     <picture >
         <source media='(max-width: 767px)' srcset={heroImageMobile.src} />
         <source media='(min-width: 768px)' srcset={heroImageDesktop.src} />
