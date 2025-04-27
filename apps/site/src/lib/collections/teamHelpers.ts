@@ -1,6 +1,5 @@
 import { getCollection } from 'astro:content';
 
-import type { ImageMetadata } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import type { TeamMember } from '@schemas/teamSchema';
 

@@ -21,8 +21,8 @@ function mulberry32(a: number) {
 }
 
 function shuffle(prng: () => number, array: any[]) {
-    let currentIndex = array.length,
-        randomIndex;
+    let currentIndex: number = array.length,
+        randomIndex: number;
 
     // While there remain elements to shuffle.
     while (currentIndex != 0) {

@@ -2,10 +2,9 @@ import type { ProcessedTeamMember } from '@lib/collections/teamHelpers';
 
 interface Props {
     teamMember: ProcessedTeamMember;
-    isActive: boolean;
 }
 
-export function MemberInfo({ teamMember, isActive }: Props) {
+export function MemberInfo({ teamMember }: Props) {
     const { name, roles, skills } = teamMember.data;
 
     return (

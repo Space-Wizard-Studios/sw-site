@@ -34,7 +34,7 @@ const extractUniqueCategories = <T extends ResolvedCategoryItem>(
 ): T[] => {
     const categoriesMap = new Map<string, T>();
     projects.forEach((project) => {
-        project.data.category?.[categoryKey]?.forEach((item) => {
+        project.data.category?.[categoryKey]?.forEach((item: ResolvedCategoryItem) => {
             if (item && typeof item === 'object' && 'id' in item && !categoriesMap.has(item.id)) {
                 categoriesMap.set(item.id, item as T);
             }
@@ -65,7 +65,7 @@ const projectMatchesSelections = (project: ProcessedProject, selections: Record<
     return (Object.keys(selections) as CategoryKey[]).every((key) => {
         const selected = selections[key];
         if (selected.length === 0) return true;
-        const projectItemsInCategory = new Set(category[key]?.map((item) => item.id) ?? []);
+        const projectItemsInCategory = new Set(category[key]?.map((item: ResolvedCategoryItem) => item.id) ?? []);
         return selected.every((id) => projectItemsInCategory.has(id));
     });
 };

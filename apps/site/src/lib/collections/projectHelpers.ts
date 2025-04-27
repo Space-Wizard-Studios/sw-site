@@ -29,7 +29,7 @@ export type ProcessedProject = Omit<CollectionEntry<'projects'>, 'data'> & {
     data: ProcessedProjectData;
 };
 
-export async function getAllProjects(locale: string = ''): Promise<ProcessedProject[]> {
+export async function getAllProjects(): Promise<ProcessedProject[]> {
     const allProjects = await getCollection('projects');
 
     const nonDraftProjects = allProjects.filter((project) => !project.data.draft);

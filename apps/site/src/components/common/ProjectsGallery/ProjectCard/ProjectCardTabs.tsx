@@ -1,7 +1,7 @@
 import type React from 'react';
 import { motion } from 'motion/react';
 
-import { cn, getContrastColor, darkenColor } from '@lib/utils';
+import { cn } from '@lib/utils';
 
 import { FileText, Layers, Tag } from 'lucide-react';
 

@@ -4,7 +4,7 @@ import { Track } from './Track';
 import { Target } from './Target';
 import { Particle } from './Particle';
 import { Handle } from './Handle';
-import { SpeechBubble } from '@common/SpeechBubble';
+import { SpeechBubble } from '@common/_unused/SpeechBubble';
 
 interface Props {
     index: number;
