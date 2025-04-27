@@ -19,14 +19,7 @@ export function ProductCard({ index, product, isActive, setActiveCard }: Props) 
     const { title, summary = '', description = '' } = product;
 
     return (
-        <motion.div
-            className={cn('relative flex', 'min-h-72')}
-            animate={{
-                scale: isActive ? 1.05 : 1,
-                zIndex: isActive ? 10 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-        >
+        <div className={cn('relative flex min-h-72')}>
             <div
                 className={cn(
                     'flex h-full w-full flex-col justify-between gap-2 overflow-hidden rounded-2xl',
@@ -60,6 +53,6 @@ export function ProductCard({ index, product, isActive, setActiveCard }: Props) 
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }

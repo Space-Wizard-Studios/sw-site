@@ -6,3 +6,12 @@
         offset-distance: 100%;
     }
 }
+
+@keyframes rocket-path {
+    0% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: -16;
+    }
+}
