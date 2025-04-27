@@ -15,12 +15,13 @@ interface ProductGalleryProps {
 
 const calculatePath = (current: Position, target: Position, maxYOffset: number) => {
     const midX = (current.x + target.x) / 2;
-
-    const yOffset = Math.max(maxYOffset - (target.y - current.y), 0);
     const dir = Math.sign(target.x - current.x);
 
-    const control1 = { x: midX - 80 * dir, y: current.y - yOffset };
-    const control2 = { x: midX + 80 * dir, y: target.y - yOffset };
+    const yOffset = Math.max(maxYOffset - Math.abs(target.y - current.y), 0);
+    const xOffset = 80 * (dir === 0 ? 1 : dir);
+
+    const control1 = { x: midX - xOffset, y: current.y - yOffset };
+    const control2 = { x: midX + xOffset, y: target.y - yOffset };
 
     return `M ${current.x} ${current.y} C ${control1.x} ${control1.y} ${control2.x} ${control2.y} ${target.x} ${target.y} v -0.1`;
 };
