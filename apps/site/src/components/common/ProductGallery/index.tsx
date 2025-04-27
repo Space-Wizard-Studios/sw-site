@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
+import React, { useEffect, useMemo, useRef, useState, type CSSProperties, type RefObject } from 'react';
 import { ProductsProvider, useProductsContext } from './ProductsContext';
 import { ProductCard } from './ProductCard';
 import type { ProcessedProduct } from '@lib/collections/productHelpers';
@@ -6,21 +6,23 @@ import { cn } from '@lib/utils';
 import { Rocket } from '@icons/UI';
 
 import '@styles/rocket.css';
+import { motion } from 'motion/react';
 
 interface ProductGalleryProps {
     className?: string;
     products: ProcessedProduct[];
 }
 
-const calculateBezier = (current: Position, target: Position) => {
+const calculatePath = (current: Position, target: Position, maxYOffset: number) => {
     const midX = (current.x + target.x) / 2;
 
+    const yOffset = Math.max(maxYOffset - (target.y - current.y), 0);
     const dir = Math.sign(target.x - current.x);
 
-    const control1 = { x: midX - 80 * dir, y: current.y - 80 };
-    const control2 = { x: midX + 80 * dir, y: target.y - 80 };
+    const control1 = { x: midX - 80 * dir, y: current.y - yOffset };
+    const control2 = { x: midX + 80 * dir, y: target.y - yOffset };
 
-    return `M ${current.x} ${current.y} C ${control1.x} ${control1.y} ${control2.x} ${control2.y} ${target.x} ${target.y}`;
+    return `M ${current.x} ${current.y} C ${control1.x} ${control1.y} ${control2.x} ${control2.y} ${target.x} ${target.y} v -0.1`;
 };
 
 function ProductGalleryContent({ className, products }: ProductGalleryProps) {
@@ -42,18 +44,14 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
     const rocketRef = useRef<HTMLDivElement>(null);
     const [rocketState, setRocketState] = useState<SpaceShipState>({
         key: 0,
-        path: 'M 20 50 C 100 150 160 -150 250 -50 Q 290 0 250 60 C 160 150 100 -150 20 -50 Q -10 0 20 50',
+        path: 'M 0 -200',
         ease: 'linear',
-        duration: 5000,
-        repeat: true,
+        duration: 1,
+        isActive: false,
     });
 
     const handleSetActiveCard = (index: number, targetRef: RefObject<HTMLDivElement>) => {
-        if (activeIndex === index) {
-            return;
-        }
-
-        setActiveIndex(index);
+        const isDeactivating = activeIndex === index;
 
         const containerRect = containerRef.current.getBoundingClientRect();
 
@@ -64,20 +62,23 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
         };
 
         const targetRect = targetRef.current.getBoundingClientRect();
-        const targetPos = {
-            x: targetRect.x - containerRect.x + targetRect.width / 2,
-            y: targetRect.y - containerRect.y + targetRect.height / 2,
-        };
+        const targetPos = isDeactivating
+            ? { x: 0, y: -200 }
+            : {
+                  x: targetRect.x - containerRect.x + targetRect.width / 2,
+                  y: targetRect.y - containerRect.y + targetRect.height / 2,
+              };
 
-        const path = calculateBezier(currentPos, targetPos);
-        console.log(path);
+        const path = calculatePath(currentPos, targetPos, isDeactivating ? 0 : 280);
+
+        setActiveIndex(isDeactivating ? -1 : index);
         setRocketState((state) => ({
             ...state,
             key: state.key + 1,
             path,
             ease: 'ease-out',
-            duration: 1000,
-            repeat: false,
+            duration: isDeactivating ? 3000 : 750,
+            isActive: !isDeactivating,
         }));
     };
 
@@ -133,49 +134,68 @@ interface SpaceShipState {
     path: string;
     ease: string;
     duration: number;
-    repeat: boolean;
+    isActive: boolean;
 }
 
 function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
-    const { key, path, duration, ease, repeat } = state;
+    const { key, path, duration, ease, isActive } = state;
     const { width, height } = containerSize;
 
+    const pathRef = useRef<SVGPathElement>(null);
+
+    useEffect(() => {
+        if (pathRef.current) {
+            pathRef.current.style.strokeDasharray = `8 8`;
+        }
+    }, [pathRef]);
+
     return (
-        <>
+        <motion.div
+            className='pointer-events-none absolute inset-0'
+            initial={{ opacity: isActive ? 1 : 0 }}
+            animate={{
+                opacity: isActive ? 1 : 0,
+            }}
+            transition={{ duration: isActive ? 0.15 : 0.75, ease: 'circInOut' }}
+        >
             <svg
-                className='stroke-sw-flamingo-400/60 pointer-events-none absolute z-20 h-full w-full fill-none stroke-2'
+                className='text-sw-flamingo-400/60 pointer-events-none absolute z-20 h-full w-full fill-none stroke-2'
                 xmlns='http://www.w3.org/2000/svg'
                 preserveAspectRatio='xMidYMid meet'
                 viewBox={`${-width / 2} ${-height / 2} ${width * 2} ${height * 2}`}
                 style={{ scale: 2 }}
             >
                 <path
-                    strokeLinecap='round'
-                    strokeDasharray={8}
+                    key={key}
+                    ref={pathRef}
                     d={path}
+                    stroke='currentColor'
+                    strokeDasharray='8 8'
+                    strokeLinecap='round'
                     style={{
                         animationName: 'rocket-path',
-                        animationDuration: '500ms',
+                        animationDuration: `${duration}ms`,
+                        animationFillMode: 'forwards',
                         animationTimingFunction: 'linear',
-                        animationIterationCount: 'infinite',
+                        animationIterationCount: 1,
                     }}
                 />
             </svg>
             <div
                 key={key}
                 ref={rocketRef}
-                className='bg-inverse-surface text-inverse-on-surface ani absolute z-30 h-10 w-10 rounded-full p-2'
+                className='bg-inverse-surface text-inverse-on-surface ani pointer-events-none absolute z-30 h-10 w-10 rounded-full p-2'
                 style={{
                     offsetPath: `path("${path}")`,
                     animationName: 'move-on-path',
                     animationDuration: `${duration}ms`,
                     animationFillMode: 'forwards',
                     animationTimingFunction: ease,
-                    animationIterationCount: repeat ? 'infinite' : 1,
+                    animationIterationCount: 1,
                 }}
             >
                 <Rocket className='rotate-90' />
             </div>
-        </>
+        </motion.div>
     );
 }

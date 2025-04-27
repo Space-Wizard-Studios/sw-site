@@ -17,7 +17,7 @@ export function ProductBack({ isActive, description }: Props) {
                 animate={{
                     clipPath: isActive ? openedClipPath : closedClipPath,
                 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                transition={{ delay: isActive ? 0.7 : 0, duration: 0.4, ease: 'easeInOut' }}
                 className='bg-linear-30 from-surface-container-high to-surface-container-highest h-full w-full p-4 pb-14'
             >
                 {description}
