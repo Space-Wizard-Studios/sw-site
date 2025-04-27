@@ -1,4 +1,4 @@
-import { ProjectCard } from '@common/ProjectCard';
+import { ProjectCard } from '@common/ProjectsGallery/ProjectCard';
 import { cn } from '@lib/utils';
 import { useState, useRef, useEffect } from 'react';
 import { Check, X } from 'lucide-react';
