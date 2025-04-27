@@ -228,7 +228,7 @@ This palette was studied with the help of tints.dev
     }
 
     a {
-        @apply text-on-surface relative cursor-pointer font-bold transition duration-300;
+        @apply m-0 text-on-surface relative cursor-pointer font-bold transition duration-300;
         
         &:hover:has(img)::after,
         &:hover:has(svg)::after,

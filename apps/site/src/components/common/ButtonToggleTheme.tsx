@@ -10,22 +10,20 @@ export interface ButtonToggleThemeProps {
 }
 
 export default function ButtonToggleTheme({ className = '', ...props }: ButtonToggleThemeProps) {
-    // Use a placeholder initial state that will be updated after mount
+    const [theme, setTheme] = useState<string | null>(null);
     const [isMounted, setIsMounted] = useState(false);
-    const [theme, setTheme] = useState('light'); // Always start with light for SSR
 
-    // Apply the theme after component mounts
     useEffect(() => {
-        const initialTheme = getInitialTheme();
-        setTheme(initialTheme);
+        const currentTheme = getInitialTheme();
+        applyTheme(currentTheme);
+        setTheme(currentTheme);
         setIsMounted(true);
-        applyTheme(initialTheme);
     }, []);
 
-    const setMode = (theme: string) => {
-        applyTheme(theme);
-        window.localStorage.setItem('theme', theme);
-        setTheme(theme);
+    const setMode = (newTheme: string) => {
+        applyTheme(newTheme);
+        window.localStorage.setItem('theme', newTheme);
+        setTheme(newTheme);
     };
 
     const toggleTheme = () => {
@@ -33,33 +31,25 @@ export default function ButtonToggleTheme({ className = '', ...props }: ButtonTo
         else setMode('dark');
     };
 
-    // Render a simplified version during SSR and first render
-    if (!isMounted) {
+    if (!isMounted || !theme) {
         return (
             <button
                 {...props}
                 type='button'
-                className={cn('relative items-center overflow-hidden rounded-lg p-3', className)}
+                className={cn('relative items-center overflow-hidden rounded-lg p-3 w-11 h-11', className)}
                 aria-label='Alternar tema (claro/escuro)'
             >
-                <div className='h-5 w-5'>
-                    <Sun fillColor='#F0F6FF' />
-                </div>
+                <div className='h-5 w-5'></div>
             </button>
         );
     }
 
-    // Full interactive version after hydration
     return (
         <motion.button
             type='button'
             className={cn('relative items-center overflow-hidden rounded-lg p-3', className)}
             aria-label='Alternar tema (claro/escuro)'
             onClick={() => toggleTheme()}
-            animate={{
-                backgroundColor: theme === 'dark' ? '#060614' : '#8AB9FF',
-                transition: { duration: 0.1 },
-            }}
         >
             <motion.div
                 className='absolute left-0 top-0 h-full w-full'
@@ -72,7 +62,7 @@ export default function ButtonToggleTheme({ className = '', ...props }: ButtonTo
             </motion.div>
 
             <motion.div className='h-5 w-5' key={theme} initial={{ scale: 0.2 }} animate={{ scale: 1 }}>
-                {theme === 'dark' ? <Moon fillColor='#E4E8EC' /> : <Sun fillColor='#F0F6FF' />}
+                {theme === 'dark' ? <Moon fillColor='#E4E8EC' /> : <Sun fillColor='#f7ad02' />}
             </motion.div>
 
             <motion.div
