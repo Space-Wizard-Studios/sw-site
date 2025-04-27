@@ -12,14 +12,14 @@ const { className } = Astro.props as Props;
 
 ---
 <div class={cn('flex flex-col relative w-full h-screen overflow-hidden', className)}>
-    <picture>
+    <picture >
         <source media='(max-width: 767px)' srcset={heroImageMobile.src} />
         <source media='(min-width: 768px)' srcset={heroImageDesktop.src} />
         <img
             src={heroImageDesktop.src}
             alt='Banner da nossa mascote no espaço.'
-            class='w-screen h-screen object-cover fixed'
             loading='eager'
+            class={cn('relative w-screen h-screen object-cover')}
         />
     </picture>
     <DividerWave class='absolute w-full bottom-0 text-surface-bright' />
