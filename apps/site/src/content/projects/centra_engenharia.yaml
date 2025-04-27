@@ -31,9 +31,7 @@ carousel:
     - src: '/src/assets/images/projects/centra_engenharia/screenshot2.png'
       title: 'Tela de gerenciamento de obras no aplicativo Centra Engenharia'
       altText: 'Imagem mostrando a tela de gerenciamento de obras no aplicativo Centra Engenharia'
-# partners:
-#   - centra-engenharia
-content: |
+description: |
     O **Aplicativo Centra Engenharia** é uma plataforma completa de gestão de obras, criada com o objetivo de modernizar e simplificar o cotidiano de engenheiros, gerentes e clientes.
 
     Desenvolvido com **Flutter** para garantir performance nativa em dispositivos Android, iOS e navegadores web, o aplicativo possibilita:

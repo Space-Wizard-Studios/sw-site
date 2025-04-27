@@ -26,11 +26,7 @@ hero:
   src: '/src/assets/images/projects/firasoft/firasoft_hero_desktop.png'
   title: 'Banner do site Firasoft'
   altText: 'Banner do site corporativo da Firasoft'
-# carousel:
-#     -
-# partners:
-#   - 'Firasoft'
-content: |
+description: |
   O site corporativo da Firasoft foi desenvolvido para destacar a presença digital da empresa de jogos, oferecendo uma plataforma moderna, funcional e totalmente personalizável.
 
   Inicialmente lançado em 2023, o site foi construído utilizando **Astro**, **React** e **Tailwind CSS**, com integração ao **StaticCMS** para gerenciamento de conteúdo. Em 2025, foi realizada uma migração para o **Decap CMS**, trazendo ainda mais flexibilidade e recursos avançados.

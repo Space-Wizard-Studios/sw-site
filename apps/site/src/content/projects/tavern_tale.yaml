@@ -18,15 +18,9 @@ category:
         - wordpress
         - elementor
 date: '2023-09'
-# hero:
-#     src: '/src/assets/images/projects/tavern_tale/tavern_tale_hero.png'
-#     title: 'Banner do site Tavern Tale Studio'
-#     altText: 'Banner do site corporativo do Tavern Tale Studio'
-# carousel:
-#     -
 partners:
     - 'Tavern Tale Studio'
-content: |
+description: |
     O site corporativo do **Tavern Tale Studio** foi desenvolvido para apresentar o portfólio e a identidade visual do estúdio de jogos. Construído inteiramente em **Wordpress** e utilizando o **Elementor** para personalizável visual, o site oferece uma plataforma robusta e fácil de gerenciar.
 
     Principais características:

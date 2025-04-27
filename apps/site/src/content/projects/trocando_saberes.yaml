@@ -23,11 +23,10 @@ hero:
     src: '/src/assets/images/projects/trocando_saberes/trocando_saberes_hero_desktop.png'
     title: 'Banner do site Trocando Saberes'
     altText: 'Banner do site da plataforma Trocando Saberes'
-# carousel:
-#     -
+
 partners:
     - 'Trocando Saberes'
-content: |
+description: |
     O site **Trocando Saberes** foi desenvolvido em **Wordpress** como uma plataforma digital acessível, projetada para facilitar a troca de conhecimento, experiências e projetos entre seus usuários. O objetivo é criar uma comunidade engajada no aprendizado colaborativo.
 
     Principais características:

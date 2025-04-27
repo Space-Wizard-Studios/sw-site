@@ -24,11 +24,7 @@ hero:
     src: '/src/assets/images/projects/jornada_2/jornada_2_hero.png'
     title: 'Banner do projeto Jornada Vocacional 2'
     altText: 'Banner do projeto Jornada Vocacional 2'
-# carousel:
-#     -
-# partners:
-#     -
-content: |
+description: |
     A segunda edição da **Jornada Vocacional Uniceplac** trouxe diversas melhorias para aprimorar a experiência dos estudantes do Ensino Médio. Entre as novidades, destacam-se:
 
     - Melhorias significativas na interface e navegação;
