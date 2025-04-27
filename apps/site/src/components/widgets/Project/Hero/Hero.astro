@@ -1,7 +1,9 @@
 ---
-import { getIconComponent } from '@lib/getIconComponent';
-import { IconBadge } from '@common/ProjectsGallery/ProjectCard/IconBadge';
-import { cn, darkenColor, getContrastColor } from '@lib/utils';
+import { ProjectProducts } from '@common/ProjectBadges/ProjectProducts';
+import { ProjectPlatforms } from '@common/ProjectBadges/ProjectPlatforms';
+import { ProjectFrameworks } from '@common/ProjectBadges/ProjectFrameworks';
+import { ProjectTags } from '@common/ProjectBadges/ProjectTags';
+import { cn } from '@lib/utils';
 
 import type { ProcessedProject } from '@lib/collections/projectHelpers';
 
@@ -10,10 +12,7 @@ export interface Props {
     className?: string;
 }
 
-const {
-    project,
-    className,
-} = Astro.props as Props;
+const { project, className } = Astro.props as Props;
 
 const hero = project.data.hero || null;
 const heroImageSrc = hero?.src || null;
@@ -28,7 +27,12 @@ const tags = project.data.category.tags || [];
 
 <section class='relative flex flex-col h-full w-full items-center'>
     <div class={cn('flex flex-col relative h-[70vh] md:h-[80vh] overflow-hidden pointer-events-none', className)}>
-        <img src={heroImageSrc} alt={hero?.alt ?? ''} loading='eager' class={cn('relative w-screen h-screen object-cover')} />
+        <img
+            src={heroImageSrc}
+            alt={hero?.alt ?? ''}
+            loading='eager'
+            class={cn('relative w-screen h-screen object-cover')}
+        />
     </div>
 
     <div class='absolute top-0 w-full h-full bg-surface/80 backdrop-blur-lg'></div>
@@ -40,88 +44,19 @@ const tags = project.data.category.tags || [];
 
         <div class='sw-container flex flex-col space-y-4 z-20'>
             <div class='flex flex-wrap gap-2'>
-                {
-                    products.map((product) => {
-                        const Icon = getIconComponent('product', product.id);
-                        return (
-                            <IconBadge
-                                label={product.title || product.id}
-                                showLabel={true}
-                                variant='default'
-                                client:idle
-                            >
-                                <Fragment slot='icon'>{Icon ? <Icon class='w-4 h-4' /> : null}</Fragment>
-                            </IconBadge>
-                        );
-                    })
-                }
+                <ProjectProducts products={products} />
             </div>
 
             <div class='flex flex-wrap gap-2'>
-                {
-                    platforms.map((platform) => {
-                        const Icon = getIconComponent('platform', platform.id);
-                        return (
-                            <IconBadge
-                                label={platform.title || platform.id}
-                                showLabel={true}
-                                variant='default'
-                                client:idle
-                            >
-                                <Fragment slot='icon'>{Icon ? <Icon class='w-4 h-4' /> : null}</Fragment>
-                            </IconBadge>
-                        );
-                    })
-                }
+                <ProjectPlatforms platforms={platforms} />
             </div>
 
             <div class='flex flex-wrap gap-2'>
-                {
-                    frameworks.map((framework) => {
-                        const Icon = getIconComponent('framework', framework.id);
-                        const badgeBgColor = framework.badge?.background;
-                        const badgeHoverBorderColor = badgeBgColor ? darkenColor(badgeBgColor, 80) : undefined;
-
-                        const badgeStyle = badgeBgColor
-                            ? ({
-                                  '--badge-hover-bg': badgeBgColor,
-                                  '--badge-hover-border': badgeHoverBorderColor ?? badgeBgColor,
-                              } as React.CSSProperties)
-                            : undefined;
-
-                        const hoverTextColorClass = badgeBgColor
-                            ? getContrastColor(badgeBgColor) === 'black'
-                                ? 'hover:text-black'
-                                : 'hover:text-white'
-                            : 'hover:text-black';
-
-                        return (
-                            <a href={framework.link} class='no-underline' target='_blank' rel='noopener noreferrer'>
-                                <IconBadge
-                                    label={framework.title || framework.id}
-                                    showLabel={true}
-                                    variant='default'
-                                    style={badgeStyle}
-                                    className={cn(
-                                        'transition-colors duration-200',
-                                        badgeBgColor &&
-                                            `hover:border-[var(--badge-hover-border)]/40 hover:bg-[var(--badge-hover-bg)] ${hoverTextColorClass}`,
-                                    )}
-                                >
-                                    <Fragment slot='icon'>{Icon ? <Icon class='w-4 h-4' /> : null}</Fragment>
-                                </IconBadge>
-                            </a>
-                        );
-                    })
-                }
+                <ProjectFrameworks frameworks={frameworks} />
             </div>
 
             <div class='flex flex-wrap gap-2'>
-                {
-                    tags.map((tag) => {
-                        return <IconBadge label={tag.title || tag.id} showLabel={true} variant='default' client:idle />;
-                    })
-                }
+                <ProjectTags tags={tags} />
             </div>
         </div>
     </header>

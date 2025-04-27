@@ -8,7 +8,7 @@ export function getIconComponent(
 ): React.FunctionComponent<IconProps> | null {
     const normalizedId = id.toLowerCase();
 
-    console.log(`[getIconComponent] Normalized ID for ${type}:`, normalizedId);
+    // console.log(`[getIconComponent] Normalized ID for ${type}:`, normalizedId);
 
     let IconComponent = null;
 
