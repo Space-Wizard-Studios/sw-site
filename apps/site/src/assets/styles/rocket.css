@@ -1,7 +1,6 @@
 @keyframes move-on-path {
     0% {
         offset-distance: 0%;
-        opacity: 1;
     }
     100% {
         offset-distance: 100%;
@@ -10,11 +9,14 @@
 
 @keyframes rocket-path {
     0% {
-        stroke-dashoffset: 0;
+        opacity: 0;
+        stroke-dashoffset: 16;
+    }
+    50% {
         opacity: 1;
     }
     100% {
-        stroke-dashoffset: -16;
         opacity: 0;
+        stroke-dashoffset: 0;
     }
 }

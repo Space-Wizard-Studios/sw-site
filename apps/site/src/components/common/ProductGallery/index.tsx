@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState, type CSSProperties, type RefObject } from 'react';
-import { ProductsProvider, useProductsContext } from './ProductsContext';
+import React, { useEffect, useRef, useState, type RefObject } from 'react';
+import { ProductsProvider } from './ProductsContext';
 import { ProductCard } from './ProductCard';
 import type { ProcessedProduct } from '@lib/collections/productHelpers';
 import { cn } from '@lib/utils';
@@ -141,14 +141,6 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
     const { key, path, duration, ease, isActive } = state;
     const { width, height } = containerSize;
 
-    const pathRef = useRef<SVGPathElement>(null);
-
-    useEffect(() => {
-        if (pathRef.current) {
-            pathRef.current.style.strokeDasharray = `8 8`;
-        }
-    }, [pathRef]);
-
     return (
         <motion.div
             className='pointer-events-none absolute inset-0'
@@ -167,7 +159,6 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
             >
                 <path
                     key={key}
-                    ref={pathRef}
                     d={path}
                     stroke='currentColor'
                     strokeDasharray='8 8'
@@ -176,7 +167,7 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
                         animationName: 'rocket-path',
                         animationDuration: `${duration}ms`,
                         animationFillMode: 'forwards',
-                        animationTimingFunction: 'linear',
+                        animationTimingFunction: ease,
                         animationIterationCount: 1,
                     }}
                 />
