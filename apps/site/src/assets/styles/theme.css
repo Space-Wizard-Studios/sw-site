@@ -254,7 +254,7 @@ This palette was studied with the help of tints.dev
     }
 
     ul {
-        @apply mr-4 list-disc space-y-2 pl-8;
+        @apply list-disc space-y-2;
 
         li {
             @apply text-base font-normal;
