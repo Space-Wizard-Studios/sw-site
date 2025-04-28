@@ -40,7 +40,7 @@ export const PlatformIcons: Record<string, (props: IconProps) => JSX.Element> = 
 };
 
 
-// Ajax, Astro, Blender, Bling, Bootstrap, CakePHP, DecapCMS, Elementor, Figma, Firebase, Flutter, Godot, JavaScript, jQuery, Meta, MySQL, NextJS, React, StaticCMS, Tailwind, ThreeJS, TypeScript, Unity, WooCommerce, WordPress
+// Ajax, Astro, Blender, Bling, Bootstrap, CakePHP, DecapCMS, Elementor, Figma, Firebase, Flutter, Godot, JavaScript, jQuery, Meta, MySQL, NextJS, React, Static CMS, Tailwind, ThreeJS, TypeScript, Unity, WooCommerce, WordPress
 export const FrameworkIcons: Record<string, (props: IconProps) => JSX.Element> = {
     default: Frameworks.Default,
     ajax: Frameworks.Ajax,
