@@ -16,8 +16,8 @@ category:
         - notícias
         - comunidade
     frameworks:
-            - wordpress
-            - elementor
+        - wordpress
+        - elementor
 date: '2023-07'
 hero:
     src: '/src/assets/images/projects/trocando_saberes/trocando_saberes_hero_desktop.png'

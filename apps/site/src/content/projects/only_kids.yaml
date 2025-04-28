@@ -12,10 +12,10 @@ category:
         - moda_infantil
         - automação
     frameworks:
-            - wordpress
-            - elementor
-            - woocommerce
-            - bling
+        - wordpress
+        - elementor
+        - woocommerce
+        - bling
 date: '2021-03'
 hero:
     src: '/src/assets/images/projects/only_kids/only_kids_hero.png'
