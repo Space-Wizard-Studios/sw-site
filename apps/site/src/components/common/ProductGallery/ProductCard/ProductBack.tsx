@@ -10,6 +10,9 @@ export function ProductBack({ isActive, description }: Props) {
     const closedClipPath = 'circle(0% at 100% 100%)';
     const openedClipPath = 'circle(150% at 100% 100%)';
 
+    // Ensure description is a string, even if undefined
+    const htmlContent = description || '';
+
     return (
         <div
             className={cn(
@@ -27,10 +30,9 @@ export function ProductBack({ isActive, description }: Props) {
                     clipPath: isActive ? openedClipPath : closedClipPath,
                 }}
                 transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className='p-6'
-            >
-                {description}
-            </motion.div>
+                className='flex flex-col p-6 gap-4'
+                dangerouslySetInnerHTML={{ __html: htmlContent }}
+            ></motion.div>
         </div>
     );
 }
