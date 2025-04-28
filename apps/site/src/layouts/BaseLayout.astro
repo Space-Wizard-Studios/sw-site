@@ -18,19 +18,12 @@ const { seo } = Astro.props as Props;
 <!doctype html>
 <html lang='pt' class='motion-safe:scroll-smooth'>
     <head>
-        <script
-            is:inline
-            define:vars={{ getInitialThemeFn: getInitialTheme.toString(), applyThemeFn: applyTheme.toString() }}
-        >
-            (function () {
-                let getInitialThemeFn;
-                let applyThemeFn;
-
-                const getInitialTheme = eval(`(${getInitialThemeFn})`);
-                const applyTheme = eval(`(${applyThemeFn})`);
-                const theme = getInitialTheme();
-                applyTheme(theme);
-            })();
+        <script is:inline>
+            document.documentElement.classList.toggle(
+                'dark',
+                localStorage.theme === 'dark' ||
+                    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
+            );
         </script>
         <MetaTags seo={seo} />
     </head>
