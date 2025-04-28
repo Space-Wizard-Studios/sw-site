@@ -231,8 +231,12 @@ This palette was studied with the help of tints.dev
     }
 
     a {
-        @apply m-0 text-on-surface relative cursor-pointer font-bold transition duration-300;
+        @apply m-0 text-on-surface relative cursor-pointer underline underline-offset-3 transition-all duration-300;
         
+        &:hover {
+            @apply text-primary;
+        }
+
         &:hover:has(img)::after,
         &:hover:has(svg)::after,
         &:hover:has(button)::after {
@@ -240,7 +244,7 @@ This palette was studied with the help of tints.dev
         }
 
         &::after {
-            @apply bg-on-surface dark:bg-on-surface absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
+            @apply bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
             content: '';
         }
 
@@ -254,7 +258,7 @@ This palette was studied with the help of tints.dev
     }
 
     ul {
-        @apply list-disc space-y-2;
+        @apply pl-8 list-disc space-y-2;
 
         li {
             @apply text-base font-normal;
