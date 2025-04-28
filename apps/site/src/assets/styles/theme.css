@@ -258,10 +258,26 @@ This palette was studied with the help of tints.dev
     }
 
     ul {
-        @apply list-disc space-y-2 pl-8;
+        @apply list-disc space-y-2 pl-4;
 
         li {
             @apply text-base font-normal;
+        }
+    }
+
+    ol {
+        @apply list-none space-y-2 pl-4;
+        counter-reset: item;
+
+        li {
+            @apply relative text-base font-normal;
+            counter-increment: item;
+            @apply pl-8;
+
+            &::before {
+                @apply absolute left-0 inline-block w-8 pr-2 text-right;
+                content: counters(item, '.') '.';
+            }
         }
     }
 

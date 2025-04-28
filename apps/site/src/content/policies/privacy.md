@@ -1,59 +1,105 @@
 ---
-title: Política de Privacidade
+title: Política de Privacidade e Cookies
 ---
-# Política Privacidade
 
-> O site **spacewiz.dev** é um serviço de propriedade da empresa Space Wizard Studios, que é a controladora dos dados pessoais solicitados e fornecidos, conforme descrito nesta política.
+**Última atualização:** 28/04/2025
 
-A Space Wizard Studios, pessoa jurídica de direito privado, leva a sério e zela pela segurança e proteção de dados de todos os seus clientes e, portanto, é nossa política respeitar a sua privacidade em relação a qualquer informação que possamos coletar em nossos serviços. Neste sentido, solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer a melhor experiência possível em um serviço, por meios justos e legais, com o seu conhecimento e consentimento.
+A sua privacidade é importante para nós da Space Wizard Studios ("nós", "nosso"). Esta Política de Privacidade explica como coletamos, usamos, armazenamos e protegemos suas informações pessoais quando você utiliza nosso site **spacewiz.dev** (o "Serviço").
 
-Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, os protegemos dentro de meios comercialmente aceitáveis para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados. Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.
+A Space Wizard Studios é a controladora dos dados pessoais coletados através deste Serviço.
 
-O nosso site pode ter links para sites e serviços externos que não são operados por nós, portanto, esteja ciente de que não temos controle sobre o conteúdo e práticas desses e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.
+## Política de Privacidade
 
-Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados. Portanto, ao continuar utilizando nossos serviços, será considerado como aceitação de nossas práticas em torno de privacidade e informações pessoais. Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contato conosco através do endereço de email contato@spacewiz.dev.
+### 1. Informações que Coletamos
 
-# Política de Cookies
+Coletamos informações pessoais apenas quando estritamente necessário para fornecer ou melhorar nossos Serviços. Isso pode incluir:
 
-## O que são cookies?
+- **Informações fornecidas por você:** Dados que você nos fornece diretamente ao preencher formulários (contato, comentários, newsletter), como nome, endereço de e-mail e mensagem.
+- **Informações de uso:** Dados coletados automaticamente sobre como você interage com nosso site (veja a seção de Cookies abaixo).
 
-Como é prática comum em serviços na Web, nós utilizamos cookies, que são pequenos arquivos baixados no seu computador, para melhorar sua experiência. Esta página descreve quais informações eles coletam, como as usamos e por que às vezes precisamos armazenar esses cookies. Também compartilharemos como você pode impedir que esses cookies sejam armazenados, no entanto, isso pode "quebrar" certos elementos da funcionalidade do site.
+Fazemos isso por meios justos e legais, sempre com seu conhecimento e consentimento, informando por que estamos coletando e como será usado.
 
-## Como usamos os cookies?
+### 2. Como Usamos Suas Informações
 
-Utilizamos cookies por vários motivos, detalhados abaixo. Infelizmente, na maioria dos casos, não existem opções padrão do setor para desativar os cookies sem desativar completamente a funcionalidade e os recursos que eles adicionam à navegação e experiência do usuário. É recomendável que você deixe todos os cookies se não tiver certeza se precisa ou não deles, caso sejam usados para fornecer um serviço que você usa.
+Utilizamos suas informações para:
 
-## Como desativar cookies
+- Fornecer, operar e manter nossos Serviços.
+- Responder às suas solicitações de contato e suporte.
+- Enviar newsletters ou informações promocionais, caso você opte por recebê-las.
+- Analisar o uso do site para melhorar a experiência do usuário (de forma agregada e anônima, sempre que possível).
+- Cumprir obrigações legais.
 
-Você pode impedir a configuração de cookies ajustando as configurações do seu navegador (consulte o Suporte do navegador para saber como fazer isso). Esteja ciente de que a desativação de cookies afetará a funcionalidade deste e de muitos outros sites que você visita. A desativação de cookies geralmente resultará na desativação de determinadas funcionalidades e recursos deste site. Portanto, é recomendável que você não desative os cookies.
+### 3. Armazenamento e Segurança dos Dados
 
-## Cookies que definimos
+Retemos as informações coletadas apenas pelo tempo necessário para cumprir a finalidade para a qual foram coletadas ou conforme exigido por lei.
 
--   Cookies relacionados a boletins por e-mail (newsletter)
+Empregamos medidas de segurança técnica e organizacional comercialmente razoáveis para proteger seus dados contra perda, roubo, acesso não autorizado, divulgação, cópia, uso ou modificação.
 
-    -   Este site oferece serviços de assinatura de boletim informativo ou e-mail e os cookies podem ser usados para lembrar se você já está registrado e se deve mostrar determinadas notificações válidas apenas para usuários inscritos / não inscritos.
+### 4. Compartilhamento de Informações
 
--   Cookies relacionados a pesquisas
+Não compartilhamos suas informações de identificação pessoal publicamente ou com terceiros, exceto:
 
-    -   Periodicamente, oferecemos pesquisas e questionários para fornecer informações interessantes, ferramentas úteis ou para entender nossa base de usuários com mais precisão. Essas pesquisas podem usar cookies para lembrar quem já participou numa pesquisa ou para fornecer resultados precisos após a alteração das páginas.
+- Quando exigido por lei ou processo legal.
+- Para proteger nossos direitos, propriedade ou segurança, ou a de outros.
+- Com provedores de serviços terceirizados que nos auxiliam a operar o site (ex: análise de dados), sob obrigações de confidencialidade.
 
--   Cookies relacionados a formulários
+### 5. Links para Sites de Terceiros
 
-    -   Quando você envia dados por meio de um formulário como os encontrados nas páginas de contato ou nos formulários de comentários, os cookies podem ser configurados para lembrar os detalhes do usuário para correspondência futura.
+Nosso site pode conter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e as práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade. Recomendamos que você leia a política de privacidade de qualquer site de terceiro que visitar.
 
--   Cookies de preferências do site
-    -   Para proporcionar uma melhor experiência neste site, fornecemos a funcionalidade para definir suas preferências de como esse site é executado quando você o usa. Para lembrar suas preferências, precisamos definir cookies para que essas informações possam ser chamadas sempre que você interagir com uma página for afetada por suas preferências.
+### 6. Seus Direitos de Privacidade
 
-## Cookies de Terceiros
+Você tem o direito de:
 
-Em alguns casos especiais, também usamos cookies fornecidos por terceiros confiáveis. A seção a seguir detalha quais cookies de terceiros você pode encontrar através deste site.
+- Saber quais informações temos sobre você.
+- Solicitar a correção de informações imprecisas.
+- Solicitar a exclusão de suas informações pessoais (sujeito a certas exceções legais).
+- Recusar o fornecimento de informações pessoais, entendendo que isso pode impedir o fornecimento de alguns serviços.
+- Retirar seu consentimento a qualquer momento (onde o processamento é baseado em consentimento).
 
--   Este site usa o Google Analytics, que é uma das soluções de análise mais difundidas e confiáveis da Web, para nos ajudar a entender como você usa o site e como podemos melhorar sua experiência. Esses cookies podem rastrear itens como quanto tempo você gasta no site e as páginas visitadas, para que possamos continuar produzindo conteúdo atraente.
+Para exercer esses direitos ou se tiver dúvidas sobre nossas práticas de privacidade, entre em contato conosco pelo e-mail: <contato@spacewiz.dev>.
 
-    -   Para mais informações sobre cookies do Google Analytics, consulte a página oficial do Google Analytics.
+### 7. Consentimento
 
--   As análises de terceiros são usadas para rastrear e medir o uso deste site, para que possamos continuar produzindo conteúdo atrativo. Esses cookies podem rastrear itens como o tempo que você passa no site ou as páginas visitadas, o que nos ajuda a entender como podemos melhorar o site para você.
+Ao utilizar nosso site, você consente com a coleta e uso de informações de acordo com esta Política de Privacidade.
 
--   Periodicamente, podemos testar novos recursos e fazemos alterações sutis na maneira como o site se apresenta. Quando ainda estamos testando novos recursos, esses cookies podem ser usados para garantir que você receba uma experiência consistente enquanto estiver no site, enquanto entendemos quais otimizações os nossos usuários mais apreciam.
+## Política de Cookies
 
-<p class="my-8">Esta política é válida a partir de Jan 2023.</p>
+### 1. O que são Cookies?
+
+Cookies são pequenos arquivos de texto armazenados no seu dispositivo (computador, tablet, celular) quando você visita certos sites. Eles são amplamente utilizados para fazer os sites funcionarem, ou funcionarem de forma mais eficiente, bem como para fornecer informações aos proprietários do site.
+
+### 2. Como Usamos Cookies?
+
+Utilizamos cookies por vários motivos:
+
+- **Cookies Essenciais:** Necessários para a funcionalidade básica do site. Sem eles, certas partes do site não funcionariam corretamente.
+- **Cookies de Preferência:** Usados para lembrar suas preferências (como idioma ou região) e personalizar sua experiência. Se definirmos opções de preferência no site, esses cookies guardarão suas escolhas.
+- **Cookies de Análise (Analytics):** Ajudam-nos a entender como os visitantes interagem com o site, coletando informações anonimamente. Usamos esses dados para melhorar nosso conteúdo e a experiência geral.
+  - **Google Analytics:** Utilizamos o Google Analytics para analisar o tráfego do site. Ele pode rastrear quanto tempo você passa no site e as páginas que visita. Para mais informações, consulte a [página oficial do Google Analytics](https://policies.google.com/technologies/cookies).
+- **Cookies Funcionais:** Podem ser usados para funcionalidades específicas como formulários de contato ou comentários, lembrando detalhes para interações futuras, ou para habilitar serviços como newsletters (lembrando se você já se inscreveu).
+- **Cookies de Teste:** Ocasionalmente, testamos novos recursos. Cookies podem ser usados durante esses testes para garantir uma experiência consistente e nos ajudar a entender quais otimizações são mais valorizadas.
+
+### 3. Cookies de Terceiros
+
+Além dos nossos próprios cookies, podemos usar cookies de terceiros confiáveis, como o Google Analytics, conforme detalhado acima.
+
+### 4. Como Gerenciar Cookies
+
+A maioria dos navegadores permite que você controle cookies através das configurações. Você pode configurar seu navegador para:
+
+- Recusar todos ou alguns cookies.
+- Alertá-lo quando cookies estiverem sendo enviados.
+- Excluir cookies já armazenados.
+
+Para saber como fazer isso, consulte a seção de ajuda ou suporte do seu navegador (Chrome, Firefox, Safari, Edge, etc.).
+
+**Importante:** Desativar cookies pode afetar a funcionalidade deste e de muitos outros sites. Algumas funcionalidades podem deixar de operar corretamente. Portanto, geralmente recomendamos não desativar os cookies essenciais e funcionais.
+
+## Alterações a Esta Política
+
+Podemos atualizar nossa Política de Privacidade e Cookies periodicamente. Notificaremos sobre quaisquer alterações publicando a nova política nesta página e atualizando a data de "Última atualização" no topo. Recomendamos revisar esta política periodicamente.
+
+## Contato
+
+Se você tiver alguma dúvida sobre esta Política de Privacidade e Cookies, entre em contato conosco: <contato@spacewiz.dev>.
