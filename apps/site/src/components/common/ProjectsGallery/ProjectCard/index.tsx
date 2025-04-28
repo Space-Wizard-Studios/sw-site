@@ -59,7 +59,7 @@ export function ProjectCard({ project, className, href }: ProjectCardProps) {
         >
             <div className='flex h-full min-h-96 w-full flex-col'>
                 <div className='min-h-3/4 relative h-full w-full'>
-                    <a href={href} rel='noopener noreferrer' className='h-full w-full'>
+                    <a href={href} rel='noopener noreferrer' className='h-full w-full no-underline'>
                         {imageUrl ? (
                             <img
                                 src={imageUrl}

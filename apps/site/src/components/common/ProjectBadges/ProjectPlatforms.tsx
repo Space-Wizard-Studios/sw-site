@@ -19,6 +19,7 @@ export function ProjectPlatforms({ platforms }: Props) {
                         label={platform.title || platform.id}
                         showLabel={true}
                         variant='default'
+                        className='transition-colors duration-200'
                     />
                 );
             })}

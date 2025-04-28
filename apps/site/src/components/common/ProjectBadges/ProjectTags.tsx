@@ -16,6 +16,7 @@ export function ProjectTags({ tags }: Props) {
                     label={tag.title || tag.id}
                     showLabel={true}
                     variant='default'
+                    className='transition-colors duration-200'
                 />
             ))}
         </>

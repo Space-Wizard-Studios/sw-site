@@ -19,6 +19,7 @@ export function ProjectProducts({ products }: Props) {
                         label={product.title || product.id}
                         showLabel={true}
                         variant='default'
+                        className='transition-colors duration-200'
                     />
                 );
             })}

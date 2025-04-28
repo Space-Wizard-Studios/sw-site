@@ -231,8 +231,8 @@ This palette was studied with the help of tints.dev
     }
 
     a {
-        @apply m-0 text-on-surface relative cursor-pointer underline underline-offset-3 transition-all duration-300;
-        
+        @apply text-on-surface underline-offset-3 relative m-0 cursor-pointer underline transition-all duration-300;
+
         &:hover {
             @apply text-primary;
         }
@@ -240,7 +240,7 @@ This palette was studied with the help of tints.dev
         &:hover:has(img)::after,
         &:hover:has(svg)::after,
         &:hover:has(button)::after {
-            @apply w-0;
+            @apply w-0 no-underline;
         }
 
         &::after {
@@ -258,7 +258,7 @@ This palette was studied with the help of tints.dev
     }
 
     ul {
-        @apply pl-8 list-disc space-y-2;
+        @apply list-disc space-y-2 pl-8;
 
         li {
             @apply text-base font-normal;
@@ -288,7 +288,6 @@ This palette was studied with the help of tints.dev
             @apply p-4;
         }
 
-        
         tbody {
             tr {
                 @apply border-surface-dim border-t;
