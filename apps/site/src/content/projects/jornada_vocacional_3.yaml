@@ -1,0 +1,36 @@
+title: 'Jornada Vocacional 3 - @suamulti'
+draft: false
+subtitle: 'Experiência Interativa Web'
+summary: 'A terceira edição da Jornada Vocacional UNICEPLAC trouxe uma nova experiência, mais leve, rápida e com mais recursos interativos para os usuários!'
+category:
+    products:
+        - interatividade
+        - jogos_e_gamificação
+        - música
+    platforms:
+        - web
+    tags:
+        - educação
+        - evento_híbrido
+        - vocacional
+    frameworks:
+        - javascript
+        - jquery
+        - ajax
+        - cakephp
+        - mysql
+        - bootstrap
+date: '2021-10'
+hero:
+    src: '/src/assets/images/projects/jornada_3/jornada_3_hero.png'
+    title: 'Banner do projeto Jornada Vocacional 3'
+    altText: 'Banner do projeto Jornada Vocacional 3'
+description: |
+    A terceira edição da **Jornada Vocacional UNICEPLAC** trouxe uma nova experiência, mais leve, rápida e com mais recursos interativos para os usuários!
+
+    - Criação de Avatar;
+    - Mapa interativo com pontos de interesse;
+    - Diversas melhorias na navegação e responsividade;
+    - Composições musicais exclusivas.
+
+    O projeto foi desenvolvido utilizando **Bootstrap** para garantir compatibilidade com dispositivos móveis, além de **JavaScript**, **JQuery** e **AJAX** para interações dinâmicas. A estrutura foi baseada em **CakePHP** e **MySQL**, garantindo robustez e escalabilidade.

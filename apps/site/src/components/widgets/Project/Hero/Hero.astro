@@ -1,0 +1,68 @@
+---
+import { ProjectProducts } from '@common/ProjectBadges/ProjectProducts';
+import { ProjectPlatforms } from '@common/ProjectBadges/ProjectPlatforms';
+import { ProjectFrameworks } from '@common/ProjectBadges/ProjectFrameworks';
+import { ProjectTags } from '@common/ProjectBadges/ProjectTags';
+import { cn } from '@lib/utils';
+
+import type { ProcessedProject } from '@lib/collections/projectHelpers';
+
+export interface Props {
+    project: ProcessedProject;
+    className?: string;
+}
+
+const { project, className } = Astro.props as Props;
+
+const hero = project.data.hero || null;
+const heroImageSrc = hero?.src || null;
+
+const date = project.data.date || null;
+
+const products = project.data.category.products || [];
+const platforms = project.data.category.platforms || [];
+const frameworks = project.data.category.frameworks || [];
+const tags = project.data.category.tags || [];
+---
+
+<section class='relative flex flex-col h-full w-full items-center'>
+    <div class={cn('flex flex-col relative h-[70vh] md:h-[80vh] overflow-hidden pointer-events-none', className)}>
+        <img
+            src={heroImageSrc}
+            alt={hero?.alt ?? ''}
+            loading='eager'
+            class={cn('relative w-screen h-screen object-cover')}
+        />
+    </div>
+
+    <div class='absolute top-0 w-full h-full bg-surface/80 backdrop-blur-lg'></div>
+    <header class='w-full h-full absolute top-0 z-10 space-y-4 flex flex-col items-center justify-center'>
+        <div class='sw-container gap-4 flex flex-col text-on-surface justify-center'>
+            {project.data.title && <h2 class='sw-display text-on-surface'>{project.data.title}</h2>}
+            {project.data.subtitle && <h3 class='text-on-surface'>{project.data.subtitle}</h3>}
+        </div>
+
+        <div class='sw-container flex flex-col space-y-4 z-20'>
+            <div class='flex flex-wrap gap-2'>
+                <ProjectProducts products={products} />
+            </div>
+
+            <div class='flex flex-wrap gap-2'>
+                <ProjectPlatforms platforms={platforms} />
+            </div>
+
+            <div class='flex flex-wrap gap-2'>
+                <ProjectFrameworks frameworks={frameworks} />
+            </div>
+
+            <div class='flex flex-wrap gap-2'>
+                <ProjectTags tags={tags} />
+            </div>
+        </div>
+    </header>
+    <div
+        class='sw-halftone absolute -bottom-0.5 w-full h-12 md:h-24 bg-surface-dim text-primary z-20'
+        style='clip-path: polygon(100% 100%, 0 100% , 0 0);'
+    >
+    </div>
+</section>

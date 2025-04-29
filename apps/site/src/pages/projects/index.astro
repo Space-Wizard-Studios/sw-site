@@ -1,0 +1,36 @@
+---
+import Layout from '@layouts/PageLayout.astro';
+import { Projects } from '@widgets/Portfolio/Portfolio.astro';
+
+import type { metaSEO } from '@schemas/common/seoSchema';
+
+const constructedSeo: metaSEO = {
+    title: 'Projetos',
+    description: 'Um gostinho do que fazemos',
+    canonical: Astro.url.toString(),
+    robots: {
+        noindex: null,
+        nofollow: null,
+    },
+    og: {
+        title: 'Projetos',
+        description: 'Um gostinho do que fazemos',
+        type: 'website',
+        image: null,
+    },
+};
+---
+
+<Layout seo={constructedSeo}>
+    <section class='flex flex-col w-full relative pb-12'>
+        <div class='sw-container flex flex-col space-y-10'>
+            <div class='flex flex-col py-8 space-y-4'>
+                <header class='flex flex-col space-y-2'>
+                    <h2 class='uppercase text-on-surface'>Projetos</h2>
+                    <h3 class='sw-pulse from-primary to-tertiary'>Um gostinho do que fazemos</h3>
+                </header>
+                <Projects />
+            </div>
+        </div>
+    </section>
+</Layout>

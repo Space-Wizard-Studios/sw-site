@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "target": "es2023",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
+        "esModuleInterop": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "verbatimModuleSyntax": true,
+        "declaration": true,
+        "lib": ["ES2023", "ESNext", "DOM", "WebWorker"],
+        "paths": {
+            "@shared/schemas/*": ["libs/shared/schemas/*"],
+            "@shared/*": ["libs/shared/*"]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build",
+        "out",
+        "coverage",
+        "lib",
+    ],
+}

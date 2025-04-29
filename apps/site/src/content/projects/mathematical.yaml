@@ -1,0 +1,50 @@
+title: 'Mathematical!'
+draft: false
+subtitle: 'Jogo educativo para mobile'
+summary: "Um jogo educativo estilo shoot'em up onde o jogador resolve desafios matemáticos para avançar pelos níveis enquanto enfrenta inimigos e desbloqueia melhorias."
+category:
+    products:
+        - jogos_e_gamificação
+        - música
+    platforms:
+        - mobile
+    tags:
+        - educação
+        - multilinguagem
+        - desafios
+        - arcade
+    frameworks:
+        - unity
+date: '2016-10'
+hero:
+    src: '/src/assets/images/projects/mathematical/mathematical_hero.png'
+    title: 'Banner do projeto Mathematical!'
+    altText: 'Banner do projeto Mathematical!'
+description: |
+    **Mathematical!** é um jogo educativo gratuito que combina ação e aprendizado. No estilo **shoot'em up**, o jogador deve resolver desafios matemáticos para avançar pelos níveis enquanto enfrenta inimigos e desbloqueia melhorias.
+
+    O jogo foi projetado para tornar o aprendizado de matemática divertido e envolvente, com mecânicas que incentivam o raciocínio rápido e a estratégia.
+
+    Principais características:
+
+    - **Desafio progressivo**: Os níveis se tornam progressivamente mais complexos, mantendo o jogador engajado.
+    - **Naves e efeitos cosméticos**: Desbloqueie novas naves e personalizações visuais.
+    - **Multilíngua**: Disponível em Espanhol, Inglês, Francês e Português.
+    - **Controles intuitivos**: Suporte a controles por toque e acelerômetro.
+    - **Plataformas**: Lançado inicialmente para Android e iOS.
+
+    Desenvolvido utilizando a poderosa **Unity Engine**, o jogo combina gráficos vibrantes, jogabilidade fluida e uma experiência educativa única.
+
+    ### Trailer
+
+    Confira o trailer oficial de **Mathematical!**:
+
+    <iframe
+        width="100%"
+        style="aspect-ratio: 16/9"
+        src="https://www.youtube.com/embed/XHWtE-v_wGg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+    ></iframe>

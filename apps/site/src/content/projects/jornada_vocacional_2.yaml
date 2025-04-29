@@ -1,0 +1,34 @@
+title: 'Jornada Vocacional 2 - @suamulti'
+draft: false
+subtitle: 'Experiência Interativa Web'
+summary: 'Na segunda edição da Jornada Vocacional Uniceplac, houveram diversas melhorias na interface e navegação, além de novos desafios, minigames e conteúdos.'
+category:
+    products:
+        - interatividade
+        - jogos_e_gamificação
+        - música
+    platforms:
+        - web
+    tags:
+        - educação
+        - evento_híbrido
+        - vocacional
+    frameworks:
+        - javascript
+        - jquery
+        - ajax
+        - cakephp
+        - mysql
+date: '2021-05'
+hero:
+    src: '/src/assets/images/projects/jornada_2/jornada_2_hero.png'
+    title: 'Banner do projeto Jornada Vocacional 2'
+    altText: 'Banner do projeto Jornada Vocacional 2'
+description: |
+    A segunda edição da **Jornada Vocacional Uniceplac** trouxe diversas melhorias para aprimorar a experiência dos estudantes do Ensino Médio. Entre as novidades, destacam-se:
+
+    - Melhorias significativas na interface e navegação;
+    - Novos desafios e minigames interativos;
+    - Conteúdos educativos adicionais para explorar vocações.
+
+    O projeto foi desenvolvido utilizando **JavaScript**, **JQuery** e **AJAX** para interações dinâmicas, com uma estrutura robusta baseada em **CakePHP** e **MySQL**.

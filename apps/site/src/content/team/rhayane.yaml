@@ -1,0 +1,14 @@
+name: Rhayane Miranda
+draft: false
+roles:
+    - Social Media
+skills:
+    - name: Conteudista
+      tooltip: Criação de conteúdo para redes sociais
+    - name: Analytics
+      tooltip: Analytics
+socials:
+    - type: linkedin
+      url: https://www.linkedin.com/in/rhayane-miranda/
+image:
+    src: /images/team/rhayane.png

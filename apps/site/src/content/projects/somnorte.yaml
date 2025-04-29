@@ -1,0 +1,34 @@
+title: 'Somnorte'
+draft: false
+subtitle: 'Site Corporativo Multilíngue'
+summary: 'Site corporativo multilíngue para a Somnorte, desenvolvido com Astro e gerenciado via Static CMS, oferecendo uma plataforma moderna e acessível globalmente.'
+category:
+    products:
+        - sistemas_web_e_apps
+    platforms:
+        - web
+    tags:
+        - cms
+        - multilinguagem
+        - corporativo
+    frameworks:
+        - astro
+        - static_cms
+date: '2023-03'
+hero:
+    src: '/src/assets/images/projects/somnorte/somnorte_hero_desktop.png'
+    title: 'Banner do site Somnorte'
+    altText: 'Banner do site corporativo da Somnorte'
+description: |
+    O site corporativo da **Somnorte** foi desenvolvido para estabelecer uma presença digital robusta e acessível globalmente. Construído com **Astro**, o site oferece performance otimizada e uma experiência de usuário fluida.
+
+    A integração com **Static CMS** permite que a equipe da Somnorte gerencie o conteúdo de forma autônoma e eficiente, garantindo que o site esteja sempre atualizado.
+
+    Principais características do projeto:
+
+    - **Multilinguagem**: O site foi projetado para ser acessado em múltiplos idiomas, atendendo a um público internacional.
+    - **Performance otimizada**: Utilização do Astro para garantir carregamento rápido e excelente performance.
+    - **Gerenciamento de conteúdo simplificado**: Graças ao Static CMS, a atualização de textos, imagens e outras informações é intuitiva.
+    - **Design moderno e responsivo**: Interface adaptada para uma visualização ideal em desktops e dispositivos móveis.
+
+    Este projeto demonstra a capacidade da **Space Wizard Studios** em criar soluções web modernas, performáticas e fáceis de gerenciar.

@@ -1,0 +1,33 @@
+title: 'Quase Calouro - @suamulti'
+draft: false
+subtitle: 'Landing page baseada em Wordpress'
+summary: 'Landing page para capturar leads e oferecer conteúdos exclusivos, como material didático, videoaulas e simulados, com foco em estudantes.'
+category:
+    products:
+        - sistemas_web_e_apps
+    platforms:
+        - web
+    tags:
+        - educação
+        - leads
+        - vocacional
+    frameworks:
+        - wordpress
+        - elementor
+date: '2020-12'
+hero:
+    src: '/src/assets/images/projects/quasecalouro/quasecalouro_hero.png'
+    title: 'Banner do projeto @quasecalouro'
+    altText: 'Banner do projeto @quasecalouro'
+description: |
+    A landing page **@quasecalouro** foi desenvolvida para capturar leads e oferecer uma plataforma rica em conteúdos exclusivos voltados para estudantes. O projeto foi criado com foco em usabilidade, design responsivo e conformidade com as melhores práticas de proteção de dados (LGPD).
+
+    Principais características:
+
+    - **Cadastro em newsletter**: Ferramenta para captar leads e manter os usuários informados.
+    - **Boas práticas LGPD**: Garantia de conformidade com a legislação de proteção de dados.
+    - **Animações em CSS**: Elementos visuais dinâmicos para melhorar a experiência do usuário.
+    - **Design responsivo**: Compatibilidade com dispositivos móveis e desktops.
+    - **Simulado de prova (ENADE)**: Funcionalidade interativa para engajar os estudantes.
+
+    O projeto foi desenvolvido utilizando **Wordpress** e **Elementor**, garantindo uma solução flexível e fácil de gerenciar para o cliente.

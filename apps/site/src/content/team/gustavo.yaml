@@ -1,0 +1,16 @@
+name: Gustavo Arantes
+draft: false
+roles:
+    - Generalista 2D
+skills:
+    - name: Concept Art
+      tooltip: Concept Art
+    - name: Ilustração
+      tooltip: Ilustração
+socials:
+    - type: linkedin
+      url: https://www.linkedin.com/in/gustav-arantes/
+    - type: portfolio
+      url: https://gustavarantes.myportfolio.com/
+image:
+    src: /images/team/gustavo.png

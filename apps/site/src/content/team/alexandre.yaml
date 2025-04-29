@@ -1,0 +1,20 @@
+name: Alexandre Barbosa
+draft: false
+roles:
+    - Generalista de Áudio
+skills:
+    - name: Composição
+      tooltip: Composição Musical
+    - name: Prod. Musical
+      tooltip: Produção Musical
+    - name: SFX
+      tooltip: Sound Effects
+socials:
+    - type: imdb
+      url: https://www.imdb.com/name/nm11223910/
+    - type: linkedin
+      url: https://www.linkedin.com/in/alexandre-barbosa-083b83b4/
+    - type: youtube
+      url: https://www.youtube.com/channel/UCYSb-3wJyK-L0E9YyHeqkiQ/
+image:
+    src: /images/team/alexandre.png

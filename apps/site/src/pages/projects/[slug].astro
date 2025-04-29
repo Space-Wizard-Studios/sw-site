@@ -1,0 +1,41 @@
+---
+import Layout from '@layouts/PageLayout.astro';
+import { Description, Hero } from '@widgets/Project/Project.astro';
+
+import { getAllProjects, type ProcessedProject } from '@lib/collections/projectHelpers';
+import type { metaSEO } from '@schemas/common/seoSchema';
+
+export async function getStaticPaths() {
+    const processedProjects = await getAllProjects();
+
+    return processedProjects.map((project) => ({
+        params: { slug: project.data.slug },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props as { project: ProcessedProject };
+
+const constructedSeo: metaSEO = {
+    title: project.data.title || null,
+    description: project.data.summary || null,
+    canonical: project.data.seo?.canonical || Astro.url.toString(),
+    robots: {
+        noindex: project.data.seo?.robots?.noindex || null,
+        nofollow: project.data.seo?.robots?.nofollow || null,
+    },
+    og: {
+        title: project.data.seo?.og?.title || project.data.title || null,
+        description: project.data.seo?.og?.description || project.data.summary || null,
+        type: project.data.seo?.og?.type || 'article',
+        image: project.data.seo?.og?.image || project.data.hero?.src || null,
+    },
+};
+
+const seo = project.data.seo || null;
+---
+
+<Layout seo={{ ...constructedSeo, ...seo }}>
+    <Hero project={project}/>
+    <Description project={project} />
+</Layout>

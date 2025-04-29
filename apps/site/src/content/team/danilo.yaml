@@ -1,0 +1,18 @@
+name: Danilo Nobre
+draft: false
+roles:
+    - Generalista 3D
+skills:
+    - name: Modelagem 3D
+      tooltip: Modelagem 3D
+    - name: Texturização
+      tooltip: Texturização
+    - name: Rigging
+      tooltip: Rigging
+    - name: Animação
+      tooltip: Animação
+socials:
+    - type: linkedin
+      url: https://www.linkedin.com/in/danilo-nobre/
+image:
+    src: /images/team/danilo.png

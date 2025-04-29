@@ -1,0 +1,66 @@
+{
+    "extends": [
+        "astro/tsconfigs/base"
+    ],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "dist",
+        "types": [
+            "astro/client"
+        ],
+        "plugins": [
+            {
+                "name": "@astrojs/ts-plugin"
+            }
+        ],
+        "paths": {
+            "@shared/schemas/*": [
+                "../../libs/shared/schemas/*"
+            ],
+            "@shared/*": [
+                "../../libs/shared/*"
+            ],
+            "@shared": [
+                "../../libs/shared/index.ts"
+            ],
+            "@styles/*": [
+                "src/assets/styles/*"
+            ],
+            "@images/*": [
+                "src/assets/images/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@common/*": [
+                "src/components/common/*"
+            ],
+            "@icons/*": [
+                "src/components/icons/*"
+            ],
+            "@ui/*": [
+                "src/components/ui/*"
+            ],
+            "@widgets/*": [
+                "src/components/widgets/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "types/*": [
+                "src/types/*"
+            ],
+            "@*": [
+                "src/*"
+            ],
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build",
+        "out",
+        "coverage",
+        "public",
+    ]
+}

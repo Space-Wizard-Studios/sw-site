@@ -1,0 +1,38 @@
+---
+import { cn } from '@lib/utils';
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props as Props;
+---
+
+<div class={cn('flex my-8', className)}>
+    <div class='w-full flex'>
+        <div
+            class={cn(
+                'flex h-full w-full flex-row overflow-hidden rounded-2xl',
+                'bg-radial-[at_15%_15%]',
+                'from-surface-container-low/60 to-surface-container/60',
+                'text-on-surface backdrop-blur-md',
+                'transition-shadow duration-300',
+                'hover:shadow-primary/10 shadow-xl',
+            )}
+        >
+            <div class='flex flex-col gap-4 p-4 w-full'>
+                <p>
+                    Envie um email para o endereço <a href='mailto:contato@spacewiz.dev'>contato@spacewiz.dev</a>.
+                </p>
+
+                <p>
+                    Envie uma mensagem por <a href='https://wa.me/5561993527377'>WhatsApp</a>.
+                </p>
+
+                <p>
+                    Mos siga no <a href='https://www.instagram.com/spacewiz.dev/'>Instagram</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

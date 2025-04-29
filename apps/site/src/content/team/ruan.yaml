@@ -1,0 +1,16 @@
+name: Ruan Blotta
+draft: false
+roles:
+    - Desenvolvedor Web
+skills:
+    - name: Front End
+      tooltip: Front End
+    - name: QA
+      tooltip: Analista de Qualidade
+socials:
+    - type: linkedin
+      url: https://www.linkedin.com/in/ruanblotta/
+    - type: github
+      url: https://github.com/ruanblotta
+image:
+    src: /images/team/ruan.jpg

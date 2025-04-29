@@ -1,0 +1,82 @@
+---
+import { SEO } from 'astro-seo';
+
+import type { metaSEO } from '@schemas/common/seoSchema';
+
+import { defaultConfig, defaultSEO } from '@config';
+
+type Props = {
+    seo?: metaSEO;
+};
+
+const { seo = {} } = Astro.props as Props;
+---
+
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='icon' href='/favicon.svg' sizes='any' type='image/svg+xml' />
+<link rel='sitemap' href='/sitemap-index.xml' />
+
+<SEO
+    title={seo.title || defaultSEO.title}
+    titleTemplate={defaultSEO.titleTemplate}
+    titleDefault={defaultSEO.titleDefault}
+    description={seo.description || defaultSEO.description}
+    canonical={seo.canonical || defaultSEO.canonical}
+    nofollow={seo.robots?.nofollow || defaultSEO.robots.nofollow}
+    noindex={seo.robots?.noindex || defaultSEO.robots.noindex}
+    openGraph={{
+        basic: {
+            title: seo.og?.title || defaultSEO.og.title,
+            type: seo.og?.type || defaultSEO.og.type,
+            image: seo.og?.image || defaultSEO.og.image,
+        },
+        optional: {
+            description: seo.og?.description || defaultSEO.og.description,
+        },
+    }}
+/>
+<!-- languageAlternates -->
+<!-- openGraph.optional.localeAlternate-->
+<!-- openGraph.optional.video -->
+<!-- article: {
+    publishedTime: new Date().toISOString(),
+    modifiedTime: new Date().toISOString(),
+    expirationTime: new Date().toISOString(),
+    authors: [config.author],
+    section: 'blog',
+    tags: ['astro', 'blog'],
+}, -->
+
+<!-- Google Site Verification -->
+<meta name='google-site-verification' content={defaultConfig.googleSiteVerificationId} />
+
+<!-- Google Tag Manager -->
+<google-tag data-gtag={defaultConfig.googleTagId}></google-tag>
+
+<noscript>
+    <iframe
+        src={'https://www.googletagmanager.com/ns.html?id=' + defaultConfig.googleTagId}
+        height='0'
+        width='0'
+        style='display:none;visibility:hidden;'
+    >
+    </iframe>
+</noscript>
+
+<script>
+    class GTag extends HTMLElement {
+        constructor() {
+            super();
+            const tag = this.dataset['gtag'];
+            this.attachTagToWindow(window, tag);
+        }
+
+        attachTagToWindow(w: any, t: any) {
+            w['tag'] = t;
+        }
+    }
+    customElements.define('google-tag', GTag);
+</script>
+
+<script type='text/partytown' src='/GoogleTagManager.js' is:inline></script>

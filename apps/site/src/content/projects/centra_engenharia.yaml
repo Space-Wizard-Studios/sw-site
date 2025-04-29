@@ -1,0 +1,43 @@
+title: 'Centra Engenharia'
+draft: false
+subtitle: 'Plataforma de Gestão de Obras'
+summary: 'Aplicação web e mobile para facilitar a comunicação e troca de documentos entre equipe, clientes e gerentes.'
+category:
+    products:
+        - sistemas_web_e_apps
+    platforms:
+        - web
+        - mobile
+    tags:
+        - gestão
+        - obras
+        - engenharia
+        - fornecedores
+        - comunicação
+        - cronograma
+        - relatórios
+    frameworks:
+        - flutter
+        - firebase
+date: '2024-01'
+hero:
+    src: '/src/assets/images/projects/centra_engenharia/centra_engenharia_hero.png'
+    title: 'Aplicativo Centra Engenharia'
+    altText: 'Imagem do Aplicativo Centra Engenharia'
+carousel:
+    - src: '/src/assets/images/projects/centra_engenharia/screenshot1.png'
+      title: 'Tela inicial do aplicativo Centra Engenharia'
+      altText: 'Imagem mostrando a tela inicial do aplicativo Centra Engenharia'
+    - src: '/src/assets/images/projects/centra_engenharia/screenshot2.png'
+      title: 'Tela de gerenciamento de obras no aplicativo Centra Engenharia'
+      altText: 'Imagem mostrando a tela de gerenciamento de obras no aplicativo Centra Engenharia'
+description: |
+    O **Aplicativo Centra Engenharia** é uma plataforma completa de gestão de obras, criada com o objetivo de modernizar e simplificar o cotidiano de engenheiros, gerentes e clientes.
+
+    Desenvolvido com **Flutter** para garantir performance nativa em dispositivos Android, iOS e navegadores web, o aplicativo possibilita:
+
+    - **Comunicação em tempo real** com a equipe via mensagens e notificações;
+    - **Armazenamento e acesso rápido** a documentos, como cronogramas, relatórios e arquivos técnicos;
+    - **Monitoramento do andamento da obra**, controle de custos e entrega de materiais.
+
+    A **Space Wizard Studios** foi responsável por toda a arquitetura e desenvolvimento do projeto, colaborando de forma direta com os

@@ -1,0 +1,26 @@
+---
+import heroImageMobile from '/public/images/hero_sm.png';
+import heroImageDesktop from '/public/images/hero_md.png';
+import DividerWave from '@common/DividerWave.astro';
+import { cn } from '@lib/utils';
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props as Props;
+
+---
+<div class={cn('flex flex-col relative w-full h-[70vh] md:h-[80vh] overflow-hidden', className)}>
+    <picture >
+        <source media='(max-width: 767px)' srcset={heroImageMobile.src} />
+        <source media='(min-width: 768px)' srcset={heroImageDesktop.src} />
+        <img
+            src={heroImageDesktop.src}
+            alt='Banner da nossa mascote no espaço.'
+            loading='eager'
+            class={cn('fixed w-screen h-screen object-cover')}
+        />
+    </picture>
+    <DividerWave class='absolute w-full -bottom-0.5 text-surface-bright' />
+</div>

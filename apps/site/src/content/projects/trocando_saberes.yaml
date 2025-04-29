@@ -1,0 +1,40 @@
+title: 'Trocando Saberes'
+draft: false
+subtitle: 'Plataforma de Compartilhamento de Conhecimento e Projetos'
+summary: 'Site acessível para a plataforma Trocando Saberes, desenvolvido em Wordpress, focado no compartilhamento de conhecimento, projetos e notícias, com suporte a diversas mídias.'
+category:
+    products:
+        - sistemas_web_e_apps
+    platforms:
+        - web
+    tags:
+        - gestão
+        - educação
+        - acessibilidade
+        - colaborativo
+        - projetos
+        - notícias
+        - comunidade
+    frameworks:
+        - wordpress
+        - elementor
+date: '2023-07'
+hero:
+    src: '/src/assets/images/projects/trocando_saberes/trocando_saberes_hero_desktop.png'
+    title: 'Banner do site Trocando Saberes'
+    altText: 'Banner do site da plataforma Trocando Saberes'
+
+partners:
+    - 'Trocando Saberes'
+description: |
+    O site **Trocando Saberes** foi desenvolvido em **Wordpress** como uma plataforma digital acessível, projetada para facilitar a troca de conhecimento, experiências e projetos entre seus usuários. O objetivo é criar uma comunidade engajada no aprendizado colaborativo.
+
+    Principais características:
+
+    - **Acessibilidade**: Construído seguindo as melhores práticas para garantir o acesso a todos os usuários.
+    - **Seção de projetos**: Espaço dedicado para apresentar projetos, permitindo anexar diversas mídias como **vídeos, imagens, áudios e arquivos**.
+    - **Seção de notícias**: Área para divulgação de novidades e conteúdos relevantes para a comunidade.
+    - **Gerenciamento de conteúdo**: Facilidade para a equipe do Trocando Saberes atualizar o site através do painel do Wordpress.
+    - **Design responsivo**: Interface adaptada para diferentes tamanhos de tela.
+
+    Este projeto visa fortalecer a conexão entre pessoas e promover o acesso democrático ao conhecimento e à colaboração em projetos.

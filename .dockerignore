@@ -1,0 +1,38 @@
+# Version control
+.git
+.github
+.gitattributes
+.gitignore
+
+# Build artifacts and caches
+**/node_modules
+**/.next
+**/.turbo
+**/dist
+**/.cache
+
+# Development files
+.vscode
+.idea
+.DS_Store
+**/*.log
+
+# Exclude other apps not needed for CMS
+apps/site
+
+# Symlinks and special files that might cause permission issues
+**/node_modules/.pnpm/*/*/node_modules
+**/.pnpm-store
+
+# Large media files
+**/*.mp4
+**/*.mov
+**/*.webm
+**/*.wav
+**/*.mp3
+
+# Temporary files
+**/tmp
+**/temp
+**/.tmp
+**/.temp
