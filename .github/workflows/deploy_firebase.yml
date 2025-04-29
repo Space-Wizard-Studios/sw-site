@@ -21,6 +21,7 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 10.8.1
+          run_install: false
 
       - name: Install dependencies for site
         run: pnpm install --filter sw-site...
