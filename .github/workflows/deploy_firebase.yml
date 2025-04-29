@@ -11,19 +11,20 @@ jobs:
       - name: Checkout your repository
         uses: actions/checkout@v3
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.8.1
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'pnpm'
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.8.1
+
       - name: Install dependencies for site
         run: pnpm install --filter sw-site...
+        working-directory: ${{ github.workspace }}
 
       - name: Build site
         run: pnpm run site:build
