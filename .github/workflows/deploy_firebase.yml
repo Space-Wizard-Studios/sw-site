@@ -23,9 +23,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build Astro site
+      - name: Build
+        run: pnpm run site:build
 
-      - name: Deploy to Firebase
+      - name: Deploy
         id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
