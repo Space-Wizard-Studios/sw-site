@@ -11,75 +11,27 @@ const { className } = Astro.props as Props;
 <div class={cn('flex my-8', className)}>
     <div class='w-full flex'>
         <div
-            class={cn('flex h-full w-full flex-row overflow-hidden rounded-2xl',
-        'bg-radial-[at_15%_15%]',
-        'from-surface-container-low/60 to-surface-container/60',
-        'text-on-surface backdrop-blur-md',
-        'transition-shadow duration-300',
-        'hover:shadow-primary/10 shadow-xl')}
+            class={cn(
+                'flex h-full w-full flex-row overflow-hidden rounded-2xl',
+                'bg-radial-[at_15%_15%]',
+                'from-surface-container-low/60 to-surface-container/60',
+                'text-on-surface backdrop-blur-md',
+                'transition-shadow duration-300',
+                'hover:shadow-primary/10 shadow-xl',
+            )}
         >
+            <div class='flex flex-col gap-4 p-4 w-full'>
+                <p>
+                    Envie um email para o endereço <a href='mailto:contato@spacewiz.dev'>contato@spacewiz.dev</a>.
+                </p>
 
-        <img
-        class='w-1/3 h-full contain'
-        src='/images/cosmonaut_suit.png'
-        title='Cosmonaut suit'
-        alt='Russian cosmonaut space suit in museum.'
-    />
-            <div class='grid auto-rows-fr grid-cols-1 gap-4 lg:gap-8'>
-                <div class='p-2 flex flex-wrap gap-4'>
-                    <div class='flex flex-row gap-4 items-center'>
-                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy'>
-                            <!-- TODO -->
-                            <!-- <Icon name='mdi:email' class='text-sw-secondary dark:text-sw-primary' /> -->
-                        </div>
-                        <h4 class='spacewiz__text--tertiary block md:hidden'>Email</h4>
-                    </div>
+                <p>
+                    Envie uma mensagem por <a href='https://wa.me/5561993527377'>WhatsApp</a>.
+                </p>
 
-                    <div class='flex flex-col justify-center'>
-                        <h4 class='spacewiz__text--tertiary hidden md:block'>Email</h4>
-                        <p>
-                            Envie um email para o endereço <a href='mailto:contato@spacewiz.dev'>contato@spacewiz.dev</a
-                            >.
-                        </p>
-                    </div>
-                </div>
-
-                <div class='p-2 flex flex-wrap gap-4'>
-                    <div class='flex flex-row gap-4 items-center'>
-                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo'>
-                            <!-- TODO -->
-                            <!-- <Icon name='ph:phone-call-fill' class='text-sw-secondary dark:text-sw-primary' /> -->
-                        </div>
-                        <h4 class='spacewiz__text--tertiary block md:hidden'>Telefone</h4>
-                    </div>
-
-                    <div class='flex flex-col justify-center'>
-                        <h4 class='spacewiz__text--tertiary hidden md:block'>Telefone</h4>
-                        <p>
-                            Envie uma mensagem por <a href='https://wa.me/5561993527377'>WhatsApp</a> ou <a
-                                href='https://t.me/dankonobre'>Telegram</a
-                            >.
-                        </p>
-                    </div>
-                </div>
-
-                <div class='p-2 flex flex-wrap gap-4'>
-                    <div class='flex flex-row gap-4 items-center'>
-                        <div class='w-16 h-16 p-2 rounded-lg bg-sw-navy dark:bg-sw-flamingo'>
-                            <!-- TODO -->
-                            <!-- <Icon name='ion:share-social' class='text-sw-secondary dark:text-sw-primary' /> -->
-                        </div>
-                        <h4 class='spacewiz__text--tertiary block md:hidden'>Redes Sociais</h4>
-                    </div>
-
-                    <div class='flex flex-col justify-center'>
-                        <h4 class='spacewiz__text--tertiary hidden md:block'>Redes Sociais</h4>
-                        <p>
-                            Faça parte do nosso <a href='https://discord.com/invite/4rAZ8HhuAh'>Discord</a> e nos siga no
-                            <a href='https://www.instagram.com/spacewiz.dev/'>Instagram</a>.
-                        </p>
-                    </div>
-                </div>
+                <p>
+                    Mos siga no <a href='https://www.instagram.com/spacewiz.dev/'>Instagram</a>.
+                </p>
             </div>
         </div>
     </div>

@@ -21,7 +21,6 @@ import * as Platforms from '@components/icons/Platforms';
 import * as Frameworks from '@components/icons/Frameworks';
 
 // Games, Interactivity, Music, Systems
-
 export const ProductIcons: Record<string, (props: IconProps) => JSX.Element> = {
     default: Products.Default,
     interatividade: Products.Interactivity,
@@ -31,7 +30,6 @@ export const ProductIcons: Record<string, (props: IconProps) => JSX.Element> = {
 };
 
 // AR, Desktop, Mobile, VR, Web
-
 export const PlatformIcons: Record<string, (props: IconProps) => JSX.Element> = {
     default: Platforms.Default,
     ar: Platforms.AR,
@@ -42,8 +40,7 @@ export const PlatformIcons: Record<string, (props: IconProps) => JSX.Element> = 
 };
 
 
-// Astro, Blender, Figma, Firebase, Flutter, Godot, JavaScript, Meta, Next.js, React, Three.js, TypeScript, Unity
-
+// Ajax, Astro, Blender, Bling, Bootstrap, CakePHP, DecapCMS, Elementor, Figma, Firebase, Flutter, Godot, JavaScript, jQuery, Meta, MySQL, NextJS, React, Static CMS, Tailwind, ThreeJS, TypeScript, Unity, WooCommerce, WordPress
 export const FrameworkIcons: Record<string, (props: IconProps) => JSX.Element> = {
     default: Frameworks.Default,
     ajax: Frameworks.Ajax,
@@ -51,21 +48,21 @@ export const FrameworkIcons: Record<string, (props: IconProps) => JSX.Element> =
     blender: Frameworks.Blender,
     bling: Frameworks.Bling,
     bootstrap: Frameworks.Bootstrap,
-    cakephp: Frameworks.CakePHP, // Corrected key from 'cake'
-    decap_cms: Frameworks.DecapCMS, // Added
-    elementor: Frameworks.Elementor, // Added
+    cakephp: Frameworks.CakePHP,
+    decap_cms: Frameworks.DecapCMS,
+    elementor: Frameworks.Elementor,
     figma: Frameworks.Figma,
     firebase: Frameworks.Firebase,
     flutter: Frameworks.Flutter,
     godot: Frameworks.Godot,
     javascript: Frameworks.JavaScript,
-    jquery: Frameworks.JQuery, // Added
+    jquery: Frameworks.JQuery,
     meta: Frameworks.Meta,
-    mysql: Frameworks.MySQL, // Added
+    mysql: Frameworks.MySQL,
     next_js: Frameworks.NextJS,
     react: Frameworks.React,
-    static_cms: Frameworks.StaticCMS, // Added
-    tailwind: Frameworks.Tailwind, // Added
+    static_cms: Frameworks.StaticCMS,
+    tailwind: Frameworks.Tailwind,
     three_js: Frameworks.ThreeJS,
     typescript: Frameworks.TypeScript,
     unity: Frameworks.Unity,

@@ -115,6 +115,9 @@ This palette was studied with the help of tints.dev
     --color-sw-purply-900: #110d16;
     --color-sw-purply-950: #0a080d;
 
+    /* ANIMATIONS AND OTHER COLORS */
+    --color-sw-gold: #f7ad02;
+
     /* DESIGN TOKENS */
     --color-brand: var(--color-sw-navy-800);
 
@@ -228,16 +231,20 @@ This palette was studied with the help of tints.dev
     }
 
     a {
-        @apply text-on-surface relative cursor-pointer font-bold transition duration-300;
-        
+        @apply text-on-surface underline-offset-3 relative m-0 cursor-pointer underline transition-all duration-300;
+
+        &:hover {
+            @apply text-primary;
+        }
+
         &:hover:has(img)::after,
         &:hover:has(svg)::after,
         &:hover:has(button)::after {
-            @apply w-0;
+            @apply w-0 no-underline;
         }
 
         &::after {
-            @apply bg-on-surface dark:bg-on-surface absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
+            @apply bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
             content: '';
         }
 
@@ -251,10 +258,26 @@ This palette was studied with the help of tints.dev
     }
 
     ul {
-        @apply mr-4 list-disc pl-8;
+        @apply list-disc space-y-2 pl-4;
 
         li {
             @apply text-base font-normal;
+        }
+    }
+
+    ol {
+        @apply list-none space-y-2 pl-4;
+        counter-reset: item;
+
+        li {
+            @apply relative text-base font-normal;
+            counter-increment: item;
+            @apply pl-8;
+
+            &::before {
+                @apply absolute left-0 inline-block w-8 pr-2 text-right;
+                content: counters(item, '.') '.';
+            }
         }
     }
 
@@ -281,7 +304,6 @@ This palette was studied with the help of tints.dev
             @apply p-4;
         }
 
-        
         tbody {
             tr {
                 @apply border-surface-dim border-t;

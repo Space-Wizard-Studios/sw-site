@@ -15,7 +15,7 @@ const buttonVariants = cva(
                     'border-on-primary/40 bg-primary text-on-primary shadow hover:bg-primary-container hover:text-inverse-on-primary',
                 secondary:
                     'border-on-secondary/40 bg-secondary text-on-secondary shadow hover:bg-secondary-container hover:text-on-secondary',
-                outline: 'border-on-tertiary/40 bg-tertiary/10 shadow hover:bg-tertiary hover:text-on-tertiary',
+                outline: 'border-surface/40 bg-tertiary/10 shadow hover:bg-tertiary hover:text-on-tertiary',
                 ghost: 'border-transparent hover:bg-tertiary hover:text-on-tertiary',
             },
             size: {

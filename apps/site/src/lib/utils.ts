@@ -17,7 +17,7 @@ export function cn(...inputs: ClassValue[]): string {
  */
 function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
     let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+    hex = hex.replace(shorthandRegex, (_, r, g, b) => r + r + g + g + b + b);
 
     let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result

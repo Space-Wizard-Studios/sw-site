@@ -25,11 +25,7 @@ hero:
     src: '/src/assets/images/projects/jornada_3/jornada_3_hero.png'
     title: 'Banner do projeto Jornada Vocacional 3'
     altText: 'Banner do projeto Jornada Vocacional 3'
-# carousel:
-#     -
-# partners:
-#     -
-content: |
+description: |
     A terceira edição da **Jornada Vocacional UNICEPLAC** trouxe uma nova experiência, mais leve, rápida e com mais recursos interativos para os usuários!
 
     - Criação de Avatar;

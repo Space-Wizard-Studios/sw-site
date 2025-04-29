@@ -1,11 +1,14 @@
 import type React from 'react';
 import { motion } from 'motion/react';
 
-import { cn, getContrastColor, darkenColor } from '@lib/utils';
+import { cn } from '@lib/utils';
 
 import { FileText, Layers, Tag } from 'lucide-react';
-import { IconBadge } from './IconBadge';
-import { getIconComponent } from '@lib/getIconComponent';
+
+import { ProjectProducts } from '@common/ProjectBadges/ProjectProducts';
+import { ProjectPlatforms } from '@common/ProjectBadges/ProjectPlatforms';
+import { ProjectFrameworks } from '@common/ProjectBadges/ProjectFrameworks';
+import { ProjectTags } from '@common/ProjectBadges/ProjectTags';
 
 import type { ProcessedProject } from '@lib/collections/projectHelpers';
 import type { ResolvedProduct, ResolvedPlatform, ResolvedFramework, ResolvedTag } from '@lib/resolveProjectCategories';
@@ -90,8 +93,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                     <div className='flex flex-col gap-4 p-2'>
                         {summary && (
                             <div className='flex flex-col gap-2'>
-                                <div className='flex flex-row gap-2 justify-between items-center'>
-                                    <h5>Resumo</h5>
+                                <div className='flex flex-row items-center justify-between gap-2'>
                                     <div className='text-on-surface/50 flex items-center gap-2'>
                                         <span>{formattedDate}</span>
                                     </div>
@@ -102,18 +104,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                         {hasProducts && (
                             <div className='flex flex-row gap-4'>
                                 <div className='flex flex-wrap gap-2'>
-                                    {products.map((product) => {
-                                        const Icon = getIconComponent('product', product.id);
-                                        return (
-                                            <IconBadge
-                                                key={product.id}
-                                                icon={Icon ? <Icon className='h-4 w-4' /> : null}
-                                                label={product.title || product.id}
-                                                showLabel={true}
-                                                variant='default'
-                                            />
-                                        );
-                                    })}
+                                    <ProjectProducts products={products} />
                                 </div>
                             </div>
                         )}
@@ -126,18 +117,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                             <div className='flex flex-col gap-2'>
                                 <h5>Plataformas</h5>
                                 <div className='flex flex-wrap gap-2'>
-                                    {platforms.map((platform) => {
-                                        const Icon = getIconComponent('platform', platform.id);
-                                        return (
-                                            <IconBadge
-                                                key={platform.id}
-                                                icon={Icon ? <Icon className='h-4 w-4' /> : null}
-                                                label={platform.title || platform.id}
-                                                showLabel={true}
-                                                variant='default'
-                                            />
-                                        );
-                                    })}
+                                    <ProjectPlatforms platforms={platforms} />
                                 </div>
                             </div>
                         )}
@@ -146,49 +126,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                             <div className='flex flex-col gap-2'>
                                 <h5>Frameworks</h5>
                                 <div className='flex flex-wrap gap-2'>
-                                    {frameworks.map((framework) => {
-                                        const Icon = getIconComponent('framework', framework.id);
-                                        const badgeBgColor = framework.badge?.background;
-                                        const badgeHoverBorderColor = badgeBgColor
-                                            ? darkenColor(badgeBgColor, 80)
-                                            : undefined;
-
-                                        const badgeStyle = badgeBgColor
-                                            ? ({
-                                                  '--badge-hover-bg': badgeBgColor,
-                                                  '--badge-hover-border': badgeHoverBorderColor ?? badgeBgColor,
-                                              } as React.CSSProperties)
-                                            : undefined;
-
-                                        const hoverTextColorClass = badgeBgColor
-                                            ? getContrastColor(badgeBgColor) === 'black'
-                                                ? 'hover:text-black'
-                                                : 'hover:text-white'
-                                            : 'hover:text-black';
-
-                                        return (
-                                            <a
-                                                href={framework.link}
-                                                className='no-underline'
-                                                target='_blank'
-                                                rel='noopener noreferrer'
-                                            >
-                                                <IconBadge
-                                                    key={framework.id}
-                                                    icon={Icon ? <Icon className='h-4 w-4' /> : null}
-                                                    label={framework.title || framework.id}
-                                                    showLabel={true}
-                                                    variant='default'
-                                                    style={badgeStyle}
-                                                    className={cn(
-                                                        'transition-colors duration-200',
-                                                        badgeBgColor &&
-                                                            `hover:border-[var(--badge-hover-border)]/40 hover:bg-[var(--badge-hover-bg)] ${hoverTextColorClass}`,
-                                                    )}
-                                                />
-                                            </a>
-                                        );
-                                    })}
+                                    <ProjectFrameworks frameworks={frameworks} />
                                 </div>
                             </div>
                         )}
@@ -200,15 +138,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
                         <div className='flex flex-col gap-2'>
                             <h5>Tags</h5>
                             <div className='flex flex-wrap gap-2'>
-                                {tags.map((tag) => (
-                                    <IconBadge
-                                        key={tag.id}
-                                        icon={''}
-                                        label={tag.title || tag.id}
-                                        showLabel={true}
-                                        variant='default'
-                                    ></IconBadge>
-                                ))}
+                                <ProjectTags tags={tags} />
                             </div>
                         </div>
                     </div>

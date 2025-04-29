@@ -1,4 +1,4 @@
-import { ProjectCard } from '@common/ProjectCard';
+import { ProjectCard } from '@common/ProjectsGallery/ProjectCard';
 import { cn } from '@lib/utils';
 import { useState, useRef, useEffect } from 'react';
 import { Check, X } from 'lucide-react';
@@ -34,7 +34,7 @@ const extractUniqueCategories = <T extends ResolvedCategoryItem>(
 ): T[] => {
     const categoriesMap = new Map<string, T>();
     projects.forEach((project) => {
-        project.data.category?.[categoryKey]?.forEach((item) => {
+        project.data.category?.[categoryKey]?.forEach((item: ResolvedCategoryItem) => {
             if (item && typeof item === 'object' && 'id' in item && !categoriesMap.has(item.id)) {
                 categoriesMap.set(item.id, item as T);
             }
@@ -65,7 +65,7 @@ const projectMatchesSelections = (project: ProcessedProject, selections: Record<
     return (Object.keys(selections) as CategoryKey[]).every((key) => {
         const selected = selections[key];
         if (selected.length === 0) return true;
-        const projectItemsInCategory = new Set(category[key]?.map((item) => item.id) ?? []);
+        const projectItemsInCategory = new Set(category[key]?.map((item: ResolvedCategoryItem) => item.id) ?? []);
         return selected.every((id) => projectItemsInCategory.has(id));
     });
 };
@@ -351,7 +351,7 @@ export function ProjectGallery({ className, projects }: ProjectGalleryProps) {
     return (
         <div className={cn('flex flex-col gap-4', className)}>
             {/* Seção de Filtros Dropdown */}
-            <div className='grid grid-cols-1 gap-4 md:grid-cols-3'>
+            <div className='grid grid-cols-1 gap-6 md:grid-cols-3'>
                 {renderFilterDropdown('products', 'Filtrar por Serviço')}
                 {renderFilterDropdown('platforms', 'Filtrar por Plataforma')}
                 {renderFilterDropdown('frameworks', 'Filtrar por Framework')}

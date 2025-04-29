@@ -59,16 +59,14 @@ export function ProjectCard({ project, className, href }: ProjectCardProps) {
         >
             <div className='flex h-full min-h-96 w-full flex-col'>
                 <div className='min-h-3/4 relative h-full w-full'>
-                    <a href={href} rel='noopener noreferrer' className='h-full w-full'>
+                    <a href={href} rel='noopener noreferrer' className='h-full w-full no-underline'>
                         {imageUrl ? (
                             <img
                                 src={imageUrl}
                                 alt={hero?.alt ?? title ?? 'Project image'}
-                                className='h-full w-full object-cover transition-all duration-500 ease-out'
-                                style={{
-                                    transform: isActive ? 'scale(1.2)' : 'scale(1)',
-                                    opacity: isActive ? 0.5 : 1,
-                                }}
+                                className={cn('h-full w-full object-cover transition-all duration-500 ease-out hover:scale-105',
+                                    isActive ? 'scale-105 opacity-50' : 'scale-100 opacity-100'
+                                )}
                                 loading='lazy'
                             />
                         ) : (
@@ -88,7 +86,13 @@ export function ProjectCard({ project, className, href }: ProjectCardProps) {
                         )}
                     </AnimatePresence>
                 </div>
-                <ProjectCardContent href={href} title={title} subtitle={subtitle} isActive={isActive} handleToggle={handleToggle} />
+                <ProjectCardContent
+                    href={href}
+                    title={title}
+                    subtitle={subtitle}
+                    isActive={isActive}
+                    handleToggle={handleToggle}
+                />
             </div>
         </motion.div>
     );

@@ -1,0 +1,50 @@
+---
+// import ButtonToggleMenu from '@common/ButtonToggleMenu';
+import ButtonToggleTheme from '@common/ButtonToggleTheme';
+import { Logo } from '@icons/Brand';
+
+import { cn } from '@lib/utils';
+
+export interface Props {
+    className?: string;
+}
+
+const { className } = Astro.props as Props;
+---
+
+<header
+    class={cn(
+        'sticky top-0 z-50',
+        'h-24 min-h-10 transition-all flex flex-row py-4 items-center justify-center',
+        'bg-surface-bright/85 backdrop-blur-md text-brand shadow-lg',
+        className,
+    )}
+>
+    <div class="sw-container flex flex-row justify-between items-center h-full">
+        <nav class='flex flex-row justify-between items-center'>
+            <h1 class='flex flex-row w-full'>
+                <a class={cn('w-48 hover:scale-105 transition-all text-primary')} href='/'>
+                    <span class='sr-only'>Space Wizard Studios</span>
+                    <Logo client:visible />
+                </a>
+            </h1>
+        </nav>
+
+        <nav class='flex flex-row justify-between items-center'>
+            <div class='flex justify-center gap-4'>
+                <ul class='flex flex-row gap-8 pl-0 items-center'>
+                    <a href={'/projects'} class='no-underline font-bold'>Projetos</a>
+                </ul>
+
+                <ButtonToggleTheme client:visible />
+            </div>
+        </nav>
+
+        <!-- <nav class='flex flex-row md:hidden p-4 id=' menu'>
+            <ul class='flex flex-row w-full h-full gap-6 justify-center text-white font-bold'>
+                <a href={'/projects'}>Portfólio</a>
+                <ButtonToggleMenu />
+            </ul>
+        </nav> -->
+    </div>
+</header>

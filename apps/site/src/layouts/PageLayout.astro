@@ -1,15 +1,15 @@
 ---
 import Layout from '@layouts/BaseLayout.astro';
 
-import type { MetaSEO } from 'types/metaSEO';
+import type { metaSEO } from '@schemas/common/seoSchema';
 
 type Props = {
-    meta?: MetaSEO;
+    seo?: metaSEO;
 };
 
-const { meta } = Astro.props as Props;
+const { seo } = Astro.props as Props;
 ---
 
-<Layout meta={meta}>
+<Layout seo={seo}>
     <slot />
 </Layout>

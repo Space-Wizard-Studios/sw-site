@@ -1,0 +1,20 @@
+---
+type Props = {
+	href: string;
+	aria: any;
+	title?: any;
+	text: string;
+	current?: boolean;
+};
+
+const { href, aria, text, current = false } = Astro.props as Props;
+---
+
+<a
+    href={href}
+    aria-current={current ? 'page' : undefined}
+    aria-label={aria}
+    class=''
+>
+    {text}
+</a>

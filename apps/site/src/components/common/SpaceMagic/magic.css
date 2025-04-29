@@ -1,0 +1,16 @@
+.text-gradient {
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	background-size: 400% 100%;
+	animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+	0% {
+		background-position-x: 100%;
+	}
+
+	100% {
+		background-position-x: 0%;
+	}
+}

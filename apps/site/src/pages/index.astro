@@ -1,40 +1,28 @@
 ---
 import Layout from '@layouts/PageLayout.astro';
-
-import type { MetaSEO } from 'types/metaSEO';
-import { config } from '@config.js';
-
 import { Hero, Products, Team, Contact } from '@widgets/Home/Home.astro';
-import { SiteStar } from '@icons/Brand';
+import MagicStar from '@common/SpaceMagic/MagicStar';
 
-const meta: MetaSEO = {
-    title: config.title,
-    description: config.description,
-    canonical: Astro.url.toString(),
-    og: {
-        type: 'website',
-    },
-};
+const title = 'Início';
 ---
 
-<Layout {meta}>
+<Layout seo={{ title }}>
     <Hero />
     <div class='relative flex flex-col bg-surface-bright z-10'>
-
-        <section class='flex flex-col w-full md:sticky top-0 py-24'>
+        <section class='flex flex-col w-full md:sticky top-0 pt-12 md:py-24'>
             <div class='sw-container flex flex-col space-y-10 z-10'>
                 <header class='text-center md:text-right'>
-                    <h2 class='sw-display text-primary pb-2'>
-                        Sua história, nossa magia. 
-                    </h2>
+                    <h2 class='sw-display text-primary pb-2'>Sua história, nossa magia.</h2>
                     <h3 class='sw-pulse from-primary to-tertiary'>
-                       Trazemos suas ideias de apps, jogos e sites à vida.
+                        Trazemos suas ideias de apps, jogos e sites à vida.
                     </h3>
                 </header>
             </div>
         </section>
 
-        <section class='relative flex flex-col w-full py-12 overflow-visible bg-gradient-to-b from-transparent to-surface-bright'>
+        <section
+            class='relative flex flex-col w-full py-6 md:py-12 overflow-visible bg-gradient-to-b from-transparent to-surface-bright'
+        >
             <div class='sw-container flex flex-col space-y-10 z-20'>
                 <header class='flex flex-col space-y-4'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
@@ -42,12 +30,14 @@ const meta: MetaSEO = {
                 </header>
                 <Products />
             </div>
-            <div class='sw-halftone absolute bottom-0 w-full h-24 md:h-56 text-primary bg-surface-dim' 
-            style="clip-path: polygon(0 0, 100% 100%, 0 100%);" />
+            <div
+                class='sw-halftone absolute -bottom-0.5 w-full h-24 md:h-56 text-primary bg-surface-dim'
+                style='clip-path: polygon(0 0, 100% 100%, 0 100%);'
+            >
+            </div>
         </section>
-        
 
-        <section class='sw-halftone relative w-full bg-surface-dim py-12 text-primary'>
+        <section class='sw-halftone relative w-full bg-surface-dim py-6 md:py-12 text-primary'>
             <div class='sw-container flex flex-row mx-auto space-y-10'>
                 <div class='grid auto-rows-fr grid-cols-1 md:grid-cols-2'>
                     <div class='flex flex-col space-y-4'>
@@ -70,14 +60,22 @@ const meta: MetaSEO = {
                     <figure
                         class='flex flex-row justify-center md:justify-end items-center text-on-surface fill-on-surface'
                     >
-                        <SiteStar className='w-32 h-32' />
+                        <MagicStar
+                            sparkleCount={10}
+                            explosionCount={20}
+                            explosionRadius={200}
+                            buttonClassName='w-32 h-32'
+                            defaultColorClass='text-on-surface'
+                            magicColorClass='text-primary'
+                            sparkleColorClass='text-sw-gold'
+                            client:idle
+                        />
                     </figure>
                 </div>
             </div>
-            
         </section>
 
-        <section class='sw-halftone relative flex flex-col w-full bg-surface-dim text-primary py-12'>
+        <section class='sw-halftone relative flex flex-col w-full bg-surface-dim text-primary py-6 md:py-12'>
             <div class='sw-container flex flex-col space-y-10'>
                 <div class='flex flex-col space-y-4'>
                     <header class='flex flex-col space-y-2'>
@@ -89,12 +87,14 @@ const meta: MetaSEO = {
             </div>
         </section>
 
-        <section class='relative flex flex-col w-full bg-surface-bright'>
-            <div class='sw-halftone relative bottom-0 w-full h-24 md:h-56 bg-surface-dim text-primary z-20' 
-                style="clip-path: polygon(100% 100%, 100% 0, 0 0);">
+        <div class='relative flex flex-col w-full bg-surface-bright'>
+            <div
+                class='sw-halftone relative -top-0.5 w-full h-24 md:h-56 bg-surface-dim text-primary z-20'
+                style='clip-path: polygon(100% 100%, 100% 0, 0 0);'
+            >
             </div>
-        </section>
-            
+        </div>
+
         <section class='relative flex flex-col w-full pb-12 z-20 bg-surface-bright'>
             <div class='sw-container flex flex-col space-y-10'>
                 <div class='flex flex-col space-y-4'>

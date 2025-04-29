@@ -1,6 +1,7 @@
 ---
 import { ProductGallery } from '@common/ProductGallery';
 import { cn } from '@lib/utils';
+import { marked } from 'marked'; // Import marked
 
 import { getAllProducts, type ProcessedProduct } from '@lib/collections/productHelpers';
 
@@ -10,8 +11,17 @@ export interface Props {
 
 const { className } = Astro.props as Props;
 
-const products: ProcessedProduct[] = await getAllProducts();
+let products: ProcessedProduct[] = await getAllProducts();
 
+products = products.map((product) => {
+    if (product.description) {
+        return {
+            ...product,
+            description: marked.parse(product.description) as string,
+        };
+    }
+    return product;
+});
 ---
 
 <div class={cn('flex flex-col md:flex-row w-full justify-between', className)}>

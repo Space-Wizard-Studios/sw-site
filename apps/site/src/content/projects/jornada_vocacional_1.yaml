@@ -23,11 +23,7 @@ hero:
     src: '/src/assets/images/projects/jornada_1/jornada_1_hero.png'
     title: 'Banner do projeto Jornada Vocacional 1'
     altText: 'Banner do projeto Jornada Vocacional 1'
-# carousel:
-#     -
-# partners:
-#     - 'UNICEPLAC'
-content: |
+description: |
     A **Jornada Vocacional UNICEPLAC** foi criada para oferecer uma experiência interativa e imersiva a estudantes do Ensino Médio, especialmente em tempos de pandemia. O objetivo era apresentar diversas áreas de ensino e possíveis vocações, conectando os estudantes ao universo acadêmico de forma inovadora e envolvente.
 
     O projeto contou com três ambientes principais:

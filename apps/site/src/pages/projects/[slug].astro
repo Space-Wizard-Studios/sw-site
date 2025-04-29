@@ -1,11 +1,9 @@
 ---
-import { marked } from 'marked';
-
 import Layout from '@layouts/PageLayout.astro';
-import {Hero} from '@widgets/Project/Project.astro';
+import { Description, Hero } from '@widgets/Project/Project.astro';
 
-import { getAllProjects } from '@lib/collections/projectHelpers';
-import {getImageMetadataByPath} from '@lib/getImageMetadataByPath';
+import { getAllProjects, type ProcessedProject } from '@lib/collections/projectHelpers';
+import type { metaSEO } from '@schemas/common/seoSchema';
 
 export async function getStaticPaths() {
     const processedProjects = await getAllProjects();
@@ -16,28 +14,28 @@ export async function getStaticPaths() {
     }));
 }
 
-const { project } = Astro.props;
+const { project } = Astro.props as { project: ProcessedProject };
 
-const content = project.data.content;
-const html =await marked.parse(content);
+const constructedSeo: metaSEO = {
+    title: project.data.title || null,
+    description: project.data.summary || null,
+    canonical: project.data.seo?.canonical || Astro.url.toString(),
+    robots: {
+        noindex: project.data.seo?.robots?.noindex || null,
+        nofollow: project.data.seo?.robots?.nofollow || null,
+    },
+    og: {
+        title: project.data.seo?.og?.title || project.data.title || null,
+        description: project.data.seo?.og?.description || project.data.summary || null,
+        type: project.data.seo?.og?.type || 'article',
+        image: project.data.seo?.og?.image || project.data.hero?.src || null,
+    },
+};
 
-const heroImageMetadata = getImageMetadataByPath(project.data.hero.src);
+const seo = project.data.seo || null;
 ---
 
-<Layout meta={{ title: project.data.title }}>
-    {heroImageMetadata && (
-        <Hero
-            mobileImagePath={heroImageMetadata}
-            desktopImagePath={heroImageMetadata}
-        />
-    )}
-    <div class='relative flex flex-col bg-surface-dim z-10  overflow-x-hidden'>
-        <section class='flex flex-col w-full md:sticky top-0 py-24'>
-            <div class='sw-container flex flex-col space-y-10 z-10 text-on-surface'>
-            <h1>{project.data.title}</h1>
-            <h5 class=''>{project.data.subtitle}</h5>
-        </div>
-        </section>
-        <section class='relative flex flex-col w-full pb-12 z-20 bg-surface-bright'></section>
-    </div>
+<Layout seo={{ ...constructedSeo, ...seo }}>
+    <Hero project={project}/>
+    <Description project={project} />
 </Layout>

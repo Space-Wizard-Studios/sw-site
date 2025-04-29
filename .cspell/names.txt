@@ -29,6 +29,7 @@ shadcn
 somnorte
 soundcloud
 vercel
+whatsapp
 william
 woocommerce
 wordpress

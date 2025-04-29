@@ -1,37 +1,29 @@
 ---
-
+import { SiteSocials } from '@common/SiteSocials';
 ---
-
-<footer
-    class='flex flex-col w-full pt-8 text-sm items-center bg-surface text-on-surface shadow-2xl relative'
+<footer class='relative flex flex-col w-full pt-8 text-sm items-center bg-surface text-on-surface shadow-2xl'>
+    <div class="absolute -top-6 h-8 z-10 flex flex-col w-full text-sm items-center bg-surface text-on-surface"
     style='clip-path: polygon(0 0, calc(50% - 48px) 0, 50% 1.25rem, calc(50% + 48px) 0, 100% 0, 100% 100%, 0 100%);'
->
+    ></div>
     <div class='flex flex-row sw-container justify-between mt-4'>
-        <div class='flex-col space-y-4'>
+        <!-- <div class='flex-col space-y-4'>
             <h5 class='uppercase font-bold'>Portfolio</h5>
-            <ul>
+            <ul class="pl-0 list-none">
                 <li>Item 1</li>
                 <li>Item 2</li>
                 <li>Item 3</li>
                 <li>Item 4</li>
             </ul>
-        </div>
+        </div> -->
         <div class='flex-col space-y-4'>
             <h5 class='uppercase font-bold'>@spacewiz</h5>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-            </ul>
+            <SiteSocials />
         </div>
         <div class='flex-col space-y-4'>
             <h5 class='uppercase font-bold'>Lenga Lenga Jurídico</h5>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
+            <ul class="pl-0 list-none">
+                <li><a href='/policies/terms'>Termos de Uso</a></li>
+                <li><a href='/policies/privacy'>Políticas de Privacidade</a></li>
             </ul>
         </div>
     </div>
