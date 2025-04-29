@@ -35,6 +35,7 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
+          projectId: ${{ secrets.FIREBASE_PROJECT_ID }}
           channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
           expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
     outputs:
