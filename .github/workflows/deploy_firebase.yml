@@ -22,13 +22,13 @@ jobs:
           node-version: 22
           cache: 'pnpm'
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install dependencies for site
+        run: pnpm install --filter sw-site...
 
-      - name: Build
+      - name: Build site
         run: pnpm run site:build
 
-      - name: Deploy
+      - name: Deploy site
         id: deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -36,5 +36,6 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SW_SPACE_SITE }}
           channelId: ${{ github.ref_name == 'main' && 'live' || github.ref_name }}
           expires: ${{ github.ref_name == 'dev' && '30d' || '7d' }}
+          entryPoint: ./apps/site/dist
     outputs:
       url: ${{ steps.deploy.outputs.details_url || 'https://spacewiz.dev/' }}
