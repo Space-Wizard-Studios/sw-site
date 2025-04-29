@@ -14,6 +14,7 @@ export const SocialIcons: Record<string, (props: IconProps) => JSX.Element> = {
     portfolio: Socials.Portfolio,
     soundcloud: Socials.SoundCloud,
     youtube: Socials.YouTube,
+    whatsapp: Socials.Whatsapp,
 };
 
 import * as Products from '@components/icons/Products';
