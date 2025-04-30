@@ -147,7 +147,7 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
 
     return (
         <motion.div
-            className='pointer-events-none absolute inset-0'
+            className='pointer-events-none absolute inset-0 overflow-x-hidden'
             initial={{ opacity: isActive ? 1 : 0 }}
             animate={{
                 opacity: isActive ? 1 : 0,
@@ -179,7 +179,7 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
             <div
                 key={key}
                 ref={rocketRef}
-                className='bg-inverse-surface text-inverse-on-surface ani pointer-events-none absolute z-30 h-10 w-10 rounded-full p-2'
+                className='bg-inverse-surface text-inverse-on-surface pointer-events-none absolute z-30 h-10 w-10 rounded-full p-2'
                 style={{
                     offsetPath: `path("${path}")`,
                     animationName: 'move-on-path',
