@@ -147,7 +147,7 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
 
     return (
         <motion.div
-            className='pointer-events-none absolute inset-0 overflow-x-hidden'
+            className='pointer-events-none absolute inset-0'
             initial={{ opacity: isActive ? 1 : 0 }}
             animate={{
                 opacity: isActive ? 1 : 0,
