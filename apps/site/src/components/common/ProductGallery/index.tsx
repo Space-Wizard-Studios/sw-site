@@ -81,7 +81,7 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
             key: state.key + 1,
             path,
             ease: 'ease-out',
-            duration: isDeactivating ? 3000 : 750,
+            duration: isDeactivating ? 3000 : 1500,
             isActive: !isDeactivating,
         }));
     };
