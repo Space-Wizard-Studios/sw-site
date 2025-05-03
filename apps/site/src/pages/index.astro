@@ -11,9 +11,9 @@ const title = 'Início';
     <div class='relative flex flex-col bg-surface-bright z-10'>
         <section class='flex flex-col w-full md:sticky top-0 pt-12 md:py-24'>
             <div class='sw-container flex flex-col space-y-10 z-10'>
-                <header class='text-center md:text-right'>
+                <header class='flex flex-col text-center items-center md:items-end justify-end md:text-right'>
                     <h2 class='sw-display text-primary pb-2'>Sua história, nossa magia.</h2>
-                    <h3 class='sw-pulse from-primary to-tertiary'>
+                    <h3 class='sw-pulse from-primary to-tertiary max-w-80 md:max-w-full'>
                         Trazemos suas ideias de apps, jogos e sites à vida.
                     </h3>
                 </header>
@@ -21,12 +21,12 @@ const title = 'Início';
         </section>
 
         <section
-            class='relative flex flex-col w-full py-6 md:py-12 overflow-x-hidden bg-gradient-to-b from-transparent to-surface-bright'
+            class='relative flex flex-col w-full pt-12 pb-6 md:py-12 overflow-hidden bg-gradient-to-b from-transparent to-surface-bright'
         >
             <div class='sw-container flex flex-col space-y-10 z-20'>
                 <header class='flex flex-col space-y-4'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
-                    <h3 class='sw-pulse from-primary to-tertiary'>✨     Desenvolvemos ideias</h3>
+                    <h3 class='sw-pulse from-primary to-tertiary'>✨ Desenvolvemos ideias</h3>
                 </header>
                 <Products />
             </div>
