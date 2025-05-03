@@ -21,7 +21,7 @@ date: '2023-09'
 hero:
     src: '/src/assets/images/projects/tavern_tale/tavern_tale_studio_hero_desktop.png'
     title: 'Banner do site Tavern Tale Studio'
-    altText: 'Banner do site da Tavern Tale Studio''
+    altText: 'Banner do site da Tavern Tale Studio'
 partners:
     - 'Tavern Tale Studio'
 description: |
