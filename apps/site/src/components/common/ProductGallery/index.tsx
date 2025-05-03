@@ -81,7 +81,7 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
             key: state.key + 1,
             path,
             ease: 'ease-out',
-            duration: isDeactivating ? 3000 : 750,
+            duration: isDeactivating ? 3000 : 1500,
             isActive: !isDeactivating,
         }));
     };
@@ -179,7 +179,7 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
             <div
                 key={key}
                 ref={rocketRef}
-                className='bg-inverse-surface text-inverse-on-surface ani pointer-events-none absolute z-30 h-10 w-10 rounded-full p-2'
+                className='bg-inverse-surface text-inverse-on-surface pointer-events-none absolute z-30 h-10 w-10 rounded-full p-2'
                 style={{
                     offsetPath: `path("${path}")`,
                     animationName: 'move-on-path',

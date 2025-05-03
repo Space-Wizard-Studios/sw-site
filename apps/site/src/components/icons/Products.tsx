@@ -8,9 +8,9 @@ export function Default({ color = 'currentColor', ...props }: IconProps) {
             <path
                 fill='none'
                 stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
                 d='m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16'
             />
         </svg>
@@ -23,9 +23,9 @@ export function Games({ color = 'currentColor', ...props }: IconProps) {
             <path
                 fill='none'
                 stroke='currentColor'
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
                 d='M2 8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm4 4h4m-2-2v4m7-3v.01M18 13v.01'
             />
         </svg>
@@ -60,8 +60,8 @@ export function Systems({ color = 'currentColor', ...props }: IconProps) {
             <path
                 fill='none'
                 stroke='currentColor'
-                stroke-linejoin='round'
-                stroke-width='4'
+                strokeLinejoin='round'
+                strokeWidth='4'
                 d='M18 6H8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2Zm0 22H8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V30a2 2 0 0 0-2-2Zm17-8a7 7 0 1 0 0-14a7 7 0 0 0 0 14Zm5 8H30a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V30a2 2 0 0 0-2-2Z'
             />
         </svg>

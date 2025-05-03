@@ -8,7 +8,7 @@ export interface Props {
 
 const { project } = Astro.props as Props;
 
-console.log(project);
+// console.log(project);
 
 const description = project.data.description || '';
 const html = marked.parse(description);

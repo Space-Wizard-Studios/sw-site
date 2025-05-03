@@ -47,7 +47,7 @@ export default function ButtonToggleTheme({ className = '', ...props }: ButtonTo
     return (
         <motion.button
             type='button'
-            className={cn('relative items-center overflow-hidden rounded-lg p-3', className)}
+            className={cn('relative items-center overflow-hidden rounded-lg p-3', 'hover:scale-110 transition-all', className)}
             aria-label='Alternar tema (claro/escuro)'
             onClick={() => toggleTheme()}
         >
