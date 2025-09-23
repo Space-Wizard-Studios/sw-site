@@ -68,6 +68,6 @@ Consulte os arquivos README específicos para comandos de build e outros scripts
 
 ## License
 
-O código-fonte das aplicações dentro deste repositório está licenciado sob a Licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) file for more details.
+O código-fonte das aplicações dentro deste repositório está licenciado sob a Licença MIT. Veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
 
 **Nota**: Apesar de o *código* ser licenciado sob MIT, o *conteúdo* (texto, imagens e marca) exibido no site possui termos de uso diferentes. Consulte os termos de uso ([apps/site/src/content/policies/terms.md](apps/site/src/content/policies/terms.md)) e a política de privacidade ([apps/site/src/content/policies/privacy.md](apps/site/src/content/policies/privacy.md)) do site para detalhes sobre o uso do conteúdo.

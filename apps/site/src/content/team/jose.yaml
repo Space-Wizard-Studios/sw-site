@@ -1,0 +1,16 @@
+name: José Victor
+draft: false
+roles: 
+    - Desenvolvedor Web
+skills:
+    - name: Front-End
+      tooltip: Front-End
+    - name: Back-End
+      tooltip: Back-End
+socials:
+    - type: linkedin
+      url: https://www.linkedin.com/in/jose-vdr/
+    - type: github
+      url: https://www.github.com/Zoldyako
+image:
+    src: /images/team/jose.png
