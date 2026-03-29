@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/PageLayout.astro';
 import { Description, Hero } from '@widgets/Project/Project.astro';
+import { ProjectGallery } from '@widgets/Project/Gallery/ProjectGallery';
 
 import { getAllProjects, type ProcessedProject } from '@lib/collections/projectHelpers';
 import type { metaSEO } from '@schemas/common/seoSchema';
@@ -33,9 +34,11 @@ const constructedSeo: metaSEO = {
 };
 
 const seo = project.data.seo || null;
+const galleryImages = project.data.carousel ?? [];
 ---
 
 <Layout seo={{ ...constructedSeo, ...seo }}>
     <Hero project={project}/>
+    {galleryImages.length > 0 && <ProjectGallery images={galleryImages} client:visible />}
     <Description project={project} />
 </Layout>
