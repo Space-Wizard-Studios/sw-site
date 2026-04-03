@@ -17,7 +17,7 @@ interface ProductsContextType {
     containerRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export function ProductsProvider({ children, cardCount = 4 }: { children: ReactNode; cardCount?: number }) {
+export function ProductsProvider({ children, cardCount = 4 }: Readonly<{ children: ReactNode; cardCount?: number }>) {
     const [activeCard, setActiveCard] = useState<number | null>(null);
     const [rocketPosition, setRocketPosition] = useState({ x: 0, y: 0 });
     const [rocketRotation, setRocketRotation] = useState(0);

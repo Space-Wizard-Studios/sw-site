@@ -15,7 +15,7 @@ interface Props {
     setActiveCard: (index: number, target: RefObject<HTMLButtonElement | null>) => void;
 }
 
-export function ProductCard({ index, product, isActive, setActiveCard }: Props) {
+export function ProductCard({ index, product, isActive, setActiveCard }: Readonly<Props>) {
     const targetRef = useRef<HTMLButtonElement>(null);
     const { title, summary = '', description = '' } = product;
 

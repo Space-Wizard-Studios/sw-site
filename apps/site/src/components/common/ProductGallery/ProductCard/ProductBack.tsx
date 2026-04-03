@@ -6,7 +6,7 @@ interface Props {
     description?: string;
 }
 
-export function ProductBack({ isActive, description }: Props) {
+export function ProductBack({ isActive, description }: Readonly<Props>) {
     const closedClipPath = 'circle(0% at 50% 90%)';
     const openedClipPath = 'circle(150% at 50% 90%)';
 

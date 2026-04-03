@@ -18,7 +18,7 @@ export function IconBadge({
     variant = 'default',
     className,
     style,
-}: IconBadgeProps) {
+}: Readonly<IconBadgeProps>) {
     return (
             <Badge
                 variant={variant}

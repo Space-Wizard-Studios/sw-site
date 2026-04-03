@@ -36,7 +36,7 @@ type Position = {
 	y: number;
 };
 
-function Particle({ prng, start, containerRef, scale, duration, delay, rotation, sparkleColorClass }: ParticleProps) {
+function Particle({ prng, start, containerRef, scale, duration, delay, rotation, sparkleColorClass }: Readonly<ParticleProps>) {
 	const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
 	const controls = useAnimationControls();
 

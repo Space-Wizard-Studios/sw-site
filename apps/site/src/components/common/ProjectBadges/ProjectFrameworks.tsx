@@ -8,7 +8,7 @@ interface Props {
     frameworks: ResolvedFramework[];
 }
 
-export function ProjectFrameworks({ frameworks }: Props) {
+export function ProjectFrameworks({ frameworks }: Readonly<Props>) {
     return (
         <>
             {frameworks.map((framework) => {

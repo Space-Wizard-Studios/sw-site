@@ -10,7 +10,7 @@ interface ProjectCardContentProps {
     href?: string;
 }
 
-export function ProjectCardContent({ title, subtitle, isActive, handleToggle, href }: ProjectCardContentProps) {
+export function ProjectCardContent({ title, subtitle, isActive, handleToggle, href }: Readonly<ProjectCardContentProps>) {
     return (
         <div
             className={cn(

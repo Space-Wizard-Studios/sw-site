@@ -17,7 +17,7 @@ interface ProjectCardProps {
 
 type TabType = 'overview' | 'tech' | 'details';
 
-export function ProjectCard({ project, className, href }: ProjectCardProps) {
+export function ProjectCard({ project, className, href }: Readonly<ProjectCardProps>) {
     const { data } = project;
     const { title, subtitle, hero } = data;
 

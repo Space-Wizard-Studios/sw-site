@@ -5,7 +5,7 @@ interface Props {
     teamMember: ProcessedTeamMember;
 }
 
-export function MemberInfo({ teamMember }: Props) {
+export function MemberInfo({ teamMember }: Readonly<Props>) {
     const { name, roles, skills } = teamMember.data;
 
     return (

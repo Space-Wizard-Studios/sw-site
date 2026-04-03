@@ -21,7 +21,7 @@ interface ProjectCardTabsProps {
     handleTabChange: (tab: TabType) => (e: React.MouseEvent) => void;
 }
 
-export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: ProjectCardTabsProps) {
+export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Readonly<ProjectCardTabsProps>) {
     const { category, summary } = projectData;
     const products: ResolvedProduct[] = category?.products ?? [];
     const platforms: ResolvedPlatform[] = category?.platforms ?? [];
