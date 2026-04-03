@@ -52,7 +52,7 @@ export function FilterPopover() {
                 </div>
 
                 {/* Seções lado a lado */}
-                <div className='grid max-h-80 grid-cols-1 divide-x divide-surface/40 overflow-y-auto sm:grid-cols-3'>
+                <div className='grid grid-cols-1 divide-x divide-surface/40 sm:grid-cols-3'>
                     {FILTER_SECTIONS.map(({ key, label }) => {
                         const categories = allCategoriesMap[key];
                         const selected = selections[key];
@@ -64,7 +64,7 @@ export function FilterPopover() {
                         return (
                             <div key={key} className='flex min-w-44 flex-col'>
                                 {/* Cabeçalho da seção */}
-                                <div className='sticky top-0 z-10 flex items-center justify-between bg-surface-container px-3 py-2'>
+                                <div className='flex items-center justify-between bg-surface-container px-3 py-2'>
                                     <span className='text-xs font-semibold uppercase tracking-wider text-on-surface/60'>
                                         {label}
                                     </span>
@@ -79,7 +79,7 @@ export function FilterPopover() {
                                 </div>
 
                                 {/* Lista de itens */}
-                                <div className='flex flex-col pb-2'>
+                                <div className='flex max-h-64 flex-col overflow-y-auto pb-2'>
                                     {categories.map((item) => {
                                         const count = counts.get(item.id) || 0;
                                         const isDisabled = !available.has(item.id) && !selected.includes(item.id);

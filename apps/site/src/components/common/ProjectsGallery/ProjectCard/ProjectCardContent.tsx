@@ -1,6 +1,6 @@
 import type React from 'react';
 import { cn } from '@lib/utils';
-import { ChevronUp, ChevronDown } from 'lucide-react';
+import { Plus, Minus } from '@icons/UI';
 
 interface ProjectCardContentProps {
     title: string;
@@ -30,16 +30,20 @@ export function ProjectCardContent({ title, subtitle, isActive, handleToggle, hr
                     {subtitle && <p className='text-on-surface/80 text-sm'>{subtitle}</p>}
                 </div>
                 <div className='flex flex-col items-center justify-center'>
+                    <div className='bg-surface-container-lowest flex flex-wrap items-center justify-center gap-2 rounded-full p-2'>
                     <button
+                        type='button'
                         onClick={handleToggle}
                         className={cn(
                             'bg-surface-container text-on-container flex h-10 w-10 cursor-pointer flex-row items-center justify-center rounded-full border-none p-2',
                             isActive ? '' : '',
                         )}
-                        aria-label={isActive ? 'Hide details' : 'Show details'}
+                        aria-label={isActive ? 'Fechar detalhes' : 'Ver detalhes'}
+                        aria-expanded={isActive}
                     >
-                        {isActive ? <ChevronDown className='h-4 w-4' /> : <ChevronUp className='h-4 w-4' />}
+                        {isActive ? <Minus className='m-auto h-6 w-6' aria-hidden='true' /> : <Plus className='m-auto h-6 w-6' aria-hidden='true' />}
                     </button>
+                    </div>
                 </div>
             </div>
         </div>

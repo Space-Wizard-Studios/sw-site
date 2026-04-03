@@ -40,12 +40,15 @@ export function ProjectCard({ project, className, href }: ProjectCardProps) {
     };
 
     return (
-        <NeonCard className={className}>
+        <motion.div
+            animate={{
+                scale: isActive ? 1.025 : 1,
+                zIndex: isActive ? 10 : 0,
+            }}
+            className={cn('h-full', className)}
+        >
+            <NeonCard className='h-full'>
             <motion.div
-                animate={{
-                    scale: isActive ? 1.025 : 1,
-                    zIndex: isActive ? 10 : 0,
-                }}
                 className={cn(
                     'relative flex h-full w-full flex-col justify-between overflow-hidden rounded-2xl',
                     'bg-radial-[at_15%_15%]',
@@ -96,6 +99,7 @@ export function ProjectCard({ project, className, href }: ProjectCardProps) {
                     />
                 </div>
             </motion.div>
-        </NeonCard>
+            </NeonCard>
+        </motion.div>
     );
 }
