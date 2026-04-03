@@ -2,7 +2,7 @@
     "name": "sw-site",
     "type": "module",
     "exports": "./index.js",
-    "node": ">=22",
+    "node": ">=24",
     "version": "1.0.0",
     "private": true,
     "scripts": {
