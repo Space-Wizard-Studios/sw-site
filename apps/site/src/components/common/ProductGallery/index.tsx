@@ -39,7 +39,7 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [containerSize, setContainerSize] = useState<Size>({ width: 0, height: 0 });
     const rocketRef = useRef<HTMLDivElement>(null);
-    const activeTargetRef = useRef<RefObject<HTMLDivElement | null> | null>(null);
+    const activeTargetRef = useRef<RefObject<HTMLButtonElement | null> | null>(null);
     const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [isResizing, setIsResizing] = useState(false);
 
@@ -102,7 +102,7 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
         isActive: false,
     });
 
-    const handleSetActiveCard = (index: number, targetRef: RefObject<HTMLDivElement | null>) => {
+    const handleSetActiveCard = (index: number, targetRef: RefObject<HTMLButtonElement | null>) => {
         if (!containerRef.current || !targetRef.current) {
             return;
         }
