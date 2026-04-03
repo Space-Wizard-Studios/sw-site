@@ -1,3 +1,4 @@
+import { Badge } from '@components/ui/badge';
 import type { ProcessedTeamMember } from '@lib/collections/teamHelpers';
 
 interface Props {
@@ -18,15 +19,15 @@ export function MemberInfo({ teamMember }: Props) {
                 </div>
             </div>
 
-            <div className='flex flex-wrap content-start justify-center gap-3'>
+            <div className='flex flex-wrap content-start justify-center gap-2'>
                 {(skills || []).map(({ name: skillName, tooltip }) => (
-                    <span
+                    <Badge
                         key={skillName}
-                        content={tooltip ?? skillName}
-                        className='bg-surface-container-high text-on-surface rounded-xl border-none p-2 text-xs font-light'
+                        title={tooltip ?? skillName}
+                        className='border-on-surface/40 bg-surface-container text-on-surface border'
                     >
                         {skillName}
-                    </span>
+                    </Badge>
                 ))}
             </div>
         </>

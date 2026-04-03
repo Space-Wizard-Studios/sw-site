@@ -27,11 +27,14 @@ export default function TeamCard({ teamMember }: Props) {
     }
 
     return (
-        <NeonCard>
-            <motion.div
-                variants={variants}
-                initial='closed'
-                animate={isActive ? 'opened' : 'closed'}
+        <motion.div
+            variants={variants}
+            initial='closed'
+            animate={isActive ? 'opened' : 'closed'}
+            className='h-full'
+        >
+            <NeonCard className='h-full'>
+            <div
                 className={cn(
                     'relative flex h-full w-full flex-col overflow-visible rounded-2xl p-4',
                     'bg-radial-[at_15%_15%]',
@@ -45,14 +48,15 @@ export default function TeamCard({ teamMember }: Props) {
             >
                 <div className='flex h-full w-full flex-col gap-4'>
                     <div className='relative -mt-12 flex h-full w-full flex-col gap-4'>
-                        <div className='relative z-20'>
+                        <div className='relative z-30'>
                             <MemberPicture teamMember={teamMember} isActive={isActive} />
                         </div>
                         <MemberInfo teamMember={teamMember} />
                     </div>
                     <MemberSocials teamMember={teamMember} isActive={isActive} toggleOpen={toggleOpen} />
                 </div>
-            </motion.div>
-        </NeonCard>
+            </div>
+            </NeonCard>
+        </motion.div>
     );
 }
