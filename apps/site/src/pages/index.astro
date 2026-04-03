@@ -2,6 +2,7 @@
 import Layout from '@layouts/PageLayout.astro';
 import { Hero, Products, Team, Contact } from '@widgets/Home/Home.astro';
 import MagicStar from '@common/SpaceMagic/MagicStar';
+import MagicReveal from '@common/SpaceMagic/MagicReveal';
 
 const title = 'Início';
 ---
@@ -12,7 +13,10 @@ const title = 'Início';
         <section class='flex flex-col w-full md:sticky top-0 pt-12 md:py-24'>
             <div class='sw-container flex flex-col space-y-10 z-10'>
                 <header class='flex flex-col text-center items-center md:items-end justify-end md:text-right'>
-                    <h2 class='sw-display text-primary pb-2'>Sua história, nossa magia.</h2>
+                    <h2 class='sw-display pb-2'>
+                        <span class='text-primary'>Sua história,</span>
+                        <MagicReveal text='nossa magia' client:visible />
+                    </h2>
                     <h3 class='sw-pulse from-primary to-tertiary max-w-80 md:max-w-full'>
                         Trazemos suas ideias de apps, jogos e sites à vida.
                     </h3>
@@ -26,7 +30,7 @@ const title = 'Início';
             <div class='sw-container flex flex-col space-y-10 z-20'>
                 <header class='flex flex-col space-y-4'>
                     <h2 class='uppercase text-on-surface'>Nossos serviços</h2>
-                    <h3 class='sw-pulse from-primary to-tertiary'>✨ Desenvolvemos ideias</h3>
+                    <h3 class='sw-pulse from-primary to-tertiary'>Desenvolvemos ideias</h3>
                 </header>
                 <Products />
             </div>
@@ -44,7 +48,7 @@ const title = 'Início';
                         <header class='flex flex-col space-y-2'>
                             <h2 class='uppercase text-on-surface'>Sobre nós</h2>
                             <h3 class='sw-pulse from-primary to-tertiary'>
-                                ❤ Encantamos com tecnologia e criatividade
+                                Encantamos com tecnologia e criatividade
                             </h3>
                         </header>
                         <div class='text-on-surface'>
@@ -80,7 +84,7 @@ const title = 'Início';
                 <div class='flex flex-col space-y-4'>
                     <header class='flex flex-col space-y-2'>
                         <h2 class='uppercase text-on-surface'>Quem somos</h2>
-                        <h3 class='sw-pulse from-primary to-tertiary'>🚀 Essa é a nossa tripulação</h3>
+                        <h3 class='sw-pulse from-primary to-tertiary'>Essa é a nossa tripulação</h3>
                     </header>
                     <Team />
                 </div>
@@ -100,7 +104,7 @@ const title = 'Início';
                 <div class='flex flex-col space-y-4'>
                     <header class='flex flex-col space-y-2'>
                         <h2 class='uppercase text-on-surface'>Entre em contato</h2>
-                        <h3 class='sw-pulse from-primary to-tertiary'>📞 Queremos ouvir a sua história</h3>
+                        <h3 class='sw-pulse from-primary to-tertiary'>Queremos ouvir a sua história</h3>
                     </header>
                     <Contact />
                 </div>

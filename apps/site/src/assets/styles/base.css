@@ -210,12 +210,12 @@
 
     .sw-pulse {
         --bg-y-from: 0%;
-        --bg-y-to: 50%;
+        --bg-y-to: 75%;
 
         @apply bg-linear-to-b bg-clip-text font-black text-transparent;
         background-size: 100% 200%;
         background-position-y: 100%;
-        animation: sw-pulse 2s ease-in-out infinite;
+        animation: sw-pulse 3s ease-in-out infinite;
     }
 
     @keyframes sw-pulse {
