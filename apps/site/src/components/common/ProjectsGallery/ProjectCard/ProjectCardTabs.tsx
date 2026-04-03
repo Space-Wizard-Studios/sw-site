@@ -28,8 +28,8 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
     const frameworks: ResolvedFramework[] = category?.frameworks ?? [];
     const tags: ResolvedTag[] = category?.tags ?? [];
 
-    const projectDate = new Date(projectData.date);
-    const formattedDate = projectDate.toLocaleDateString('pt-BR', {
+    const projectDate = projectData.date ? new Date(projectData.date) : null;
+    const formattedDate = projectDate?.toLocaleDateString('pt-BR', {
         year: '2-digit',
         month: '2-digit',
     });
@@ -88,7 +88,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
             </div>
 
             {/* Tab Content */}
-            <div className='flex-grow overflow-y-auto'>
+            <div className='grow overflow-y-auto'>
                 {activeTab === 'overview' && (
                     <div className='flex flex-col gap-4 p-2'>
                         {summary && (

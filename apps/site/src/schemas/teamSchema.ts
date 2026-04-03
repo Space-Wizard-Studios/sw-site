@@ -32,4 +32,4 @@ export type TeamMember = z.infer<typeof teamSchema>;
 // Infer the type of a single social link item *after* collection processing
 // Access the 'socials' array type from the resolved CollectionEntry data,
 // then get the element type using [number]
-export type TeamMemberSocial = CollectionEntry<'team'>['data']['socials'][number];
+export type TeamMemberSocial = NonNullable<CollectionEntry<'team'>['data']['socials']>[number];
