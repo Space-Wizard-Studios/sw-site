@@ -21,6 +21,7 @@ metaseo
 minigames
 mongodb
 nextjs
+nums
 pgdata
 postgres
 postgresql
