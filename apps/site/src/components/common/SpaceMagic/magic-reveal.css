@@ -1,0 +1,26 @@
+.magic-reveal {
+    --border-right: 4px;
+    --animation-color: var(--color-primary);
+    text-decoration: none;
+    position: relative;
+}
+
+.magic-reveal > .base {
+    color: var(--color-on-surface);
+}
+
+:where(.dark) .magic-reveal > .base {
+    color: var(--color-sw-flamingo-300);
+}
+
+.magic-reveal > .hover {
+    position: absolute;
+    box-sizing: border-box;
+    color: var(--animation-color);
+    inset: 0;
+    bottom: -0.15em;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    white-space: nowrap;
+    filter: drop-shadow(0 0 0px color-mix(in srgb, var(--animation-color) 0%, transparent));
+}
