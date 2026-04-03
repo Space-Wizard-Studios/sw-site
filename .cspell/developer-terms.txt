@@ -9,6 +9,7 @@ esnext
 evenodd
 flyctl
 frontmatter
+fullpage
 gltf
 GLTF
 gtag
@@ -27,6 +28,7 @@ postgres
 postgresql
 prerender
 pwsh
+RRGGBB
 slugified
 tbody
 tsconfigs
