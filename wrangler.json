@@ -1,0 +1,6 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "sw-site",
+    "pages_build_output_dir": "apps/site/dist",
+    "compatibility_date": "2026-04-01"
+}
