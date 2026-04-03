@@ -226,7 +226,7 @@ function SpaceShip({ containerSize, rocketRef, state, isResizing }: Readonly<Spa
 
     return (
         <motion.div
-            className='pointer-events-none absolute inset-0'
+            className='pointer-events-none absolute inset-0 z-50'
             initial={{ opacity: isActive && !isResizing ? 1 : 0 }}
             animate={{ opacity }}
             transition={{ duration: transitionDuration, ease: 'circInOut' }}
