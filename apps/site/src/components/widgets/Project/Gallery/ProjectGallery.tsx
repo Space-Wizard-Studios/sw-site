@@ -79,13 +79,18 @@ function LightboxModal({
     const next = () => onChange((currentIndex + 1) % images.length);
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm">
+        <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Galeria de imagens"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+            onKeyDown={(e) => { if (e.key === 'Escape') onClose(); else if (e.key === 'ArrowLeft') prev(); else if (e.key === 'ArrowRight') next(); }}
+        >
             {/* Backdrop close button */}
             <button
                 type="button"
                 className="absolute inset-0 size-full cursor-default"
                 onClick={onClose}
-                onKeyDown={(e) => { if (e.key === 'Escape') onClose(); else if (e.key === 'ArrowLeft') prev(); else if (e.key === 'ArrowRight') next(); }}
                 aria-label="Fechar galeria"
             />
 
