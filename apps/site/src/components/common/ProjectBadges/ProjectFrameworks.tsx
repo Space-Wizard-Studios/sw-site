@@ -46,7 +46,7 @@ export function ProjectFrameworks({ frameworks }: Props) {
                             className={cn(
                                 'transition-colors duration-200',
                                 badgeBgColor &&
-                                    `hover:border-[var(--badge-hover-border)]/40 hover:bg-[var(--badge-hover-bg)] ${hoverTextColorClass}`,
+                                    `hover:border-(--badge-hover-border)/40 hover:bg-(--badge-hover-bg) ${hoverTextColorClass}`,
                             )}
                         />
                     </a>

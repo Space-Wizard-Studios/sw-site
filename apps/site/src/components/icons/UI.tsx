@@ -1,6 +1,6 @@
 import type { IconProps } from 'types/iconProps';
 
-export function Menu({ color = 'currentColor', ...props }: IconProps) {
+export function Menu({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
@@ -12,7 +12,7 @@ export function Menu({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Plus({ color = 'currentColor', ...props }: IconProps) {
+export function Plus({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path fill='none' stroke={color} strokeLinecap='round' strokeWidth='2' d='M12 20v-8m0 0V4m0 8h8m-8 0H4' />
@@ -20,7 +20,7 @@ export function Plus({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Minus({ color = 'currentColor', ...props }: IconProps) {
+export function Minus({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path fill='none' stroke={color} strokeLinecap='round' strokeWidth='2' d='M20 12H4' />
@@ -28,7 +28,7 @@ export function Minus({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function LockClosed({ color = 'currentColor', ...props }: IconProps) {
+export function LockClosed({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 20 20'>
             <g fill={color}>
@@ -42,7 +42,7 @@ export function LockClosed({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function LockOpened({ color = 'currentColor', ...props }: IconProps) {
+export function LockOpened({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 20 20'>
             <g fill={color}>
@@ -52,7 +52,7 @@ export function LockOpened({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Key({ color = 'currentColor', ...props }: IconProps) {
+export function Key({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <g fill={color}>
@@ -62,7 +62,7 @@ export function Key({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Rocket({ color = 'currentColor', flames = 1, ...props }: IconProps) {
+export function Rocket({ color = 'currentColor', flames = 1, ...props }: Readonly<IconProps>) {
     return (
         <svg
             style={{ transform: 'rotate(-45deg)' }}
@@ -80,7 +80,7 @@ export function Rocket({ color = 'currentColor', flames = 1, ...props }: IconPro
     );
 }
 
-export function Planet({ color = 'currentColor', ...props }: IconProps) {
+export function Planet({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <g fill='none' stroke={color} strokeLinejoin='round' strokeLinecap='round' strokeWidth='2'>
@@ -91,7 +91,7 @@ export function Planet({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function ChevronRight({ color = 'currentColor', ...props }: IconProps) {
+export function ChevronRight({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <g fill='none' stroke={color} strokeLinejoin='round' strokeLinecap='round' strokeWidth='6'>
@@ -101,7 +101,7 @@ export function ChevronRight({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function ArtStation({ color = 'currentColor', ...props }: IconProps) {
+export function ArtStation({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path
@@ -112,7 +112,7 @@ export function ArtStation({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function GitHub({ color = 'currentColor', ...props }: IconProps) {
+export function GitHub({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path
@@ -123,7 +123,7 @@ export function GitHub({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Instagram({ color = 'currentColor', ...props }: IconProps) {
+export function Instagram({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path
@@ -134,7 +134,7 @@ export function Instagram({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function IMDb({ color = 'currentColor', ...props }: IconProps) {
+export function IMDb({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 32 32'>
             <path
@@ -145,7 +145,7 @@ export function IMDb({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function LinkedIn({ color = 'currentColor', ...props }: IconProps) {
+export function LinkedIn({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path
@@ -156,7 +156,7 @@ export function LinkedIn({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function LinkTree({ color = 'currentColor', ...props }: IconProps) {
+export function LinkTree({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path
@@ -171,7 +171,7 @@ export function LinkTree({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Portfolio({ color = 'currentColor', ...props }: IconProps) {
+export function Portfolio({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 32 32'>
             <path
@@ -186,7 +186,7 @@ export function Portfolio({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function SoundCloud({ color = 'currentColor', ...props }: IconProps) {
+export function SoundCloud({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path
@@ -197,7 +197,7 @@ export function SoundCloud({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function YouTube({ color = 'currentColor', ...props }: IconProps) {
+export function YouTube({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path

@@ -12,7 +12,7 @@ const variants = {
     opened: { scale: 1.2 },
 };
 
-export function MemberPicture({ teamMember, isActive }: Props) {
+export function MemberPicture({ teamMember, isActive }: Readonly<Props>) {
     const { name, image } = teamMember.data;
     const photoSrc = image?.src || '/images/placeholder.png';
 

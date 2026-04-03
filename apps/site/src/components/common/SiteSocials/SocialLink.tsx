@@ -6,7 +6,7 @@ type Props = {
     url: string;
 };
 
-export function SocialLink({ socialKey, aria, url }: Props) {
+export function SocialLink({ socialKey, aria, url }: Readonly<Props>) {
     const IconComponent = SocialIcons[socialKey];
 
     if (!IconComponent) {

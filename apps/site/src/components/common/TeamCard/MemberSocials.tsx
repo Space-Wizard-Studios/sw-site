@@ -12,7 +12,7 @@ interface Props {
     toggleOpen: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export function MemberSocials({ teamMember, isActive, toggleOpen }: Props) {
+export function MemberSocials({ teamMember, isActive, toggleOpen }: Readonly<Props>) {
     const socials: ResolvedSocial[] = teamMember.data.socials || [];
     const n_socials = (socials || []).length;
     const variants = {

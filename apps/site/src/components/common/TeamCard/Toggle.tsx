@@ -6,7 +6,7 @@ interface Props {
     onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export function Toggle({ isActive, onClick }: Props) {
+export function Toggle({ isActive, onClick }: Readonly<Props>) {
     return (
         <motion.button
             layout

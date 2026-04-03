@@ -2,7 +2,7 @@ import type { IconProps } from 'types/iconProps';
 
 // Games, Interactivity, Music, Systems
 
-export function Default({ color = 'currentColor', ...props }: IconProps) {
+export function Default({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -17,7 +17,7 @@ export function Default({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Games({ color = 'currentColor', ...props }: IconProps) {
+export function Games({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -32,7 +32,7 @@ export function Games({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Interactivity({ color = 'currentColor', ...props }: IconProps) {
+export function Interactivity({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -43,7 +43,7 @@ export function Interactivity({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Music({ color = 'currentColor', ...props }: IconProps) {
+export function Music({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -54,7 +54,7 @@ export function Music({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Systems({ color = 'currentColor', ...props }: IconProps) {
+export function Systems({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'>
             <path
