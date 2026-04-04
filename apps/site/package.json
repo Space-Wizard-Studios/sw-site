@@ -2,7 +2,10 @@
     "name": "sw-site",
     "type": "module",
     "exports": "./index.js",
-    "node": ">=22",
+    "engines": {
+        "node": ">=24.0.0",
+        "pnpm": ">=10.0.0"
+    },
     "version": "1.0.0",
     "private": true,
     "scripts": {
