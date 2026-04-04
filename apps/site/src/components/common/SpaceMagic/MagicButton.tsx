@@ -10,6 +10,8 @@ type Props = {
     defaultColorClass?: string;
     magicColorClass?: string;
     className?: string;
+    pointerX?: any;
+    pointerY?: any;
 };
 
 export default function MagicButton({
@@ -19,6 +21,8 @@ export default function MagicButton({
     defaultColorClass = 'text-gray-500',
     magicColorClass = 'text-red-500',
     className,
+    pointerX,
+    pointerY,
 }: Readonly<Props>) {
     return (
         <motion.span
@@ -28,6 +32,7 @@ export default function MagicButton({
             whileTap='tap'
             variants={buttonVariants}
             className={cn('inline-block h-6 w-6 shrink-0 grow-0 cursor-pointer', className)}
+            style={{ x: pointerX ?? 0, y: pointerY ?? 0 }}
             onClick={() => {
                 setMagic((prev) => !prev);
                 setClickCount((prev) => prev + 1);
