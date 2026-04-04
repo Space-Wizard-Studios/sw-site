@@ -2,7 +2,7 @@ import type { IconProps } from 'types/iconProps';
 
 // AR, Desktop, Mobile, VR, Web
 
-export function Default({ color = 'currentColor', ...props }: IconProps) {
+export function Default({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -13,7 +13,7 @@ export function Default({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function AR({ color = 'currentColor', ...props }: IconProps) {
+export function AR({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -24,7 +24,7 @@ export function AR({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Desktop({ color = 'currentColor', ...props }: IconProps) {
+export function Desktop({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -39,7 +39,7 @@ export function Desktop({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Mobile({ color = 'currentColor', ...props }: IconProps) {
+export function Mobile({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -54,7 +54,7 @@ export function Mobile({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function VR({ color = 'currentColor', ...props }: IconProps) {
+export function VR({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -65,7 +65,7 @@ export function VR({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Web({ color = 'currentColor', ...props }: IconProps) {
+export function Web({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path

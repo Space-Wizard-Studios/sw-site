@@ -1,51 +1,52 @@
 import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 import { projectSchema } from '@schemas/projectSchema';
 import { policySchema } from '@schemas/policySchema';
 import { teamSchema } from '@schemas/teamSchema';
-import { socialSchema } from '@schemas/common/socialSchema'; // Import the social schema
+import { socialSchema } from '@schemas/common/socialSchema';
 import { platformSchema, tagSchema, frameworkSchema } from '@schemas/categorySchema';
 import { productSchema } from '@schemas/productSchema';
 
 const productsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/[!_]*.yaml', base: 'src/content/products' }),
     schema: productSchema,
 });
 
 const teamCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/[!_]*.yaml', base: 'src/content/team' }),
     schema: teamSchema,
 });
 
 const socialsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/[!_]*.yaml', base: 'src/content/socials' }),
     schema: socialSchema,
 });
 
 const policyCollection = defineCollection({
-    type: 'content',
+    loader: glob({ pattern: '**/*.md', base: 'src/content/policies' }),
     schema: policySchema,
 });
 
 const projectsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/[!_]*.yaml', base: 'src/content/projects' }),
     schema: projectSchema,
 });
 
 // Collections used for categories
 
 const platformsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/[!_]*.yaml', base: 'src/content/platforms' }),
     schema: platformSchema,
 });
 
 const tagsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/[!_]*.yaml', base: 'src/content/tags' }),
     schema: tagSchema,
 });
 
 const frameworksCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/[!_]*.yaml', base: 'src/content/frameworks' }),
     schema: frameworkSchema,
 });
 

@@ -10,7 +10,7 @@ type Props = {
     developedBy: string;
 };
 
-export default function SpaceMagic({ developedBy }: Props) {
+export default function SpaceMagic({ developedBy }: Readonly<Props>) {
 
     return (
         <motion.div
@@ -18,7 +18,7 @@ export default function SpaceMagic({ developedBy }: Props) {
         >
             <div className='relative isolate'>
                 {developedBy}
-                <div className='text-gradient pointer-events-none absolute inset-0 select-none whitespace-nowrap bg-gradient-to-r from-[#f79338] via-[#ff62f2] to-[#f79338]'>
+                <div className='text-gradient pointer-events-none absolute inset-0 select-none whitespace-nowrap bg-linear-to-r from-[#f79338] via-[#ff62f2] to-[#f79338]'>
                     {developedBy.split('').map((character, i) => (
                         <motion.span key={i} variants={letterVariants} custom={i}>
                             {character}

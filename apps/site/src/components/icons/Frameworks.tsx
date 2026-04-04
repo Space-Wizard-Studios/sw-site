@@ -2,7 +2,7 @@ import type { IconProps } from 'types/iconProps';
 
 // Astro, Blender, Figma, Firebase, Flutter, Godot, JavaScript, Meta, Next.js, React, Three.js, TypeScript, Unity
 
-export function Default({ color = 'currentColor', ...props }: IconProps) {
+export function Default({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -13,7 +13,7 @@ export function Default({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Ajax({ color = 'currentColor', ...props }: IconProps) {
+export function Ajax({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='88.2 15.73 123.76 159.8'>
             <path
@@ -28,7 +28,7 @@ export function Ajax({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Astro({ color = 'currentColor', ...props }: IconProps) {
+export function Astro({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -39,7 +39,7 @@ export function Astro({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Blender({ color = 'currentColor', ...props }: IconProps) {
+export function Blender({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -50,7 +50,7 @@ export function Blender({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Bling({ color = 'currentColor', ...props }: IconProps) {
+export function Bling({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>
             <path
@@ -61,7 +61,7 @@ export function Bling({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Bootstrap({ color = 'currentColor', ...props }: IconProps) {
+export function Bootstrap({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -72,7 +72,7 @@ export function Bootstrap({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function CakePHP({ color = 'currentColor', ...props }: IconProps) {
+export function CakePHP({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
             <path
@@ -83,7 +83,7 @@ export function CakePHP({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function DecapCMS({ color = 'currentColor', ...props }: IconProps) {
+export function DecapCMS({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72' xmlSpace='preserve'>
             <path
@@ -94,7 +94,7 @@ export function DecapCMS({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Elementor({ color = 'currentColor', ...props }: IconProps) {
+export function Elementor({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -105,7 +105,7 @@ export function Elementor({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Figma({ color = 'currentColor', ...props }: IconProps) {
+export function Figma({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
@@ -117,7 +117,7 @@ export function Figma({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Firebase({ color = 'currentColor', ...props }: IconProps) {
+export function Firebase({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
@@ -128,7 +128,7 @@ export function Firebase({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Flutter({ color = 'currentColor', ...props }: IconProps) {
+export function Flutter({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -142,7 +142,7 @@ export function Flutter({ color = 'currentColor', ...props }: IconProps) {
         </svg>
     );
 }
-export function Godot({ color = 'currentColor', ...props }: IconProps) {
+export function Godot({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'>
             <path
@@ -157,7 +157,7 @@ export function Godot({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Meta({ color = 'currentColor', ...props }: IconProps) {
+export function Meta({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -172,7 +172,7 @@ export function Meta({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function NextJS({ color = 'currentColor', ...props }: IconProps) {
+export function NextJS({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -183,7 +183,7 @@ export function NextJS({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function MySQL({ color = 'currentColor', ...props }: IconProps) {
+export function MySQL({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -198,7 +198,7 @@ export function MySQL({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function JavaScript({ color = 'currentColor', ...props }: IconProps) {
+export function JavaScript({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
@@ -209,7 +209,7 @@ export function JavaScript({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function JQuery({ color = 'currentColor', ...props }: IconProps) {
+export function JQuery({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -220,7 +220,7 @@ export function JQuery({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function React({ color = 'currentColor', ...props }: IconProps) {
+export function React({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -231,7 +231,7 @@ export function React({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function StaticCMS({ color = 'currentColor', ...props }: IconProps) {
+export function StaticCMS({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -247,7 +247,7 @@ export function StaticCMS({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Tailwind({ color = 'currentColor', ...props }: IconProps) {
+export function Tailwind({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -257,7 +257,7 @@ export function Tailwind({ color = 'currentColor', ...props }: IconProps) {
         </svg>
     );
 }
-export function ThreeJS({ color = 'currentColor', ...props }: IconProps) {
+export function ThreeJS({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
@@ -269,7 +269,7 @@ export function ThreeJS({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function TypeScript({ color = 'currentColor', ...props }: IconProps) {
+export function TypeScript({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
@@ -280,7 +280,7 @@ export function TypeScript({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Unity({ color = 'currentColor', ...props }: IconProps) {
+export function Unity({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
@@ -291,7 +291,7 @@ export function Unity({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function WooCommerce({ color = 'currentColor', ...props }: IconProps) {
+export function WooCommerce({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'>
             <path
@@ -310,7 +310,7 @@ export function WooCommerce({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function WordPress({ color = 'currentColor', ...props }: IconProps) {
+export function WordPress({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>

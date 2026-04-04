@@ -1,0 +1,43 @@
+.dark {
+    /* DESIGN TOKENS - DARK */
+    --color-brand: var(--color-sw-neutral-50);
+
+    --color-surface-dim: var(--color-sw-purply-950);
+    --color-surface: var(--color-sw-purply-900);
+    --color-surface-bright: var(--color-sw-purply-800);
+    --color-on-surface: var(--color-sw-neutral-50);
+    --color-on-surface-variant: var(--color-sw-purply-100);
+
+    --color-inverse-surface: var(--color-sw-neutral-50);
+    --color-inverse-on-surface: var(--color-sw-purply-900);
+
+    --color-surface-container-lowest: var(--color-sw-purply-950);
+    --color-surface-container-low: var(--color-sw-purply-900);
+    --color-surface-container: var(--color-sw-purply-800);
+    --color-surface-container-high: var(--color-sw-purply-700);
+    --color-surface-container-highest: var(--color-sw-purply-600);
+
+    --color-primary: var(--color-sw-flamingo);
+    --color-on-primary: var(--color-sw-flamingo-950);
+    --color-primary-container: var(--color-sw-flamingo-100);
+    --color-on-primary-container: var(--color-sw-flamingo-900);
+
+    --color-inverse-primary: var(--color-sw-flamingo-950);
+    --color-inverse-on-primary: var(--color-sw-flamingo-950);
+
+    --color-secondary: var(--color-sw-plum-300);
+    --color-on-secondary: var(--color-sw-plum-950);
+    --color-secondary-container: var(--color-sw-plum-200);
+    --color-on-secondary-container: var(--color-sw-plum-900);
+
+    --color-inverse-secondary: var(--color-sw-plum-950);
+    --color-inverse-on-secondary: var(--color-sw-plum-200);
+
+    --color-tertiary: var(--color-sw-pinkish-200);
+    --color-on-tertiary: var(--color-sw-pinkish-950);
+    --color-tertiary-container: var(--color-sw-pinkish-200);
+    --color-on-tertiary-container: var(--color-sw-pinkish-950);
+
+    --color-inverse-tertiary: var(--color-sw-pinkish-950);
+    --color-inverse-on-tertiary: var(--color-sw-pinkish-200);
+}

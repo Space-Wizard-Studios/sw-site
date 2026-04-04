@@ -12,11 +12,18 @@ import {
     type ResolvedTag,
 } from '../resolveProjectCategories';
 
-type ProcessedProjectData = Omit<Project, 'hero' | 'category'> & {
+type ProcessedProjectData = Omit<Project, 'hero' | 'category' | 'carousel'> & {
     slug: string;
     hero?: Omit<NonNullable<Project['hero']>, 'src'> & {
         src?: string | undefined;
     };
+    carousel?: Array<{
+        src: string;
+        width: number;
+        height: number;
+        title?: string;
+        alt?: string;
+    }>;
     category?: {
         products: ResolvedProduct[];
         platforms: ResolvedPlatform[];
@@ -56,14 +63,30 @@ export async function getAllProjects(): Promise<ProcessedProject[]> {
 
             const resolvedCategories = await resolveProjectCategories(project.data.category);
 
+            // Process carousel images
+            const processedCarousel = project.data.carousel
+                ?.map((item) => {
+                    const meta = getImageMetadataByPath(item.src);
+                    if (!meta) return null;
+                    return {
+                        src: meta.src,
+                        width: meta.width,
+                        height: meta.height,
+                        title: item.title,
+                        alt: item.alt,
+                    };
+                })
+                .filter((item): item is NonNullable<typeof item> => item !== null);
+
             // Extract properties from project data
-            const { hero, category, ...otherData } = project.data;
+            const { hero, category, carousel, ...otherData } = project.data;
 
             // builds the processed data object
             const processedData: ProcessedProjectData = {
                 ...otherData,
                 slug: slugify(project.data.title),
                 hero: processedHero,
+                carousel: processedCarousel,
                 category: resolvedCategories, // Use the resolved categories
             };
 

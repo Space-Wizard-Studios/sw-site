@@ -25,12 +25,18 @@ hero:
     title: 'Aplicativo Centra Engenharia'
     altText: 'Imagem do Aplicativo Centra Engenharia'
 carousel:
-    - src: '/src/assets/images/projects/centra_engenharia/screenshot1.png'
-      title: 'Tela inicial do aplicativo Centra Engenharia'
-      altText: 'Imagem mostrando a tela inicial do aplicativo Centra Engenharia'
-    - src: '/src/assets/images/projects/centra_engenharia/screenshot2.png'
-      title: 'Tela de gerenciamento de obras no aplicativo Centra Engenharia'
-      altText: 'Imagem mostrando a tela de gerenciamento de obras no aplicativo Centra Engenharia'
+    - src: '/src/assets/images/projects/centra_engenharia/centra_engenharia_dashboard.png'
+      title: 'Dashboard do Centra Engenharia'
+      alt: 'Imagem do dashboard do aplicativo Centra Engenharia'
+    - src: '/src/assets/images/projects/centra_engenharia/centra_engenharia_dashboard_mobile.png'
+      title: 'Dashboard mobile do Centra Engenharia'
+      alt: 'Imagem do dashboard mobile do aplicativo Centra Engenharia'
+    - src: '/src/assets/images/projects/centra_engenharia/centra_engenharia_project.png'
+      title: 'Tela de projeto do Centra Engenharia'
+      alt: 'Imagem da tela de projeto do aplicativo Centra Engenharia'
+    - src: '/src/assets/images/projects/centra_engenharia/centra_engenharia_project_mobile.png'
+      title: 'Tela de projeto mobile do Centra Engenharia'
+      alt: 'Imagem da tela de projeto mobile do aplicativo Centra Engenharia'
 description: |
     O **Aplicativo Centra Engenharia** é uma plataforma completa de gestão de obras, criada com o objetivo de modernizar e simplificar o cotidiano de engenheiros, gerentes e clientes.
 

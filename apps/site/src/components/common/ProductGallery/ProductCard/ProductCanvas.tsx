@@ -11,7 +11,7 @@ interface Props {
     modelColor: number;
 }
 
-export function ProductCanvas({ isActive, modelPath, modelColor }: Props) {
+export function ProductCanvas({ isActive, modelPath, modelColor }: Readonly<Props>) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.5 });
 

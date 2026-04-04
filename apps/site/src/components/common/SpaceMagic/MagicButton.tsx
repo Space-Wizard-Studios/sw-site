@@ -19,7 +19,7 @@ export default function MagicButton({
     defaultColorClass = 'text-gray-500',
     magicColorClass = 'text-red-500',
     className,
-}: Props) {
+}: Readonly<Props>) {
     return (
         <motion.span
             animate='normal'
