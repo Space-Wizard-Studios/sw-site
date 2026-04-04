@@ -41,7 +41,7 @@ export default function TeamCard({ teamMember }: Props) {
 
                 <div
                     className={cn(
-                        'relative flex h-full w-full flex-col overflow-visible rounded-2xl p-4 pt-12',
+                        'relative flex h-full w-full flex-col overflow-visible rounded-2xl p-4 pt-16',
                         'bg-radial-[at_15%_15%]',
                         isActive
                             ? 'from-surface-container-high to-surface-container-highest'
