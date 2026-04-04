@@ -24,7 +24,7 @@ export default function MagicStar({
     magicColorClass,
     sparkleColorClass,
     buttonClassName,
-}: Props) {
+}: Readonly<Props>) {
     const [magic, setMagic] = useState(false);
     const [clickCount, setClickCount] = useState(0);
 

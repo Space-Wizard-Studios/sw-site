@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, type RefObject } from 'react';
+import React, { useCallback, useEffect, useRef, useState, type RefObject } from 'react';
 import { ProductsProvider } from './ProductsContext';
 import { ProductCard } from './ProductCard';
 import type { ProcessedProduct } from '@lib/collections/productHelpers';
@@ -26,23 +26,74 @@ const calculatePath = (current: Position, target: Position, maxYOffset: number) 
     return `M ${current.x} ${current.y} C ${control1.x} ${control1.y} ${control2.x} ${control2.y} ${target.x} ${target.y} v -0.1`;
 };
 
+const offscreenPosition: Position = { x: 0, y: -200 };
+
+const getRelativePosition = (rect: DOMRect, containerRect: DOMRect): Position => ({
+    x: rect.x - containerRect.x + rect.width / 2,
+    y: rect.y - containerRect.y + rect.height / 2,
+});
+
 function ProductGalleryContent({ className, products }: ProductGalleryProps) {
     const [activeIndex, setActiveIndex] = useState(-1);
 
     const containerRef = useRef<HTMLDivElement>(null);
     const [containerSize, setContainerSize] = useState<Size>({ width: 0, height: 0 });
+    const rocketRef = useRef<HTMLDivElement>(null);
+    const activeTargetRef = useRef<RefObject<HTMLButtonElement | null> | null>(null);
+    const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const [isResizing, setIsResizing] = useState(false);
+
+    const updateContainerSize = useCallback(() => {
+        if (!containerRef.current) {
+            return;
+        }
+
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const nextSize = {
+            width: containerRect.width,
+            height: containerRect.height,
+        };
+
+        setContainerSize((currentSize) =>
+            currentSize.width === nextSize.width && currentSize.height === nextSize.height ? currentSize : nextSize,
+        );
+    }, []);
+
+    const finishResize = useCallback(() => {
+        globalThis.requestAnimationFrame(() => {
+            updateContainerSize();
+            setIsResizing(false);
+        });
+    }, [updateContainerSize]);
 
     useEffect(() => {
-        if (containerRef.current) {
-            const containerRect = containerRef.current?.getBoundingClientRect();
-            setContainerSize({
-                width: containerRect.width,
-                height: containerRect.height,
-            });
-        }
-    }, [containerRef]);
+        updateContainerSize();
 
-    const rocketRef = useRef<HTMLDivElement>(null);
+        if (!containerRef.current) {
+            return;
+        }
+
+        const observer = new ResizeObserver(() => {
+            setIsResizing(true);
+
+            if (resizeTimeoutRef.current) {
+                globalThis.clearTimeout(resizeTimeoutRef.current);
+            }
+
+            resizeTimeoutRef.current = globalThis.setTimeout(finishResize, 160);
+        });
+
+        observer.observe(containerRef.current);
+
+        return () => {
+            observer.disconnect();
+
+            if (resizeTimeoutRef.current) {
+                globalThis.clearTimeout(resizeTimeoutRef.current);
+            }
+        };
+    }, [finishResize, updateContainerSize]);
+
     const [rocketState, setRocketState] = useState<SpaceShipState>({
         key: 0,
         path: 'M 0 -200',
@@ -51,27 +102,22 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
         isActive: false,
     });
 
-    const handleSetActiveCard = (index: number, targetRef: RefObject<HTMLDivElement>) => {
+    const handleSetActiveCard = (index: number, targetRef: RefObject<HTMLButtonElement | null>) => {
+        if (!containerRef.current || !targetRef.current) {
+            return;
+        }
+
         const isDeactivating = activeIndex === index;
         const isDeactivated = !rocketState.isActive;
 
-        const containerRect = containerRef.current.getBoundingClientRect();
+        activeTargetRef.current = isDeactivating ? null : targetRef;
 
-        const currentRect = rocketRef.current.getBoundingClientRect();
-        const currentPos = isDeactivated
-            ? { x: 0, y: -200 }
-            : {
-                  x: currentRect.x - containerRect.x + currentRect.width / 2,
-                  y: currentRect.y - containerRect.y + currentRect.height / 2,
-              };
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const currentRect = rocketRef.current?.getBoundingClientRect();
+        const currentPos = isDeactivated || !currentRect ? offscreenPosition : getRelativePosition(currentRect, containerRect);
 
         const targetRect = targetRef.current.getBoundingClientRect();
-        const targetPos = isDeactivating
-            ? { x: 0, y: -200 }
-            : {
-                  x: targetRect.x - containerRect.x + targetRect.width / 2,
-                  y: targetRect.y - containerRect.y + targetRect.height / 2,
-              };
+        const targetPos = isDeactivating ? offscreenPosition : getRelativePosition(targetRect, containerRect);
 
         const path = calculatePath(currentPos, targetPos, isDeactivating ? 0 : 280);
 
@@ -85,6 +131,27 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
             isActive: !isDeactivating,
         }));
     };
+
+    useEffect(() => {
+        if (isResizing || !containerRef.current || !activeTargetRef.current?.current) {
+            return;
+        }
+
+        const containerRect = containerRef.current.getBoundingClientRect();
+        const currentRect = rocketRef.current?.getBoundingClientRect();
+        const targetRect = activeTargetRef.current.current.getBoundingClientRect();
+
+        const currentPos = currentRect ? getRelativePosition(currentRect, containerRect) : offscreenPosition;
+        const targetPos = getRelativePosition(targetRect, containerRect);
+
+        setRocketState((state) => ({
+            ...state,
+            path: calculatePath(currentPos, targetPos, 180),
+            ease: 'linear',
+            duration: 0,
+            isActive: true,
+        }));
+    }, [containerSize.height, containerSize.width, isResizing]);
 
     return (
         <section
@@ -104,7 +171,7 @@ function ProductGalleryContent({ className, products }: ProductGalleryProps) {
                     setActiveCard={handleSetActiveCard}
                 />
             ))}
-            <SpaceShip containerSize={containerSize} rocketRef={rocketRef} state={rocketState} />
+            <SpaceShip containerSize={containerSize} rocketRef={rocketRef} state={rocketState} isResizing={isResizing} />
         </section>
     );
 }
@@ -129,8 +196,9 @@ type Position = {
 
 interface SpaceShipProps {
     containerSize: Size;
-    rocketRef: RefObject<HTMLDivElement>;
+    rocketRef: RefObject<HTMLDivElement | null>;
     state: SpaceShipState;
+    isResizing: boolean;
 }
 
 interface SpaceShipState {
@@ -141,18 +209,27 @@ interface SpaceShipState {
     isActive: boolean;
 }
 
-function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
+function SpaceShip({ containerSize, rocketRef, state, isResizing }: Readonly<SpaceShipProps>) {
     const { key, path, duration, ease, isActive } = state;
     const { width, height } = containerSize;
+    const shouldAnimate = duration > 0;
+
+    let opacity = 0;
+    let transitionDuration = 0.75;
+
+    if (isResizing) {
+        transitionDuration = 0.1;
+    } else if (isActive) {
+        opacity = 1;
+        transitionDuration = 0.15;
+    }
 
     return (
         <motion.div
-            className='pointer-events-none absolute inset-0'
-            initial={{ opacity: isActive ? 1 : 0 }}
-            animate={{
-                opacity: isActive ? 1 : 0,
-            }}
-            transition={{ duration: isActive ? 0.15 : 0.75, ease: 'circInOut' }}
+            className='pointer-events-none absolute inset-0 z-50'
+            initial={{ opacity: isActive && !isResizing ? 1 : 0 }}
+            animate={{ opacity }}
+            transition={{ duration: transitionDuration, ease: 'circInOut' }}
         >
             <svg
                 className='text-sw-flamingo-400/60 pointer-events-none absolute z-20 h-full w-full fill-none stroke-2'
@@ -168,8 +245,9 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
                     strokeDasharray='8 8'
                     strokeLinecap='round'
                     style={{
-                        animationName: 'rocket-path',
-                        animationDuration: `${duration}ms`,
+                        opacity: shouldAnimate ? 1 : 0,
+                        animationName: shouldAnimate ? 'rocket-path' : 'none',
+                        animationDuration: shouldAnimate ? `${duration}ms` : undefined,
                         animationFillMode: 'forwards',
                         animationTimingFunction: ease,
                         animationIterationCount: 1,
@@ -182,8 +260,9 @@ function SpaceShip({ containerSize, rocketRef, state }: SpaceShipProps) {
                 className='bg-inverse-surface text-inverse-on-surface pointer-events-none absolute z-30 h-10 w-10 rounded-full p-2'
                 style={{
                     offsetPath: `path("${path}")`,
-                    animationName: 'move-on-path',
-                    animationDuration: `${duration}ms`,
+                    offsetDistance: isActive ? '100%' : '0%',
+                    animationName: shouldAnimate ? 'move-on-path' : 'none',
+                    animationDuration: shouldAnimate ? `${duration}ms` : undefined,
                     animationFillMode: 'forwards',
                     animationTimingFunction: ease,
                     animationIterationCount: 1,

@@ -19,10 +19,10 @@ const heroImageSrc = hero?.src || null;
 
 const date = project.data.date || null;
 
-const products = project.data.category.products || [];
-const platforms = project.data.category.platforms || [];
-const frameworks = project.data.category.frameworks || [];
-const tags = project.data.category.tags || [];
+const products = project.data.category?.products ?? [];
+const platforms = project.data.category?.platforms ?? [];
+const frameworks = project.data.category?.frameworks ?? [];
+const tags = project.data.category?.tags ?? [];
 ---
 
 <section class='relative flex flex-col h-full w-full items-center'>

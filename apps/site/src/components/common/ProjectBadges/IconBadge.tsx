@@ -18,12 +18,12 @@ export function IconBadge({
     variant = 'default',
     className,
     style,
-}: IconBadgeProps) {
+}: Readonly<IconBadgeProps>) {
     return (
             <Badge
                 variant={variant}
                 className={cn(
-                    'border-on-surface/40 bg-surface-container text-on-surface flex items-center gap-1 border-1',
+                    'border-on-surface/40 bg-surface-container text-on-surface flex items-center gap-1 border',
                     className,
                 )}
                 style={style}

@@ -11,13 +11,13 @@ interface ProductsContextType {
     setRocketRotation: React.Dispatch<React.SetStateAction<number>>;
     isMoving: boolean;
     setIsMoving: (isMoving: boolean) => void;
-    planetRefs: React.RefObject<HTMLDivElement>[];
+    planetRefs: React.RefObject<HTMLDivElement | null>[];
     rocketVisible: boolean;
     setRocketVisible: (visible: boolean) => void;
-    containerRef: React.RefObject<HTMLDivElement>;
+    containerRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export function ProductsProvider({ children, cardCount = 4 }: { children: ReactNode; cardCount?: number }) {
+export function ProductsProvider({ children, cardCount = 4 }: Readonly<{ children: ReactNode; cardCount?: number }>) {
     const [activeCard, setActiveCard] = useState<number | null>(null);
     const [rocketPosition, setRocketPosition] = useState({ x: 0, y: 0 });
     const [rocketRotation, setRocketRotation] = useState(0);

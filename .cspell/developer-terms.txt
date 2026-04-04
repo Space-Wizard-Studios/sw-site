@@ -9,6 +9,7 @@ esnext
 evenodd
 flyctl
 frontmatter
+fullpage
 gltf
 GLTF
 gtag
@@ -21,11 +22,13 @@ metaseo
 minigames
 mongodb
 nextjs
+nums
 pgdata
 postgres
 postgresql
 prerender
 pwsh
+RRGGBB
 slugified
 tbody
 tsconfigs

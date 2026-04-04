@@ -2,6 +2,7 @@ export const defaultConfig = {
     name: 'spacewiz.dev',
     origin: 'https://spacewiz.dev',
     basePathname: '/',
+    // cspell:disable-next-line
     googleTagId: 'GTM-KH6DHDG',
     googleSiteVerificationId: 'psQe6AIBb-tp74gfg1VJcAbH2EseZF8LNVwsGJCyQRI',
 

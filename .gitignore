@@ -19,7 +19,6 @@ pnpm-debug.log*
 .DS_Store
 
 package-lock.json
-pnpm-lock.yaml
 
 #watch-sass folder (VS Code)
 .watch

@@ -21,15 +21,15 @@ interface ProjectCardTabsProps {
     handleTabChange: (tab: TabType) => (e: React.MouseEvent) => void;
 }
 
-export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: ProjectCardTabsProps) {
+export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Readonly<ProjectCardTabsProps>) {
     const { category, summary } = projectData;
     const products: ResolvedProduct[] = category?.products ?? [];
     const platforms: ResolvedPlatform[] = category?.platforms ?? [];
     const frameworks: ResolvedFramework[] = category?.frameworks ?? [];
     const tags: ResolvedTag[] = category?.tags ?? [];
 
-    const projectDate = new Date(projectData.date);
-    const formattedDate = projectDate.toLocaleDateString('pt-BR', {
+    const projectDate = projectData.date ? new Date(projectData.date) : null;
+    const formattedDate = projectDate?.toLocaleDateString('pt-BR', {
         year: '2-digit',
         month: '2-digit',
     });
@@ -88,7 +88,7 @@ export function ProjectCardTabs({ projectData, activeTab, handleTabChange }: Pro
             </div>
 
             {/* Tab Content */}
-            <div className='flex-grow overflow-y-auto'>
+            <div className='grow overflow-y-auto'>
                 {activeTab === 'overview' && (
                     <div className='flex flex-col gap-4 p-2'>
                         {summary && (

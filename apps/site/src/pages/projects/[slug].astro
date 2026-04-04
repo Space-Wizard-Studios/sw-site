@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/PageLayout.astro';
 import { Description, Hero } from '@widgets/Project/Project.astro';
+import { ProjectGallery } from '@widgets/Project/Gallery/ProjectGallery';
 
 import { getAllProjects, type ProcessedProject } from '@lib/collections/projectHelpers';
 import type { metaSEO } from '@schemas/common/seoSchema';
@@ -17,25 +18,27 @@ export async function getStaticPaths() {
 const { project } = Astro.props as { project: ProcessedProject };
 
 const constructedSeo: metaSEO = {
-    title: project.data.title || null,
-    description: project.data.summary || null,
+    title: project.data.title,
+    description: project.data.summary || undefined,
     canonical: project.data.seo?.canonical || Astro.url.toString(),
     robots: {
-        noindex: project.data.seo?.robots?.noindex || null,
-        nofollow: project.data.seo?.robots?.nofollow || null,
+        noindex: project.data.seo?.robots?.noindex || undefined,
+        nofollow: project.data.seo?.robots?.nofollow || undefined,
     },
     og: {
-        title: project.data.seo?.og?.title || project.data.title || null,
-        description: project.data.seo?.og?.description || project.data.summary || null,
+        title: project.data.seo?.og?.title || project.data.title || undefined,
+        description: project.data.seo?.og?.description || project.data.summary || undefined,
         type: project.data.seo?.og?.type || 'article',
-        image: project.data.seo?.og?.image || project.data.hero?.src || null,
+        image: project.data.seo?.og?.image || project.data.hero?.src || undefined,
     },
 };
 
 const seo = project.data.seo || null;
+const galleryImages = project.data.carousel ?? [];
 ---
 
 <Layout seo={{ ...constructedSeo, ...seo }}>
     <Hero project={project}/>
+    {galleryImages.length > 0 && <ProjectGallery images={galleryImages} client:visible />}
     <Description project={project} />
 </Layout>

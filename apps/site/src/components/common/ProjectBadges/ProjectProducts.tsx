@@ -7,7 +7,7 @@ interface Props {
     products: ResolvedProduct[];
 }
 
-export function ProjectProducts({ products }: Props) {
+export function ProjectProducts({ products }: Readonly<Props>) {
     return (
         <>
             {products.map((product) => {

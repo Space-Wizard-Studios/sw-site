@@ -2,16 +2,15 @@
     "compilerOptions": {
         "target": "es2023",
         "module": "ESNext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "strict": true,
         "jsx": "react-jsx",
         "jsxImportSource": "react",
         "esModuleInterop": true,
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "verbatimModuleSyntax": true,
         "declaration": true,
-        "lib": ["ES2023", "ESNext", "DOM", "WebWorker"],
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
         "paths": {
             "@shared/schemas/*": ["libs/shared/schemas/*"],
             "@shared/*": ["libs/shared/*"]

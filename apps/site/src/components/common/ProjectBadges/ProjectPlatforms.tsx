@@ -7,7 +7,7 @@ interface Props {
     platforms: ResolvedPlatform[];
 }
 
-export function ProjectPlatforms({ platforms }: Props) {
+export function ProjectPlatforms({ platforms }: Readonly<Props>) {
     return (
         <>
             {platforms.map((platform) => {

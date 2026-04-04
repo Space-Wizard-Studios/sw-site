@@ -6,7 +6,7 @@ interface Props {
     tags: ResolvedTag[];
 }
 
-export function ProjectTags({ tags }: Props) {
+export function ProjectTags({ tags }: Readonly<Props>) {
     return (
         <>
             {tags.map((tag) => (

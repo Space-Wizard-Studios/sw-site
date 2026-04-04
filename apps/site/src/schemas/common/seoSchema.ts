@@ -9,7 +9,7 @@ export const seoSchema = z.object({
     robots: z.object({
         noindex: z.boolean().optional(),
         nofollow: z.boolean().optional(),
-    }),
+    }).optional(),
     og: z
         .object({
             title: z.string().optional(),

@@ -1,0 +1,43 @@
+@theme {
+    /* DESIGN TOKENS - LIGHT */
+    --color-brand: var(--color-sw-navy-800);
+
+    --color-surface-dim: var(--color-sw-neutral-400);
+    --color-surface: var(--color-sw-neutral-200);
+    --color-surface-bright: var(--color-sw-neutral-100);
+    --color-on-surface: var(--color-sw-navy-800);
+    --color-on-surface-variant: var(--color-sw-navy-900);
+
+    --color-inverse-surface: var(--color-sw-navy-800);
+    --color-inverse-on-surface: var(--color-sw-neutral-200);
+
+    --color-surface-container-lowest: var(--color-sw-neutral-500);
+    --color-surface-container-low: var(--color-sw-neutral-400);
+    --color-surface-container: var(--color-sw-neutral-300);
+    --color-surface-container-high: var(--color-sw-neutral-200);
+    --color-surface-container-highest: var(--color-sw-neutral-50);
+
+    --color-primary: var(--color-sw-navy);
+    --color-on-primary: var(--color-sw-navy-50);
+    --color-primary-container: var(--color-sw-navy-100);
+    --color-on-primary-container: var(--color-sw-navy-900);
+
+    --color-inverse-primary: var(--color-sw-navy-50);
+    --color-inverse-on-primary: var(--color-sw-navy-950);
+
+    --color-secondary: var(--color-sw-azure-400);
+    --color-on-secondary: var(--color-sw-azure-950);
+    --color-secondary-container: var(--color-sw-azure-100);
+    --color-on-secondary-container: var(--color-sw-azure-900);
+
+    --color-inverse-secondary: var(--color-sw-azure-950);
+    --color-inverse-on-secondary: var(--color-sw-azure-400);
+
+    --color-tertiary: var(--color-sw-curious-400);
+    --color-on-tertiary: var(--color-sw-curious-950);
+    --color-tertiary-container: var(--color-sw-curious-200);
+    --color-on-tertiary-container: var(--color-sw-curious-900);
+
+    --color-inverse-tertiary: var(--color-sw-curious-950);
+    --color-inverse-on-tertiary: var(--color-sw-curious-400);
+}

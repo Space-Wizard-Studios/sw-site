@@ -6,7 +6,7 @@ interface Props {
     summary?: string;
 }
 
-export function ProductFront({ isActive, title, summary }: Props) {
+export function ProductFront({ isActive, title, summary }: Readonly<Props>) {
     return (
         <div
             className={cn(

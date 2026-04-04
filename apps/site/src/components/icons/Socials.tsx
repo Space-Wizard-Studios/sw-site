@@ -1,6 +1,6 @@
 import type { IconProps } from 'types/iconProps';
 
-export function ArtStation({ color = 'currentColor', ...props }: IconProps) {
+export function ArtStation({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -11,7 +11,7 @@ export function ArtStation({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Behance({ color = 'currentColor', ...props }: IconProps) {
+export function Behance({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -22,7 +22,7 @@ export function Behance({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function GitHub({ color = 'currentColor', ...props }: IconProps) {
+export function GitHub({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -33,7 +33,7 @@ export function GitHub({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Instagram({ color = 'currentColor', ...props }: IconProps) {
+export function Instagram({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -44,7 +44,7 @@ export function Instagram({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function IMDb({ color = 'currentColor', ...props }: IconProps) {
+export function IMDb({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 32 32'>
             <path
@@ -55,7 +55,7 @@ export function IMDb({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function LinkedIn({ color = 'currentColor', ...props }: IconProps) {
+export function LinkedIn({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -66,7 +66,7 @@ export function LinkedIn({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function LinkTree({ color = 'currentColor', ...props }: IconProps) {
+export function LinkTree({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' viewBox='0 0 24 24'>
             <path
@@ -81,7 +81,7 @@ export function LinkTree({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Portfolio({ color = 'currentColor', ...props }: IconProps) {
+export function Portfolio({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -92,7 +92,7 @@ export function Portfolio({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function SoundCloud({ color = 'currentColor', ...props }: IconProps) {
+export function SoundCloud({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -103,7 +103,7 @@ export function SoundCloud({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function YouTube({ color = 'currentColor', ...props }: IconProps) {
+export function YouTube({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
@@ -114,7 +114,7 @@ export function YouTube({ color = 'currentColor', ...props }: IconProps) {
     );
 }
 
-export function Whatsapp({ color = 'currentColor', ...props }: IconProps) {
+export function Whatsapp({ color = 'currentColor', ...props }: Readonly<IconProps>) {
     return (
         <svg {...props} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
             <path
