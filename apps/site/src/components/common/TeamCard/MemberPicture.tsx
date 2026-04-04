@@ -32,7 +32,7 @@ export function MemberPicture({ teamMember, isActive }: Readonly<Props>) {
             >
                 <div className='w-full'></div>
             </motion.div>
-            <div className='absolute'>
+            <div className='absolute z-50'>
                 <div className='h-full w-24 overflow-hidden rounded-full'>
                     {photoSrc && <img src={photoSrc} width='100%' height='100%' title={name} alt={name} />}
                 </div>

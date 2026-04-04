@@ -34,28 +34,30 @@ export default function TeamCard({ teamMember }: Props) {
             className='h-full'
         >
             <NeonCard className='h-full'>
-            <div
-                className={cn(
-                    'relative flex h-full w-full flex-col overflow-visible rounded-2xl p-4',
-                    'bg-radial-[at_15%_15%]',
-                    isActive
-                        ? 'from-surface-container-high to-surface-container-highest'
-                        : 'from-surface-container-low/60 to-surface-container/60',
-                    'text-on-surface border-surface/60 border backdrop-blur-md',
-                    'transition-shadow duration-300',
-                    isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
-                )}
-            >
-                <div className='flex h-full w-full flex-col gap-4'>
-                    <div className='relative -mt-12 flex h-full w-full flex-col gap-4'>
-                        <div className='relative z-30'>
-                            <MemberPicture teamMember={teamMember} isActive={isActive} />
-                        </div>
-                        <MemberInfo teamMember={teamMember} />
-                    </div>
-                    <MemberSocials teamMember={teamMember} isActive={isActive} toggleOpen={toggleOpen} />
+                {/* Floating picture: placed as direct child of NeonCard so it can escape inner stacking context */}
+                <div className='absolute left-1/2 -top-12 -translate-x-1/2 z-50 pointer-events-none'>
+                    <MemberPicture teamMember={teamMember} isActive={isActive} />
                 </div>
-            </div>
+
+                <div
+                    className={cn(
+                        'relative flex h-full w-full flex-col overflow-visible rounded-2xl p-4 pt-12',
+                        'bg-radial-[at_15%_15%]',
+                        isActive
+                            ? 'from-surface-container-high to-surface-container-highest'
+                            : 'from-surface-container-low/60 to-surface-container/60',
+                        'text-on-surface border-surface/60 border backdrop-blur-md',
+                        'transition-shadow duration-300',
+                        isActive ? 'shadow-primary/15 shadow-md' : 'hover:shadow-primary/10 shadow-xl',
+                    )}
+                >
+                    <div className='flex h-full w-full flex-col gap-4'>
+                        <div className='relative flex h-full w-full flex-col gap-4'>
+                            <MemberInfo teamMember={teamMember} />
+                        </div>
+                        <MemberSocials teamMember={teamMember} isActive={isActive} toggleOpen={toggleOpen} />
+                    </div>
+                </div>
             </NeonCard>
         </motion.div>
     );
