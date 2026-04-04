@@ -28,12 +28,12 @@ export function MemberPicture({ teamMember, isActive }: Readonly<Props>) {
                     rotate: '360deg',
                     transition: { repeat: Infinity, repeatType: 'loop', duration: 3.5, ease: 'linear' },
                 }}
-                className='sw-reflected-gradient h-26 w-26 rounded-full'
+                className='sw-reflected-gradient h-24 w-24 rounded-full'
             >
                 <div className='w-full'></div>
             </motion.div>
             <div className='absolute z-50'>
-                <div className='h-full w-24 overflow-hidden rounded-full'>
+                <div className='h-full w-22 overflow-hidden rounded-full'>
                     {photoSrc && <img src={photoSrc} width='100%' height='100%' title={name} alt={name} />}
                 </div>
             </div>
