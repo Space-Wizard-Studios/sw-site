@@ -18,8 +18,7 @@ const html = marked.parse(description);
     { description &&
         (
             <div class='sw-container py-12 md:py-16'>
-                <article class='text-on-surface space-y-4'>
-                    <Fragment set:html={html} />
+                <article class='text-on-surface space-y-4' set:html={html}>
                 </article>
             </div>
         )

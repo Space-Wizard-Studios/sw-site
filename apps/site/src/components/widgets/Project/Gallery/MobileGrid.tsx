@@ -13,6 +13,7 @@ export function MobileGrid({ images, onImageClick }: MobileGridProps) {
                 <GalleryThumbnail
                     key={image.src}
                     image={image}
+                    className="aspect-9/16"
                     onClick={() => onImageClick(image)}
                 />
             ))}
