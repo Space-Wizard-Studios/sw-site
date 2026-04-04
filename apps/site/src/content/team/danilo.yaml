@@ -12,6 +12,10 @@ skills:
     - name: Animação
       tooltip: Animação
 socials:
+    - type: portfolio
+      url: https://danko-nobre.github.io/
+    - type: github
+      url: https://github.com/danko-nobre/
     - type: linkedin
       url: https://www.linkedin.com/in/danilo-nobre/
 image:
