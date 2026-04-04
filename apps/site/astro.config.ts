@@ -55,6 +55,6 @@ export default defineConfig({
     ],
 
     vite: {
-        plugins: [viteEnvPolyfill(), tailwindcss()],
+        plugins: [viteEnvPolyfill(), tailwindcss() as any],
     },
 });
